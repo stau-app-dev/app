@@ -3,16 +3,17 @@ import 'package:staugustinechsnewapp/styles.dart';
 
 class BottomNavBar extends StatefulWidget {
   final void Function(int) navigationTapped;
-  const BottomNavBar({Key? key, required this.navigationTapped}) : super(key: key);
+  const BottomNavBar({Key? key, required this.navigationTapped})
+      : super(key: key);
   @override
   _BottomNavBarState createState() => _BottomNavBarState();
 }
 
 class _BottomNavBarState extends State<BottomNavBar> {
-  int _page = 0;
+  int page = 0;
   static const double borderRadius = 16.0;
-  
-  List<BottomNavigationBarItem> _getItems() {
+
+  List<BottomNavigationBarItem> buildItems() {
     const List<Map<String, dynamic>> data = [
       {
         'icon': Icons.home,
@@ -47,29 +48,31 @@ class _BottomNavBarState extends State<BottomNavBar> {
     return itemsList;
   }
 
-  void _onItemTapped(int index) {
+  void onItemTapped(int index) {
     setState(() {
-      _page = index;
+      page = index;
     });
     widget.navigationTapped(index);
   }
 
   @override
   Widget build(BuildContext context) {
-    return ClipRRect(
-        borderRadius: const BorderRadius.all(
-          Radius.circular(borderRadius),
-        ),
-        child: BottomNavigationBar(
-          type: BottomNavigationBarType.fixed,
-          items: _getItems(),
-          currentIndex: _page,
-          backgroundColor: Styles.primary,
-          selectedItemColor: Styles.secondary,
-          unselectedItemColor: Styles.white,
-          showSelectedLabels: false,
-          showUnselectedLabels: false,
-          onTap: _onItemTapped,
-        ));
+    return SizedBox(
+        height: Styles.appBarHeight,
+        child: ClipRRect(
+            borderRadius: const BorderRadius.all(
+              Radius.circular(borderRadius),
+            ),
+            child: BottomNavigationBar(
+              type: BottomNavigationBarType.fixed,
+              items: buildItems(),
+              currentIndex: page,
+              backgroundColor: Styles.primary,
+              selectedItemColor: Styles.secondary,
+              unselectedItemColor: Styles.white,
+              showSelectedLabels: false,
+              showUnselectedLabels: false,
+              onTap: onItemTapped,
+            )));
   }
 }

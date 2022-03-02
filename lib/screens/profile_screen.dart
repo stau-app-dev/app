@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({Key? key}) : super(key: key);
@@ -7,23 +8,20 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  List<Widget> buildChildren() {
+    return <Widget>[
+      const SizedBox(height: Styles.mainVerticalPadding),
+      const Text("Profile Screen")
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile Screen'),
+      child: ListView(
+        padding: Styles.mainOutsidePadding,
+        children: buildChildren(),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Profile Screen',
-            ),
-          ],
-        ),
-      ), // bottomNavigationBar: BottomNavBar(),
-    ));
+    );
   }
 }

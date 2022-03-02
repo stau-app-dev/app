@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 
 class SocialsScreen extends StatefulWidget {
   const SocialsScreen({Key? key}) : super(key: key);
@@ -7,20 +8,20 @@ class SocialsScreen extends StatefulWidget {
 }
 
 class _SocialsScreenState extends State<SocialsScreen> {
+  List<Widget> buildChildren() {
+    return <Widget>[
+      const SizedBox(height: Styles.mainVerticalPadding),
+      const Text("Socials Screen")
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Socials Screen',
-            ),
-          ],
-        ),
-      ), // bottomNavigationBar: BottomNavBar(),
-    ));
+      child: ListView(
+        padding: Styles.mainOutsidePadding,
+        children: buildChildren(),
+      ),
+    );
   }
 }

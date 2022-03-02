@@ -19,8 +19,65 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(primarySwatch: createMaterialColor(Styles.primary)),
+      title: "St Augustine CHS",
+      theme: ThemeData(
+        brightness: Brightness.light,
+        primaryColor: createMaterialColor(Styles.primary),
+        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: createMaterialColor(Styles.secondary)),
+        fontFamily: Styles.fontFamilyRegular,
+        textTheme: const TextTheme(
+          headline1: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 36.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          headline2: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 30.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          headline3: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 24.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          headline4: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 20.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          headline5: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 18.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          headline6: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 16.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          subtitle1: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          subtitle2: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 12.0,
+              fontWeight: FontWeight.w500,
+              color: Styles.primary),
+          bodyText1: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 14.0,
+              fontWeight: FontWeight.w400,
+              color: Styles.primary),
+          bodyText2: TextStyle(
+              fontFamily: Styles.fontFamilyRegular,
+              fontSize: 12.0,
+              fontWeight: FontWeight.w400,
+              color: Styles.primary),
+        ),
+      ),
       home: const ScreenController(),
     );
   }

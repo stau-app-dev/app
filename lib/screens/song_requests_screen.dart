@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 
 class SongRequestsScreen extends StatefulWidget {
   const SongRequestsScreen({Key? key}) : super(key: key);
@@ -7,20 +8,20 @@ class SongRequestsScreen extends StatefulWidget {
 }
 
 class _SongRequestsScreenState extends State<SongRequestsScreen> {
+  List<Widget> buildChildren() {
+    return <Widget>[
+      const SizedBox(height: Styles.mainVerticalPadding),
+      const Text("Songs Screen")
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Song Requests Screen',
-            ),
-          ],
-        ),
-      ), // bottomNavigationBar: BottomNavBar(),
-    ));
+      child: ListView(
+        padding: Styles.mainOutsidePadding,
+        children: buildChildren(),
+      ),
+    );
   }
 }

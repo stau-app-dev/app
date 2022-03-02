@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 
 class CafeMenuScreen extends StatefulWidget {
   const CafeMenuScreen({Key? key}) : super(key: key);
@@ -7,20 +8,20 @@ class CafeMenuScreen extends StatefulWidget {
 }
 
 class _CafeMenuScreenState extends State<CafeMenuScreen> {
+  List<Widget> buildChildren() {
+    return <Widget>[
+      const SizedBox(height: Styles.mainVerticalPadding),
+      const Text("Cafe Screen")
+    ];
+  }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-        child: Scaffold(
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'Cafe Screen',
-            ),
-          ],
-        ),
-      ), // bottomNavigationBar: BottomNavBar(),
-    ));
+      child: ListView(
+        padding: Styles.mainOutsidePadding,
+        children: buildChildren(),
+      ),
+    );
   }
 }

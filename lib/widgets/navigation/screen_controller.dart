@@ -9,14 +9,13 @@ import 'package:staugustinechsnewapp/widgets/reusable/fade_indexed_stack.dart';
 
 class ScreenController extends StatefulWidget {
   const ScreenController({Key? key}) : super(key: key);
-
   @override
   State<ScreenController> createState() => _ScreenControllerState();
 }
 
 class _ScreenControllerState extends State<ScreenController> {
-  int _currentIndex = 0;
-  final _screens = [
+  int currentIndex = 0;
+  final screens = [
     const HomeScreen(),
     const CafeMenuScreen(),
     const SocialsScreen(),
@@ -26,7 +25,7 @@ class _ScreenControllerState extends State<ScreenController> {
 
   void navigationTapped(int index) {
     setState(() {
-      _currentIndex = index;
+      currentIndex = index;
     });
   }
 
@@ -34,8 +33,8 @@ class _ScreenControllerState extends State<ScreenController> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: FadeIndexedStack(
-        index: _currentIndex,
-        children: _screens,
+        index: currentIndex,
+        children: screens,
         duration: const Duration(milliseconds: 250),
       ),
       bottomNavigationBar: BottomNavBar(navigationTapped: navigationTapped),
