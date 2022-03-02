@@ -57,8 +57,12 @@ class _BottomNavBarState extends State<BottomNavBar> {
 
   @override
   Widget build(BuildContext context) {
+    double height = Styles.appBarHeight;
+    if (useTabletLayout(context)) {
+      height += 4.0;
+    }
     return SizedBox(
-        height: Styles.appBarHeight,
+        height: height,
         child: ClipRRect(
             borderRadius: const BorderRadius.all(
               Radius.circular(borderRadius),

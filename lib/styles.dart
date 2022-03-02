@@ -59,10 +59,16 @@ class Styles {
 
   static const mainBorderRadius = BorderRadius.all(Radius.circular(16.0));
   static const double mainOutsidePaddingValue = 24.0;
-  static const EdgeInsetsGeometry mainOutsidePadding = EdgeInsets.only(left: mainOutsidePaddingValue, right: mainOutsidePaddingValue);
+  static const EdgeInsetsGeometry mainOutsidePadding = EdgeInsets.only(
+      left: mainOutsidePaddingValue, right: mainOutsidePaddingValue);
   static const double mainVerticalPadding = 16.0;
   static const double mainSpacing = 20.0;
   static const double mainInsidePadding = 20.0;
 
   static const double featuredCafeItemHeight = 200.0;
+}
+
+bool useTabletLayout(BuildContext context) {
+  /// Use this method to determine if the app should render the UI for a tablet
+  return MediaQuery.of(context).size.width > 600;
 }

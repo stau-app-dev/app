@@ -1,0 +1,8 @@
+# To run: flutter pub run flutter_launcher_icons:main
+# See https://github.com/fluttercommunity/flutter_launcher_icons
+
+flutter_icons:
+  image_path_android: assets/logos/app_icon_square.jpg
+  image_path_ios: assets/logos/app_icon_square.jpg
+  android: true
+  ios: true

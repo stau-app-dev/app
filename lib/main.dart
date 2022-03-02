@@ -4,6 +4,10 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/navigation/screen_controller.dart';
 
 void main() {
+  WidgetsFlutterBinding.ensureInitialized();
+  SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
+      overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
+
   // Set status bar text colour to dark for both iOS and Android  (Note: It appears to be opposite for android)
   SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
       statusBarIconBrightness: Brightness.dark, // Only honoured in Android
@@ -23,7 +27,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         brightness: Brightness.light,
         primaryColor: createMaterialColor(Styles.primary),
-        colorScheme: ColorScheme.fromSwatch().copyWith(secondary: createMaterialColor(Styles.secondary)),
+        colorScheme: ColorScheme.fromSwatch()
+            .copyWith(secondary: createMaterialColor(Styles.secondary)),
         fontFamily: Styles.fontFamilyRegular,
         textTheme: const TextTheme(
           headline1: TextStyle(
