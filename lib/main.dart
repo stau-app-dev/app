@@ -17,6 +17,7 @@ void main() {
   runApp(const MyApp());
 }
 
+// Tate made this
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 
@@ -86,11 +87,11 @@ class MyApp extends StatelessWidget {
               color: Styles.primary,
               letterSpacing: 0.5),
           bodyText2: TextStyle(
-              fontFamily: Styles.fontFamilyRegular,
-              fontSize: 14.0,
-              fontWeight: FontWeight.w400,
-              color: Styles.primary,
-              letterSpacing: 0.25,
+            fontFamily: Styles.fontFamilyRegular,
+            fontSize: 14.0,
+            fontWeight: FontWeight.w400,
+            color: Styles.primary,
+            letterSpacing: 0.25,
           ),
           button: TextStyle(
               fontFamily: Styles.fontFamilyRegular,
