@@ -30,7 +30,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
                 "$key",
                 style: const TextStyle(
                   color: Styles.primary,
-                  fontSize: 14.0,
+                  fontSize: Styles.fontSizeNormal,
                   fontFamily: Styles.fontFamilyTitles,
                   fontWeight: FontWeight.bold,
                 ),
@@ -59,11 +59,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
             boxShadow: Styles.regularBoxShadow),
-        padding: const EdgeInsets.only(
-            left: Styles.mainInsidePadding,
-            right: Styles.mainInsidePadding,
-            top: Styles.mainInsidePadding,
-            bottom: Styles.mainInsidePadding),
+        padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,

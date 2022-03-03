@@ -8,19 +8,18 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  List<Widget> buildChildren() {
-    return <Widget>[
-      const SizedBox(height: Styles.mainVerticalPadding),
-      const Text("Profile Screen")
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
         padding: Styles.mainOutsidePadding,
-        children: buildChildren(),
+        children: const <Widget>[
+          SizedBox(height: Styles.mainVerticalPadding),
+          Text("Profile Screen"),
+          SizedBox(height: Styles.mainSpacing),
+          Text("Profile Screen"),
+          SizedBox(height: Styles.mainVerticalPadding),
+        ],
       ),
     );
   }

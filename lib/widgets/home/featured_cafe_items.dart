@@ -96,6 +96,5 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
           const SizedBox(height: 15.0),
           buildFeaturedCafeItems(),
         ]));
-    ;
   }
 }

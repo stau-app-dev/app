@@ -8,19 +8,18 @@ class SongRequestsScreen extends StatefulWidget {
 }
 
 class _SongRequestsScreenState extends State<SongRequestsScreen> {
-  List<Widget> buildChildren() {
-    return <Widget>[
-      const SizedBox(height: Styles.mainVerticalPadding),
-      const Text("Songs Screen")
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
         padding: Styles.mainOutsidePadding,
-        children: buildChildren(),
+        children: const <Widget>[
+          SizedBox(height: Styles.mainVerticalPadding),
+          Text("Songs Screen"),
+          SizedBox(height: Styles.mainSpacing),
+          Text("Songs Screen"),
+          SizedBox(height: Styles.mainVerticalPadding),
+        ],
       ),
     );
   }

@@ -66,6 +66,7 @@ class Styles {
   static const double mainInsidePadding = 20.0;
 
   static const double featuredCafeItemHeight = 200.0;
+  static const double cafeItemHeight = 150.0;
 }
 
 bool useTabletLayout(BuildContext context) {

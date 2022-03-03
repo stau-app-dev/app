@@ -8,34 +8,29 @@ import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
-
   @override
   State<HomeScreen> createState() => _HomeScreenState();
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Widget> buildChildren() {
-    return <Widget>[
-      const SizedBox(height: Styles.mainVerticalPadding),
-      const WelcomeBanner(),
-      const SizedBox(height: Styles.mainSpacing),
-      const AnnouncementsBoard(),
-      const SizedBox(height: Styles.mainSpacing),
-      const FeaturedCafeItems(),
-      const SizedBox(height: Styles.mainSpacing),
-      const SpiritMeter(),
-      const SizedBox(height: Styles.mainSpacing),
-      const ChaplaincyCorner(),
-      const SizedBox(height: Styles.mainVerticalPadding),
-    ];
-  }
-
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: ListView(
         padding: Styles.mainOutsidePadding,
-        children: buildChildren(),
+        children: const <Widget>[
+          SizedBox(height: Styles.mainVerticalPadding),
+          WelcomeBanner(),
+          SizedBox(height: Styles.mainSpacing),
+          AnnouncementsBoard(),
+          SizedBox(height: Styles.mainSpacing),
+          FeaturedCafeItems(),
+          SizedBox(height: Styles.mainSpacing),
+          SpiritMeter(),
+          SizedBox(height: Styles.mainSpacing),
+          ChaplaincyCorner(),
+          SizedBox(height: Styles.mainVerticalPadding),
+        ],
       ),
     );
   }

@@ -23,11 +23,7 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
             ),
             borderRadius: Styles.mainBorderRadius,
             boxShadow: Styles.headerBoxShadow),
-        padding: const EdgeInsets.only(
-            left: Styles.mainInsidePadding,
-            right: Styles.mainInsidePadding,
-            top: Styles.mainInsidePadding,
-            bottom: Styles.mainInsidePadding),
+        padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Row(
           children: [

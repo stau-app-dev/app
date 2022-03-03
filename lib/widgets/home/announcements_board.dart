@@ -71,11 +71,7 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
             boxShadow: Styles.regularBoxShadow),
-        padding: const EdgeInsets.only(
-            left: Styles.mainInsidePadding,
-            right: Styles.mainInsidePadding,
-            top: Styles.mainInsidePadding,
-            bottom: Styles.mainInsidePadding),
+        padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -84,6 +80,5 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
             ...buildAnnouncements(),
           ],
         ));
-    ;
   }
 }
