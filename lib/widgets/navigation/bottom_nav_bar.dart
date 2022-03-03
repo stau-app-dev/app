@@ -16,23 +16,23 @@ class _BottomNavBarState extends State<BottomNavBar> {
   List<BottomNavigationBarItem> buildItems() {
     const List<Map<String, dynamic>> data = [
       {
-        'icon': Icons.home,
+        'icon': Icons.home_rounded,
         'label': 'Home',
       },
       {
-        'icon': Icons.restaurant,
+        'icon': Icons.restaurant_rounded,
         'label': 'Cafe Menu',
       },
       {
-        'icon': Icons.people,
+        'icon': Icons.people_rounded,
         'label': 'Socials',
       },
       {
-        'icon': Icons.music_note,
+        'icon': Icons.music_note_rounded,
         'label': 'Song Requests',
       },
       {
-        'icon': Icons.person,
+        'icon': Icons.person_rounded,
         'label': 'Profile',
       },
     ];

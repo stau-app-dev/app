@@ -15,7 +15,7 @@ class _CafeItemsState extends State<CafeItems> {
 
   Widget buildTile(String food, String price, String image) {
     double tileWidth =
-        getWidth(context) * 0.43 - (Styles.mainOutsidePaddingValue);
+        getWidth(context) * 0.5 - (Styles.mainOutsidePaddingValue * 2);
 
     return Container(
         height: Styles.cafeItemHeight,
