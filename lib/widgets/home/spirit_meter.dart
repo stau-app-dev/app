@@ -25,7 +25,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
         height: 30.0,
         child: Row(children: [
           SizedBox(
-              width: 25.0,
+              width: getWidth(context) * 0.075,
               child: Text(
                 "$key",
                 style: const TextStyle(
@@ -35,9 +35,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
                   fontWeight: FontWeight.bold,
                 ),
               )),
-          const Spacer(),
-          SizedBox(
-              width: getWidth(context) * 0.65,
+          Expanded(
               child: ClipRRect(
                   borderRadius: const BorderRadius.all(Radius.circular(10)),
                   child: RoundedLinearProgressIndicator(

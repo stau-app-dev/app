@@ -10,7 +10,7 @@ class AnnouncementsBoard extends StatefulWidget {
 class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  List<Widget> buildAnnouncements() {
+  List<Widget> buildItems() {
     List<Map<String, String>> sampleAnnouncements = [
       {
         "title": "Announcement 1",
@@ -77,7 +77,7 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Announcements Board', style: Styles.regularMainText),
-            ...buildAnnouncements(),
+            ...buildItems(),
           ],
         ));
   }

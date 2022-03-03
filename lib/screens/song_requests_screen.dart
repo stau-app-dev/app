@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
+import 'package:staugustinechsnewapp/widgets/song_requests/song_requests.dart';
 
 class SongRequestsScreen extends StatefulWidget {
   const SongRequestsScreen({Key? key}) : super(key: key);
@@ -15,9 +17,9 @@ class _SongRequestsScreenState extends State<SongRequestsScreen> {
         padding: Styles.mainOutsidePadding,
         children: const <Widget>[
           SizedBox(height: Styles.mainVerticalPadding),
-          Text("Songs Screen"),
+          ScreenHeader(headerText: "Song Requests"),
           SizedBox(height: Styles.mainSpacing),
-          Text("Songs Screen"),
+          SongRequests(),
           SizedBox(height: Styles.mainVerticalPadding),
         ],
       ),

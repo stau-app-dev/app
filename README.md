@@ -1,10 +1,8 @@
 # St Augustine CHS New App
 
-A new Flutter project.
+The official St Augustine CHS Flutter App
 
 ## Getting Started
-
-This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:
 
@@ -17,3 +15,6 @@ samples, guidance on mobile development, and a full API reference.
 
 To generate freezed files (not implemented for now), run:
 `flutter pub run build_runner build`
+
+Please view this doc for guidelines on how to get started and resource links:
+https://docs.google.com/document/d/1xI_6Y7_AyuUj99lc-6ZNNueimvbUyB82yg4f2qUJF_o/edit?usp=sharing
