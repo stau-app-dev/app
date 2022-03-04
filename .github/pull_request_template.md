@@ -4,14 +4,15 @@
 
   ie:
   - feat(songRequests): added album name
+  - fix: clipping issue in cafe menu
 
   See also here
   https://github.com/commitizen/conventional-commit-types/blob/master/index.json
  -->
 
 <!--
-  Note: Although theres no restrictions on merging directly, please do try to get someone to look over your code.
-        Or at the very least look it over yourself one more time.
+  Note: Although there are no restrictions on merging directly, please do try to get someone to look over your code.
+        Or at the very least look it over yourself one more time before merging.
  -->
 
 **Pull Request Description**
