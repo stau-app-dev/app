@@ -11,14 +11,14 @@ jobs:
   main:
     runs-on: ubuntu-latest
     steps:
-      # https://github.com/amannn/action-semantic-pull-request/releases
+      # https://github.com/amannn/action-semantic-pull-request
       - uses: amannn/action-semantic-pull-request@v4.2.0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          subjectPattern: ^(?![A-Z]).+\[([A-Z\d]+)-(\d+)\]$
+          subjectPattern: ^(?![A-Z]).+$
           subjectPatternError: |
             The subject "{subject}" found in the pull request title "{title}"
-            didn't match the configured pattern. Please ensure that the subject
-            contains a valid Jira ticket and does not start with an uppercase character.
+            didn't match the configured pattern. Please does not start with an uppercase character
+            and follows conventional commits naming.
           validateSingleCommit: true
