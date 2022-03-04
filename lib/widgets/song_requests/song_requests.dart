@@ -34,7 +34,7 @@ class _SongRequestsState extends State<SongRequests> {
                   style: Styles.regularSubText,
                 ),
                 Text(
-                  "By: $artistName",
+                  'By: $artistName',
                   style: Styles.regularText,
                 ),
               ],
@@ -44,47 +44,47 @@ class _SongRequestsState extends State<SongRequests> {
   List<Widget> buildItems() {
     List<Map<String, String>> sampleSongs = [
       {
-        "song": "The Way We Were",
-        "artist": "The Beatles",
-        "votes": "12",
-        "upvoted": "true",
+        'song': 'The Way We Were',
+        'artist': 'The Beatles',
+        'votes': '12',
+        'upvoted': 'true',
       },
       {
-        "song": "Wake Me Up",
-        "artist": "Avicii",
-        "votes": "24",
-        "upvoted": "false",
+        'song': 'Wake Me Up',
+        'artist': 'Avicii',
+        'votes': '24',
+        'upvoted': 'false',
       },
       {
-        "song": "No Tears Left To Cry",
-        "artist": "Ariana Grande",
-        "votes": "43",
-        "upvoted": "true",
+        'song': 'No Tears Left To Cry',
+        'artist': 'Ariana Grande',
+        'votes': '43',
+        'upvoted': 'true',
       },
       {
-        "song": "I'm Not The Only One",
-        "artist": "The Beatles",
-        "votes": "12",
-        "upvoted": "false",
+        'song': "I'm Not The Only One",
+        'artist': 'The Beatles',
+        'votes': '12',
+        'upvoted': 'false',
       },
       {
-        "song": "Wake Me Up",
-        "artist": "Avicii",
-        "votes": "24",
-        "upvoted": "false",
+        'song': 'Wake Me Up',
+        'artist': 'Avicii',
+        'votes': '24',
+        'upvoted': 'false',
       },
       {
-        "song": "Never Gonna Give You Up",
-        "artist": "Rick Astley",
-        "votes": "49",
-        "upvoted": "false",
+        'song': 'Never Gonna Give You Up',
+        'artist': 'Rick Astley',
+        'votes': '49',
+        'upvoted': 'false',
       }
     ];
 
     List<Widget> songs = [];
     for (var song in sampleSongs) {
       Color upvoteColor =
-          song["upvoted"] == "true" ? Styles.secondary : Styles.white;
+          song['upvoted'] == 'true' ? Styles.secondary : Styles.white;
 
       songs.add(Container(
           width: getWidth(context),
@@ -100,17 +100,17 @@ class _SongRequestsState extends State<SongRequests> {
                     IconButton(
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
-                        onPressed: () => onUpvote(true, song["song"]!),
+                        onPressed: () => onUpvote(true, song['song']!),
                         icon: Icon(Icons.keyboard_arrow_up_rounded,
                             color: upvoteColor)),
                     Text(
-                      song["votes"]!,
+                      song['votes']!,
                       style:
                           const TextStyle(color: Styles.white, fontSize: 12.0),
                     ),
                   ],
                 )),
-            buildSongInfo(song["song"]!, song["artist"]!),
+            buildSongInfo(song['song']!, song['artist']!),
           ])));
       songs.add(const SizedBox(height: 10.0));
     }
@@ -121,20 +121,20 @@ class _SongRequestsState extends State<SongRequests> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text("Song Name", style: Styles.regularSubText),
+          const Text('Song Name', style: Styles.regularSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: "Song Name", controller: TextEditingController()),
+              hintText: 'Song Name', controller: TextEditingController()),
           const SizedBox(height: 10.0),
-          const Text("Artist Name", style: Styles.regularSubText),
+          const Text('Artist Name', style: Styles.regularSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: "Artist Name", controller: TextEditingController()),
+              hintText: 'Artist Name', controller: TextEditingController()),
           const SizedBox(height: 10.0),
-          RoundedButton(text: "Submit", onPressed: onSubmitSong),
+          RoundedButton(text: 'Submit', onPressed: onSubmitSong),
           const SizedBox(height: 30.0),
           const Text(
-              "Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.",
+              'Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.',
               textAlign: TextAlign.center,
               style: TextStyle(fontSize: 12.0))
         ]));
@@ -142,11 +142,11 @@ class _SongRequestsState extends State<SongRequests> {
 
   void onAddSong() {
     usePopupCard(
-        context: context, title: "Add Song", child: buildAddSongForm());
+        context: context, title: 'Add Song', child: buildAddSongForm());
   }
 
   void onSubmitSong() {
-    print("Wow submit song");
+    print('Wow submit song');
   }
 
   void onUpvote(bool upvoted, String songName) {
@@ -165,7 +165,7 @@ class _SongRequestsState extends State<SongRequests> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RoundedButton(text: "Add Song", onPressed: onAddSong),
+            RoundedButton(text: 'Add Song', onPressed: onAddSong),
             const SizedBox(height: Styles.mainSpacing),
             ...buildItems(),
           ],

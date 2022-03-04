@@ -13,16 +13,16 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
   Widget buildFeaturedCafeItems() {
     List<Map<String, String>> sampleFeaturedCafeItems = [
       {
-        "food": "Caramel Macchiato",
-        "image": "assets/images/cat.jpg",
+        'food': 'Caramel Latte',
+        'image': 'assets/images/cat.jpg',
       },
       {
-        "food": "Mocha",
-        "image": "assets/images/cat.jpg",
+        'food': 'Mocha',
+        'image': 'assets/images/cat.jpg',
       },
       {
-        "food": "Pumpkin Spice Latte with Vanilla Cream",
-        "image": "assets/images/cat.jpg",
+        'food': 'Pumpkin Spice Latte with Vanilla Cream',
+        'image': 'assets/images/cat.jpg',
       },
     ];
 
@@ -34,7 +34,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(sampleFeaturedCafeItems[i]["image"]!),
+              image: AssetImage(sampleFeaturedCafeItems[i]['image']!),
               fit: BoxFit.cover,
             ),
             border: Border.all(
@@ -45,7 +45,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
         child: Container(
             alignment: Alignment.bottomCenter,
             child: Text(
-              sampleFeaturedCafeItems[i]["food"]!,
+              sampleFeaturedCafeItems[i]['food']!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                   fontFamily: Styles.fontFamilyRegular,
@@ -67,7 +67,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
       const Spacer(),
       TextButton(
           onPressed: onViewMorePressed,
-          child: const Text("View More >",
+          child: const Text('View More >',
               style: TextStyle(
                   fontFamily: Styles.fontFamilyRegular,
                   color: Styles.secondary))),

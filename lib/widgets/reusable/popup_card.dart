@@ -24,7 +24,6 @@ class _PopupCard extends StatefulWidget {
 
 class _PopupCardState extends State<_PopupCard> {
   void onClose() {
-    print('Tapped lmao');
     Navigator.of(context).pop();
   }
 

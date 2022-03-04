@@ -13,22 +13,22 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   List<Widget> buildItems() {
     List<Map<String, String>> sampleAnnouncements = [
       {
-        "title": "Announcement 1",
-        "content": "Nice",
+        'title': 'Announcement 1',
+        'content': 'Nice',
       },
       {
-        "title": "St. Augustine CHS App Dev Team",
-        "content": "New App coming soon, check in for more updates",
+        'title': 'St. Augustine CHS App Dev Team',
+        'content': 'New App coming soon, check in for more updates',
       },
       {
-        "title": "Our Roots Club",
-        "content":
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        'title': 'Our Roots Club',
+        'content':
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       },
       {
-        "title": "Wow super long club name and or announcement title",
-        "content":
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        'title': 'Wow super long club name and or announcement title',
+        'content':
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       },
     ];
 
@@ -49,11 +49,11 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  announcement["title"]!,
+                  announcement['title']!,
                   style: Styles.regularSubText,
                 ),
                 Text(
-                  announcement["content"]!,
+                  announcement['content']!,
                   style: Styles.regularText,
                 ),
               ],

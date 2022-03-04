@@ -41,7 +41,7 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
             const Spacer(),
             SizedBox(
                 width: getChildWidth(context, 0.3),
-                child: Image.asset("assets/logos/sta_logo.png",
+                child: Image.asset('assets/logos/sta_logo.png',
                     fit: BoxFit.fitWidth)),
           ],
         ));

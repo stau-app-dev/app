@@ -15,9 +15,9 @@ class _SocialsScreenState extends State<SocialsScreen> {
         padding: Styles.mainOutsidePadding,
         children: const <Widget>[
           SizedBox(height: Styles.mainVerticalPadding),
-          Text("Socials Screen"),
+          Text('Socials Screen'),
           SizedBox(height: Styles.mainSpacing),
-          Text("Socials Screen"),
+          Text('Socials Screen'),
           SizedBox(height: Styles.mainVerticalPadding),
         ],
       ),

@@ -64,8 +64,11 @@ class Styles {
     )
   ];
 
-  /// Main border radius. Default is all corners rounded to 16.0
-  static const mainBorderRadius = BorderRadius.all(Radius.circular(16.0));
+  /// Main border radius value of 16.0
+  static const mainBorderRadiusValue = 16.0;
+
+  /// Main border radius. Default is all corners circular of 16.0
+  static const mainBorderRadius = BorderRadius.all(Radius.circular(mainBorderRadiusValue));
 
   /// Main outside padding value of 24.0
   static const double mainOutsidePaddingValue = 24.0;
