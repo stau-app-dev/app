@@ -5,6 +5,7 @@
   ie:
   - feat(songRequests): added album name
   - fix: clipping issue in cafe menu
+  - chore: updated gitignore
 
   See also here
   https://github.com/commitizen/conventional-commit-types/blob/master/index.json
@@ -13,6 +14,8 @@
 <!--
   Note: Although there are no restrictions on merging directly, please do try to get someone to look over your code.
         Or at the very least look it over yourself one more time before merging.
+
+  Please DO NOT merge if you have failing checks! PR title fails are the easiest to fix.
  -->
 
 **Pull Request Description**
