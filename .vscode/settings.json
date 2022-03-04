@@ -1,13 +1,17 @@
 {
+  "git.enableSmartCommit": true,
   // Causes the debug view to automatically appear when a breakpoint is hit. This
   // setting is global and not configurable per-language.
   "debug.openDebug": "openOnDebugBreak",
 
   "[dart]": {
+    "editor.defaultFormatter": "Dart-Code.dart-code",
     // Automatically format code on save and during typing of certain characters
     // (like `;` and `}`).
     "editor.formatOnSave": true,
     "editor.formatOnType": true,
+
+    "editor.rulers": [],
 
     // Disables built-in highlighting of words that match your selection. Without
     // this, all instances of the selected text will be highlighted, interfering
@@ -38,6 +42,25 @@
     // strings. This setting will prevent that.
     "editor.wordBasedSuggestions": false
   },
-  "cSpell.words": ["RGBO", "staugustinechsnewapp"],
+  "cSpell.words": [
+    "curr",
+    "fullscreen",
+    "Raleway",
+    "RGBO",
+    "staugustinechsnewapp",
+    "subfolders",
+    "textfield",
+    "Upvote",
+    "upvoted",
+    "vsync"
+  ],
+  "cSpell.enabledLanguageIds": [
+    "dart",
+    "json",
+    "jsonc",
+    "markdown",
+    "yaml",
+    "yml"
+  ],
   "todo-tree.filtering.excludeGlobs": ["**/windows", "**/android", "**/ios"]
 }

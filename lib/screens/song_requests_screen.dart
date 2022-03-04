@@ -17,7 +17,7 @@ class _SongRequestsScreenState extends State<SongRequestsScreen> {
         padding: Styles.mainOutsidePadding,
         children: const <Widget>[
           SizedBox(height: Styles.mainVerticalPadding),
-          ScreenHeader(headerText: "Song Requests"),
+          ScreenHeader(headerText: 'Song Requests'),
           SizedBox(height: Styles.mainSpacing),
           SongRequests(),
           SizedBox(height: Styles.mainVerticalPadding),

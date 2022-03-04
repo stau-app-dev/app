@@ -20,14 +20,14 @@ class _SpiritMeterState extends State<SpiritMeter> {
     };
     List<Widget> spiritMeters = [];
     spiritPointsData.forEach((key, value) {
-      spiritMeters.add(Container(
+      spiritMeters.add(SizedBox(
         width: getWidth(context),
         height: 30.0,
         child: Row(children: [
           SizedBox(
               width: getWidth(context) * 0.075,
               child: Text(
-                "$key",
+                '$key',
                 style: const TextStyle(
                   color: Styles.primary,
                   fontSize: Styles.fontSizeNormal,

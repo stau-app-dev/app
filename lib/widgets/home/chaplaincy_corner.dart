@@ -13,17 +13,19 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
   List<Widget> buildVerses() {
     List<Map<String, String>> sampleVerses = [
       {
-        "title": "Verse of The Day",
-        "content": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+        'title': 'Verse of The Day',
+        'content':
+            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
       },
     ];
 
-    List<Widget> Verses = [const SizedBox(height: 20.0)];
+    List<Widget> verses = [const SizedBox(height: 20.0)];
     for (var announcement in sampleVerses) {
-      Verses.add(
+      verses.add(
         Container(
             width: getWidth(context),
-            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
             decoration: BoxDecoration(
                 color: Styles.white,
                 border: Border.all(
@@ -35,19 +37,19 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  announcement["title"]!,
+                  announcement['title']!,
                   style: Styles.regularSubText,
                 ),
                 Text(
-                  announcement["content"]!,
+                  announcement['content']!,
                   style: Styles.regularText,
                 ),
               ],
             )),
       );
-      Verses.add(const SizedBox(height: 10.0));
+      verses.add(const SizedBox(height: 10.0));
     }
-    return Verses;
+    return verses;
   }
 
   @override

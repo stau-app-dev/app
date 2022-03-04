@@ -47,7 +47,7 @@ class _CafeItemsState extends State<CafeItems> {
                       color: Styles.white),
                 )),
                 Text(
-                  "\$$price",
+                  '\$$price',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       fontFamily: Styles.fontFamilyRegular,
@@ -62,12 +62,12 @@ class _CafeItemsState extends State<CafeItems> {
     for (int i = 0; i < widget.items.length; i += 2) {
       rows.add(Row(
         children: [
-          buildTile(widget.items[i]["food"]!, widget.items[i]["price"]!,
-              widget.items[i]["image"]!),
+          buildTile(widget.items[i]['food']!, widget.items[i]['price']!,
+              widget.items[i]['image']!),
           const Spacer(),
           i + 1 < widget.items.length
-              ? buildTile(widget.items[i + 1]["food"]!,
-                  widget.items[i]["price"]!, widget.items[i + 1]["image"]!)
+              ? buildTile(widget.items[i + 1]['food']!,
+                  widget.items[i]['price']!, widget.items[i + 1]['image']!)
               : Container(),
         ],
       ));

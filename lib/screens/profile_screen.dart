@@ -8,19 +8,32 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
+    return Stack(children: [
+      Container(
+        height: getHeight(context) * 0.45,
+        decoration: const BoxDecoration(
+          color: Styles.primary,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(Styles.mainBorderRadiusValue),
+            bottomRight: Radius.circular(Styles.mainBorderRadiusValue),
+          ),
+        ),
+      ),
+      SafeArea(
+          child: ListView(
         padding: Styles.mainOutsidePadding,
         children: const <Widget>[
           SizedBox(height: Styles.mainVerticalPadding),
-          Text("Profile Screen"),
+          Text('Profile Screen', style: Styles.headerMainText),
           SizedBox(height: Styles.mainSpacing),
-          Text("Profile Screen"),
+          Text('Profile Screen'),
           SizedBox(height: Styles.mainVerticalPadding),
         ],
-      ),
-    );
+      )),
+    ]);
   }
 }
