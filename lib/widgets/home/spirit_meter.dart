@@ -56,13 +56,13 @@ class _SpiritMeterState extends State<SpiritMeter> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Spirit Meter', style: Styles.regularMainText),
+            const Text('Spirit Meter', style: Styles.normalMainText),
             const SizedBox(height: 20.0),
             ...buildSpiritMeters(),
           ],
