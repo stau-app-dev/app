@@ -32,12 +32,13 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
       },
     ];
 
-    List<Widget> announcements = [const SizedBox(height: 20.0)];
+    List<Widget> rows = [const SizedBox(height: 20.0)];
     for (var announcement in sampleAnnouncements) {
-      announcements.add(
+      rows.add(
         Container(
             width: getWidth(context),
-            padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
             decoration: BoxDecoration(
                 color: Styles.white,
                 border: Border.all(
@@ -50,18 +51,18 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
               children: <Widget>[
                 Text(
                   announcement['title']!,
-                  style: Styles.regularSubText,
+                  style: Styles.normalSubText,
                 ),
                 Text(
                   announcement['content']!,
-                  style: Styles.regularText,
+                  style: Styles.normalText,
                 ),
               ],
             )),
       );
-      announcements.add(const SizedBox(height: 10.0));
+      rows.add(const SizedBox(height: 10.0));
     }
-    return announcements;
+    return rows;
   }
 
   @override
@@ -70,13 +71,13 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Announcements Board', style: Styles.regularMainText),
+            const Text('Announcements Board', style: Styles.normalMainText),
             ...buildItems(),
           ],
         ));

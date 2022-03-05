@@ -38,11 +38,11 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
               children: <Widget>[
                 Text(
                   announcement['title']!,
-                  style: Styles.regularSubText,
+                  style: Styles.normalSubText,
                 ),
                 Text(
                   announcement['content']!,
-                  style: Styles.regularText,
+                  style: Styles.normalText,
                 ),
               ],
             )),
@@ -58,13 +58,13 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            const Text('Chaplaincy Corner', style: Styles.regularMainText),
+            const Text('Chaplaincy Corner', style: Styles.normalMainText),
             ...buildVerses(),
           ],
         ));

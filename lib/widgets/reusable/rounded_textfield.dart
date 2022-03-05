@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
-class RoundedTextField extends StatelessWidget {
+class RoundedTextField extends StatefulWidget {
   final String hintText;
   final TextEditingController controller;
 
@@ -9,7 +9,11 @@ class RoundedTextField extends StatelessWidget {
   const RoundedTextField(
       {Key? key, required this.hintText, required this.controller})
       : super(key: key);
+  @override
+  State<RoundedTextField> createState() => _RoundedTextFieldState();
+}
 
+class _RoundedTextFieldState extends State<RoundedTextField> {
   @override
   Widget build(BuildContext context) {
     OutlineInputBorder border = const OutlineInputBorder(
@@ -28,21 +32,21 @@ class RoundedTextField extends StatelessWidget {
     );
 
     return SizedBox(
-      height: 35.0,
-      child: 
-    TextField(
-      controller: controller,
-      cursorColor: Styles.secondary,
-      textAlignVertical: TextAlignVertical.center,
-      decoration: InputDecoration(
-        hintText: hintText,
-        hintStyle: Styles.regularText.copyWith(color: Styles.grey, fontSize: 12),
-        border: border,
-        enabledBorder: border,
-        focusedBorder: focusedBorder,
-        contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
-      ),
-      style: Styles.regularText.copyWith(fontSize: 12.0),
-    ));
+        height: 35.0,
+        child: TextField(
+          controller: widget.controller,
+          cursorColor: Styles.secondary,
+          textAlignVertical: TextAlignVertical.center,
+          decoration: InputDecoration(
+            hintText: widget.hintText,
+            hintStyle:
+                Styles.normalText.copyWith(color: Styles.grey, fontSize: 12),
+            border: border,
+            enabledBorder: border,
+            focusedBorder: focusedBorder,
+            contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
+          ),
+          style: Styles.normalText.copyWith(fontSize: 12.0),
+        ));
   }
 }

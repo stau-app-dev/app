@@ -48,7 +48,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
               sampleFeaturedCafeItems[i]['food']!,
               textAlign: TextAlign.center,
               style: const TextStyle(
-                  fontFamily: Styles.fontFamilyRegular,
+                  fontFamily: Styles.fontFamilyNormal,
                   fontSize: 11.0,
                   fontWeight: FontWeight.bold,
                   color: Styles.white),
@@ -63,13 +63,13 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
 
   Widget buildHeader() {
     return Row(children: [
-      const Text('Featured Cafe Items', style: Styles.regularMainText),
+      const Text('Featured Cafe Items', style: Styles.normalMainText),
       const Spacer(),
       TextButton(
           onPressed: onViewMorePressed,
           child: const Text('View More >',
               style: TextStyle(
-                  fontFamily: Styles.fontFamilyRegular,
+                  fontFamily: Styles.fontFamilyNormal,
                   color: Styles.secondary))),
     ]);
   }
@@ -84,7 +84,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.only(
             left: Styles.mainInsidePadding,
             right: Styles.mainInsidePadding,

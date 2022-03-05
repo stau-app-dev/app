@@ -31,11 +31,11 @@ class _SongRequestsState extends State<SongRequests> {
               children: <Widget>[
                 Text(
                   songName,
-                  style: Styles.regularSubText,
+                  style: Styles.normalSubText,
                 ),
                 Text(
                   'By: $artistName',
-                  style: Styles.regularText,
+                  style: Styles.normalText,
                 ),
               ],
             )));
@@ -121,12 +121,12 @@ class _SongRequestsState extends State<SongRequests> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('Song Name', style: Styles.regularSubText),
+          const Text('Song Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Song Name', controller: TextEditingController()),
           const SizedBox(height: 10.0),
-          const Text('Artist Name', style: Styles.regularSubText),
+          const Text('Artist Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Artist Name', controller: TextEditingController()),
@@ -159,7 +159,7 @@ class _SongRequestsState extends State<SongRequests> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(

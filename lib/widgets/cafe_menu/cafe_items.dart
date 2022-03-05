@@ -42,7 +42,7 @@ class _CafeItemsState extends State<CafeItems> {
                   food,
                   textAlign: TextAlign.start,
                   style: const TextStyle(
-                      fontFamily: Styles.fontFamilyRegular,
+                      fontFamily: Styles.fontFamilyNormal,
                       fontWeight: FontWeight.bold,
                       color: Styles.white),
                 )),
@@ -50,8 +50,7 @@ class _CafeItemsState extends State<CafeItems> {
                   '\$$price',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
-                      fontFamily: Styles.fontFamilyRegular,
-                      color: Styles.white),
+                      fontFamily: Styles.fontFamilyNormal, color: Styles.white),
                 )
               ],
             )));
@@ -82,13 +81,13 @@ class _CafeItemsState extends State<CafeItems> {
         decoration: BoxDecoration(
             color: Styles.white,
             borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.regularBoxShadow),
+            boxShadow: Styles.normalBoxShadow),
         padding: const EdgeInsets.all(Styles.mainInsidePadding),
         width: getWidth(context),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(widget.title, style: Styles.regularMainText),
+            Text(widget.title, style: Styles.normalMainText),
             const SizedBox(height: Styles.mainSpacing),
             buildItems(),
           ],
