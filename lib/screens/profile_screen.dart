@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/settings_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/profile/course_timetable.dart';
 import 'package:staugustinechsnewapp/widgets/profile/profile_bio.dart';
@@ -15,6 +16,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
 
   void onPressedSettings() {
     print("wow pressed settings");
+    Navigator.push(
+      context,
+      MaterialPageRoute(builder: (context) => const SettingsScreen()),
+    );
   }
 
   @override
