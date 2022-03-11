@@ -25,17 +25,17 @@ void main() {
       String testTitle = 'Cafe Items';
       List<Map<String, String>> testItems = [
         {
-          'food': 'Pizza Margherita',
+          'food': 'Food Item',
           'price': '4.30',
           'image': 'assets/images/cat.jpg',
         },
         {
-          'food': 'Cafe Latte',
+          'food': 'Food Item',
           'price': '1.45',
           'image': 'assets/images/cat.jpg',
         },
         {
-          'food': 'Salad with Chicken and Bacon Dressing',
+          'food': 'Food Item',
           'price': '5.65',
           'image': 'assets/images/cat.jpg',
         },
@@ -52,7 +52,8 @@ void main() {
         ),
       );
 
-      expect(find.text(testItems[0]), findsOneWidget);
+      expect(find.text('Food Item'), findsNWidgets(3));
+      expect(find.text('\$4.30'), findsNWidgets(1));
     });
   });
 }
