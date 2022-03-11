@@ -145,13 +145,9 @@ class _SongRequestsState extends State<SongRequests> {
         context: context, title: 'Add Song', child: buildAddSongForm());
   }
 
-  void onSubmitSong() {
-    print('Wow submit song');
-  }
+  void onSubmitSong() {}
 
-  void onUpvote(bool upvoted, String songName) {
-    print('upvoted: $upvoted song: $songName');
-  }
+  void onUpvote(bool upvoted, String songName) {}
 
   @override
   Widget build(BuildContext context) {

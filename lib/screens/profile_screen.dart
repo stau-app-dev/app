@@ -13,9 +13,7 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
-  void onPressedSettings() {
-    print("wow pressed settings");
-  }
+  void onPressedSettings() {}
 
   @override
   Widget build(BuildContext context) {
