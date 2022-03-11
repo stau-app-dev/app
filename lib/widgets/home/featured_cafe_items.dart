@@ -74,9 +74,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
     ]);
   }
 
-  void onViewMorePressed() {
-    print('View More Pressed in Featured Cafe Items');
-  }
+  void onViewMorePressed() {}
 
   @override
   Widget build(BuildContext context) {
