@@ -2,7 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
-  const AnnouncementsBoard({Key? key}) : super(key: key);
+  final List<Map<String, String>> announcements;
+  const AnnouncementsBoard({Key? key, required this.announcements})
+      : super(key: key);
   @override
   State<AnnouncementsBoard> createState() => _AnnouncementsBoardState();
 }
@@ -11,29 +13,8 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   List<Widget> buildItems() {
-    List<Map<String, String>> sampleAnnouncements = [
-      {
-        'title': 'Announcement 1',
-        'content': 'Nice',
-      },
-      {
-        'title': 'St. Augustine CHS App Dev Team',
-        'content': 'New App coming soon, check in for more updates',
-      },
-      {
-        'title': 'Our Roots Club',
-        'content':
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-      {
-        'title': 'Wow super long club name and or announcement title',
-        'content':
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-    ];
-
     List<Widget> rows = [const SizedBox(height: 20.0)];
-    for (var announcement in sampleAnnouncements) {
+    for (var announcement in widget.announcements) {
       rows.add(
         Container(
             width: getWidth(context),
