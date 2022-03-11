@@ -1,0 +1,24 @@
+name: flutter analyze
+
+on:
+  pull_request:
+    types:
+      - opened
+      - edited
+      - synchronize
+
+jobs:
+  analyze:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v2
+      - name: Install and set Flutter version
+        uses: subosito/flutter-action@v2.3.0
+        with:
+          flutter-version: "2.10.2"
+      - name: Restore packages
+        run: flutter pub get
+      - name: Run analysis
+        run: flutter analyze

@@ -27,8 +27,9 @@ Dart: 2.16.1
 ## Linting
 
 To fix linting issues automatically:
-`dart fix --dry-run` to see the issues
-`dart fix --apply` to fix them
+
+- `dart fix --dry-run` to see the issues
+- `dart fix --apply` to fix them
 
 ## Pushing Code
 
@@ -40,3 +41,10 @@ https://www.conventionalcommits.org/en/v1.0.0/#summary
 
 To generate freezed files (not implemented for now), run:
 `flutter pub run build_runner build`
+
+## Making a PR
+
+Before making a PR, please be sure to run locally:
+
+- `flutter analyze`
+- `flutter test`
