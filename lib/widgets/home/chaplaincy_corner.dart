@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class ChaplaincyCorner extends StatefulWidget {
-  const ChaplaincyCorner({Key? key}) : super(key: key);
+  final List<Map<String, String>> verses;
+  const ChaplaincyCorner({Key? key, required this.verses}) : super(key: key);
   @override
   State<ChaplaincyCorner> createState() => _ChaplaincyCornerState();
 }
@@ -11,16 +12,8 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   List<Widget> buildVerses() {
-    List<Map<String, String>> sampleVerses = [
-      {
-        'title': 'Verse of The Day',
-        'content':
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-      },
-    ];
-
     List<Widget> verses = [const SizedBox(height: 20.0)];
-    for (var announcement in sampleVerses) {
+    for (var announcement in widget.verses) {
       verses.add(
         Container(
             width: getWidth(context),

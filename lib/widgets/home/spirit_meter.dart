@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/widgets/reusable/rounded_progress_bar.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
 class SpiritMeter extends StatefulWidget {
-  const SpiritMeter({Key? key}) : super(key: key);
+  final Map<int, double> spiritMeterData;
+  const SpiritMeter({Key? key, required this.spiritMeterData})
+      : super(key: key);
   @override
   State<SpiritMeter> createState() => _SpiritMeterState();
 }
@@ -12,14 +14,8 @@ class _SpiritMeterState extends State<SpiritMeter> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   List<Widget> buildSpiritMeters() {
-    Map<int, double> spiritPointsData = {
-      9: 40.0,
-      10: 53.0,
-      11: 66.0,
-      12: 100.0,
-    };
     List<Widget> spiritMeters = [];
-    spiritPointsData.forEach((key, value) {
+    widget.spiritMeterData.forEach((key, value) {
       spiritMeters.add(SizedBox(
         width: getWidth(context),
         height: 30.0,

@@ -66,7 +66,7 @@ class _CafeItemsState extends State<CafeItems> {
           const Spacer(),
           i + 1 < widget.items.length
               ? buildTile(widget.items[i + 1]['food']!,
-                  widget.items[i]['price']!, widget.items[i + 1]['image']!)
+                  widget.items[i + 1]['price']!, widget.items[i + 1]['image']!)
               : Container(),
         ],
       ));

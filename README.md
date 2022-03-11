@@ -19,6 +19,11 @@ https://docs.google.com/document/d/1xI_6Y7_AyuUj99lc-6ZNNueimvbUyB82yg4f2qUJF_o/
 To run:
 `flutter run`
 
+## Versions
+
+Flutter Version: 2.10.2
+Dart: 2.16.1
+
 ## Linting
 
 To fix linting issues automatically:
