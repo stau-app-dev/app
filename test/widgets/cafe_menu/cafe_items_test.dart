@@ -54,6 +54,7 @@ void main() {
 
       expect(find.text('Food Item'), findsNWidgets(3));
       expect(find.text('\$4.30'), findsNWidgets(1));
+      expect(true, false);
     });
   });
 }
