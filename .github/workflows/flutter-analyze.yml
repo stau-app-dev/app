@@ -1,5 +1,5 @@
 # https://arthurdenner.medium.com/run-checks-for-flutter-projects-with-github-actions-ba7fa9b357e1
-name: Flutter Tests
+name: Flutter Analyze
 
 on:
   pull_request:
@@ -9,7 +9,7 @@ on:
       - synchronize
 
 jobs:
-  tests:
+  analyze:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout the code
@@ -20,5 +20,5 @@ jobs:
           flutter-version: "2.10.2"
       - name: Restore packages
         run: flutter pub get
-      - name: Run tests
-        run: flutter test
+      - name: Run analysis
+        run: flutter analyze

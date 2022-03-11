@@ -15,7 +15,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
   double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
   void onPressedSettings() {
-    print("wow pressed settings");
     Navigator.push(
       context,
       MaterialPageRoute(builder: (context) => const SettingsScreen()),
