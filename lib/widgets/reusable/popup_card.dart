@@ -1,8 +1,15 @@
+// From: https://www.youtube.com/watch?v=Bxs8Zy2O4wk
+
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
-/// Create a modal popup card. The child widget is displayed in the center of the card.
+/// Creates the modal popup for the app. Please use this as it follows the Figma design.
+///
+/// The [title] is the displayed at the top of the popup.
+/// The [child] widget is displayed in the center of the card.
+///
+/// This widget has no bottom constraint.
 void usePopupCard(
     {required BuildContext context,
     required String title,
@@ -74,7 +81,6 @@ class _PopupCardState extends State<_PopupCard> {
   }
 }
 
-// See: https://www.youtube.com/watch?v=Bxs8Zy2O4wk
 class _PopupCardRoute<T> extends PageRoute<T> {
   /// Custom [PageRoute] that creates an overlay dialog (popup effect).
   _PopupCardRoute({

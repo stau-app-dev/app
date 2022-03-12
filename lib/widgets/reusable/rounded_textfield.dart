@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
+/// {@template rounded_text_field}
+/// Custom textfield for the app. Please use this as it follows the Figma design.
+/// {@endtemplate}
 class RoundedTextField extends StatefulWidget {
+  /// The hint text to display.
   final String hintText;
+
+  /// The controller for the textfield.
   final TextEditingController controller;
 
-  /// Custom textfield for the app. Please use this as it follows the Figma design.
+  /// {@macro rounded_text_field}
   const RoundedTextField(
       {Key? key, required this.hintText, required this.controller})
       : super(key: key);

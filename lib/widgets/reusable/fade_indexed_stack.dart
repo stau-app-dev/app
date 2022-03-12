@@ -1,10 +1,19 @@
+// From: https://gist.github.com/diegoveloper/1cd23e79a31d0c18a67424f0cbdfd7ad
+
 import 'package:flutter/material.dart';
 
+/// Custom IndexedStack widget has a fade transition between the children.
 class FadeIndexedStack extends StatefulWidget {
+  /// The index of the widget to show.
   final int index;
+
+  /// The list of widgets to display.
   final List<Widget> children;
+
+  /// The duration of the transition animation.
   final Duration duration;
 
+  /// Custom IndexedStack widget has a fade transition between the children.
   const FadeIndexedStack({
     Key? key,
     required this.index,

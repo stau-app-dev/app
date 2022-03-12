@@ -1,10 +1,26 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:injectable/injectable.dart';
+import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/widgets/navigation/screen_controller.dart';
+import 'package:staugustinechsnewapp/screens/screen_controller.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+
+const env = kReleaseMode ? Environment.prod : Environment.test;
 
 void main() {
+  if (kDebugMode) {
+    print('[ENV] Running in Environment: ' + env);
+  }
+
+  // Initialize the app
   WidgetsFlutterBinding.ensureInitialized();
+  configureDependencies(env);
+
+  // iOS will not automatically show the notification bar when the app loads.
+  // To show the notification bar:
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
 
@@ -14,7 +30,13 @@ void main() {
       statusBarBrightness: Brightness.light // Only honoured in iOS
       ));
 
-  runApp(const MyApp());
+  // Wrap the app in a MultiBlocProvider so that the Blocs can be accessed from any part of the app
+  runApp(MultiBlocProvider(
+    providers: [
+      BlocProvider(create: (context) => getIt<NavBloc>()),
+    ],
+    child: const MyApp(),
+  ));
 }
 
 // Tate made this
