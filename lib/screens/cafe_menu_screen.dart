@@ -10,79 +10,79 @@ class CafeMenuScreen extends StatefulWidget {
 }
 
 class _CafeMenuScreenState extends State<CafeMenuScreen> {
+  List<Map<String, String>> sampleTodaysSpecials = [
+    {
+      'food': 'Caramel Macchiato',
+      'price': '2.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Mocha',
+      'price': '3.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Pumpkin Spice Latte with Vanilla Cream',
+      'price': '4.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Dope',
+      'price': '5.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'LOL WHAT A LONG NAME',
+      'price': '6.00',
+      'image': 'assets/images/cat.jpg',
+    },
+  ];
+
+  List<Map<String, String>> sampleMenuItems = [
+    {
+      'food': 'Caramel Macchiato',
+      'price': '2.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Mocha',
+      'price': '3.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Pumpkin Spice Latte with Vanilla Cream',
+      'price': '4.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Dope',
+      'price': '5.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'LOL WHAT A LONG NAME',
+      'price': '6.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'get a life',
+      'price': '6.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'the end is never the end',
+      'price': '10.00',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Cookies',
+      'price': '2.00',
+      'image': 'assets/images/cat.jpg',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
-    List<Map<String, String>> todaysSpecials = [
-      {
-        'food': 'Caramel Macchiato',
-        'price': '2.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Mocha',
-        'price': '3.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Pumpkin Spice Latte with Vanilla Cream',
-        'price': '4.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Dope',
-        'price': '5.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'LOL WHAT A LONG NAME',
-        'price': '6.00',
-        'image': 'assets/images/cat.jpg',
-      },
-    ];
-
-    List<Map<String, String>> menuItems = [
-      {
-        'food': 'Caramel Macchiato',
-        'price': '2.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Mocha',
-        'price': '3.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Pumpkin Spice Latte with Vanilla Cream',
-        'price': '4.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Dope',
-        'price': '5.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'LOL WHAT A LONG NAME',
-        'price': '6.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'get a life',
-        'price': '6.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'the end is never the end',
-        'price': '10.00',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Cookies',
-        'price': '2.00',
-        'image': 'assets/images/cat.jpg',
-      },
-    ];
-
     return SafeArea(
       child: ListView(
         padding: Styles.mainOutsidePadding,
@@ -90,9 +90,9 @@ class _CafeMenuScreenState extends State<CafeMenuScreen> {
           const SizedBox(height: Styles.mainVerticalPadding),
           const ScreenHeader(headerText: 'Cafeteria Menu'),
           const SizedBox(height: Styles.mainSpacing),
-          CafeItems(title: 'Todays Specials', items: todaysSpecials),
+          CafeItems(title: 'Todays Specials', items: sampleTodaysSpecials),
           const SizedBox(height: Styles.mainSpacing),
-          CafeItems(title: 'Menu', items: menuItems),
+          CafeItems(title: 'Menu', items: sampleMenuItems),
           const SizedBox(height: Styles.mainVerticalPadding),
         ],
       ),

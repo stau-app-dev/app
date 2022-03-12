@@ -16,8 +16,7 @@ samples, guidance on mobile development, and a full API reference.
 Please view this doc for guidelines on how to get started and resource links:
 https://docs.google.com/document/d/1xI_6Y7_AyuUj99lc-6ZNNueimvbUyB82yg4f2qUJF_o/edit?usp=sharing
 
-To run:
-`flutter run`
+To run: `flutter run`
 
 ## Versions
 
@@ -39,8 +38,8 @@ https://www.conventionalcommits.org/en/v1.0.0/#summary
 
 ## Working with BloC
 
-To generate freezed files (not implemented for now), run:
-`flutter pub run build_runner build`
+To regenerate freezed files, run: `flutter pub run build_runner build --delete-conflicting-outputs`
+Please note that we are using BloC 8.0.1.
 
 ## Making a PR
 

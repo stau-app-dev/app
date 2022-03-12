@@ -1,7 +1,9 @@
+// From: https://stackoverflow.com/a/67898454/10014923
+
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
-// Found this code at https://stackoverflow.com/a/67898454/10014923
+/// Creates a RoundedLinearProgressIndicator. Unlike the original, this one has a rounded edge all around.
 class RoundedLinearProgressIndicator extends StatelessWidget {
   /// The progress value of the progress indicator.
   final double value;
@@ -31,7 +33,6 @@ class RoundedLinearProgressIndicator extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     double borderRadius = 35;
-
     return LayoutBuilder(
       builder: (_, boxConstraints) {
         var x = boxConstraints.maxWidth;

@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
+/// {@template rounded_button}
+/// Custom button for the app. Please use this as it follows the Figma design.
+/// {@endtemplate}
 class RoundedButton extends StatefulWidget {
+  /// The text to display on the button.
   final String text;
+
+  /// The function to execute when the button is pressed.
   final Function onPressed;
 
-  /// Custom button for the app. Please use this as it follows the Figma design.
+  /// {@macro rounded_button}
   const RoundedButton({Key? key, required this.text, required this.onPressed})
       : super(key: key);
   @override
