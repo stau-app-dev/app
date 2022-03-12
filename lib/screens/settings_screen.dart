@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/widgets/navigation/bottom_nav_bar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({Key? key}) : super(key: key);
-
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
@@ -13,9 +11,7 @@ class SettingsScreen extends StatefulWidget {
 class _SettingsScreenState extends State<SettingsScreen> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  void onPressedFAQ() {
-    print('FAQ');
-  }
+  void onPressedFAQ() {}
 
   Widget buildFAQ() {
     return Container(
@@ -39,20 +35,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-        body: SafeArea(
-          child: ListView(
-            padding: Styles.mainOutsidePadding,
-            children: <Widget>[
-              const SizedBox(height: Styles.mainVerticalPadding),
-              const ScreenHeader(headerText: 'Settings'),
-              const SizedBox(height: Styles.mainSpacing),
-              buildFAQ(),
-              const SizedBox(height: Styles.mainVerticalPadding),
-            ],
-          ),
-        ),
-        bottomNavigationBar:
-            BottomNavBar(navigationTapped: (test) => print('Hello')));
+    return SafeArea(
+      child: ListView(
+        padding: Styles.mainOutsidePadding,
+        children: <Widget>[
+          const SizedBox(height: Styles.mainVerticalPadding),
+          const ScreenHeader(headerText: 'Settings'),
+          const SizedBox(height: Styles.mainSpacing),
+          buildFAQ(),
+          const SizedBox(height: Styles.mainVerticalPadding),
+        ],
+      ),
+    );
   }
 }

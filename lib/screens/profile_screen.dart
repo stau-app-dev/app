@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/screens/settings_screen.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/profile/course_timetable.dart';
 import 'package:staugustinechsnewapp/widgets/profile/profile_bio.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/badges_list.dart';
@@ -12,13 +13,17 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
+  late NavBloc navBloc;
   double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
 
+  @override
+  void initState() {
+    navBloc = BlocProvider.of<NavBloc>(context);
+    super.initState();
+  }
+
   void onPressedSettings() {
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const SettingsScreen()),
-    );
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.settings));
   }
 
   @override
