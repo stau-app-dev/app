@@ -1,40 +1,36 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 class FeaturedCafeItems extends StatefulWidget {
-  const FeaturedCafeItems({Key? key}) : super(key: key);
+  final List<Map<String, String>> cafeItems;
+  const FeaturedCafeItems({Key? key, required this.cafeItems})
+      : super(key: key);
   @override
   State<FeaturedCafeItems> createState() => _FeaturedCafeItemsState();
 }
 
 class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
+  late NavBloc navBloc;
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  Widget buildFeaturedCafeItems() {
-    List<Map<String, String>> sampleFeaturedCafeItems = [
-      {
-        'food': 'Caramel Latte',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Mocha',
-        'image': 'assets/images/cat.jpg',
-      },
-      {
-        'food': 'Pumpkin Spice Latte with Vanilla Cream',
-        'image': 'assets/images/cat.jpg',
-      },
-    ];
+  @override
+  void initState() {
+    navBloc = BlocProvider.of<NavBloc>(context);
+    super.initState();
+  }
 
+  Widget buildFeaturedCafeItems() {
     List<Widget> featuredCafeItems = [];
-    for (int i = 0; i < sampleFeaturedCafeItems.length; i++) {
+    for (int i = 0; i < widget.cafeItems.length; i++) {
       featuredCafeItems.add(Container(
         height: Styles.featuredCafeItemHeight,
         width: getWidth(context) * 0.3 - (Styles.mainOutsidePaddingValue),
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(sampleFeaturedCafeItems[i]['image']!),
+              image: AssetImage(widget.cafeItems[i]['image']!),
               fit: BoxFit.cover,
             ),
             border: Border.all(
@@ -45,7 +41,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
         child: Container(
             alignment: Alignment.bottomCenter,
             child: Text(
-              sampleFeaturedCafeItems[i]['food']!,
+              widget.cafeItems[i]['food']!,
               textAlign: TextAlign.center,
               style: const TextStyle(
                   fontFamily: Styles.fontFamilyNormal,
@@ -54,7 +50,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
                   color: Styles.white),
             )),
       ));
-      if (i != sampleFeaturedCafeItems.length - 1) {
+      if (i != widget.cafeItems.length - 1) {
         featuredCafeItems.add(const Spacer());
       }
     }
@@ -74,7 +70,9 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
     ]);
   }
 
-  void onViewMorePressed() {}
+  void onViewMorePressed() {
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.cafeMenu));
+  }
 
   @override
   Widget build(BuildContext context) {

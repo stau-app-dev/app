@@ -1,10 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
+/// {@template badges_list}
+/// Reusable widget for displaying a list of badges.
+/// {@endtemplate}
 class BadgesList extends StatefulWidget {
+  /// The title of the badges list.
   final String title;
+
+  // The list of badges to display.
   final List<Map<String, String>> badges;
 
+  /// {@macro badges_list}
   const BadgesList({Key? key, required this.title, required this.badges})
       : super(key: key);
 

@@ -1,8 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
+/// {@template screen_header}
+/// A widget that displays the main header title for each screen.
+/// {@endtemplate}
 class ScreenHeader extends StatefulWidget {
+  /// The title to display.
   final String headerText;
+
+  /// {@macro screen_header}
   const ScreenHeader({Key? key, required this.headerText}) : super(key: key);
   @override
   State<ScreenHeader> createState() => _ScreenHeaderState();
