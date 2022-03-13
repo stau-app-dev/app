@@ -2,8 +2,8 @@ import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 /// Converts an ENav to an index.
 /// The tab order of the bottom nav bar is controlled here.
-int eNavToIndex(ENav eNav) {
-  switch (eNav) {
+int eNavToIndex(ENav nav) {
+  switch (nav) {
     case ENav.home:
       return 0;
     case ENav.cafeMenu:
@@ -14,6 +14,8 @@ int eNavToIndex(ENav eNav) {
       return 3;
     case ENav.profile:
       return 4;
+    case ENav.settings:
+      return 5;
     default:
       return 0;
   }
@@ -32,6 +34,8 @@ ENav indexToENav(int index) {
       return ENav.songRequests;
     case 4:
       return ENav.profile;
+    case 5:
+      return ENav.settings;
     default:
       return ENav.home;
   }

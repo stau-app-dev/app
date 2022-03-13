@@ -61,6 +61,17 @@ class _BottomNavBarState extends State<BottomNavBar> {
     navBloc.add(NavEvent.changeScreen(screen: indexToENav(index)));
   }
 
+  int getIndex(ENav nav) {
+    if (nav == ENav.settings) {
+      return eNavToIndex(ENav.profile);
+    }
+    // TODO: When a socials screen is added, uncomment this
+    // else if (nav == ENav.clubs) {
+    //   return eNavToIndex(ENav.socials);
+    // }
+    return eNavToIndex(nav);
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavBloc, NavState>(builder: (context, state) {
@@ -77,7 +88,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 items: buildItems(),
-                currentIndex: eNavToIndex(state.currentScreen),
+                currentIndex: getIndex(state.currentScreen),
                 backgroundColor: Styles.primary,
                 selectedItemColor: Styles.secondary,
                 unselectedItemColor: Styles.white,

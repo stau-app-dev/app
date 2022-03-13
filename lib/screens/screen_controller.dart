@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/cafe_menu_screen.dart';
 import 'package:staugustinechsnewapp/screens/home_screen.dart';
 import 'package:staugustinechsnewapp/screens/profile_screen.dart';
+import 'package:staugustinechsnewapp/screens/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -16,6 +17,7 @@ Map<ENav, Widget> _screens = {
   ENav.profile: const ProfileScreen(),
   ENav.socials: const SocialsScreen(),
   ENav.songRequests: const SongRequestsScreen(),
+  ENav.settings: const SettingsScreen(),
 };
 
 List<Widget> _generateScreensStack() {
