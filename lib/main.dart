@@ -1,17 +1,19 @@
+import 'firebase_options.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
-import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 const env = kReleaseMode ? Environment.prod : Environment.test;
 
-void main() {
+void main() async {
   if (kDebugMode) {
     print('[ENV] Running in Environment: ' + env);
   }
@@ -19,6 +21,9 @@ void main() {
   // Initialize the app
   WidgetsFlutterBinding.ensureInitialized();
   configureDependencies(env);
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
 
   // iOS will not automatically show the notification bar when the app loads.
   // To show the notification bar:

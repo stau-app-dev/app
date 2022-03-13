@@ -34,7 +34,14 @@ dependencies:
   freezed_annotation: ^1.1.0
   injectable: ^1.5.3
   json_serializable: ^6.1.5
+  firebase_core: ^1.13.1
 
+# Dependencies that are used at the development stage to test the apps, generate files.
+# Not required to run the actual app at runtime
+
+# The rule for deciding between a regular or dev dependency is simple:
+# If the dependency is imported from something in your lib or bin directories, it needs to be a regular dependency.
+# If it’s only imported from test, example, etc. it can and should be a dev dependency.
 dev_dependencies:
   flutter_test:
     sdk: flutter
