@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/cafe_menu_screen.dart';
 import 'package:staugustinechsnewapp/screens/home_screen.dart';
+import 'package:staugustinechsnewapp/screens/login_screen.dart';
 import 'package:staugustinechsnewapp/screens/profile_screen.dart';
 import 'package:staugustinechsnewapp/screens/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/socials_screen.dart';
@@ -14,6 +15,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/fade_indexed_stack.dart';
 Map<ENav, Widget> _screens = {
   ENav.cafeMenu: const CafeMenuScreen(),
   ENav.home: const HomeScreen(),
+  ENav.login: const LoginScreen(),
   ENav.profile: const ProfileScreen(),
   ENav.socials: const SocialsScreen(),
   ENav.songRequests: const SongRequestsScreen(),

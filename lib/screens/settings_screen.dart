@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -9,9 +12,42 @@ class SettingsScreen extends StatefulWidget {
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
+  late AuthBloc authBloc;
+  late NavBloc navBloc;
+
+  @override
+  void initState() {
+    authBloc = BlocProvider.of<AuthBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
+    super.initState();
+  }
+
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
+  void onPressedLogout() {
+    authBloc.add(const AuthEvent.logOut());
+    navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
+  }
+
   void onPressedFAQ() {}
+
+  Widget buildOptions() {
+    return Container(
+        decoration: BoxDecoration(
+            color: Styles.white,
+            borderRadius: Styles.mainBorderRadius,
+            boxShadow: Styles.normalBoxShadow),
+        padding: const EdgeInsets.all(Styles.mainInsidePadding),
+        width: getWidth(context),
+        child: Column(
+          children: [
+            TextButton(
+                onPressed: onPressedLogout,
+                child: const Text('Log Out', style: Styles.normalSubText)),
+          ],
+        ));
+  }
 
   Widget buildFAQ() {
     return Container(
@@ -41,6 +77,8 @@ class _SettingsScreenState extends State<SettingsScreen> {
         children: <Widget>[
           const SizedBox(height: Styles.mainVerticalPadding),
           const ScreenHeader(headerText: 'Settings'),
+          const SizedBox(height: Styles.mainSpacing),
+          buildOptions(),
           const SizedBox(height: Styles.mainSpacing),
           buildFAQ(),
           const SizedBox(height: Styles.mainVerticalPadding),
