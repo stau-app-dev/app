@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
+import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 const env = kReleaseMode ? Environment.prod : Environment.test;
@@ -34,12 +35,12 @@ void main() {
   runApp(MultiBlocProvider(
     providers: [
       BlocProvider(create: (context) => getIt<NavBloc>()),
+      BlocProvider(create: (context) => getIt<AuthBloc>()),
     ],
     child: const MyApp(),
   ));
 }
 
-// Tate made this
 class MyApp extends StatelessWidget {
   const MyApp({Key? key}) : super(key: key);
 

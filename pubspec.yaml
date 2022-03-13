@@ -29,11 +29,11 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.0.1
   freezed_annotation: ^1.1.0
   injectable: ^1.5.3
+  json_serializable: ^6.1.5
 
 dev_dependencies:
   flutter_test:

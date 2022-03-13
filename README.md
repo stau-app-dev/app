@@ -27,8 +27,7 @@ Dart: 2.16.1
 
 To fix linting issues automatically:
 
-- `dart fix --dry-run` to see the issues
-- `dart fix --apply` to fix them
+- Use VSCode's built in tooltips
 
 ## Pushing Code
 
