@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/screens/login_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/home/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 import 'package:staugustinechsnewapp/widgets/home/featured_cafe_items.dart';
@@ -13,6 +17,9 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late AuthBloc authBloc;
+  late NavBloc navBloc;
+
   List<Map<String, String>> sampleAnnouncements = [
     {
       'title': 'Announcement 1',
@@ -65,28 +72,43 @@ class _HomeScreenState extends State<HomeScreen> {
   ];
 
   @override
+  void initState() {
+    authBloc = BlocProvider.of<AuthBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
-        padding: Styles.mainOutsidePadding,
-        children: <Widget>[
-          const SizedBox(height: Styles.mainVerticalPadding),
-          const WelcomeBanner(),
-          const SizedBox(height: Styles.mainSpacing),
-          AnnouncementsBoard(
-            announcements: sampleAnnouncements,
+    return BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
+      if (state.isAuthenticated) {
+        return SafeArea(
+          child: ListView(
+            padding: Styles.mainOutsidePadding,
+            children: <Widget>[
+              const SizedBox(height: Styles.mainVerticalPadding),
+              const WelcomeBanner(),
+              const SizedBox(height: Styles.mainSpacing),
+              AnnouncementsBoard(
+                announcements: sampleAnnouncements,
+              ),
+              const SizedBox(height: Styles.mainSpacing),
+              FeaturedCafeItems(cafeItems: sampleFeaturedCafeItems),
+              const SizedBox(height: Styles.mainSpacing),
+              SpiritMeter(
+                spiritMeterData: sampleSpiritMeterData,
+              ),
+              const SizedBox(height: Styles.mainSpacing),
+              ChaplaincyCorner(verses: sampleVerses),
+              const SizedBox(height: Styles.mainVerticalPadding),
+            ],
           ),
-          const SizedBox(height: Styles.mainSpacing),
-          FeaturedCafeItems(cafeItems: sampleFeaturedCafeItems),
-          const SizedBox(height: Styles.mainSpacing),
-          SpiritMeter(
-            spiritMeterData: sampleSpiritMeterData,
-          ),
-          const SizedBox(height: Styles.mainSpacing),
-          ChaplaincyCorner(verses: sampleVerses),
-          const SizedBox(height: Styles.mainVerticalPadding),
-        ],
-      ),
-    );
+        );
+      } else {
+        navBloc.add(const NavEvent.setNavbarVisible(isVisible: false));
+        navBloc.add(const NavEvent.changeScreen(screen: ENav.login));
+        return Container();
+      }
+    });
   }
 }

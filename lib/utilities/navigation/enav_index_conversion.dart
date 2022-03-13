@@ -14,8 +14,10 @@ int eNavToIndex(ENav nav) {
       return 3;
     case ENav.profile:
       return 4;
-    case ENav.settings:
+    case ENav.login:
       return 5;
+    case ENav.settings:
+      return 6;
     default:
       return 0;
   }
@@ -35,6 +37,8 @@ ENav indexToENav(int index) {
     case 4:
       return ENav.profile;
     case 5:
+      return ENav.login;
+    case 6:
       return ENav.settings;
     default:
       return ENav.home;

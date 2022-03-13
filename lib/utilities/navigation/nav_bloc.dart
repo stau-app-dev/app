@@ -6,7 +6,15 @@ part 'nav_state.dart';
 part 'nav_bloc.freezed.dart';
 
 // Possible screens
-enum ENav { home, cafeMenu, socials, songRequests, profile, settings }
+enum ENav {
+  cafeMenu,
+  home,
+  login,
+  profile,
+  settings,
+  socials,
+  songRequests,
+}
 
 @Injectable()
 @singleton

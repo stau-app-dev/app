@@ -61,15 +61,21 @@ class _BottomNavBarState extends State<BottomNavBar> {
     navBloc.add(NavEvent.changeScreen(screen: indexToENav(index)));
   }
 
+  /// This is to calculate which navbar item to highlight.
+  /// It should never be greater than 4
   int getIndex(ENav nav) {
     if (nav == ENav.settings) {
       return eNavToIndex(ENav.profile);
     }
-    // TODO: When a socials screen is added, uncomment this
+    // TODO: When any clubs screen is added, uncomment this or add more cases
     // else if (nav == ENav.clubs) {
     //   return eNavToIndex(ENav.socials);
     // }
-    return eNavToIndex(nav);
+    else if (eNavToIndex(nav) > 4) {
+      return eNavToIndex(ENav.home);
+    } else {
+      return eNavToIndex(nav);
+    }
   }
 
   @override
