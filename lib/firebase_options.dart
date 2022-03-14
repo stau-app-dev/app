@@ -50,10 +50,11 @@ class DefaultFirebaseOptions {
 
   static const FirebaseOptions ios = FirebaseOptions(
     apiKey: 'AIzaSyAF1NI3BaQv-0QEdfNju8gHohnVJ6qwNhU',
-    appId: '1:679735156531:ios:d231b6c10ac90eab20a846',
+    appId: '1:679735156531:ios:f907f3f98aa4288420a846',
     messagingSenderId: '679735156531',
     projectId: 'st-augustine-chs-app-dev',
     storageBucket: 'st-augustine-chs-app-dev.appspot.com',
+    androidClientId: '679735156531-guohlal52e6ff0n370vvsa9ia1vfj6do.apps.googleusercontent.com',
     iosClientId: '679735156531-b1vnrsrgg6mu30hr0vnvhpirh6fb72e0.apps.googleusercontent.com',
     iosBundleId: 'com.staugustinechs.app',
   );
