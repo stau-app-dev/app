@@ -14,6 +14,10 @@ class AuthRepository {
     return await AuthApi.initializeFirebase();
   }
 
+  static Future<Either<Failure, User?>> checkSignedIn() async {
+    return await AuthApi.checkSignedIn();
+  }
+
   static Future<Either<Failure, User?>> signInWithGoogle() async {
     return await AuthApi.signInWithGoogle();
   }

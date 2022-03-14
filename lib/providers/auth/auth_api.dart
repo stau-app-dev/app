@@ -7,16 +7,25 @@ import 'package:google_sign_in/google_sign_in.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
+import 'package:staugustinechsnewapp/providers/auth/consts.dart';
 
 @Injectable()
 class AuthApi {
   static Future<Either<Failure, FirebaseApp>> initializeFirebase() async {
-    // TODO: Add auto login logic
     try {
       FirebaseApp firebaseApp = await Firebase.initializeApp();
       return Right(firebaseApp);
     } catch (e) {
-      return Left(Failure(message: e.toString()));
+      return const Left(Failure(message: errorInitializing));
+    }
+  }
+
+  static Future<Either<Failure, User?>> checkSignedIn() async {
+    try {
+      User? user = FirebaseAuth.instance.currentUser;
+      return Right(user);
+    } catch (e) {
+      return const Left(Failure(message: errorAutoSignIn));
     }
   }
 
@@ -44,21 +53,16 @@ class AuthApi {
               await auth.signInWithCredential(credential);
           user = userCredential.user;
         } on FirebaseAuthException catch (e) {
-          if (e.code == 'account-exists-with-different-credential') {
-            return const Left(Failure(
-                message:
-                    'The account already exists with different credentials.'));
-          } else if (e.code == 'invalid-credential') {
-            return const Left(Failure(
-                message:
-                    'The account already exists with different credentials.'));
+          if (e.code == googleErrorCodeDifferentCredentials) {
+            return const Left(Failure(message: errorAccountExists));
+          } else if (e.code == googleErrorCodeInvalidCredentials) {
+            return const Left(Failure(message: errorInvalidCredentials));
           }
         }
       }
       return Right(user);
     } catch (e) {
-      return const Left(Failure(
-          message: 'Error occurred with Google Sign-In. Try again later.'));
+      return const Left(Failure(message: errorSigningIn));
     }
   }
 
@@ -68,7 +72,7 @@ class AuthApi {
       await auth.signOut();
       return const Right(Success());
     } catch (e) {
-      return Left(Failure(message: e.toString()));
+      return const Left(Failure(message: errorSigningOut));
     }
   }
 }

@@ -32,13 +32,20 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<AuthBloc, AuthState>(listener: (context, state) {
+    return BlocConsumer<AuthBloc, AuthState>(listenWhen: (previous, current) {
+      return (previous.firebaseApp == null && current.firebaseApp != null) ||
+          (!previous.isAuthenticated && current.isAuthenticated) ||
+          (previous.failure == null && current.failure != null);
+    }, listener: (context, state) {
       if (state.failure != null) {
         useCustomSnackbar(
             context: context, message: state.failure!.message, isError: true);
         authBloc.add(const AuthEvent.resetFailSuccess());
       }
-      if (state.user != null) {
+      if (state.firebaseApp != null) {
+        authBloc.add(const AuthEvent.checkSignedIn());
+      }
+      if (state.isAuthenticated) {
         navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
         navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
       }

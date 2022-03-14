@@ -22,6 +22,10 @@ class _$AuthEventTearOff {
     return const _initializeFirebase();
   }
 
+  _checkSignedIn checkSignedIn() {
+    return const _checkSignedIn();
+  }
+
   _signIn signIn() {
     return const _signIn();
   }
@@ -43,6 +47,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function() resetFailSuccess,
@@ -51,6 +56,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -59,6 +65,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -68,6 +75,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
     required TResult Function(_signIn value) signIn,
     required TResult Function(_signOut value) signOut,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -76,6 +84,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -84,6 +93,7 @@ mixin _$AuthEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -149,6 +159,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function() resetFailSuccess,
@@ -160,6 +171,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -171,6 +183,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -186,6 +199,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
     required TResult Function(_signIn value) signIn,
     required TResult Function(_signOut value) signOut,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -197,6 +211,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -208,6 +223,7 @@ class _$_initializeFirebase implements _initializeFirebase {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -222,6 +238,128 @@ class _$_initializeFirebase implements _initializeFirebase {
 
 abstract class _initializeFirebase implements AuthEvent {
   const factory _initializeFirebase() = _$_initializeFirebase;
+}
+
+/// @nodoc
+abstract class _$checkSignedInCopyWith<$Res> {
+  factory _$checkSignedInCopyWith(
+          _checkSignedIn value, $Res Function(_checkSignedIn) then) =
+      __$checkSignedInCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$checkSignedInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$checkSignedInCopyWith<$Res> {
+  __$checkSignedInCopyWithImpl(
+      _checkSignedIn _value, $Res Function(_checkSignedIn) _then)
+      : super(_value, (v) => _then(v as _checkSignedIn));
+
+  @override
+  _checkSignedIn get _value => super._value as _checkSignedIn;
+}
+
+/// @nodoc
+
+class _$_checkSignedIn implements _checkSignedIn {
+  const _$_checkSignedIn();
+
+  @override
+  String toString() {
+    return 'AuthEvent.checkSignedIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _checkSignedIn);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return checkSignedIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return checkSignedIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (checkSignedIn != null) {
+      return checkSignedIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return checkSignedIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return checkSignedIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (checkSignedIn != null) {
+      return checkSignedIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _checkSignedIn implements AuthEvent {
+  const factory _checkSignedIn() = _$_checkSignedIn;
 }
 
 /// @nodoc
@@ -263,6 +401,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function() resetFailSuccess,
@@ -274,6 +413,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -285,6 +425,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -300,6 +441,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
     required TResult Function(_signIn value) signIn,
     required TResult Function(_signOut value) signOut,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -311,6 +453,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -322,6 +465,7 @@ class _$_signIn implements _signIn {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -377,6 +521,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function() resetFailSuccess,
@@ -388,6 +533,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -399,6 +545,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -414,6 +561,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
     required TResult Function(_signIn value) signIn,
     required TResult Function(_signOut value) signOut,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -425,6 +573,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -436,6 +585,7 @@ class _$_signOut implements _signOut {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -494,6 +644,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function() initializeFirebase,
+    required TResult Function() checkSignedIn,
     required TResult Function() signIn,
     required TResult Function() signOut,
     required TResult Function() resetFailSuccess,
@@ -505,6 +656,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -516,6 +668,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? initializeFirebase,
+    TResult Function()? checkSignedIn,
     TResult Function()? signIn,
     TResult Function()? signOut,
     TResult Function()? resetFailSuccess,
@@ -531,6 +684,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_checkSignedIn value) checkSignedIn,
     required TResult Function(_signIn value) signIn,
     required TResult Function(_signOut value) signOut,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -542,6 +696,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -553,6 +708,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_checkSignedIn value)? checkSignedIn,
     TResult Function(_signIn value)? signIn,
     TResult Function(_signOut value)? signOut,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,

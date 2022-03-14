@@ -20,6 +20,15 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               await AuthRepository.initializeFirebase();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(firebaseApp: r)));
+        }, checkSignedIn: (e) async {
+          Either<Failure, User?> res = await AuthRepository.checkSignedIn();
+          return emit(res.fold((l) => state.copyWith(failure: l), (r) {
+            if (r != null) {
+              return state.copyWith(user: r, isAuthenticated: true);
+            } else {
+              return state.copyWith(user: null);
+            }
+          }));
         }, signIn: (e) async {
           Either<Failure, User?> res = await AuthRepository.signInWithGoogle();
           return emit(res.fold((l) => state.copyWith(failure: l),
