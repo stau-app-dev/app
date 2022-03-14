@@ -1,0 +1,46 @@
+{
+  "project_info": {
+    "project_number": "679735156531",
+    "project_id": "st-augustine-chs-app-dev",
+    "storage_bucket": "st-augustine-chs-app-dev.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:679735156531:android:69dcd23d46e034d420a846",
+        "android_client_info": {
+          "package_name": "com.example.staugustinechsnewapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "679735156531-n5vdhssl4k4orf5534njd7niuma5f1jf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB9lxJA2zchpowCJp6lUBLFVpuSB2fmeYU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "679735156531-n5vdhssl4k4orf5534njd7niuma5f1jf.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "679735156531-b1vnrsrgg6mu30hr0vnvhpirh6fb72e0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.staugustinechs.app"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
