@@ -25,7 +25,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   void onPressedLogout() {
-    authBloc.add(const AuthEvent.logOut());
+    authBloc.add(const AuthEvent.signOut());
     navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
     navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
   }

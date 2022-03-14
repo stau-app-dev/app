@@ -22,7 +22,7 @@ Success _$SuccessFromJson(Map<String, dynamic> json) {
 class _$SuccessTearOff {
   const _$SuccessTearOff();
 
-  _Success call({required String message}) {
+  _Success call({String? message}) {
     return _Success(
       message: message,
     );
@@ -38,7 +38,7 @@ const $Success = _$SuccessTearOff();
 
 /// @nodoc
 mixin _$Success {
-  String get message => throw _privateConstructorUsedError;
+  String? get message => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -49,7 +49,7 @@ mixin _$Success {
 abstract class $SuccessCopyWith<$Res> {
   factory $SuccessCopyWith(Success value, $Res Function(Success) then) =
       _$SuccessCopyWithImpl<$Res>;
-  $Res call({String message});
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -68,7 +68,7 @@ class _$SuccessCopyWithImpl<$Res> implements $SuccessCopyWith<$Res> {
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -78,7 +78,7 @@ abstract class _$SuccessCopyWith<$Res> implements $SuccessCopyWith<$Res> {
   factory _$SuccessCopyWith(_Success value, $Res Function(_Success) then) =
       __$SuccessCopyWithImpl<$Res>;
   @override
-  $Res call({String message});
+  $Res call({String? message});
 }
 
 /// @nodoc
@@ -98,7 +98,7 @@ class __$SuccessCopyWithImpl<$Res> extends _$SuccessCopyWithImpl<$Res>
       message: message == freezed
           ? _value.message
           : message // ignore: cast_nullable_to_non_nullable
-              as String,
+              as String?,
     ));
   }
 }
@@ -106,13 +106,13 @@ class __$SuccessCopyWithImpl<$Res> extends _$SuccessCopyWithImpl<$Res>
 /// @nodoc
 @JsonSerializable()
 class _$_Success implements _Success {
-  const _$_Success({required this.message});
+  const _$_Success({this.message});
 
   factory _$_Success.fromJson(Map<String, dynamic> json) =>
       _$$_SuccessFromJson(json);
 
   @override
-  final String message;
+  final String? message;
 
   @override
   String toString() {
@@ -143,12 +143,12 @@ class _$_Success implements _Success {
 }
 
 abstract class _Success implements Success {
-  const factory _Success({required String message}) = _$_Success;
+  const factory _Success({String? message}) = _$_Success;
 
   factory _Success.fromJson(Map<String, dynamic> json) = _$_Success.fromJson;
 
   @override
-  String get message;
+  String? get message;
   @override
   @JsonKey(ignore: true)
   _$SuccessCopyWith<_Success> get copyWith =>

@@ -7,7 +7,7 @@ part of 'success.dart';
 // **************************************************************************
 
 _$_Success _$$_SuccessFromJson(Map<String, dynamic> json) => _$_Success(
-      message: json['message'] as String,
+      message: json['message'] as String?,
     );
 
 Map<String, dynamic> _$$_SuccessToJson(_$_Success instance) =>

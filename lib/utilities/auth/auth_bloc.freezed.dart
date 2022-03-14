@@ -18,15 +18,20 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$AuthEventTearOff {
   const _$AuthEventTearOff();
 
-  _logIn logIn({required String email, required String password}) {
-    return _logIn(
-      email: email,
-      password: password,
-    );
+  _initializeFirebase initializeFirebase() {
+    return const _initializeFirebase();
   }
 
-  _logOut logOut() {
-    return const _logOut();
+  _signIn signIn() {
+    return const _signIn();
+  }
+
+  _signOut signOut() {
+    return const _signOut();
+  }
+
+  _resetFailSuccess resetFailSuccess() {
+    return const _resetFailSuccess();
   }
 }
 
@@ -37,39 +42,51 @@ const $AuthEvent = _$AuthEventTearOff();
 mixin _$AuthEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) logIn,
-    required TResult Function() logOut,
+    required TResult Function() initializeFirebase,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_logIn value) logIn,
-    required TResult Function(_logOut value) logOut,
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -91,177 +108,38 @@ class _$AuthEventCopyWithImpl<$Res> implements $AuthEventCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$logInCopyWith<$Res> {
-  factory _$logInCopyWith(_logIn value, $Res Function(_logIn) then) =
-      __$logInCopyWithImpl<$Res>;
-  $Res call({String email, String password});
+abstract class _$initializeFirebaseCopyWith<$Res> {
+  factory _$initializeFirebaseCopyWith(
+          _initializeFirebase value, $Res Function(_initializeFirebase) then) =
+      __$initializeFirebaseCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$logInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$logInCopyWith<$Res> {
-  __$logInCopyWithImpl(_logIn _value, $Res Function(_logIn) _then)
-      : super(_value, (v) => _then(v as _logIn));
+class __$initializeFirebaseCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements _$initializeFirebaseCopyWith<$Res> {
+  __$initializeFirebaseCopyWithImpl(
+      _initializeFirebase _value, $Res Function(_initializeFirebase) _then)
+      : super(_value, (v) => _then(v as _initializeFirebase));
 
   @override
-  _logIn get _value => super._value as _logIn;
-
-  @override
-  $Res call({
-    Object? email = freezed,
-    Object? password = freezed,
-  }) {
-    return _then(_logIn(
-      email: email == freezed
-          ? _value.email
-          : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      password: password == freezed
-          ? _value.password
-          : password // ignore: cast_nullable_to_non_nullable
-              as String,
-    ));
-  }
+  _initializeFirebase get _value => super._value as _initializeFirebase;
 }
 
 /// @nodoc
 
-class _$_logIn implements _logIn {
-  const _$_logIn({required this.email, required this.password});
-
-  @override
-  final String email;
-  @override
-  final String password;
+class _$_initializeFirebase implements _initializeFirebase {
+  const _$_initializeFirebase();
 
   @override
   String toString() {
-    return 'AuthEvent.logIn(email: $email, password: $password)';
+    return 'AuthEvent.initializeFirebase()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType &&
-            other is _logIn &&
-            const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.password, password));
-  }
-
-  @override
-  int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(password));
-
-  @JsonKey(ignore: true)
-  @override
-  _$logInCopyWith<_logIn> get copyWith =>
-      __$logInCopyWithImpl<_logIn>(this, _$identity);
-
-  @override
-  @optionalTypeArgs
-  TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) logIn,
-    required TResult Function() logOut,
-  }) {
-    return logIn(email, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
-  }) {
-    return logIn?.call(email, password);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
-    required TResult orElse(),
-  }) {
-    if (logIn != null) {
-      return logIn(email, password);
-    }
-    return orElse();
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult map<TResult extends Object?>({
-    required TResult Function(_logIn value) logIn,
-    required TResult Function(_logOut value) logOut,
-  }) {
-    return logIn(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
-  }) {
-    return logIn?.call(this);
-  }
-
-  @override
-  @optionalTypeArgs
-  TResult maybeMap<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
-    required TResult orElse(),
-  }) {
-    if (logIn != null) {
-      return logIn(this);
-    }
-    return orElse();
-  }
-}
-
-abstract class _logIn implements AuthEvent {
-  const factory _logIn({required String email, required String password}) =
-      _$_logIn;
-
-  String get email;
-  String get password;
-  @JsonKey(ignore: true)
-  _$logInCopyWith<_logIn> get copyWith => throw _privateConstructorUsedError;
-}
-
-/// @nodoc
-abstract class _$logOutCopyWith<$Res> {
-  factory _$logOutCopyWith(_logOut value, $Res Function(_logOut) then) =
-      __$logOutCopyWithImpl<$Res>;
-}
-
-/// @nodoc
-class __$logOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
-    implements _$logOutCopyWith<$Res> {
-  __$logOutCopyWithImpl(_logOut _value, $Res Function(_logOut) _then)
-      : super(_value, (v) => _then(v as _logOut));
-
-  @override
-  _logOut get _value => super._value as _logOut;
-}
-
-/// @nodoc
-
-class _$_logOut implements _logOut {
-  const _$_logOut();
-
-  @override
-  String toString() {
-    return 'AuthEvent.logOut()';
-  }
-
-  @override
-  bool operator ==(dynamic other) {
-    return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _logOut);
+        (other.runtimeType == runtimeType && other is _initializeFirebase);
   }
 
   @override
@@ -270,30 +148,36 @@ class _$_logOut implements _logOut {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(String email, String password) logIn,
-    required TResult Function() logOut,
+    required TResult Function() initializeFirebase,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
   }) {
-    return logOut();
+    return initializeFirebase();
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
   }) {
-    return logOut?.call();
+    return initializeFirebase?.call();
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String email, String password)? logIn,
-    TResult Function()? logOut,
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (logOut != null) {
-      return logOut();
+    if (initializeFirebase != null) {
+      return initializeFirebase();
     }
     return orElse();
   }
@@ -301,37 +185,388 @@ class _$_logOut implements _logOut {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
-    required TResult Function(_logIn value) logIn,
-    required TResult Function(_logOut value) logOut,
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
-    return logOut(this);
+    return initializeFirebase(this);
   }
 
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
-    return logOut?.call(this);
+    return initializeFirebase?.call(this);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
-    TResult Function(_logIn value)? logIn,
-    TResult Function(_logOut value)? logOut,
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (logOut != null) {
-      return logOut(this);
+    if (initializeFirebase != null) {
+      return initializeFirebase(this);
     }
     return orElse();
   }
 }
 
-abstract class _logOut implements AuthEvent {
-  const factory _logOut() = _$_logOut;
+abstract class _initializeFirebase implements AuthEvent {
+  const factory _initializeFirebase() = _$_initializeFirebase;
+}
+
+/// @nodoc
+abstract class _$signInCopyWith<$Res> {
+  factory _$signInCopyWith(_signIn value, $Res Function(_signIn) then) =
+      __$signInCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$signInCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$signInCopyWith<$Res> {
+  __$signInCopyWithImpl(_signIn _value, $Res Function(_signIn) _then)
+      : super(_value, (v) => _then(v as _signIn));
+
+  @override
+  _signIn get _value => super._value as _signIn;
+}
+
+/// @nodoc
+
+class _$_signIn implements _signIn {
+  const _$_signIn();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signIn()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _signIn);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializeFirebase,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return signIn();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return signIn?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (signIn != null) {
+      return signIn();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return signIn(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return signIn?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (signIn != null) {
+      return signIn(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _signIn implements AuthEvent {
+  const factory _signIn() = _$_signIn;
+}
+
+/// @nodoc
+abstract class _$signOutCopyWith<$Res> {
+  factory _$signOutCopyWith(_signOut value, $Res Function(_signOut) then) =
+      __$signOutCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$signOutCopyWithImpl<$Res> extends _$AuthEventCopyWithImpl<$Res>
+    implements _$signOutCopyWith<$Res> {
+  __$signOutCopyWithImpl(_signOut _value, $Res Function(_signOut) _then)
+      : super(_value, (v) => _then(v as _signOut));
+
+  @override
+  _signOut get _value => super._value as _signOut;
+}
+
+/// @nodoc
+
+class _$_signOut implements _signOut {
+  const _$_signOut();
+
+  @override
+  String toString() {
+    return 'AuthEvent.signOut()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _signOut);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializeFirebase,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return signOut();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return signOut?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return signOut(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return signOut?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (signOut != null) {
+      return signOut(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _signOut implements AuthEvent {
+  const factory _signOut() = _$_signOut;
+}
+
+/// @nodoc
+abstract class _$resetFailSuccessCopyWith<$Res> {
+  factory _$resetFailSuccessCopyWith(
+          _resetFailSuccess value, $Res Function(_resetFailSuccess) then) =
+      __$resetFailSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$resetFailSuccessCopyWithImpl<$Res>
+    extends _$AuthEventCopyWithImpl<$Res>
+    implements _$resetFailSuccessCopyWith<$Res> {
+  __$resetFailSuccessCopyWithImpl(
+      _resetFailSuccess _value, $Res Function(_resetFailSuccess) _then)
+      : super(_value, (v) => _then(v as _resetFailSuccess));
+
+  @override
+  _resetFailSuccess get _value => super._value as _resetFailSuccess;
+}
+
+/// @nodoc
+
+class _$_resetFailSuccess implements _resetFailSuccess {
+  const _$_resetFailSuccess();
+
+  @override
+  String toString() {
+    return 'AuthEvent.resetFailSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _resetFailSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() initializeFirebase,
+    required TResult Function() signIn,
+    required TResult Function() signOut,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return resetFailSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return resetFailSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? initializeFirebase,
+    TResult Function()? signIn,
+    TResult Function()? signOut,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (resetFailSuccess != null) {
+      return resetFailSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_initializeFirebase value) initializeFirebase,
+    required TResult Function(_signIn value) signIn,
+    required TResult Function(_signOut value) signOut,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return resetFailSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return resetFailSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_initializeFirebase value)? initializeFirebase,
+    TResult Function(_signIn value)? signIn,
+    TResult Function(_signOut value)? signOut,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (resetFailSuccess != null) {
+      return resetFailSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _resetFailSuccess implements AuthEvent {
+  const factory _resetFailSuccess() = _$_resetFailSuccess;
 }
 
 /// @nodoc
@@ -339,11 +574,17 @@ class _$AuthStateTearOff {
   const _$AuthStateTearOff();
 
   _AuthState call(
-      {bool isAuthenticated = false, Failure? failure, Success? success}) {
+      {bool isAuthenticated = false,
+      Failure? failure,
+      Success? success,
+      FirebaseApp? firebaseApp,
+      User? user}) {
     return _AuthState(
       isAuthenticated: isAuthenticated,
       failure: failure,
       success: success,
+      firebaseApp: firebaseApp,
+      user: user,
     );
   }
 }
@@ -356,6 +597,8 @@ mixin _$AuthState {
   bool get isAuthenticated => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
+  FirebaseApp? get firebaseApp => throw _privateConstructorUsedError;
+  User? get user => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $AuthStateCopyWith<AuthState> get copyWith =>
@@ -366,7 +609,12 @@ mixin _$AuthState {
 abstract class $AuthStateCopyWith<$Res> {
   factory $AuthStateCopyWith(AuthState value, $Res Function(AuthState) then) =
       _$AuthStateCopyWithImpl<$Res>;
-  $Res call({bool isAuthenticated, Failure? failure, Success? success});
+  $Res call(
+      {bool isAuthenticated,
+      Failure? failure,
+      Success? success,
+      FirebaseApp? firebaseApp,
+      User? user});
 
   $FailureCopyWith<$Res>? get failure;
   $SuccessCopyWith<$Res>? get success;
@@ -385,6 +633,8 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
     Object? isAuthenticated = freezed,
     Object? failure = freezed,
     Object? success = freezed,
+    Object? firebaseApp = freezed,
+    Object? user = freezed,
   }) {
     return _then(_value.copyWith(
       isAuthenticated: isAuthenticated == freezed
@@ -399,6 +649,14 @@ class _$AuthStateCopyWithImpl<$Res> implements $AuthStateCopyWith<$Res> {
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as Success?,
+      firebaseApp: firebaseApp == freezed
+          ? _value.firebaseApp
+          : firebaseApp // ignore: cast_nullable_to_non_nullable
+              as FirebaseApp?,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 
@@ -431,7 +689,12 @@ abstract class _$AuthStateCopyWith<$Res> implements $AuthStateCopyWith<$Res> {
           _AuthState value, $Res Function(_AuthState) then) =
       __$AuthStateCopyWithImpl<$Res>;
   @override
-  $Res call({bool isAuthenticated, Failure? failure, Success? success});
+  $Res call(
+      {bool isAuthenticated,
+      Failure? failure,
+      Success? success,
+      FirebaseApp? firebaseApp,
+      User? user});
 
   @override
   $FailureCopyWith<$Res>? get failure;
@@ -453,6 +716,8 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
     Object? isAuthenticated = freezed,
     Object? failure = freezed,
     Object? success = freezed,
+    Object? firebaseApp = freezed,
+    Object? user = freezed,
   }) {
     return _then(_AuthState(
       isAuthenticated: isAuthenticated == freezed
@@ -467,6 +732,14 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
           ? _value.success
           : success // ignore: cast_nullable_to_non_nullable
               as Success?,
+      firebaseApp: firebaseApp == freezed
+          ? _value.firebaseApp
+          : firebaseApp // ignore: cast_nullable_to_non_nullable
+              as FirebaseApp?,
+      user: user == freezed
+          ? _value.user
+          : user // ignore: cast_nullable_to_non_nullable
+              as User?,
     ));
   }
 }
@@ -475,7 +748,11 @@ class __$AuthStateCopyWithImpl<$Res> extends _$AuthStateCopyWithImpl<$Res>
 
 class _$_AuthState implements _AuthState {
   const _$_AuthState(
-      {this.isAuthenticated = false, this.failure, this.success});
+      {this.isAuthenticated = false,
+      this.failure,
+      this.success,
+      this.firebaseApp,
+      this.user});
 
   @JsonKey()
   @override
@@ -484,10 +761,14 @@ class _$_AuthState implements _AuthState {
   final Failure? failure;
   @override
   final Success? success;
+  @override
+  final FirebaseApp? firebaseApp;
+  @override
+  final User? user;
 
   @override
   String toString() {
-    return 'AuthState(isAuthenticated: $isAuthenticated, failure: $failure, success: $success)';
+    return 'AuthState(isAuthenticated: $isAuthenticated, failure: $failure, success: $success, firebaseApp: $firebaseApp, user: $user)';
   }
 
   @override
@@ -498,7 +779,10 @@ class _$_AuthState implements _AuthState {
             const DeepCollectionEquality()
                 .equals(other.isAuthenticated, isAuthenticated) &&
             const DeepCollectionEquality().equals(other.failure, failure) &&
-            const DeepCollectionEquality().equals(other.success, success));
+            const DeepCollectionEquality().equals(other.success, success) &&
+            const DeepCollectionEquality()
+                .equals(other.firebaseApp, firebaseApp) &&
+            const DeepCollectionEquality().equals(other.user, user));
   }
 
   @override
@@ -506,7 +790,9 @@ class _$_AuthState implements _AuthState {
       runtimeType,
       const DeepCollectionEquality().hash(isAuthenticated),
       const DeepCollectionEquality().hash(failure),
-      const DeepCollectionEquality().hash(success));
+      const DeepCollectionEquality().hash(success),
+      const DeepCollectionEquality().hash(firebaseApp),
+      const DeepCollectionEquality().hash(user));
 
   @JsonKey(ignore: true)
   @override
@@ -518,7 +804,9 @@ abstract class _AuthState implements AuthState {
   const factory _AuthState(
       {bool isAuthenticated,
       Failure? failure,
-      Success? success}) = _$_AuthState;
+      Success? success,
+      FirebaseApp? firebaseApp,
+      User? user}) = _$_AuthState;
 
   @override
   bool get isAuthenticated;
@@ -526,6 +814,10 @@ abstract class _AuthState implements AuthState {
   Failure? get failure;
   @override
   Success? get success;
+  @override
+  FirebaseApp? get firebaseApp;
+  @override
+  User? get user;
   @override
   @JsonKey(ignore: true)
   _$AuthStateCopyWith<_AuthState> get copyWith =>

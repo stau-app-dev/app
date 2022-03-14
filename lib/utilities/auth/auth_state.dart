@@ -6,6 +6,8 @@ class AuthState with _$AuthState {
     @Default(false) bool isAuthenticated,
     Failure? failure,
     Success? success,
+    FirebaseApp? firebaseApp,
+    User? user,
   }) = _AuthState;
   factory AuthState.initial() => const AuthState();
 }
