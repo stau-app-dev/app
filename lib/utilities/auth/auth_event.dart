@@ -2,7 +2,9 @@ part of 'auth_bloc.dart';
 
 @freezed
 class AuthEvent with _$AuthEvent {
-  const factory AuthEvent.logIn(
-      {required String email, required String password}) = _logIn;
-  const factory AuthEvent.logOut() = _logOut;
+  const factory AuthEvent.initializeFirebase() = _initializeFirebase;
+  const factory AuthEvent.checkSignedIn() = _checkSignedIn;
+  const factory AuthEvent.signIn() = _signIn;
+  const factory AuthEvent.signOut() = _signOut;
+  const factory AuthEvent.resetFailSuccess() = _resetFailSuccess;
 }

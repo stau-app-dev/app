@@ -5,7 +5,7 @@ part 'success.g.dart';
 @freezed
 class Success with _$Success {
   const factory Success({
-    required String message,
+    String? message,
   }) = _Success;
   factory Success.fromJson(Map<String, dynamic> json) =>
       _$SuccessFromJson(json);
