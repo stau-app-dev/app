@@ -133,10 +133,12 @@ class _SongRequestsState extends State<SongRequests> {
           const SizedBox(height: 10.0),
           RoundedButton(text: 'Submit', onPressed: onSubmitSong),
           const SizedBox(height: 30.0),
-          const Text(
-              'Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.',
-              textAlign: TextAlign.center,
-              style: TextStyle(fontSize: 12.0))
+          Container(
+              alignment: Alignment.center,
+              child: const Text(
+                  'Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 12.0))),
         ]));
   }
 
