@@ -9,6 +9,7 @@ import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 import 'package:staugustinechsnewapp/widgets/home/featured_cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -64,7 +65,18 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
       if (authState.isAuthenticated) {
-        return BlocBuilder<HomeBloc, HomeState>(builder: (context, homeState) {
+        return BlocConsumer<HomeBloc, HomeState>(
+            listenWhen: (previous, current) {
+          return (previous.failure == null && current.failure != null);
+        }, listener: (context, state) {
+          if (state.failure != null) {
+            useCustomSnackbar(
+                context: context,
+                message: state.failure!.message,
+                isError: true);
+            homeBloc.add(const HomeEvent.resetFailSuccess());
+          }
+        }, builder: (context, homeState) {
           return SafeArea(
             child: ListView(
               padding: Styles.mainOutsidePadding,
