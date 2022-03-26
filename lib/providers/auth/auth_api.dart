@@ -40,27 +40,40 @@ class AuthApi {
           await googleSignIn.signIn();
 
       if (googleSignInAccount != null) {
-        final GoogleSignInAuthentication googleSignInAuthentication =
-            await googleSignInAccount.authentication;
+        String gmail = googleSignInAccount.email;
 
-        final AuthCredential credential = GoogleAuthProvider.credential(
-          accessToken: googleSignInAuthentication.accessToken,
-          idToken: googleSignInAuthentication.idToken,
-        );
+        // Restrict to @ycdsbk12.ca, @ycdsb.ca, and special allowed emails
+        if (gmail.endsWith('@ycdsbk12.ca') ||
+            gmail.endsWith('@ycdsb.ca') ||
+            allowedGmails.contains(gmail)) {
+          // If allowed authenticate with Firebase
+          final GoogleSignInAuthentication googleSignInAuthentication =
+              await googleSignInAccount.authentication;
 
-        try {
-          final UserCredential userCredential =
-              await auth.signInWithCredential(credential);
-          user = userCredential.user;
-        } on FirebaseAuthException catch (e) {
-          if (e.code == googleErrorCodeDifferentCredentials) {
-            return const Left(Failure(message: errorAccountExists));
-          } else if (e.code == googleErrorCodeInvalidCredentials) {
-            return const Left(Failure(message: errorInvalidCredentials));
+          final AuthCredential credential = GoogleAuthProvider.credential(
+            accessToken: googleSignInAuthentication.accessToken,
+            idToken: googleSignInAuthentication.idToken,
+          );
+
+          try {
+            final UserCredential userCredential =
+                await auth.signInWithCredential(credential);
+            user = userCredential.user;
+          } on FirebaseAuthException catch (e) {
+            if (e.code == googleErrorCodeDifferentCredentials) {
+              return const Left(Failure(message: errorAccountExists));
+            } else if (e.code == googleErrorCodeInvalidCredentials) {
+              return const Left(Failure(message: errorInvalidCredentials));
+            }
           }
+          return Right(user);
+        } else {
+          await googleSignIn.signOut();
+          return const Left(Failure(message: errorUnauthorizedEmailDomain));
         }
+      } else {
+        return const Left(Failure(message: errorSigningIn));
       }
-      return Right(user);
     } catch (e) {
       return const Left(Failure(message: errorSigningIn));
     }

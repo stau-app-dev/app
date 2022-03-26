@@ -50,6 +50,7 @@
     "enav",
     "endtemplate",
     "fullscreen",
+    "Gmails",
     "LTRB",
     "Raleway",
     "RGBO",
@@ -58,7 +59,9 @@
     "textfield",
     "Upvote",
     "upvoted",
-    "vsync"
+    "vsync",
+    "ycdsb",
+    "ycdsbk"
   ],
   "cSpell.enabledLanguageIds": [
     "dart",
