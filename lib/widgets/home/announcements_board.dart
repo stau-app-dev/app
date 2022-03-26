@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
-  final List<Map<String, String>> announcements;
+  final List<GeneralAnnouncement> announcements;
   const AnnouncementsBoard({Key? key, required this.announcements})
       : super(key: key);
   @override
@@ -31,11 +32,11 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(
-                  announcement['title']!,
+                  announcement.title,
                   style: Styles.normalSubText,
                 ),
                 Text(
-                  announcement['content']!,
+                  announcement.content,
                   style: Styles.normalText,
                 ),
               ],

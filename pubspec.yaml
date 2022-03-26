@@ -36,6 +36,7 @@ dependencies:
   flutter_bloc: ^8.0.1
   freezed_annotation: ^1.1.0
   google_sign_in: ^5.0.0
+  http: ^0.13.4
   injectable: ^1.5.3
   json_serializable: ^6.1.5
 

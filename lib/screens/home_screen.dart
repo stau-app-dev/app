@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
-import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/home/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 import 'package:staugustinechsnewapp/widgets/home/featured_cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({Key? key}) : super(key: key);
@@ -16,29 +17,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  late AuthBloc authBloc;
-  late NavBloc navBloc;
-
-  List<Map<String, String>> sampleAnnouncements = [
-    {
-      'title': 'Announcement 1',
-      'content': 'Nice',
-    },
-    {
-      'title': 'St. Augustine CHS App Dev Team',
-      'content': 'New App coming soon, check in for more updates',
-    },
-    {
-      'title': 'Our Roots Club',
-      'content':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-    {
-      'title': 'Wow super long club name and or announcement title',
-      'content':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-  ];
+  late HomeBloc homeBloc;
 
   List<Map<String, String>> sampleVerses = [
     {
@@ -72,15 +51,23 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   void initState() {
-    authBloc = BlocProvider.of<AuthBloc>(context);
-    navBloc = BlocProvider.of<NavBloc>(context);
+    homeBloc = BlocProvider.of<HomeBloc>(context);
+    homeBloc.add(const HomeEvent.getGeneralAnnouncements());
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<AuthBloc, AuthState>(builder: (context, state) {
-      if (state.isAuthenticated) {
+    return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
+      return BlocConsumer<HomeBloc, HomeState>(listenWhen: (previous, current) {
+        return (previous.failure == null && current.failure != null);
+      }, listener: (context, state) {
+        if (state.failure != null) {
+          useCustomSnackbar(
+              context: context, message: state.failure!.message, isError: true);
+          homeBloc.add(const HomeEvent.resetFailSuccess());
+        }
+      }, builder: (context, homeState) {
         return SafeArea(
           child: ListView(
             padding: Styles.mainOutsidePadding,
@@ -89,7 +76,7 @@ class _HomeScreenState extends State<HomeScreen> {
               const WelcomeBanner(),
               const SizedBox(height: Styles.mainSpacing),
               AnnouncementsBoard(
-                announcements: sampleAnnouncements,
+                announcements: homeState.generalAnnouncements,
               ),
               const SizedBox(height: Styles.mainSpacing),
               FeaturedCafeItems(cafeItems: sampleFeaturedCafeItems),
@@ -103,11 +90,7 @@ class _HomeScreenState extends State<HomeScreen> {
             ],
           ),
         );
-      } else {
-        navBloc.add(const NavEvent.setNavbarVisible(isVisible: false));
-        navBloc.add(const NavEvent.changeScreen(screen: ENav.login));
-        return Container();
-      }
+      });
     });
   }
 }

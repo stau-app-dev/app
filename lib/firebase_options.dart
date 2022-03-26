@@ -41,21 +41,23 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyB9lxJA2zchpowCJp6lUBLFVpuSB2fmeYU',
-    appId: '1:679735156531:android:69dcd23d46e034d420a846',
-    messagingSenderId: '679735156531',
-    projectId: 'st-augustine-chs-app-dev',
-    storageBucket: 'st-augustine-chs-app-dev.appspot.com',
+    apiKey: 'AIzaSyBpH5w6NlYYlLv4Um2SciP7cSMzHEP8iTo',
+    appId: '1:448336593725:android:b76d89698990b91824fb54',
+    messagingSenderId: '448336593725',
+    projectId: 'staugustinechsapp',
+    databaseURL: 'https://staugustinechsapp.firebaseio.com',
+    storageBucket: 'staugustinechsapp.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyAF1NI3BaQv-0QEdfNju8gHohnVJ6qwNhU',
-    appId: '1:679735156531:ios:f907f3f98aa4288420a846',
-    messagingSenderId: '679735156531',
-    projectId: 'st-augustine-chs-app-dev',
-    storageBucket: 'st-augustine-chs-app-dev.appspot.com',
-    androidClientId: '679735156531-guohlal52e6ff0n370vvsa9ia1vfj6do.apps.googleusercontent.com',
-    iosClientId: '679735156531-b1vnrsrgg6mu30hr0vnvhpirh6fb72e0.apps.googleusercontent.com',
+    apiKey: 'AIzaSyCSoT-UfwzSU4534PoMeiV0XO7CKlzh3h8',
+    appId: '1:448336593725:ios:05a44d1a022f3fe024fb54',
+    messagingSenderId: '448336593725',
+    projectId: 'staugustinechsapp',
+    databaseURL: 'https://staugustinechsapp.firebaseio.com',
+    storageBucket: 'staugustinechsapp.appspot.com',
+    androidClientId: '448336593725-aitrgsn19hppn2flic1rdrgad50r74ot.apps.googleusercontent.com',
+    iosClientId: '448336593725-s0fm1j92bo65uk16kmtp40dnkdif6sdf.apps.googleusercontent.com',
     iosBundleId: 'com.staugustinechs.app',
   );
 }
