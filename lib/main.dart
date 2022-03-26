@@ -9,9 +9,8 @@ import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
-
-import 'utilities/home/home_bloc.dart';
 
 const env = kReleaseMode ? Environment.prod : Environment.test;
 

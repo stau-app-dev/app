@@ -1,48 +1,109 @@
 {
   "project_info": {
-    "project_number": "679735156531",
-    "project_id": "st-augustine-chs-app-dev",
-    "storage_bucket": "st-augustine-chs-app-dev.appspot.com"
+    "project_number": "448336593725",
+    "firebase_url": "https://staugustinechsapp.firebaseio.com",
+    "project_id": "staugustinechsapp",
+    "storage_bucket": "staugustinechsapp.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:679735156531:android:69dcd23d46e034d420a846",
+        "mobilesdk_app_id": "1:448336593725:android:a6ccc0064b16be83",
         "android_client_info": {
-          "package_name": "com.example.staugustinechsnewapp"
+          "package_name": "ca.staugustinechs.staugustineapp"
         }
       },
       "oauth_client": [
         {
-          "client_id": "679735156531-guohlal52e6ff0n370vvsa9ia1vfj6do.apps.googleusercontent.com",
+          "client_id": "448336593725-aitrgsn19hppn2flic1rdrgad50r74ot.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.example.staugustinechsnewapp",
-            "certificate_hash": "551fe4b060a9b4482e9573d10a908e3934a04c2f"
+            "package_name": "ca.staugustinechs.staugustineapp",
+            "certificate_hash": "83225e9ced2436e733f8d22e25774a532e63bcfb"
           }
         },
         {
-          "client_id": "679735156531-n5vdhssl4k4orf5534njd7niuma5f1jf.apps.googleusercontent.com",
+          "client_id": "448336593725-j9ga8i9k8u1gn0p1po01vlhueop8ucq0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.staugustinechs.staugustineapp",
+            "certificate_hash": "e90ed1faae08ee5584af07da814f37c4b8e19b3c"
+          }
+        },
+        {
+          "client_id": "448336593725-u5toukmmb0fv71r30vu8v1pmqv9mhr0q.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "ca.staugustinechs.staugustineapp",
+            "certificate_hash": "7871cb14b778e969b4adbd0a684f869ccd08e625"
+          }
+        },
+        {
+          "client_id": "448336593725-t8r644rolhvhf748bej233s6n6i9m8it.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyB9lxJA2zchpowCJp6lUBLFVpuSB2fmeYU"
+          "current_key": "AIzaSyBpH5w6NlYYlLv4Um2SciP7cSMzHEP8iTo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "679735156531-n5vdhssl4k4orf5534njd7niuma5f1jf.apps.googleusercontent.com",
+              "client_id": "448336593725-i621cq64lq9aukrde0qc0mmrikv84cg4.apps.googleusercontent.com",
               "client_type": 3
             },
             {
-              "client_id": "679735156531-b1vnrsrgg6mu30hr0vnvhpirh6fb72e0.apps.googleusercontent.com",
+              "client_id": "448336593725-1o719a6kmfgao298d8shdfsg2nmhm9d0.apps.googleusercontent.com",
               "client_type": 2,
               "ios_info": {
-                "bundle_id": "com.staugustinechs.app"
+                "bundle_id": "ca.staugustinechs.sta2022"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:448336593725:android:b76d89698990b91824fb54",
+        "android_client_info": {
+          "package_name": "com.staugustinechs.app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "448336593725-vk21nmk0ke63fdtmmg8va6veoproclj0.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.staugustinechs.app",
+            "certificate_hash": "551fe4b060a9b4482e9573d10a908e3934a04c2f"
+          }
+        },
+        {
+          "client_id": "448336593725-t8r644rolhvhf748bej233s6n6i9m8it.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBpH5w6NlYYlLv4Um2SciP7cSMzHEP8iTo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "448336593725-i621cq64lq9aukrde0qc0mmrikv84cg4.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "448336593725-1o719a6kmfgao298d8shdfsg2nmhm9d0.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "ca.staugustinechs.sta2022"
               }
             }
           ]
