@@ -7,6 +7,7 @@ import 'package:staugustinechsnewapp/screens/profile_screen.dart';
 import 'package:staugustinechsnewapp/screens/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/song_requests_screen.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
@@ -67,7 +68,9 @@ class _ScreenControllerState extends State<ScreenController> {
             guardedScreens.contains(navState.currentScreen)) {
           navBloc.add(const NavEvent.setNavbarVisible(isVisible: false));
           navBloc.add(const NavEvent.changeScreen(screen: ENav.login));
-          return Container();
+          return Container(
+            color: Styles.white,
+          );
         } else {
           return Scaffold(
             body: FadeIndexedStack(
