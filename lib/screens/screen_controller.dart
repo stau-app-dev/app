@@ -7,6 +7,7 @@ import 'package:staugustinechsnewapp/screens/profile_screen.dart';
 import 'package:staugustinechsnewapp/screens/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/song_requests_screen.dart';
+import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/navigation/bottom_nav_bar.dart';
@@ -42,23 +43,42 @@ class ScreenController extends StatefulWidget {
 }
 
 class _ScreenControllerState extends State<ScreenController> {
+  late AuthBloc authBloc;
+  late NavBloc navBloc;
+
+  List<ENav> guardedScreens = [
+    ENav.profile,
+    ENav.socials,
+    ENav.songRequests,
+  ];
+
   @override
   void initState() {
-    BlocProvider.of<NavBloc>(context);
+    authBloc = BlocProvider.of<AuthBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<NavBloc, NavState>(builder: (context, state) {
-      return Scaffold(
-        body: FadeIndexedStack(
-          index: eNavToIndex(state.currentScreen),
-          children: _generateScreensStack(),
-          duration: const Duration(milliseconds: 250),
-        ),
-        bottomNavigationBar: const BottomNavBar(),
-      );
+    return BlocBuilder<NavBloc, NavState>(builder: (context, navState) {
+      return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
+        if (!authState.isAuthenticated &&
+            guardedScreens.contains(navState.currentScreen)) {
+          navBloc.add(const NavEvent.setNavbarVisible(isVisible: false));
+          navBloc.add(const NavEvent.changeScreen(screen: ENav.login));
+          return Container();
+        } else {
+          return Scaffold(
+            body: FadeIndexedStack(
+              index: eNavToIndex(navState.currentScreen),
+              children: _generateScreensStack(),
+              duration: const Duration(milliseconds: 250),
+            ),
+            bottomNavigationBar: const BottomNavBar(),
+          );
+        }
+      });
     });
   }
 }
