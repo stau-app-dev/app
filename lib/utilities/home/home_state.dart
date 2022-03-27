@@ -5,7 +5,10 @@ class HomeState with _$HomeState {
   const factory HomeState({
     Failure? failure,
     Success? success,
-    @Default([]) List<GeneralAnnouncement> generalAnnouncements,
+    int? dayNumber,
+    List<GeneralAnnouncement>? generalAnnouncements,
+    SpiritMeters? spiritMeters,
+    VerseOfDay? verseOfDay,
   }) = _HomeState;
   factory HomeState.initial() => const HomeState();
 }

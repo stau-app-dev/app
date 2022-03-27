@@ -1,22 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
 void main() {
   group('SpiritMeter widget tests', () {
-    Map<int, double> testSpiritMeterData = {
-      9: 40.0,
-      10: 53.0,
-      11: 66.0,
-      12: 100.0,
-    };
+    SpiritMeters testSpiritMeterData = const SpiritMeters(
+      nine: 40,
+      ten: 53,
+      eleven: 60.3,
+      twelve: 50.3,
+    );
 
     testWidgets('it displays title', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: SpiritMeter(spiritMeterData: testSpiritMeterData),
+            body: SpiritMeterBars(spiritMeters: testSpiritMeterData),
           ),
         ),
       );
@@ -28,7 +29,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: SpiritMeter(spiritMeterData: testSpiritMeterData),
+            body: SpiritMeterBars(spiritMeters: testSpiritMeterData),
           ),
         ),
       );
@@ -36,7 +37,7 @@ void main() {
 
       expect(find.byType(RoundedLinearProgressIndicator), findsNWidgets(4));
       int i = 0;
-      testSpiritMeterData.forEach((key, value) {
+      testSpiritMeterData.toJson().forEach((key, value) {
         RoundedLinearProgressIndicator roundedLinearProgressIndicator = find
             .byType(RoundedLinearProgressIndicator)
             .evaluate()

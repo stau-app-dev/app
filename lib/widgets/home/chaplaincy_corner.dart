@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class ChaplaincyCorner extends StatefulWidget {
-  final List<Map<String, String>> verses;
-  const ChaplaincyCorner({Key? key, required this.verses}) : super(key: key);
+  final VerseOfDay? verseOfDay;
+  const ChaplaincyCorner({Key? key, this.verseOfDay}) : super(key: key);
+
   @override
   State<ChaplaincyCorner> createState() => _ChaplaincyCornerState();
 }
@@ -11,38 +13,30 @@ class ChaplaincyCorner extends StatefulWidget {
 class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  List<Widget> buildVerses() {
-    List<Widget> verses = [const SizedBox(height: 20.0)];
-    for (var announcement in widget.verses) {
-      verses.add(
-        Container(
-            width: getWidth(context),
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
-            decoration: BoxDecoration(
-                color: Styles.white,
-                border: Border.all(
-                  color: Styles.primary,
-                  width: 1.0,
-                ),
-                borderRadius: Styles.mainBorderRadius),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: <Widget>[
-                Text(
-                  announcement['title']!,
-                  style: Styles.normalSubText,
-                ),
-                Text(
-                  announcement['content']!,
-                  style: Styles.normalText,
-                ),
-              ],
-            )),
-      );
-      verses.add(const SizedBox(height: 10.0));
-    }
-    return verses;
+  Widget buildVerseOfDay(VerseOfDay verseOfDay) {
+    return Container(
+        width: getWidth(context),
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+        decoration: BoxDecoration(
+            color: Styles.white,
+            border: Border.all(
+              color: Styles.primary,
+              width: 1.0,
+            ),
+            borderRadius: Styles.mainBorderRadius),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            const Text(
+              'Verse of the Day',
+              style: Styles.normalSubText,
+            ),
+            Text(
+              verseOfDay.verseOfDay,
+              style: Styles.normalText,
+            ),
+          ],
+        ));
   }
 
   @override
@@ -58,7 +52,10 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Chaplaincy Corner', style: Styles.normalMainText),
-            ...buildVerses(),
+            const SizedBox(height: 20.0),
+            widget.verseOfDay != null
+                ? buildVerseOfDay(widget.verseOfDay!)
+                : const Text('Loading...'),
           ],
         ));
   }

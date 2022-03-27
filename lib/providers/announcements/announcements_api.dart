@@ -11,7 +11,7 @@ class AnnouncementsApi {
   static Future<Either<Failure, List<GeneralAnnouncement>>>
       getGeneralAnnouncements() async {
     try {
-      Response res = await get(Uri.parse(generalAnnouncementsEndpoint));
+      Response res = await get(Uri.parse(getGeneralAnnouncementsEndpoint));
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<GeneralAnnouncement> announcements = [];

@@ -1,21 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/home/word_to_number_conversion.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
-class SpiritMeter extends StatefulWidget {
-  final Map<int, double> spiritMeterData;
-  const SpiritMeter({Key? key, required this.spiritMeterData})
-      : super(key: key);
+class SpiritMeterBars extends StatefulWidget {
+  final SpiritMeters? spiritMeters;
+  const SpiritMeterBars({Key? key, this.spiritMeters}) : super(key: key);
+
   @override
-  State<SpiritMeter> createState() => _SpiritMeterState();
+  State<SpiritMeterBars> createState() => _SpiritMeterBarsState();
 }
 
-class _SpiritMeterState extends State<SpiritMeter> {
+class _SpiritMeterBarsState extends State<SpiritMeterBars> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  List<Widget> buildSpiritMeters() {
+  List<Widget> buildSpiritMeters(SpiritMeters spiritMetersData) {
     List<Widget> spiritMeters = [];
-    widget.spiritMeterData.forEach((key, value) {
+    spiritMetersData.toJson().forEach((key, value) {
       spiritMeters.add(SizedBox(
         width: getWidth(context),
         height: 30.0,
@@ -23,7 +25,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
           SizedBox(
               width: getWidth(context) * 0.075,
               child: Text(
-                '$key',
+                wordToNumberConversion(key),
                 style: const TextStyle(
                   color: Styles.primary,
                   fontSize: Styles.fontSizeNormal,
@@ -48,6 +50,14 @@ class _SpiritMeterState extends State<SpiritMeter> {
 
   @override
   Widget build(BuildContext context) {
+    SpiritMeters spiritMeters = widget.spiritMeters ??
+        const SpiritMeters(
+          nine: 0,
+          ten: 0,
+          eleven: 0,
+          twelve: 0,
+        );
+
     return Container(
         decoration: BoxDecoration(
             color: Styles.white,
@@ -60,7 +70,7 @@ class _SpiritMeterState extends State<SpiritMeter> {
           children: [
             const Text('Spirit Meter', style: Styles.normalMainText),
             const SizedBox(height: 20.0),
-            ...buildSpiritMeters(),
+            ...buildSpiritMeters(spiritMeters),
           ],
         ));
   }

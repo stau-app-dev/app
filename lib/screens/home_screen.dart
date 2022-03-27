@@ -19,20 +19,20 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late HomeBloc homeBloc;
 
-  List<Map<String, String>> sampleVerses = [
-    {
-      'title': 'Verse of The Day',
-      'content':
-          'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-    },
-  ];
+  // List<Map<String, String>> sampleVerses = [
+  //   {
+  //     'title': 'Verse of The Day',
+  //     'content':
+  //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+  //   },
+  // ];
 
-  Map<int, double> sampleSpiritMeterData = {
-    9: 40.0,
-    10: 53.0,
-    11: 66.0,
-    12: 100.0,
-  };
+  // Map<int, double> sampleSpiritMeterData = {
+  //   9: 40.0,
+  //   10: 53.0,
+  //   11: 66.0,
+  //   12: 100.0,
+  // };
 
   List<Map<String, String>> sampleFeaturedCafeItems = [
     {
@@ -52,7 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     homeBloc = BlocProvider.of<HomeBloc>(context);
+    homeBloc.add(const HomeEvent.getDayNumber());
     homeBloc.add(const HomeEvent.getGeneralAnnouncements());
+    homeBloc.add(const HomeEvent.getSpiritMeters());
+    homeBloc.add(const HomeEvent.getVerseOfDay());
     super.initState();
   }
 
@@ -73,7 +76,10 @@ class _HomeScreenState extends State<HomeScreen> {
             padding: Styles.mainOutsidePadding,
             children: <Widget>[
               const SizedBox(height: Styles.mainVerticalPadding),
-              const WelcomeBanner(),
+              WelcomeBanner(
+                dayNumber: homeState.dayNumber,
+                userName: authState.user?.displayName,
+              ),
               const SizedBox(height: Styles.mainSpacing),
               AnnouncementsBoard(
                 announcements: homeState.generalAnnouncements,
@@ -81,11 +87,11 @@ class _HomeScreenState extends State<HomeScreen> {
               const SizedBox(height: Styles.mainSpacing),
               FeaturedCafeItems(cafeItems: sampleFeaturedCafeItems),
               const SizedBox(height: Styles.mainSpacing),
-              SpiritMeter(
-                spiritMeterData: sampleSpiritMeterData,
+              SpiritMeterBars(
+                spiritMeters: homeState.spiritMeters,
               ),
               const SizedBox(height: Styles.mainSpacing),
-              ChaplaincyCorner(verses: sampleVerses),
+              ChaplaincyCorner(verseOfDay: homeState.verseOfDay),
               const SizedBox(height: Styles.mainVerticalPadding),
             ],
           ),

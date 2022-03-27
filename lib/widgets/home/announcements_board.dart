@@ -3,7 +3,7 @@ import 'package:staugustinechsnewapp/models/announcements/general_announcement/g
 import 'package:staugustinechsnewapp/styles.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
-  final List<GeneralAnnouncement> announcements;
+  final List<GeneralAnnouncement>? announcements;
   const AnnouncementsBoard({Key? key, required this.announcements})
       : super(key: key);
   @override
@@ -13,9 +13,9 @@ class AnnouncementsBoard extends StatefulWidget {
 class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  List<Widget> buildItems() {
+  List<Widget> buildItems(List<GeneralAnnouncement> announcements) {
     List<Widget> rows = [const SizedBox(height: 20.0)];
-    for (var announcement in widget.announcements) {
+    for (var announcement in announcements) {
       rows.add(
         Container(
             width: getWidth(context),
@@ -49,6 +49,13 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
 
   @override
   Widget build(BuildContext context) {
+    List<GeneralAnnouncement> announcements = widget.announcements ??
+        [
+          const GeneralAnnouncement(
+              title: 'No Announcements',
+              content: 'There are no announcements at this time.')
+        ];
+
     return Container(
         decoration: BoxDecoration(
             color: Styles.white,
@@ -60,7 +67,7 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             const Text('Announcements Board', style: Styles.normalMainText),
-            ...buildItems(),
+            ...buildItems(announcements),
           ],
         ));
   }

@@ -1,18 +1,16 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 
-part of 'day_info.dart';
+part of 'day_number.dart';
 
 // **************************************************************************
 // JsonSerializableGenerator
 // **************************************************************************
 
-_$_DayInfo _$$_DayInfoFromJson(Map<String, dynamic> json) => _$_DayInfo(
-      dayNumber: json['dayNumber'] as int,
-      isSnowDay: json['isSnowDay'] as bool,
+_$_DayNumber _$$_DayNumberFromJson(Map<String, dynamic> json) => _$_DayNumber(
+      dayNumber: json['dayNumber'] as int?,
     );
 
-Map<String, dynamic> _$$_DayInfoToJson(_$_DayInfo instance) =>
+Map<String, dynamic> _$$_DayNumberToJson(_$_DayNumber instance) =>
     <String, dynamic>{
       'dayNumber': instance.dayNumber,
-      'isSnowDay': instance.isSnowDay,
     };
