@@ -19,21 +19,6 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   late HomeBloc homeBloc;
 
-  // List<Map<String, String>> sampleVerses = [
-  //   {
-  //     'title': 'Verse of The Day',
-  //     'content':
-  //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-  //   },
-  // ];
-
-  // Map<int, double> sampleSpiritMeterData = {
-  //   9: 40.0,
-  //   10: 53.0,
-  //   11: 66.0,
-  //   12: 100.0,
-  // };
-
   List<Map<String, String>> sampleFeaturedCafeItems = [
     {
       'food': 'Caramel Latte',

@@ -28,7 +28,7 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
             const Text(
-              'Verse of the Day',
+              'Verse of The Day',
               style: Styles.normalSubText,
             ),
             Text(
