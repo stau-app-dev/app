@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class WelcomeBanner extends StatefulWidget {
-  const WelcomeBanner({Key? key}) : super(key: key);
+  final int? dayNumber;
+  final String? userName;
+  const WelcomeBanner({Key? key, this.dayNumber, this.userName})
+      : super(key: key);
+
   @override
   State<WelcomeBanner> createState() => _WelcomeBannerState();
 }
@@ -14,6 +19,13 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
 
   @override
   Widget build(BuildContext context) {
+    String welcomeText = widget.userName != null
+        ? 'Welcome ${widget.userName}'
+        : 'Welcome to St. Augustine';
+    String dayNumberText =
+        widget.dayNumber != null ? 'day ${widget.dayNumber}' : 'day';
+    String dateText = DateFormat('MMMM d, yyyy').format(DateTime.now());
+
     return Container(
         decoration: BoxDecoration(
             color: Styles.primary,
@@ -31,10 +43,9 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
                 width: getChildWidth(context, 0.5),
                 child: Wrap(
                   children: [
-                    const Text('Welcome John Doe',
-                        style: Styles.headerMainText),
+                    Text(welcomeText, style: Styles.headerMainText),
                     Container(height: 10.0),
-                    const Text('Today is a beautiful day 1,\nNovember 12, 2020',
+                    Text('Today is a beautiful $dayNumberText,\n$dateText',
                         style: Styles.headerSubText),
                   ],
                 )),
