@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/routes/router.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/profile/course_timetable.dart';
@@ -23,7 +24,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
   }
 
   void onPressedSettings() {
-    navBloc.add(const NavEvent.changeScreen(screen: ENav.settings));
+    navBloc.add(NavEvent.changeScreen(screen: ENav.settings, context: context));
   }
 
   @override

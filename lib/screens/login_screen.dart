@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/routes/router.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
@@ -27,7 +28,7 @@ class _LoginScreenState extends State<LoginScreen> {
   void onPressedLogin() {
     authBloc.add(const AuthEvent.signIn());
     navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
-    navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
+    navBloc.add(NavEvent.changeScreen(screen: ENav.home, context: context));
   }
 
   @override
@@ -47,7 +48,7 @@ class _LoginScreenState extends State<LoginScreen> {
       }
       if (state.isAuthenticated) {
         navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
-        navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
+        navBloc.add(NavEvent.changeScreen(screen: ENav.home, context: context));
       }
     }, builder: (context, state) {
       return SafeArea(

@@ -1,3 +1,5 @@
+import 'package:staugustinechsnewapp/routes/router.dart';
+
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -6,7 +8,6 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
-import 'package:staugustinechsnewapp/screens/screen_controller.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
@@ -48,8 +49,20 @@ void main() async {
   ));
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
   const MyApp({Key? key}) : super(key: key);
+  @override
+  State<MyApp> createState() => _MyApp();
+}
+
+class _MyApp extends State<MyApp> {
+  late AuthBloc authBloc;
+
+  @override
+  void initState() {
+    authBloc = BlocProvider.of<AuthBloc>(context);
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -143,7 +156,10 @@ class MyApp extends StatelessWidget {
               letterSpacing: 1.5),
         ),
       ),
-      home: const ScreenController(),
+      home: MaterialApp.router(
+          debugShowCheckedModeBanner: false,
+          routeInformationParser: router(authBloc).routeInformationParser,
+          routerDelegate: router(authBloc).routerDelegate),
     );
   }
 }

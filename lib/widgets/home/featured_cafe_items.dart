@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/routes/router.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
@@ -71,7 +72,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
   }
 
   void onViewMorePressed() {
-    navBloc.add(const NavEvent.changeScreen(screen: ENav.cafeMenu));
+    navBloc.add(NavEvent.changeScreen(screen: ENav.cafeMenu, context: context));
   }
 
   @override

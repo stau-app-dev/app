@@ -18,9 +18,11 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$NavEventTearOff {
   const _$NavEventTearOff();
 
-  _changeScreen changeScreen({required ENav screen}) {
+  _changeScreen changeScreen(
+      {required ENav screen, required BuildContext context}) {
     return _changeScreen(
       screen: screen,
+      context: context,
     );
   }
 
@@ -38,19 +40,19 @@ const $NavEvent = _$NavEventTearOff();
 mixin _$NavEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ENav screen) changeScreen,
+    required TResult Function(ENav screen, BuildContext context) changeScreen,
     required TResult Function(bool isVisible) setNavbarVisible,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
     required TResult orElse(),
   }) =>
@@ -96,7 +98,7 @@ abstract class _$changeScreenCopyWith<$Res> {
   factory _$changeScreenCopyWith(
           _changeScreen value, $Res Function(_changeScreen) then) =
       __$changeScreenCopyWithImpl<$Res>;
-  $Res call({ENav screen});
+  $Res call({ENav screen, BuildContext context});
 }
 
 /// @nodoc
@@ -112,12 +114,17 @@ class __$changeScreenCopyWithImpl<$Res> extends _$NavEventCopyWithImpl<$Res>
   @override
   $Res call({
     Object? screen = freezed,
+    Object? context = freezed,
   }) {
     return _then(_changeScreen(
       screen: screen == freezed
           ? _value.screen
           : screen // ignore: cast_nullable_to_non_nullable
               as ENav,
+      context: context == freezed
+          ? _value.context
+          : context // ignore: cast_nullable_to_non_nullable
+              as BuildContext,
     ));
   }
 }
@@ -125,14 +132,16 @@ class __$changeScreenCopyWithImpl<$Res> extends _$NavEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_changeScreen implements _changeScreen {
-  const _$_changeScreen({required this.screen});
+  const _$_changeScreen({required this.screen, required this.context});
 
   @override
   final ENav screen;
+  @override
+  final BuildContext context;
 
   @override
   String toString() {
-    return 'NavEvent.changeScreen(screen: $screen)';
+    return 'NavEvent.changeScreen(screen: $screen, context: $context)';
   }
 
   @override
@@ -140,12 +149,15 @@ class _$_changeScreen implements _changeScreen {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _changeScreen &&
-            const DeepCollectionEquality().equals(other.screen, screen));
+            const DeepCollectionEquality().equals(other.screen, screen) &&
+            const DeepCollectionEquality().equals(other.context, context));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(screen));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(screen),
+      const DeepCollectionEquality().hash(context));
 
   @JsonKey(ignore: true)
   @override
@@ -155,30 +167,30 @@ class _$_changeScreen implements _changeScreen {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ENav screen) changeScreen,
+    required TResult Function(ENav screen, BuildContext context) changeScreen,
     required TResult Function(bool isVisible) setNavbarVisible,
   }) {
-    return changeScreen(screen);
+    return changeScreen(screen, context);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
   }) {
-    return changeScreen?.call(screen);
+    return changeScreen?.call(screen, context);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
     required TResult orElse(),
   }) {
     if (changeScreen != null) {
-      return changeScreen(screen);
+      return changeScreen(screen, context);
     }
     return orElse();
   }
@@ -216,9 +228,11 @@ class _$_changeScreen implements _changeScreen {
 }
 
 abstract class _changeScreen implements NavEvent {
-  const factory _changeScreen({required ENav screen}) = _$_changeScreen;
+  const factory _changeScreen(
+      {required ENav screen, required BuildContext context}) = _$_changeScreen;
 
   ENav get screen;
+  BuildContext get context;
   @JsonKey(ignore: true)
   _$changeScreenCopyWith<_changeScreen> get copyWith =>
       throw _privateConstructorUsedError;
@@ -288,7 +302,7 @@ class _$_setNavbarVisible implements _setNavbarVisible {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(ENav screen) changeScreen,
+    required TResult Function(ENav screen, BuildContext context) changeScreen,
     required TResult Function(bool isVisible) setNavbarVisible,
   }) {
     return setNavbarVisible(isVisible);
@@ -297,7 +311,7 @@ class _$_setNavbarVisible implements _setNavbarVisible {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
   }) {
     return setNavbarVisible?.call(isVisible);
@@ -306,7 +320,7 @@ class _$_setNavbarVisible implements _setNavbarVisible {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(ENav screen)? changeScreen,
+    TResult Function(ENav screen, BuildContext context)? changeScreen,
     TResult Function(bool isVisible)? setNavbarVisible,
     required TResult orElse(),
   }) {
@@ -362,9 +376,8 @@ abstract class _setNavbarVisible implements NavEvent {
 class _$NavStateTearOff {
   const _$NavStateTearOff();
 
-  _NavState call({ENav currentScreen = ENav.home, bool navbarVisible = true}) {
+  _NavState call({bool navbarVisible = true}) {
     return _NavState(
-      currentScreen: currentScreen,
       navbarVisible: navbarVisible,
     );
   }
@@ -375,7 +388,6 @@ const $NavState = _$NavStateTearOff();
 
 /// @nodoc
 mixin _$NavState {
-  ENav get currentScreen => throw _privateConstructorUsedError;
   bool get navbarVisible => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
@@ -387,7 +399,7 @@ mixin _$NavState {
 abstract class $NavStateCopyWith<$Res> {
   factory $NavStateCopyWith(NavState value, $Res Function(NavState) then) =
       _$NavStateCopyWithImpl<$Res>;
-  $Res call({ENav currentScreen, bool navbarVisible});
+  $Res call({bool navbarVisible});
 }
 
 /// @nodoc
@@ -400,14 +412,9 @@ class _$NavStateCopyWithImpl<$Res> implements $NavStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? currentScreen = freezed,
     Object? navbarVisible = freezed,
   }) {
     return _then(_value.copyWith(
-      currentScreen: currentScreen == freezed
-          ? _value.currentScreen
-          : currentScreen // ignore: cast_nullable_to_non_nullable
-              as ENav,
       navbarVisible: navbarVisible == freezed
           ? _value.navbarVisible
           : navbarVisible // ignore: cast_nullable_to_non_nullable
@@ -421,7 +428,7 @@ abstract class _$NavStateCopyWith<$Res> implements $NavStateCopyWith<$Res> {
   factory _$NavStateCopyWith(_NavState value, $Res Function(_NavState) then) =
       __$NavStateCopyWithImpl<$Res>;
   @override
-  $Res call({ENav currentScreen, bool navbarVisible});
+  $Res call({bool navbarVisible});
 }
 
 /// @nodoc
@@ -435,14 +442,9 @@ class __$NavStateCopyWithImpl<$Res> extends _$NavStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? currentScreen = freezed,
     Object? navbarVisible = freezed,
   }) {
     return _then(_NavState(
-      currentScreen: currentScreen == freezed
-          ? _value.currentScreen
-          : currentScreen // ignore: cast_nullable_to_non_nullable
-              as ENav,
       navbarVisible: navbarVisible == freezed
           ? _value.navbarVisible
           : navbarVisible // ignore: cast_nullable_to_non_nullable
@@ -454,19 +456,15 @@ class __$NavStateCopyWithImpl<$Res> extends _$NavStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_NavState implements _NavState {
-  const _$_NavState(
-      {this.currentScreen = ENav.home, this.navbarVisible = true});
+  const _$_NavState({this.navbarVisible = true});
 
-  @JsonKey()
-  @override
-  final ENav currentScreen;
   @JsonKey()
   @override
   final bool navbarVisible;
 
   @override
   String toString() {
-    return 'NavState(currentScreen: $currentScreen, navbarVisible: $navbarVisible)';
+    return 'NavState(navbarVisible: $navbarVisible)';
   }
 
   @override
@@ -475,16 +473,12 @@ class _$_NavState implements _NavState {
         (other.runtimeType == runtimeType &&
             other is _NavState &&
             const DeepCollectionEquality()
-                .equals(other.currentScreen, currentScreen) &&
-            const DeepCollectionEquality()
                 .equals(other.navbarVisible, navbarVisible));
   }
 
   @override
   int get hashCode => Object.hash(
-      runtimeType,
-      const DeepCollectionEquality().hash(currentScreen),
-      const DeepCollectionEquality().hash(navbarVisible));
+      runtimeType, const DeepCollectionEquality().hash(navbarVisible));
 
   @JsonKey(ignore: true)
   @override
@@ -493,11 +487,8 @@ class _$_NavState implements _NavState {
 }
 
 abstract class _NavState implements NavState {
-  const factory _NavState({ENav currentScreen, bool navbarVisible}) =
-      _$_NavState;
+  const factory _NavState({bool navbarVisible}) = _$_NavState;
 
-  @override
-  ENav get currentScreen;
   @override
   bool get navbarVisible;
   @override
