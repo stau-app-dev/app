@@ -90,7 +90,7 @@ class _CafeMenuScreenState extends State<CafeMenuScreen> {
           const SizedBox(height: Styles.mainVerticalPadding),
           const ScreenHeader(headerText: 'Cafeteria Menu'),
           const SizedBox(height: Styles.mainSpacing),
-          CafeItems(title: 'Todays Specials', items: sampleTodaysSpecials),
+          CafeItems(title: "Today's Specials", items: sampleTodaysSpecials),
           const SizedBox(height: Styles.mainSpacing),
           CafeItems(title: 'Menu', items: sampleMenuItems),
           const SizedBox(height: Styles.mainVerticalPadding),
