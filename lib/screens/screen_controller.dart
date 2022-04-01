@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/screens/main/cafe_menu_screen.dart';
-import 'package:staugustinechsnewapp/screens/main/home_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/login_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/profile_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/song_requests_screen.dart';
-import 'package:staugustinechsnewapp/screens/scaffolds/home_screen_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/cafe_menu_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -16,7 +15,7 @@ import 'package:staugustinechsnewapp/widgets/navigation/bottom_nav_bar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/fade_indexed_stack.dart';
 
 Map<ENav, Widget> _screens = {
-  ENav.cafeMenu: const CafeMenuScreen(),
+  ENav.cafeMenu: const CafeMenuScaffold(),
   ENav.home: const HomeScaffold(),
   ENav.login: const LoginScreen(),
   ENav.profile: const ProfileScreen(),
