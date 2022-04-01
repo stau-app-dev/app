@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/screens/main/login_screen.dart';
-import 'package:staugustinechsnewapp/screens/main/profile_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/settings_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/cafe_menu_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/login_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/profile_scaffold.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -19,7 +18,7 @@ Map<ENav, Widget> _screens = {
   ENav.cafeMenu: const CafeMenuScaffold(),
   ENav.home: const HomeScaffold(),
   ENav.login: const LoginScaffold(),
-  ENav.profile: const ProfileScreen(),
+  ENav.profile: const ProfileScaffold(),
   ENav.socials: const SocialsScreen(),
   ENav.songRequests: const SongRequestsScreen(),
   ENav.settings: const SettingsScreen(),
