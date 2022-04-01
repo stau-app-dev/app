@@ -7,6 +7,7 @@ import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/login_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/profile_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/settings_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/song_request_scaffold.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -20,7 +21,7 @@ Map<ENav, Widget> _screens = {
   ENav.login: const LoginScaffold(),
   ENav.profile: const ProfileScaffold(),
   ENav.socials: const SocialsScreen(),
-  ENav.songRequests: const SongRequestsScreen(),
+  ENav.songRequests: const SongRequestsScaffold(),
   ENav.settings: const SettingsScaffold(),
 };
 
