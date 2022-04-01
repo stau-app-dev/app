@@ -24,6 +24,21 @@ class _HomeScaffoldState extends State<HomeScaffold> {
     super.initState();
   }
 
+  List<Map<String, String>> sampleFeaturedCafeItems = [
+    {
+      'food': 'Caramel Latte',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Mocha',
+      'image': 'assets/images/cat.jpg',
+    },
+    {
+      'food': 'Pumpkin Spice Latte with Vanilla Cream',
+      'image': 'assets/images/cat.jpg',
+    },
+  ];
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
@@ -41,6 +56,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
             dayNumber: homeState.dayNumber,
             userName: authState.user?.displayName,
             generalAnnouncements: homeState.generalAnnouncements,
+            featuredCafeItems: sampleFeaturedCafeItems,
             spiritMeters: homeState.spiritMeters,
             verseOfDay: homeState.verseOfDay,
           ),

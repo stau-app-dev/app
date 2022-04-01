@@ -13,6 +13,7 @@ class HomeScreen extends StatefulWidget {
   final int? dayNumber;
   final String? userName;
   final List<GeneralAnnouncement>? generalAnnouncements;
+  final List<Map<String, String>>? featuredCafeItems;
   final SpiritMeters? spiritMeters;
   final VerseOfDay? verseOfDay;
 
@@ -21,6 +22,7 @@ class HomeScreen extends StatefulWidget {
     this.dayNumber,
     this.userName,
     this.generalAnnouncements,
+    this.featuredCafeItems,
     this.spiritMeters,
     this.verseOfDay,
   }) : super(key: key);
@@ -30,21 +32,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  List<Map<String, String>> sampleFeaturedCafeItems = [
-    {
-      'food': 'Caramel Latte',
-      'image': 'assets/images/cat.jpg',
-    },
-    {
-      'food': 'Mocha',
-      'image': 'assets/images/cat.jpg',
-    },
-    {
-      'food': 'Pumpkin Spice Latte with Vanilla Cream',
-      'image': 'assets/images/cat.jpg',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return ListView(
@@ -60,7 +47,7 @@ class _HomeScreenState extends State<HomeScreen> {
           announcements: widget.generalAnnouncements,
         ),
         const SizedBox(height: Styles.mainSpacing),
-        FeaturedCafeItems(cafeItems: sampleFeaturedCafeItems),
+        FeaturedCafeItems(cafeItems: widget.featuredCafeItems ?? []),
         const SizedBox(height: Styles.mainSpacing),
         SpiritMeterBars(
           spiritMeters: widget.spiritMeters,
