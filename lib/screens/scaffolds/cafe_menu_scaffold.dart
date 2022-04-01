@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
-import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
+import 'package:staugustinechsnewapp/screens/main/cafe_menu_screen.dart';
 
-class CafeMenuScreen extends StatefulWidget {
-  const CafeMenuScreen({Key? key}) : super(key: key);
+class CafeMenuScaffold extends StatefulWidget {
+  const CafeMenuScaffold({Key? key}) : super(key: key);
   @override
-  State<CafeMenuScreen> createState() => _CafeMenuScreenState();
+  State<CafeMenuScaffold> createState() => _CafeMenuScaffoldState();
 }
 
-class _CafeMenuScreenState extends State<CafeMenuScreen> {
+class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
   List<Map<String, String>> sampleTodaysSpecials = [
     {
       'food': 'Caramel Macchiato',
@@ -84,18 +82,9 @@ class _CafeMenuScreenState extends State<CafeMenuScreen> {
   @override
   Widget build(BuildContext context) {
     return SafeArea(
-      child: ListView(
-        padding: Styles.mainOutsidePadding,
-        children: <Widget>[
-          const SizedBox(height: Styles.mainVerticalPadding),
-          const ScreenHeader(headerText: 'Cafeteria Menu'),
-          const SizedBox(height: Styles.mainSpacing),
-          CafeItems(title: "Today's Specials", items: sampleTodaysSpecials),
-          const SizedBox(height: Styles.mainSpacing),
-          CafeItems(title: 'Menu', items: sampleMenuItems),
-          const SizedBox(height: Styles.mainVerticalPadding),
-        ],
-      ),
-    );
+        child: CafeMenuScreen(
+      todaysSpecials: sampleTodaysSpecials,
+      menuItems: sampleMenuItems,
+    ));
   }
 }

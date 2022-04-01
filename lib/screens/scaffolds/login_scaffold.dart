@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/screens/main/login_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
-import 'package:staugustinechsnewapp/widgets/login/google_sign_in_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
-class LoginScreen extends StatefulWidget {
-  const LoginScreen({Key? key}) : super(key: key);
+class LoginScaffold extends StatefulWidget {
+  const LoginScaffold({Key? key}) : super(key: key);
   @override
-  State<LoginScreen> createState() => _LoginScreenState();
+  State<LoginScaffold> createState() => _LoginScaffoldState();
 }
 
-class _LoginScreenState extends State<LoginScreen> {
+class _LoginScaffoldState extends State<LoginScaffold> {
   late AuthBloc authBloc;
   late NavBloc navBloc;
 
@@ -24,8 +23,7 @@ class _LoginScreenState extends State<LoginScreen> {
     super.initState();
   }
 
-  void onPressedLogin() {
-    authBloc.add(const AuthEvent.signIn());
+  void onPressedClose() {
     navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
     navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
   }
@@ -51,27 +49,8 @@ class _LoginScreenState extends State<LoginScreen> {
       }
     }, builder: (context, state) {
       return SafeArea(
-        child: ListView(
-          padding: Styles.mainOutsidePadding,
-          children: <Widget>[
-            const SizedBox(height: Styles.mainVerticalPadding),
-            // TextButton(onPressed: onPressedLogin, child: const Text('Login')),
-            Image.asset(
-              'assets/logos/sta_logo.png',
-              height: 160,
-            ),
-            const SizedBox(height: 20),
-            const Text(
-              'St. Augustine CHS',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                color: Styles.primary,
-                fontSize: 26,
-              ),
-            ),
-            const GoogleSignInButton(),
-            const SizedBox(height: Styles.mainVerticalPadding),
-          ],
+        child: LoginScreen(
+          onPressedClose: onPressedClose,
         ),
       );
     });

@@ -10,17 +10,15 @@ class SocialsScreen extends StatefulWidget {
 class _SocialsScreenState extends State<SocialsScreen> {
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
-        padding: Styles.mainOutsidePadding,
-        children: const <Widget>[
-          SizedBox(height: Styles.mainVerticalPadding),
-          Text('Socials Screen'),
-          SizedBox(height: Styles.mainSpacing),
-          Text('Socials Screen'),
-          SizedBox(height: Styles.mainVerticalPadding),
-        ],
-      ),
+    return ListView(
+      padding: Styles.mainOutsidePadding,
+      children: const <Widget>[
+        SizedBox(height: Styles.mainVerticalPadding),
+        Text('Socials Screen'),
+        SizedBox(height: Styles.mainSpacing),
+        Text('Socials Screen'),
+        SizedBox(height: Styles.mainVerticalPadding),
+      ],
     );
   }
 }

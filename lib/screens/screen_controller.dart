@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/screens/cafe_menu_screen.dart';
-import 'package:staugustinechsnewapp/screens/home_screen.dart';
-import 'package:staugustinechsnewapp/screens/login_screen.dart';
-import 'package:staugustinechsnewapp/screens/profile_screen.dart';
-import 'package:staugustinechsnewapp/screens/settings_screen.dart';
-import 'package:staugustinechsnewapp/screens/socials_screen.dart';
-import 'package:staugustinechsnewapp/screens/song_requests_screen.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/cafe_menu_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/login_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/profile_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/settings_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/socials_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/song_request_scaffold.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -15,13 +15,13 @@ import 'package:staugustinechsnewapp/widgets/navigation/bottom_nav_bar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/fade_indexed_stack.dart';
 
 Map<ENav, Widget> _screens = {
-  ENav.cafeMenu: const CafeMenuScreen(),
-  ENav.home: const HomeScreen(),
-  ENav.login: const LoginScreen(),
-  ENav.profile: const ProfileScreen(),
-  ENav.socials: const SocialsScreen(),
-  ENav.songRequests: const SongRequestsScreen(),
-  ENav.settings: const SettingsScreen(),
+  ENav.cafeMenu: const CafeMenuScaffold(),
+  ENav.home: const HomeScaffold(),
+  ENav.login: const LoginScaffold(),
+  ENav.profile: const ProfileScaffold(),
+  ENav.socials: const SocialsScaffold(),
+  ENav.songRequests: const SongRequestsScaffold(),
+  ENav.settings: const SettingsScaffold(),
 };
 
 List<Widget> _generateScreensStack() {
