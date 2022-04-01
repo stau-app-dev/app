@@ -1,36 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
-import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
 class SettingsScreen extends StatefulWidget {
-  const SettingsScreen({Key? key}) : super(key: key);
+  final void Function() onPressedLogout;
+  final void Function() onPressedFAQ;
+
+  const SettingsScreen(
+      {Key? key, required this.onPressedLogout, required this.onPressedFAQ})
+      : super(key: key);
+
   @override
   State<SettingsScreen> createState() => _SettingsScreenState();
 }
 
 class _SettingsScreenState extends State<SettingsScreen> {
-  late AuthBloc authBloc;
-  late NavBloc navBloc;
-
-  @override
-  void initState() {
-    authBloc = BlocProvider.of<AuthBloc>(context);
-    navBloc = BlocProvider.of<NavBloc>(context);
-    super.initState();
-  }
-
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
-  void onPressedLogout() {
-    authBloc.add(const AuthEvent.signOut());
-    navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
-    navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
-  }
-
-  void onPressedFAQ() {}
 
   Widget buildOptions() {
     return Container(
@@ -43,7 +28,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
         child: Column(
           children: [
             TextButton(
-                onPressed: onPressedLogout,
+                onPressed: widget.onPressedLogout,
                 child: const Text('Log Out', style: Styles.normalSubText)),
           ],
         ));
@@ -62,7 +47,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
             const Text('FAQ', style: Styles.normalMainText),
             const Spacer(),
             IconButton(
-                onPressed: onPressedFAQ,
+                onPressed: widget.onPressedFAQ,
                 icon: const Icon(Icons.arrow_forward_rounded,
                     color: Styles.secondary))
           ],
@@ -71,19 +56,17 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: ListView(
-        padding: Styles.mainOutsidePadding,
-        children: <Widget>[
-          const SizedBox(height: Styles.mainVerticalPadding),
-          const ScreenHeader(headerText: 'Settings'),
-          const SizedBox(height: Styles.mainSpacing),
-          buildOptions(),
-          const SizedBox(height: Styles.mainSpacing),
-          buildFAQ(),
-          const SizedBox(height: Styles.mainVerticalPadding),
-        ],
-      ),
+    return ListView(
+      padding: Styles.mainOutsidePadding,
+      children: <Widget>[
+        const SizedBox(height: Styles.mainVerticalPadding),
+        const ScreenHeader(headerText: 'Settings'),
+        const SizedBox(height: Styles.mainSpacing),
+        buildOptions(),
+        const SizedBox(height: Styles.mainSpacing),
+        buildFAQ(),
+        const SizedBox(height: Styles.mainVerticalPadding),
+      ],
     );
   }
 }
