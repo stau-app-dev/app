@@ -15,8 +15,9 @@ import 'providers/home/home_api.dart' as _i8;
 import 'providers/home/home_repository.dart' as _i10;
 import 'utilities/auth/auth_bloc.dart' as _i6;
 import 'utilities/home/home_bloc.dart' as _i9;
-import 'utilities/navigation/nav_bloc.dart'
-    as _i11; // ignore_for_file: unnecessary_lambdas
+import 'utilities/navigation/nav_bloc.dart' as _i11;
+import 'utilities/songs/song_bloc.dart'
+    as _i12; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -33,5 +34,6 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i9.HomeBloc>(() => _i9.HomeBloc());
   gh.lazySingleton<_i10.HomeRepository>(() => _i10.HomeRepository());
   gh.factory<_i11.NavBloc>(() => _i11.NavBloc());
+  gh.factory<_i12.SongBloc>(() => _i12.SongBloc());
   return get;
 }
