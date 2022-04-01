@@ -7,6 +7,7 @@ import 'package:staugustinechsnewapp/screens/main/socials_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/cafe_menu_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/login_scaffold.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
@@ -17,7 +18,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/fade_indexed_stack.dart';
 Map<ENav, Widget> _screens = {
   ENav.cafeMenu: const CafeMenuScaffold(),
   ENav.home: const HomeScaffold(),
-  ENav.login: const LoginScreen(),
+  ENav.login: const LoginScaffold(),
   ENav.profile: const ProfileScreen(),
   ENav.socials: const SocialsScreen(),
   ENav.songRequests: const SongRequestsScreen(),
