@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/songs/song/song.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
 class SongRequests extends StatefulWidget {
-  const SongRequests({Key? key}) : super(key: key);
+  final List<Song> songs;
+  const SongRequests({Key? key, required this.songs}) : super(key: key);
 
   @override
   State<SongRequests> createState() => _SongRequestsState();
@@ -42,49 +44,9 @@ class _SongRequestsState extends State<SongRequests> {
   }
 
   List<Widget> buildItems() {
-    List<Map<String, String>> sampleSongs = [
-      {
-        'song': 'The Way We Were',
-        'artist': 'The Beatles',
-        'votes': '12',
-        'upvoted': 'true',
-      },
-      {
-        'song': 'Wake Me Up',
-        'artist': 'Avicii',
-        'votes': '24',
-        'upvoted': 'false',
-      },
-      {
-        'song': 'No Tears Left To Cry',
-        'artist': 'Ariana Grande',
-        'votes': '43',
-        'upvoted': 'true',
-      },
-      {
-        'song': "I'm Not The Only One",
-        'artist': 'The Beatles',
-        'votes': '12',
-        'upvoted': 'false',
-      },
-      {
-        'song': 'Wake Me Up',
-        'artist': 'Avicii',
-        'votes': '24',
-        'upvoted': 'false',
-      },
-      {
-        'song': 'Never Gonna Give You Up',
-        'artist': 'Rick Astley',
-        'votes': '49',
-        'upvoted': 'false',
-      }
-    ];
-
     List<Widget> songs = [];
-    for (var song in sampleSongs) {
-      Color upvoteColor =
-          song['upvoted'] == 'true' ? Styles.secondary : Styles.white;
+    for (var song in widget.songs) {
+      Color upvoteColor = Styles.white;
 
       songs.add(Container(
           width: getWidth(context),
@@ -100,17 +62,17 @@ class _SongRequestsState extends State<SongRequests> {
                     IconButton(
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
-                        onPressed: () => onUpvote(true, song['song']!),
+                        onPressed: () => onUpvote(true, song.name),
                         icon: Icon(Icons.keyboard_arrow_up_rounded,
                             color: upvoteColor)),
                     Text(
-                      song['votes']!,
+                      song.upvotes.toString(),
                       style:
                           const TextStyle(color: Styles.white, fontSize: 12.0),
                     ),
                   ],
                 )),
-            buildSongInfo(song['song']!, song['artist']!),
+            buildSongInfo(song.name, song.artist),
           ])));
       songs.add(const SizedBox(height: 10.0));
     }

@@ -11,6 +11,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 
 const env = kReleaseMode ? Environment.prod : Environment.test;
 
@@ -43,6 +44,7 @@ void main() async {
       BlocProvider(create: (context) => getIt<NavBloc>()),
       BlocProvider(create: (context) => getIt<AuthBloc>()),
       BlocProvider(create: (context) => getIt<HomeBloc>()),
+      BlocProvider(create: (context) => getIt<SongBloc>()),
     ],
     child: const MyApp(),
   ));
