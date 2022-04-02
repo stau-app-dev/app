@@ -360,9 +360,12 @@ abstract class _addSong implements SongEvent {
 class _$SongStateTearOff {
   const _$SongStateTearOff();
 
-  _SongState call({List<Song> songs = const []}) {
+  _SongState call(
+      {List<Song> songs = const [], Failure? failure, Success? success}) {
     return _SongState(
       songs: songs,
+      failure: failure,
+      success: success,
     );
   }
 }
@@ -373,6 +376,8 @@ const $SongState = _$SongStateTearOff();
 /// @nodoc
 mixin _$SongState {
   List<Song> get songs => throw _privateConstructorUsedError;
+  Failure? get failure => throw _privateConstructorUsedError;
+  Success? get success => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SongStateCopyWith<SongState> get copyWith =>
@@ -383,7 +388,10 @@ mixin _$SongState {
 abstract class $SongStateCopyWith<$Res> {
   factory $SongStateCopyWith(SongState value, $Res Function(SongState) then) =
       _$SongStateCopyWithImpl<$Res>;
-  $Res call({List<Song> songs});
+  $Res call({List<Song> songs, Failure? failure, Success? success});
+
+  $FailureCopyWith<$Res>? get failure;
+  $SuccessCopyWith<$Res>? get success;
 }
 
 /// @nodoc
@@ -397,13 +405,45 @@ class _$SongStateCopyWithImpl<$Res> implements $SongStateCopyWith<$Res> {
   @override
   $Res call({
     Object? songs = freezed,
+    Object? failure = freezed,
+    Object? success = freezed,
   }) {
     return _then(_value.copyWith(
       songs: songs == freezed
           ? _value.songs
           : songs // ignore: cast_nullable_to_non_nullable
               as List<Song>,
+      failure: failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure?,
+      success: success == freezed
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as Success?,
     ));
+  }
+
+  @override
+  $FailureCopyWith<$Res>? get failure {
+    if (_value.failure == null) {
+      return null;
+    }
+
+    return $FailureCopyWith<$Res>(_value.failure!, (value) {
+      return _then(_value.copyWith(failure: value));
+    });
+  }
+
+  @override
+  $SuccessCopyWith<$Res>? get success {
+    if (_value.success == null) {
+      return null;
+    }
+
+    return $SuccessCopyWith<$Res>(_value.success!, (value) {
+      return _then(_value.copyWith(success: value));
+    });
   }
 }
 
@@ -413,7 +453,12 @@ abstract class _$SongStateCopyWith<$Res> implements $SongStateCopyWith<$Res> {
           _SongState value, $Res Function(_SongState) then) =
       __$SongStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Song> songs});
+  $Res call({List<Song> songs, Failure? failure, Success? success});
+
+  @override
+  $FailureCopyWith<$Res>? get failure;
+  @override
+  $SuccessCopyWith<$Res>? get success;
 }
 
 /// @nodoc
@@ -428,12 +473,22 @@ class __$SongStateCopyWithImpl<$Res> extends _$SongStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? songs = freezed,
+    Object? failure = freezed,
+    Object? success = freezed,
   }) {
     return _then(_SongState(
       songs: songs == freezed
           ? _value.songs
           : songs // ignore: cast_nullable_to_non_nullable
               as List<Song>,
+      failure: failure == freezed
+          ? _value.failure
+          : failure // ignore: cast_nullable_to_non_nullable
+              as Failure?,
+      success: success == freezed
+          ? _value.success
+          : success // ignore: cast_nullable_to_non_nullable
+              as Success?,
     ));
   }
 }
@@ -441,15 +496,19 @@ class __$SongStateCopyWithImpl<$Res> extends _$SongStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_SongState implements _SongState {
-  const _$_SongState({this.songs = const []});
+  const _$_SongState({this.songs = const [], this.failure, this.success});
 
   @JsonKey()
   @override
   final List<Song> songs;
+  @override
+  final Failure? failure;
+  @override
+  final Success? success;
 
   @override
   String toString() {
-    return 'SongState(songs: $songs)';
+    return 'SongState(songs: $songs, failure: $failure, success: $success)';
   }
 
   @override
@@ -457,12 +516,17 @@ class _$_SongState implements _SongState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SongState &&
-            const DeepCollectionEquality().equals(other.songs, songs));
+            const DeepCollectionEquality().equals(other.songs, songs) &&
+            const DeepCollectionEquality().equals(other.failure, failure) &&
+            const DeepCollectionEquality().equals(other.success, success));
   }
 
   @override
-  int get hashCode =>
-      Object.hash(runtimeType, const DeepCollectionEquality().hash(songs));
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(songs),
+      const DeepCollectionEquality().hash(failure),
+      const DeepCollectionEquality().hash(success));
 
   @JsonKey(ignore: true)
   @override
@@ -471,10 +535,15 @@ class _$_SongState implements _SongState {
 }
 
 abstract class _SongState implements SongState {
-  const factory _SongState({List<Song> songs}) = _$_SongState;
+  const factory _SongState(
+      {List<Song> songs, Failure? failure, Success? success}) = _$_SongState;
 
   @override
   List<Song> get songs;
+  @override
+  Failure? get failure;
+  @override
+  Success? get success;
   @override
   @JsonKey(ignore: true)
   _$SongStateCopyWith<_SongState> get copyWith =>

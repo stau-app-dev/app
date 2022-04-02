@@ -15,6 +15,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   @override
   void initState() {
     songBloc = BlocProvider.of<SongBloc>(context);
+    songBloc.add(const SongEvent.getSongs());
     super.initState();
   }
 

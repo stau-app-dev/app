@@ -28,7 +28,9 @@ class SongsApi {
   }
 
   static Future<Either<Failure, Success>> addSong(
-      String artist, String creatorEmail, String name) async {
+      {required String artist,
+      required String creatorEmail,
+      required String name}) async {
     try {
       Response res = await post(Uri.parse(addSongEndpoint),
           body: json.encode({

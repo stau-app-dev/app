@@ -13,6 +13,8 @@ import 'providers/auth/auth_api.dart' as _i5;
 import 'providers/auth/auth_repository.dart' as _i7;
 import 'providers/home/home_api.dart' as _i8;
 import 'providers/home/home_repository.dart' as _i10;
+import 'providers/songs/songs_api.dart' as _i13;
+import 'providers/songs/songs_repository.dart' as _i14;
 import 'utilities/auth/auth_bloc.dart' as _i6;
 import 'utilities/home/home_bloc.dart' as _i9;
 import 'utilities/navigation/nav_bloc.dart' as _i11;
@@ -35,5 +37,7 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.lazySingleton<_i10.HomeRepository>(() => _i10.HomeRepository());
   gh.factory<_i11.NavBloc>(() => _i11.NavBloc());
   gh.factory<_i12.SongBloc>(() => _i12.SongBloc());
+  gh.factory<_i13.SongsApi>(() => _i13.SongsApi());
+  gh.lazySingleton<_i14.SongsRepository>(() => _i14.SongsRepository());
   return get;
 }
