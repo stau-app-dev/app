@@ -23,6 +23,10 @@ class SongBloc extends Bloc<SongEvent, SongState> {
               creatorEmail: e.creatorEmail, artist: e.artist, name: e.name);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
+        }, resetSongs: (e) async {
+          return emit(state.copyWith(songs: []));
+        }, resetFailSuccess: (e) async {
+          return emit(state.copyWith(failure: null, success: null));
         }));
   }
 }

@@ -44,6 +44,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         name: songNameController.text,
         artist: artistNameController.text,
         creatorEmail: authBloc.state.user!.email!));
+    songBloc.add(const SongEvent.resetSongs());
     Navigator.pop(context);
   }
 
@@ -55,15 +56,15 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
       if (state.failure != null) {
         useCustomSnackbar(
             context: context, message: state.failure!.message, isError: true);
-        authBloc.add(const AuthEvent.resetFailSuccess());
+        songBloc.add(const SongEvent.resetFailSuccess());
       }
       if (state.success != null) {
         useCustomSnackbar(
             context: context,
             message: state.success!.message ?? 'Success!',
             isError: false);
+        songBloc.add(const SongEvent.resetFailSuccess());
         songBloc.add(const SongEvent.getSongs());
-        authBloc.add(const AuthEvent.resetFailSuccess());
       }
     }, builder: (context, state) {
       return SafeArea(
