@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/song_requests/add_song_form.dart';
 
@@ -50,7 +51,21 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SongBloc, SongState>(builder: (context, state) {
+    return BlocConsumer<SongBloc, SongState>(listener: (context, state) {
+      if (state.failure != null) {
+        useCustomSnackbar(
+            context: context, message: state.failure!.message, isError: true);
+        authBloc.add(const AuthEvent.resetFailSuccess());
+      }
+      if (state.success != null) {
+        useCustomSnackbar(
+            context: context,
+            message: state.success!.message ?? 'Success!',
+            isError: false);
+        songBloc.add(const SongEvent.getSongs());
+        authBloc.add(const AuthEvent.resetFailSuccess());
+      }
+    }, builder: (context, state) {
       return SafeArea(
           child: SongRequestsScreen(
         songs: state.songs,

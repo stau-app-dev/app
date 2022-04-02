@@ -39,7 +39,8 @@ class SongsApi {
             'name': name,
           }));
       if (res.statusCode == 200) {
-        return const Right(Success(message: 'Song added successfully'));
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
       } else {
         return const Left(Failure(message: errorAddingSong));
       }
