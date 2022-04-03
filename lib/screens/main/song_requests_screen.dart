@@ -6,8 +6,15 @@ import 'package:staugustinechsnewapp/widgets/song_requests/song_requests.dart';
 
 class SongRequestsScreen extends StatefulWidget {
   final List<Song> songs;
+  final Function() onAddSong;
+  final Function(bool upvoted, String songName) onUpvote;
 
-  const SongRequestsScreen({Key? key, required this.songs}) : super(key: key);
+  const SongRequestsScreen(
+      {Key? key,
+      required this.songs,
+      required this.onAddSong,
+      required this.onUpvote})
+      : super(key: key);
 
   @override
   State<SongRequestsScreen> createState() => _SongRequestsScreenState();
@@ -24,6 +31,8 @@ class _SongRequestsScreenState extends State<SongRequestsScreen> {
         const SizedBox(height: Styles.mainSpacing),
         SongRequests(
           songs: widget.songs,
+          onAddSong: widget.onAddSong,
+          onUpvote: widget.onUpvote,
         ),
         const SizedBox(height: Styles.mainVerticalPadding),
       ],

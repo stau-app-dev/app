@@ -14,10 +14,6 @@ T _$identity<T>(T value) => value;
 final _privateConstructorUsedError = UnsupportedError(
     'It seems like you constructed your class using `MyClass._()`. This constructor is only meant to be used by freezed and you are not supposed to need it nor use it.\nPlease check the documentation here for more informations: https://github.com/rrousselGit/freezed#custom-getters-and-methods');
 
-Song _$SongFromJson(Map<String, dynamic> json) {
-  return _Song.fromJson(json);
-}
-
 /// @nodoc
 class _$SongTearOff {
   const _$SongTearOff();
@@ -36,10 +32,6 @@ class _$SongTearOff {
       upvotes: upvotes,
     );
   }
-
-  Song fromJson(Map<String, Object?> json) {
-    return Song.fromJson(json);
-  }
 }
 
 /// @nodoc
@@ -53,7 +45,6 @@ mixin _$Song {
   String get name => throw _privateConstructorUsedError;
   int get upvotes => throw _privateConstructorUsedError;
 
-  Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
   $SongCopyWith<Song> get copyWith => throw _privateConstructorUsedError;
 }
@@ -167,7 +158,7 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
 }
 
 /// @nodoc
-@JsonSerializable()
+
 class _$_Song implements _Song {
   const _$_Song(
       {required this.artist,
@@ -175,8 +166,6 @@ class _$_Song implements _Song {
       required this.creatorEmail,
       required this.name,
       required this.upvotes});
-
-  factory _$_Song.fromJson(Map<String, dynamic> json) => _$$_SongFromJson(json);
 
   @override
   final String artist;
@@ -220,11 +209,6 @@ class _$_Song implements _Song {
   @override
   _$SongCopyWith<_Song> get copyWith =>
       __$SongCopyWithImpl<_Song>(this, _$identity);
-
-  @override
-  Map<String, dynamic> toJson() {
-    return _$$_SongToJson(this);
-  }
 }
 
 abstract class _Song implements Song {
@@ -234,8 +218,6 @@ abstract class _Song implements Song {
       required String creatorEmail,
       required String name,
       required int upvotes}) = _$_Song;
-
-  factory _Song.fromJson(Map<String, dynamic> json) = _$_Song.fromJson;
 
   @override
   String get artist;
