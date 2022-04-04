@@ -23,10 +23,10 @@ class _CafeMenuScreenState extends State<CafeMenuScreen> {
       children: [
         const ScreenHeader(headerText: 'Cafeteria Menu'),
         const SizedBox(height: Styles.mainSpacing),
-        CafeItems(
+        CafeMenuItems(
             title: "Today's Specials", items: widget.todaysSpecials ?? []),
         const SizedBox(height: Styles.mainSpacing),
-        CafeItems(title: 'Menu', items: widget.menuItems ?? []),
+        CafeMenuItems(title: 'Menu', items: widget.menuItems ?? []),
       ],
     );
   }

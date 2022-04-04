@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
-class CafeItems extends StatefulWidget {
+class CafeMenuItems extends StatefulWidget {
   final String title;
   final List<Map<String, String>> items;
-  const CafeItems({Key? key, required this.title, required this.items})
+  const CafeMenuItems({Key? key, required this.title, required this.items})
       : super(key: key);
   @override
-  State<CafeItems> createState() => _CafeItemsState();
+  State<CafeMenuItems> createState() => _CafeMenuItemsState();
 }
 
-class _CafeItemsState extends State<CafeItems> {
+class _CafeMenuItemsState extends State<CafeMenuItems> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   Widget buildTile(String food, String price, String image) {

@@ -3,14 +3,14 @@ import 'package:flutter_test/flutter_test.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 
 void main() {
-  group('CafeItems widget tests', () {
+  group('CafeMenuItems widget tests', () {
     testWidgets('it displays title', (tester) async {
       String testTitle = 'Cafe Items';
 
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CafeItems(
+            body: CafeMenuItems(
               title: testTitle,
               items: const [],
             ),
@@ -22,7 +22,7 @@ void main() {
     });
 
     testWidgets('it displays items', (tester) async {
-      String testTitle = 'Cafe Items';
+      String testTitle = 'Cafe Menu Items';
       List<Map<String, String>> testItems = [
         {
           'food': 'Food Item',
@@ -44,7 +44,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: Scaffold(
-            body: CafeItems(
+            body: CafeMenuItems(
               title: testTitle,
               items: testItems,
             ),
