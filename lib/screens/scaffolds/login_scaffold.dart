@@ -37,7 +37,9 @@ class _LoginScaffoldState extends State<LoginScaffold> {
     }, listener: (context, state) {
       if (state.failure != null) {
         useCustomSnackbar(
-            context: context, message: state.failure!.message, isError: true);
+            context: context,
+            message: state.failure!.message,
+            type: ESnackBarType.error);
         authBloc.add(const AuthEvent.resetFailSuccess());
       }
       if (state.firebaseApp != null) {
@@ -48,10 +50,8 @@ class _LoginScaffoldState extends State<LoginScaffold> {
         navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
       }
     }, builder: (context, state) {
-      return SafeArea(
-        child: LoginScreen(
-          onPressedClose: onPressedClose,
-        ),
+      return LoginScreen(
+        onPressedClose: onPressedClose,
       );
     });
   }

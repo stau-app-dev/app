@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
@@ -56,16 +57,13 @@ class _SettingsScreenState extends State<SettingsScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      children: [
         const ScreenHeader(headerText: 'Settings'),
         const SizedBox(height: Styles.mainSpacing),
         buildOptions(),
         const SizedBox(height: Styles.mainSpacing),
         buildFAQ(),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

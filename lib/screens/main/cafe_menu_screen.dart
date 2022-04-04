@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
@@ -17,17 +18,15 @@ class CafeMenuScreen extends StatefulWidget {
 class _CafeMenuScreenState extends State<CafeMenuScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      listView: true,
+      children: [
         const ScreenHeader(headerText: 'Cafeteria Menu'),
         const SizedBox(height: Styles.mainSpacing),
         CafeItems(
             title: "Today's Specials", items: widget.todaysSpecials ?? []),
         const SizedBox(height: Styles.mainSpacing),
         CafeItems(title: 'Menu', items: widget.menuItems ?? []),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

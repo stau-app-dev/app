@@ -81,10 +81,9 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: CafeMenuScreen(
+    return CafeMenuScreen(
       todaysSpecials: sampleTodaysSpecials,
       menuItems: sampleMenuItems,
-    ));
+    );
   }
 }

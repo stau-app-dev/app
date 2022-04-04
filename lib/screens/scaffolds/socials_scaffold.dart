@@ -10,6 +10,6 @@ class SocialsScaffold extends StatefulWidget {
 class _SocialsScaffoldState extends State<SocialsScaffold> {
   @override
   Widget build(BuildContext context) {
-    return const SafeArea(child: SocialsScreen());
+    return const SocialsScreen();
   }
 }

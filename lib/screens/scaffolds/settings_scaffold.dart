@@ -31,10 +31,9 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-        child: SettingsScreen(
+    return SettingsScreen(
       onPressedLogout: onPressedLogout,
       onPressedFAQ: onPressedFAQ,
-    ));
+    );
   }
 }

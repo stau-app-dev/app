@@ -5,23 +5,27 @@ import 'package:staugustinechsnewapp/styles.dart';
 /// By default it uses a translucent secondary background color and primary text color.
 ///
 /// The [message] is displayed in the snackbar.
-/// The [isError] parameter can be set to true to display an error message.
-/// The [isSuccess] parameter can be set to true to display a success message.
+/// The [type] parameter is used to determine the snackbar's background color and text color.
 void useCustomSnackbar(
     {required BuildContext context,
     required String message,
-    bool isError = false,
-    bool isSuccess = false}) {
+    required ESnackBarType type}) {
   double opacity = 0.95;
-  Color backgroundColor = Styles.secondary.withOpacity(opacity);
-  Color textColor = Styles.primary;
+  Color backgroundColor;
+  Color textColor;
 
-  if (isError) {
+  if (type == ESnackBarType.error) {
     backgroundColor = Colors.red.withOpacity(opacity);
     textColor = Styles.white;
-  } else if (isSuccess) {
+  } else if (type == ESnackBarType.success) {
     backgroundColor = Colors.green.withOpacity(opacity);
     textColor = Styles.white;
+  } else if (type == ESnackBarType.info) {
+    backgroundColor = Styles.secondary.withOpacity(opacity);
+    textColor = Styles.primary;
+  } else {
+    backgroundColor = Styles.secondary.withOpacity(opacity);
+    textColor = Styles.primary;
   }
 
   ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -35,4 +39,10 @@ void useCustomSnackbar(
       style: TextStyle(color: textColor),
     ),
   ));
+}
+
+enum ESnackBarType {
+  error,
+  success,
+  info,
 }
