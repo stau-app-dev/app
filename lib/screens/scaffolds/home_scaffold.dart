@@ -17,11 +17,19 @@ class _HomeScaffoldState extends State<HomeScaffold> {
   @override
   void initState() {
     homeBloc = BlocProvider.of<HomeBloc>(context);
+    getAllData();
+    super.initState();
+  }
+
+  void getAllData() {
     homeBloc.add(const HomeEvent.getDayNumber());
     homeBloc.add(const HomeEvent.getGeneralAnnouncements());
     homeBloc.add(const HomeEvent.getSpiritMeters());
     homeBloc.add(const HomeEvent.getVerseOfDay());
-    super.initState();
+  }
+
+  void onRefresh() {
+    getAllData();
   }
 
   List<Map<String, String>> sampleFeaturedCafeItems = [
@@ -47,19 +55,20 @@ class _HomeScaffoldState extends State<HomeScaffold> {
       }, listener: (context, state) {
         if (state.failure != null) {
           useCustomSnackbar(
-              context: context, message: state.failure!.message, isError: true);
+              context: context,
+              message: state.failure!.message,
+              type: ESnackBarType.error);
           homeBloc.add(const HomeEvent.resetFailSuccess());
         }
       }, builder: (context, homeState) {
-        return SafeArea(
-          child: HomeScreen(
-            dayNumber: homeState.dayNumber,
-            userName: authState.user?.displayName,
-            generalAnnouncements: homeState.generalAnnouncements,
-            featuredCafeItems: sampleFeaturedCafeItems,
-            spiritMeters: homeState.spiritMeters,
-            verseOfDay: homeState.verseOfDay,
-          ),
+        return HomeScreen(
+          onRefresh: onRefresh,
+          dayNumber: homeState.dayNumber,
+          userName: authState.user?.displayName,
+          generalAnnouncements: homeState.generalAnnouncements,
+          featuredCafeItems: sampleFeaturedCafeItems,
+          spiritMeters: homeState.spiritMeters,
+          verseOfDay: homeState.verseOfDay,
         );
       });
     });

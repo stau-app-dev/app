@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/login/google_sign_in_button.dart';
 
@@ -14,10 +15,8 @@ class LoginScreen extends StatefulWidget {
 class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      children: [
         IconButton(
             onPressed: widget.onPressedClose, icon: const Icon(Icons.close)),
         Image.asset(
@@ -34,7 +33,6 @@ class _LoginScreenState extends State<LoginScreen> {
           ),
         ),
         const GoogleSignInButton(),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

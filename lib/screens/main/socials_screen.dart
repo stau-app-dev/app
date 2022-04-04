@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class SocialsScreen extends StatefulWidget {
@@ -10,14 +11,11 @@ class SocialsScreen extends StatefulWidget {
 class _SocialsScreenState extends State<SocialsScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: const <Widget>[
-        SizedBox(height: Styles.mainVerticalPadding),
+    return const PageLayout(
+      children: [
         Text('Socials Screen'),
         SizedBox(height: Styles.mainSpacing),
         Text('Socials Screen'),
-        SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

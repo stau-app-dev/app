@@ -26,7 +26,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
     for (int i = 0; i < widget.cafeItems.length; i++) {
       featuredCafeItems.add(Container(
         height: Styles.featuredCafeItemHeight,
-        width: getWidth(context) * 0.3 - (Styles.mainOutsidePaddingValue),
+        width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding),
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             image: DecorationImage(

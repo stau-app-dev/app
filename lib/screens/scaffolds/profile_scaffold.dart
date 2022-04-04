@@ -37,7 +37,7 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
           ),
         ),
       ),
-      SafeArea(child: ProfileScreen(onPressedSettings: onPressedSettings)),
+      ProfileScreen(onPressedSettings: onPressedSettings),
     ]);
   }
 }

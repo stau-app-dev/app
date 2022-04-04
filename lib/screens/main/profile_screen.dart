@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/profile/course_timetable.dart';
 import 'package:staugustinechsnewapp/widgets/profile/profile_bio.dart';
@@ -16,10 +17,9 @@ class ProfileScreen extends StatefulWidget {
 class _ProfileScreenState extends State<ProfileScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      verticalPadding: 0,
+      children: [
         Align(
             alignment: Alignment.topRight,
             child: IconButton(
@@ -32,7 +32,6 @@ class _ProfileScreenState extends State<ProfileScreen> {
         const SizedBox(height: 25.0),
         const CourseTimetable(),
         const SizedBox(height: Styles.mainSpacing),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

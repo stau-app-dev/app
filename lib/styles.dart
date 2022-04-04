@@ -90,11 +90,7 @@ class Styles {
       BorderRadius.all(Radius.circular(mainBorderRadiusValue));
 
   /// Main outside padding value of 24.0
-  static const double mainOutsidePaddingValue = 24.0;
-
-  /// Main outside padding for all screens. Default is horizontal sides 24.0
-  static const EdgeInsetsGeometry mainOutsidePadding = EdgeInsets.only(
-      left: mainOutsidePaddingValue, right: mainOutsidePaddingValue);
+  static const double mainOutsidePadding = 24.0;
 
   /// Main vertical padding. Default is 16.0
   static const double mainVerticalPadding = 16.0;

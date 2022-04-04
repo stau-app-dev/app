@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/songs/song/song.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/song_requests/song_requests.dart';
@@ -23,10 +24,8 @@ class SongRequestsScreen extends StatefulWidget {
 class _SongRequestsScreenState extends State<SongRequestsScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      children: [
         const ScreenHeader(headerText: 'Song Requests'),
         const SizedBox(height: Styles.mainSpacing),
         SongRequests(
@@ -34,7 +33,6 @@ class _SongRequestsScreenState extends State<SongRequestsScreen> {
           onAddSong: widget.onAddSong,
           onUpvote: widget.onUpvote,
         ),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

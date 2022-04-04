@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/home/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
@@ -10,6 +11,7 @@ import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
 
 class HomeScreen extends StatefulWidget {
+  final Function() onRefresh;
   final int? dayNumber;
   final String? userName;
   final List<GeneralAnnouncement>? generalAnnouncements;
@@ -19,6 +21,7 @@ class HomeScreen extends StatefulWidget {
 
   const HomeScreen({
     Key? key,
+    required this.onRefresh,
     this.dayNumber,
     this.userName,
     this.generalAnnouncements,
@@ -34,10 +37,10 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
-    return ListView(
-      padding: Styles.mainOutsidePadding,
-      children: <Widget>[
-        const SizedBox(height: Styles.mainVerticalPadding),
+    return PageLayout(
+      onRefresh: widget.onRefresh,
+      listView: true,
+      children: [
         WelcomeBanner(
           dayNumber: widget.dayNumber,
           userName: widget.userName,
@@ -54,7 +57,6 @@ class _HomeScreenState extends State<HomeScreen> {
         ),
         const SizedBox(height: Styles.mainSpacing),
         ChaplaincyCorner(verseOfDay: widget.verseOfDay),
-        const SizedBox(height: Styles.mainVerticalPadding),
       ],
     );
   }

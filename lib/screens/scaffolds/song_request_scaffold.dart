@@ -55,14 +55,16 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
     return BlocConsumer<SongBloc, SongState>(listener: (context, state) {
       if (state.failure != null) {
         useCustomSnackbar(
-            context: context, message: state.failure!.message, isError: true);
+            context: context,
+            message: state.failure!.message,
+            type: ESnackBarType.error);
         songBloc.add(const SongEvent.resetFailSuccess());
       }
       if (state.success != null) {
         useCustomSnackbar(
             context: context,
             message: state.success!.message ?? 'Success!',
-            isError: false);
+            type: ESnackBarType.success);
         songBloc.add(const SongEvent.resetFailSuccess());
         songBloc.add(const SongEvent.getSongs());
       }
