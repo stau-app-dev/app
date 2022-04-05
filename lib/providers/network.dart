@@ -10,8 +10,8 @@ String getCloudFunctionsDomain() {
     // If you change the port, change it here too. It should default to 5001
     String port = '5001';
 
-    return 'http://$ipAddress:$port/staugustinechsapp/us-central1/';
+    return 'http://$ipAddress:$port/staugustinechsapp/us-central1';
   } else {
-    return 'https://us-central1-staugustinechsapp.cloudfunctions.net/';
+    return 'https://us-central1-staugustinechsapp.cloudfunctions.net';
   }
 }
