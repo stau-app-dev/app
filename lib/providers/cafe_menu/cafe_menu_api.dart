@@ -8,9 +8,12 @@ import 'package:staugustinechsnewapp/providers/cafe_menu/consts.dart';
 
 @Injectable()
 class CafeMenuApi {
-  static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenuItems() async {
+  static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenuItems(
+      {required bool isTodaySpecial}) async {
     try {
-      Response res = await get(Uri.parse(getCafeMenuItemsEndpoint));
+      Response res = await get(Uri.parse(getCafeMenuItemsEndpoint), headers: {
+        'isTodaysSpecial': isTodaySpecial.toString(),
+      });
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<CafeMenuItem> cafeMenuItems = [];

@@ -8,7 +8,8 @@ import 'package:staugustinechsnewapp/providers/cafe_menu/cafe_menu_api.dart';
 class CafeMenuRepository {
   CafeMenuRepository();
 
-  static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenu() async {
-    return await CafeMenuApi.getCafeMenuItems();
+  static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenu(
+      {required bool isTodaySpecial}) async {
+    return await CafeMenuApi.getCafeMenuItems(isTodaySpecial: isTodaySpecial);
   }
 }
