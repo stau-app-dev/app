@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
@@ -27,8 +28,7 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             image: DecorationImage(
-              // image: AssetImage(pictureUrl),
-              image: AssetImage("assets/images/cat.jpg"),
+              image: CachedNetworkImageProvider(pictureUrl),
               fit: BoxFit.cover,
             ),
             border: Border.all(

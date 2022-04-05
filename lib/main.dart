@@ -1,5 +1,3 @@
-import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
-
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/foundation.dart';
@@ -11,13 +9,14 @@ import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 
 /// Control the app's environment. Uncomment the dev line if you are running the backend locally.
-// const env = kReleaseMode ? Environment.prod : Environment.test;
-const env = Environment.dev;
+const env = kReleaseMode ? Environment.prod : Environment.test;
+// const env = Environment.dev;
 
 void main() async {
   if (kDebugMode) {

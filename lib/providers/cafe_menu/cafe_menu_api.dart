@@ -15,8 +15,6 @@ class CafeMenuApi {
       uri = uri.replace(queryParameters: {
         'isTodaysSpecial': isTodaysSpecial.toString(),
       });
-      print("BRO THE URI IS GONNA BE");
-      print(uri);
       Response res = await get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
