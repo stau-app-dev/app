@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 
 void main() {
@@ -23,22 +24,28 @@ void main() {
 
     testWidgets('it displays items', (tester) async {
       String testTitle = 'Cafe Menu Items';
-      List<Map<String, String>> testItems = [
-        {
-          'food': 'Food Item',
-          'price': '4.30',
-          'image': 'assets/images/cat.jpg',
-        },
-        {
-          'food': 'Food Item',
-          'price': '1.45',
-          'image': 'assets/images/cat.jpg',
-        },
-        {
-          'food': 'Food Item',
-          'price': '5.65',
-          'image': 'assets/images/cat.jpg',
-        },
+      List<CafeMenuItem> testItems = [
+        const CafeMenuItem(
+          name: 'Cafe Menu Item',
+          pictureId: '1',
+          pictureUrl: 'https://example.com/1',
+          price: 1.0,
+          isTodaysSpecial: true,
+        ),
+        const CafeMenuItem(
+          name: 'Cafe Menu Item',
+          pictureId: '2',
+          pictureUrl: 'https://example.com/2',
+          price: 2.5,
+          isTodaysSpecial: false,
+        ),
+        const CafeMenuItem(
+          name: 'Cafe Menu Item',
+          pictureId: '2',
+          pictureUrl: 'https://example.com/2',
+          price: 2.0,
+          isTodaysSpecial: false,
+        ),
       ];
 
       await tester.pumpWidget(
@@ -52,8 +59,8 @@ void main() {
         ),
       );
 
-      expect(find.text('Food Item'), findsNWidgets(3));
-      expect(find.text('\$4.30'), findsNWidgets(1));
+      expect(find.text('Cafe Menu Item'), findsNWidgets(3));
+      expect(find.text('\$2.00'), findsNWidgets(1));
     });
   });
 }
