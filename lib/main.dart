@@ -9,6 +9,7 @@ import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
@@ -47,6 +48,7 @@ void main() async {
       BlocProvider(create: (context) => getIt<AuthBloc>()),
       BlocProvider(create: (context) => getIt<HomeBloc>()),
       BlocProvider(create: (context) => getIt<SongBloc>()),
+      BlocProvider(create: (context) => getIt<CafeMenuBloc>()),
     ],
     child: const MyApp(),
   ));
