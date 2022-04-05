@@ -12,6 +12,7 @@ _$_CafeMenuItem _$$_CafeMenuItemFromJson(Map<String, dynamic> json) =>
       pictureId: json['pictureId'] as String,
       pictureUrl: json['pictureUrl'] as String,
       price: json['price'] as String,
+      isTodaySpecial: json['isTodaySpecial'] as bool,
     );
 
 Map<String, dynamic> _$$_CafeMenuItemToJson(_$_CafeMenuItem instance) =>
@@ -20,4 +21,5 @@ Map<String, dynamic> _$$_CafeMenuItemToJson(_$_CafeMenuItem instance) =>
       'pictureId': instance.pictureId,
       'pictureUrl': instance.pictureUrl,
       'price': instance.price,
+      'isTodaySpecial': instance.isTodaySpecial,
     };

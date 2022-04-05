@@ -12,16 +12,17 @@ import 'providers/announcements/announcements_repository.dart' as _i4;
 import 'providers/auth/auth_api.dart' as _i5;
 import 'providers/auth/auth_repository.dart' as _i7;
 import 'providers/cafe_menu/cafe_menu_api.dart' as _i8;
-import 'providers/cafe_menu/cafe_menu_repository.dart' as _i9;
-import 'providers/home/home_api.dart' as _i10;
-import 'providers/home/home_repository.dart' as _i12;
-import 'providers/songs/songs_api.dart' as _i15;
-import 'providers/songs/songs_repository.dart' as _i16;
+import 'providers/cafe_menu/cafe_menu_repository.dart' as _i10;
+import 'providers/home/home_api.dart' as _i11;
+import 'providers/home/home_repository.dart' as _i13;
+import 'providers/songs/songs_api.dart' as _i16;
+import 'providers/songs/songs_repository.dart' as _i17;
 import 'utilities/auth/auth_bloc.dart' as _i6;
-import 'utilities/home/home_bloc.dart' as _i11;
-import 'utilities/navigation/nav_bloc.dart' as _i13;
+import 'utilities/cafe_menu/cafe_menu_bloc.dart' as _i9;
+import 'utilities/home/home_bloc.dart' as _i12;
+import 'utilities/navigation/nav_bloc.dart' as _i14;
 import 'utilities/songs/song_bloc.dart'
-    as _i14; // ignore_for_file: unnecessary_lambdas
+    as _i15; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -35,13 +36,14 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i6.AuthBloc>(() => _i6.AuthBloc());
   gh.lazySingleton<_i7.AuthRepository>(() => _i7.AuthRepository());
   gh.factory<_i8.CafeMenuApi>(() => _i8.CafeMenuApi());
-  gh.lazySingleton<_i9.CafeMenuRepository>(() => _i9.CafeMenuRepository());
-  gh.factory<_i10.HomeApi>(() => _i10.HomeApi());
-  gh.factory<_i11.HomeBloc>(() => _i11.HomeBloc());
-  gh.lazySingleton<_i12.HomeRepository>(() => _i12.HomeRepository());
-  gh.factory<_i13.NavBloc>(() => _i13.NavBloc());
-  gh.factory<_i14.SongBloc>(() => _i14.SongBloc());
-  gh.factory<_i15.SongsApi>(() => _i15.SongsApi());
-  gh.lazySingleton<_i16.SongsRepository>(() => _i16.SongsRepository());
+  gh.factory<_i9.CafeMenuBloc>(() => _i9.CafeMenuBloc());
+  gh.lazySingleton<_i10.CafeMenuRepository>(() => _i10.CafeMenuRepository());
+  gh.factory<_i11.HomeApi>(() => _i11.HomeApi());
+  gh.factory<_i12.HomeBloc>(() => _i12.HomeBloc());
+  gh.lazySingleton<_i13.HomeRepository>(() => _i13.HomeRepository());
+  gh.factory<_i14.NavBloc>(() => _i14.NavBloc());
+  gh.factory<_i15.SongBloc>(() => _i15.SongBloc());
+  gh.factory<_i16.SongsApi>(() => _i16.SongsApi());
+  gh.lazySingleton<_i17.SongsRepository>(() => _i17.SongsRepository());
   return get;
 }
