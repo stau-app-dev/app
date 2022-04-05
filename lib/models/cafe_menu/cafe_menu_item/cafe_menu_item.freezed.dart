@@ -27,13 +27,13 @@ class _$CafeMenuItemTearOff {
       required String pictureId,
       required String pictureUrl,
       required String price,
-      required bool isTodaySpecial}) {
+      required bool isTodaysSpecial}) {
     return _CafeMenuItem(
       name: name,
       pictureId: pictureId,
       pictureUrl: pictureUrl,
       price: price,
-      isTodaySpecial: isTodaySpecial,
+      isTodaysSpecial: isTodaysSpecial,
     );
   }
 
@@ -51,7 +51,7 @@ mixin _$CafeMenuItem {
   String get pictureId => throw _privateConstructorUsedError;
   String get pictureUrl => throw _privateConstructorUsedError;
   String get price => throw _privateConstructorUsedError;
-  bool get isTodaySpecial => throw _privateConstructorUsedError;
+  bool get isTodaysSpecial => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -69,7 +69,7 @@ abstract class $CafeMenuItemCopyWith<$Res> {
       String pictureId,
       String pictureUrl,
       String price,
-      bool isTodaySpecial});
+      bool isTodaysSpecial});
 }
 
 /// @nodoc
@@ -86,7 +86,7 @@ class _$CafeMenuItemCopyWithImpl<$Res> implements $CafeMenuItemCopyWith<$Res> {
     Object? pictureId = freezed,
     Object? pictureUrl = freezed,
     Object? price = freezed,
-    Object? isTodaySpecial = freezed,
+    Object? isTodaysSpecial = freezed,
   }) {
     return _then(_value.copyWith(
       name: name == freezed
@@ -105,9 +105,9 @@ class _$CafeMenuItemCopyWithImpl<$Res> implements $CafeMenuItemCopyWith<$Res> {
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
-      isTodaySpecial: isTodaySpecial == freezed
-          ? _value.isTodaySpecial
-          : isTodaySpecial // ignore: cast_nullable_to_non_nullable
+      isTodaysSpecial: isTodaysSpecial == freezed
+          ? _value.isTodaysSpecial
+          : isTodaysSpecial // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -125,7 +125,7 @@ abstract class _$CafeMenuItemCopyWith<$Res>
       String pictureId,
       String pictureUrl,
       String price,
-      bool isTodaySpecial});
+      bool isTodaysSpecial});
 }
 
 /// @nodoc
@@ -144,7 +144,7 @@ class __$CafeMenuItemCopyWithImpl<$Res> extends _$CafeMenuItemCopyWithImpl<$Res>
     Object? pictureId = freezed,
     Object? pictureUrl = freezed,
     Object? price = freezed,
-    Object? isTodaySpecial = freezed,
+    Object? isTodaysSpecial = freezed,
   }) {
     return _then(_CafeMenuItem(
       name: name == freezed
@@ -163,9 +163,9 @@ class __$CafeMenuItemCopyWithImpl<$Res> extends _$CafeMenuItemCopyWithImpl<$Res>
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
               as String,
-      isTodaySpecial: isTodaySpecial == freezed
-          ? _value.isTodaySpecial
-          : isTodaySpecial // ignore: cast_nullable_to_non_nullable
+      isTodaysSpecial: isTodaysSpecial == freezed
+          ? _value.isTodaysSpecial
+          : isTodaysSpecial // ignore: cast_nullable_to_non_nullable
               as bool,
     ));
   }
@@ -179,7 +179,7 @@ class _$_CafeMenuItem implements _CafeMenuItem {
       required this.pictureId,
       required this.pictureUrl,
       required this.price,
-      required this.isTodaySpecial});
+      required this.isTodaysSpecial});
 
   factory _$_CafeMenuItem.fromJson(Map<String, dynamic> json) =>
       _$$_CafeMenuItemFromJson(json);
@@ -193,11 +193,11 @@ class _$_CafeMenuItem implements _CafeMenuItem {
   @override
   final String price;
   @override
-  final bool isTodaySpecial;
+  final bool isTodaysSpecial;
 
   @override
   String toString() {
-    return 'CafeMenuItem(name: $name, pictureId: $pictureId, pictureUrl: $pictureUrl, price: $price, isTodaySpecial: $isTodaySpecial)';
+    return 'CafeMenuItem(name: $name, pictureId: $pictureId, pictureUrl: $pictureUrl, price: $price, isTodaysSpecial: $isTodaysSpecial)';
   }
 
   @override
@@ -211,7 +211,7 @@ class _$_CafeMenuItem implements _CafeMenuItem {
                 .equals(other.pictureUrl, pictureUrl) &&
             const DeepCollectionEquality().equals(other.price, price) &&
             const DeepCollectionEquality()
-                .equals(other.isTodaySpecial, isTodaySpecial));
+                .equals(other.isTodaysSpecial, isTodaysSpecial));
   }
 
   @override
@@ -221,7 +221,7 @@ class _$_CafeMenuItem implements _CafeMenuItem {
       const DeepCollectionEquality().hash(pictureId),
       const DeepCollectionEquality().hash(pictureUrl),
       const DeepCollectionEquality().hash(price),
-      const DeepCollectionEquality().hash(isTodaySpecial));
+      const DeepCollectionEquality().hash(isTodaysSpecial));
 
   @JsonKey(ignore: true)
   @override
@@ -240,7 +240,7 @@ abstract class _CafeMenuItem implements CafeMenuItem {
       required String pictureId,
       required String pictureUrl,
       required String price,
-      required bool isTodaySpecial}) = _$_CafeMenuItem;
+      required bool isTodaysSpecial}) = _$_CafeMenuItem;
 
   factory _CafeMenuItem.fromJson(Map<String, dynamic> json) =
       _$_CafeMenuItem.fromJson;
@@ -254,7 +254,7 @@ abstract class _CafeMenuItem implements CafeMenuItem {
   @override
   String get price;
   @override
-  bool get isTodaySpecial;
+  bool get isTodaysSpecial;
   @override
   @JsonKey(ignore: true)
   _$CafeMenuItemCopyWith<_CafeMenuItem> get copyWith =>

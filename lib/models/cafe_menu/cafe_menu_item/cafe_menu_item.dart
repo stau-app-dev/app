@@ -9,7 +9,7 @@ class CafeMenuItem with _$CafeMenuItem {
     required String pictureId,
     required String pictureUrl,
     required String price,
-    required bool isTodaySpecial,
+    required bool isTodaysSpecial,
   }) = _CafeMenuItem;
   factory CafeMenuItem.fromJson(Map<String, dynamic> json) =>
       _$CafeMenuItemFromJson(json);
