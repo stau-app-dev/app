@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class CafeMenuItems extends StatefulWidget {
   final String title;
-  final List<Map<String, String>> items;
+  final List<CafeMenuItem> items;
   const CafeMenuItems({Key? key, required this.title, required this.items})
       : super(key: key);
   @override
@@ -13,7 +14,10 @@ class CafeMenuItems extends StatefulWidget {
 class _CafeMenuItemsState extends State<CafeMenuItems> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  Widget buildTile(String food, String price, String image) {
+  Widget buildTile(
+      {required String name,
+      required String price,
+      required String pictureUrl}) {
     double tileWidth =
         getWidth(context) * 0.5 - (Styles.mainOutsidePadding * 2);
 
@@ -23,7 +27,8 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(image),
+              // image: AssetImage(pictureUrl),
+              image: AssetImage("assets/images/cat.jpg"),
               fit: BoxFit.cover,
             ),
             border: Border.all(
@@ -39,7 +44,7 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
               children: [
                 Flexible(
                     child: Text(
-                  food,
+                  name,
                   textAlign: TextAlign.start,
                   style: const TextStyle(
                       fontFamily: Styles.fontFamilyNormal,
@@ -61,12 +66,16 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
     for (int i = 0; i < widget.items.length; i += 2) {
       rows.add(Row(
         children: [
-          buildTile(widget.items[i]['food']!, widget.items[i]['price']!,
-              widget.items[i]['image']!),
+          buildTile(
+              name: widget.items[i].name,
+              price: widget.items[i].price,
+              pictureUrl: widget.items[i].pictureUrl),
           const Spacer(),
           i + 1 < widget.items.length
-              ? buildTile(widget.items[i + 1]['food']!,
-                  widget.items[i + 1]['price']!, widget.items[i + 1]['image']!)
+              ? buildTile(
+                  name: widget.items[i].name,
+                  price: widget.items[i].price,
+                  pictureUrl: widget.items[i].pictureUrl)
               : Container(),
         ],
       ));
