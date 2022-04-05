@@ -11,7 +11,7 @@ _$_CafeMenuItem _$$_CafeMenuItemFromJson(Map<String, dynamic> json) =>
       name: json['name'] as String,
       pictureId: json['pictureId'] as String,
       pictureUrl: json['pictureUrl'] as String,
-      price: json['price'] as String,
+      price: (json['price'] as num).toDouble(),
       isTodaysSpecial: json['isTodaysSpecial'] as bool,
     );
 

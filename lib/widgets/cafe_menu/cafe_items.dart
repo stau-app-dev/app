@@ -16,7 +16,7 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
 
   Widget buildTile(
       {required String name,
-      required String price,
+      required double price,
       required String pictureUrl}) {
     double tileWidth =
         getWidth(context) * 0.5 - (Styles.mainOutsidePadding * 2);
@@ -52,7 +52,7 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
                       color: Styles.white),
                 )),
                 Text(
-                  '\$$price',
+                  '\$${price.toStringAsFixed(2)}',
                   textAlign: TextAlign.center,
                   style: const TextStyle(
                       fontFamily: Styles.fontFamilyNormal, color: Styles.white),
@@ -73,9 +73,9 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
           const Spacer(),
           i + 1 < widget.items.length
               ? buildTile(
-                  name: widget.items[i].name,
-                  price: widget.items[i].price,
-                  pictureUrl: widget.items[i].pictureUrl)
+                  name: widget.items[i + 1].name,
+                  price: widget.items[i + 1].price,
+                  pictureUrl: widget.items[i + 1].pictureUrl)
               : Container(),
         ],
       ));

@@ -16,12 +16,12 @@ class CafeMenuBloc extends Bloc<CafeMenuEvent, CafeMenuState> {
   CafeMenuBloc() : super(CafeMenuState.initial()) {
     on<CafeMenuEvent>((event, emit) => event.map(getCafeMenu: (e) async {
           Either<Failure, List<CafeMenuItem>> res =
-              await CafeMenuRepository.getCafeMenu(isTodaySpecial: false);
+              await CafeMenuRepository.getCafeMenu(isTodaysSpecial: false);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(menuItems: r)));
         }, getTodaysSpecials: (e) async {
           Either<Failure, List<CafeMenuItem>> res =
-              await CafeMenuRepository.getCafeMenu(isTodaySpecial: true);
+              await CafeMenuRepository.getCafeMenu(isTodaysSpecial: true);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(todaysSpecials: r)));
         }, resetCafeMenu: (e) async {

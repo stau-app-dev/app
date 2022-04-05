@@ -9,11 +9,15 @@ import 'package:staugustinechsnewapp/providers/cafe_menu/consts.dart';
 @Injectable()
 class CafeMenuApi {
   static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenuItems(
-      {required bool isTodaySpecial}) async {
+      {required bool isTodaysSpecial}) async {
     try {
-      Response res = await get(Uri.parse(getCafeMenuItemsEndpoint), headers: {
-        'isTodaysSpecial': isTodaySpecial.toString(),
+      var uri = Uri.parse(getCafeMenuItemsEndpoint);
+      uri = uri.replace(queryParameters: {
+        'isTodaysSpecial': isTodaysSpecial.toString(),
       });
+      print("BRO THE URI IS GONNA BE");
+      print(uri);
+      Response res = await get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<CafeMenuItem> cafeMenuItems = [];

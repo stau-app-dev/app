@@ -26,7 +26,7 @@ class _$CafeMenuItemTearOff {
       {required String name,
       required String pictureId,
       required String pictureUrl,
-      required String price,
+      required double price,
       required bool isTodaysSpecial}) {
     return _CafeMenuItem(
       name: name,
@@ -50,7 +50,7 @@ mixin _$CafeMenuItem {
   String get name => throw _privateConstructorUsedError;
   String get pictureId => throw _privateConstructorUsedError;
   String get pictureUrl => throw _privateConstructorUsedError;
-  String get price => throw _privateConstructorUsedError;
+  double get price => throw _privateConstructorUsedError;
   bool get isTodaysSpecial => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
@@ -68,7 +68,7 @@ abstract class $CafeMenuItemCopyWith<$Res> {
       {String name,
       String pictureId,
       String pictureUrl,
-      String price,
+      double price,
       bool isTodaysSpecial});
 }
 
@@ -104,7 +104,7 @@ class _$CafeMenuItemCopyWithImpl<$Res> implements $CafeMenuItemCopyWith<$Res> {
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       isTodaysSpecial: isTodaysSpecial == freezed
           ? _value.isTodaysSpecial
           : isTodaysSpecial // ignore: cast_nullable_to_non_nullable
@@ -124,7 +124,7 @@ abstract class _$CafeMenuItemCopyWith<$Res>
       {String name,
       String pictureId,
       String pictureUrl,
-      String price,
+      double price,
       bool isTodaysSpecial});
 }
 
@@ -162,7 +162,7 @@ class __$CafeMenuItemCopyWithImpl<$Res> extends _$CafeMenuItemCopyWithImpl<$Res>
       price: price == freezed
           ? _value.price
           : price // ignore: cast_nullable_to_non_nullable
-              as String,
+              as double,
       isTodaysSpecial: isTodaysSpecial == freezed
           ? _value.isTodaysSpecial
           : isTodaysSpecial // ignore: cast_nullable_to_non_nullable
@@ -191,7 +191,7 @@ class _$_CafeMenuItem implements _CafeMenuItem {
   @override
   final String pictureUrl;
   @override
-  final String price;
+  final double price;
   @override
   final bool isTodaysSpecial;
 
@@ -239,7 +239,7 @@ abstract class _CafeMenuItem implements CafeMenuItem {
       {required String name,
       required String pictureId,
       required String pictureUrl,
-      required String price,
+      required double price,
       required bool isTodaysSpecial}) = _$_CafeMenuItem;
 
   factory _CafeMenuItem.fromJson(Map<String, dynamic> json) =
@@ -252,7 +252,7 @@ abstract class _CafeMenuItem implements CafeMenuItem {
   @override
   String get pictureUrl;
   @override
-  String get price;
+  double get price;
   @override
   bool get isTodaysSpecial;
   @override
