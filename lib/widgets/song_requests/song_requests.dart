@@ -52,7 +52,8 @@ class _SongRequestsState extends State<SongRequests> {
   List<Widget> buildItems() {
     List<Widget> songs = [];
     for (var song in widget.songs) {
-      Color upvoteColor = Styles.white;
+      bool upvoted = song.upvoted ?? false;
+      Color upvoteColor = upvoted ? Styles.secondary : Styles.white;
 
       songs.add(Container(
           width: getWidth(context),
@@ -61,7 +62,7 @@ class _SongRequestsState extends State<SongRequests> {
           child: Row(children: [
             GestureDetector(
                 onTap: () {
-                  widget.onUpvote(true, song.id);
+                  widget.onUpvote(!upvoted, song.id);
                 },
                 child: Container(
                     padding: const EdgeInsets.symmetric(

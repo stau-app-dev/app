@@ -11,6 +11,7 @@ class Song with _$Song {
     required String creatorEmail,
     required String name,
     required int upvotes,
+    bool? upvoted,
   }) = _Song;
 
   factory Song.fromJson(Map<String, dynamic> json) {
@@ -23,6 +24,22 @@ class Song with _$Song {
       creatorEmail: json['creatorEmail'] as String,
       name: json['name'] as String,
       upvotes: json['upvotes'] as int,
+      upvoted: (json['upvoted'] ?? 'false') == 'true',
     );
+  }
+
+  static Map<String, dynamic> toJson(Song song) {
+    return {
+      'id': song.id,
+      'artist': song.artist,
+      'createdAt': {
+        '_seconds': song.createdAt.millisecondsSinceEpoch ~/ 1000,
+        '_nanoseconds': song.createdAt.millisecondsSinceEpoch % 1000 * 1000000,
+      },
+      'creatorEmail': song.creatorEmail,
+      'name': song.name,
+      'upvotes': song.upvotes,
+      'upvoted': song.upvoted,
+    };
   }
 }

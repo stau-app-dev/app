@@ -24,7 +24,8 @@ class _$SongTearOff {
       required DateTime createdAt,
       required String creatorEmail,
       required String name,
-      required int upvotes}) {
+      required int upvotes,
+      bool? upvoted}) {
     return _Song(
       id: id,
       artist: artist,
@@ -32,6 +33,7 @@ class _$SongTearOff {
       creatorEmail: creatorEmail,
       name: name,
       upvotes: upvotes,
+      upvoted: upvoted,
     );
   }
 }
@@ -47,6 +49,7 @@ mixin _$Song {
   String get creatorEmail => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   int get upvotes => throw _privateConstructorUsedError;
+  bool? get upvoted => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
   $SongCopyWith<Song> get copyWith => throw _privateConstructorUsedError;
@@ -62,7 +65,8 @@ abstract class $SongCopyWith<$Res> {
       DateTime createdAt,
       String creatorEmail,
       String name,
-      int upvotes});
+      int upvotes,
+      bool? upvoted});
 }
 
 /// @nodoc
@@ -81,6 +85,7 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
     Object? creatorEmail = freezed,
     Object? name = freezed,
     Object? upvotes = freezed,
+    Object? upvoted = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -107,6 +112,10 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
           ? _value.upvotes
           : upvotes // ignore: cast_nullable_to_non_nullable
               as int,
+      upvoted: upvoted == freezed
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -122,7 +131,8 @@ abstract class _$SongCopyWith<$Res> implements $SongCopyWith<$Res> {
       DateTime createdAt,
       String creatorEmail,
       String name,
-      int upvotes});
+      int upvotes,
+      bool? upvoted});
 }
 
 /// @nodoc
@@ -142,6 +152,7 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
     Object? creatorEmail = freezed,
     Object? name = freezed,
     Object? upvotes = freezed,
+    Object? upvoted = freezed,
   }) {
     return _then(_Song(
       id: id == freezed
@@ -168,6 +179,10 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
           ? _value.upvotes
           : upvotes // ignore: cast_nullable_to_non_nullable
               as int,
+      upvoted: upvoted == freezed
+          ? _value.upvoted
+          : upvoted // ignore: cast_nullable_to_non_nullable
+              as bool?,
     ));
   }
 }
@@ -181,7 +196,8 @@ class _$_Song implements _Song {
       required this.createdAt,
       required this.creatorEmail,
       required this.name,
-      required this.upvotes});
+      required this.upvotes,
+      this.upvoted});
 
   @override
   final String id;
@@ -195,10 +211,12 @@ class _$_Song implements _Song {
   final String name;
   @override
   final int upvotes;
+  @override
+  final bool? upvoted;
 
   @override
   String toString() {
-    return 'Song(id: $id, artist: $artist, createdAt: $createdAt, creatorEmail: $creatorEmail, name: $name, upvotes: $upvotes)';
+    return 'Song(id: $id, artist: $artist, createdAt: $createdAt, creatorEmail: $creatorEmail, name: $name, upvotes: $upvotes, upvoted: $upvoted)';
   }
 
   @override
@@ -212,7 +230,8 @@ class _$_Song implements _Song {
             const DeepCollectionEquality()
                 .equals(other.creatorEmail, creatorEmail) &&
             const DeepCollectionEquality().equals(other.name, name) &&
-            const DeepCollectionEquality().equals(other.upvotes, upvotes));
+            const DeepCollectionEquality().equals(other.upvotes, upvotes) &&
+            const DeepCollectionEquality().equals(other.upvoted, upvoted));
   }
 
   @override
@@ -223,7 +242,8 @@ class _$_Song implements _Song {
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(creatorEmail),
       const DeepCollectionEquality().hash(name),
-      const DeepCollectionEquality().hash(upvotes));
+      const DeepCollectionEquality().hash(upvotes),
+      const DeepCollectionEquality().hash(upvoted));
 
   @JsonKey(ignore: true)
   @override
@@ -238,7 +258,8 @@ abstract class _Song implements Song {
       required DateTime createdAt,
       required String creatorEmail,
       required String name,
-      required int upvotes}) = _$_Song;
+      required int upvotes,
+      bool? upvoted}) = _$_Song;
 
   @override
   String get id;
@@ -252,6 +273,8 @@ abstract class _Song implements Song {
   String get name;
   @override
   int get upvotes;
+  @override
+  bool? get upvoted;
   @override
   @JsonKey(ignore: true)
   _$SongCopyWith<_Song> get copyWith => throw _privateConstructorUsedError;

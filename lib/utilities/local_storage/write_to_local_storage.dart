@@ -4,7 +4,7 @@ import 'package:path_provider/path_provider.dart';
 
 enum EFileName {
   songRequests,
-  upvotes,
+  upvoted,
 }
 
 Future<String> get _localPath async {
@@ -19,17 +19,17 @@ Future<File> _localFile(EFileName fileName) async {
 
 /// Saves the [json] to the local storage as a [fileName].json.
 Future<File> writeJsonToLocal(
-    Map<String, String> json, EFileName fileName) async {
+    Map<String, dynamic> json, EFileName fileName) async {
   final file = await _localFile(fileName);
-  return file.writeAsString(json.toString());
+  return file.writeAsString(jsonEncode(json));
 }
 
 /// Reads the [fileName].json from the local storage and returns the [json].
-Future<Map<String, String>> readJsonFromLocal(EFileName fileName) async {
+Future<Map<String, dynamic>> readJsonFromLocal(EFileName fileName) async {
   try {
     final file = await _localFile(fileName);
     String contents = await file.readAsString();
-    return Map<String, String>.from(json.decode(contents));
+    return Map<String, dynamic>.from(json.decode(contents));
   } catch (e) {
     return {
       'error': 'Data cannot be read from file',
