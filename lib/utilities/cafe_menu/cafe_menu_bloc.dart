@@ -14,20 +14,22 @@ part 'cafe_menu_bloc.freezed.dart';
 @singleton
 class CafeMenuBloc extends Bloc<CafeMenuEvent, CafeMenuState> {
   CafeMenuBloc() : super(CafeMenuState.initial()) {
-    on<CafeMenuEvent>((event, emit) => event.map(getCafeMenu: (e) async {
+    on<CafeMenuEvent>((event, emit) => event.map(
+        getCafeMenu: (e) async {
           Either<Failure, List<CafeMenuItem>> res =
               await CafeMenuRepository.getCafeMenu(isTodaysSpecial: false);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(menuItems: r)));
-        }, getTodaysSpecials: (e) async {
+        },
+        getTodaysSpecials: (e) async {
           Either<Failure, List<CafeMenuItem>> res =
               await CafeMenuRepository.getCafeMenu(isTodaysSpecial: true);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(todaysSpecials: r)));
-        }, resetCafeMenu: (e) async {
-          return emit(state.copyWith(menuItems: [], todaysSpecials: []));
-        }, resetFailSuccess: (e) async {
-          return emit(state.copyWith(failure: null, success: null));
-        }));
+        },
+        resetCafeMenu: (e) =>
+            emit(state.copyWith(menuItems: [], todaysSpecials: [])),
+        resetFailSuccess: (e) =>
+            emit(state.copyWith(failure: null, success: null))));
   }
 }

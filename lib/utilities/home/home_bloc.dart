@@ -17,27 +17,31 @@ part 'home_bloc.freezed.dart';
 @singleton
 class HomeBloc extends Bloc<HomeEvent, HomeState> {
   HomeBloc() : super(HomeState.initial()) {
-    on<HomeEvent>((event, emit) => event.map(getDayNumber: (e) async {
+    on<HomeEvent>((event, emit) => event.map(
+        getDayNumber: (e) async {
           Either<Failure, int?> res = await HomeRepository.getDayNumber();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(dayNumber: r)));
-        }, getGeneralAnnouncements: (e) async {
+        },
+        getGeneralAnnouncements: (e) async {
           Either<Failure, List<GeneralAnnouncement>> res =
               await AnnouncementsRepository.getGeneralAnnouncements();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(generalAnnouncements: r)));
-        }, getSpiritMeters: (e) async {
+        },
+        getSpiritMeters: (e) async {
           Either<Failure, SpiritMeters> res =
               await HomeRepository.getSpiritMeters();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(spiritMeters: r)));
-        }, getVerseOfDay: (e) async {
+        },
+        getVerseOfDay: (e) async {
           Either<Failure, VerseOfDay> res =
               await HomeRepository.getVerseOfDay();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(verseOfDay: r)));
-        }, resetFailSuccess: (e) {
-          return emit(state.copyWith(failure: null, success: null));
-        }));
+        },
+        resetFailSuccess: (e) =>
+            emit(state.copyWith(failure: null, success: null))));
   }
 }
