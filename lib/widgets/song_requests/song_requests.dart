@@ -6,7 +6,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 class SongRequests extends StatefulWidget {
   final List<Song> songs;
   final Function() onAddSong;
-  final Function(bool upvoted, String songName) onUpvote;
+  final Function(bool upvoted, String id) onUpvote;
 
   const SongRequests(
       {Key? key,
@@ -68,7 +68,7 @@ class _SongRequestsState extends State<SongRequests> {
                     IconButton(
                         padding: EdgeInsets.zero,
                         constraints: const BoxConstraints(),
-                        onPressed: () => widget.onUpvote(true, song.name),
+                        onPressed: () => widget.onUpvote(true, song.id),
                         icon: Icon(Icons.keyboard_arrow_up_rounded,
                             color: upvoteColor)),
                     Text(

@@ -48,7 +48,12 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
     Navigator.pop(context);
   }
 
-  void onUpvote(bool upvoted, String songName) {}
+  void onUpvote(bool upvoted, String id) {
+    songBloc.add(SongEvent.upvoteSong(
+      id: id,
+      upvotes: upvoted ? 1 : -1,
+    ));
+  }
 
   @override
   Widget build(BuildContext context) {
