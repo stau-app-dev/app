@@ -58,20 +58,14 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<SongBloc, SongState>(listener: (context, state) {
+      // NOTE: Do note show success snackbar after a successful upvote
+      //       because that is not an ideal UX.
       if (state.failure != null) {
         useCustomSnackbar(
             context: context,
             message: state.failure!.message,
             type: ESnackBarType.error);
         songBloc.add(const SongEvent.resetFailSuccess());
-      }
-      if (state.success != null) {
-        useCustomSnackbar(
-            context: context,
-            message: state.success!.message ?? 'Success!',
-            type: ESnackBarType.success);
-        songBloc.add(const SongEvent.resetFailSuccess());
-        songBloc.add(const SongEvent.getSongs());
       }
     }, builder: (context, state) {
       return SafeArea(
