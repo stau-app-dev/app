@@ -19,12 +19,14 @@ class _$SongTearOff {
   const _$SongTearOff();
 
   _Song call(
-      {required String artist,
+      {required String id,
+      required String artist,
       required DateTime createdAt,
       required String creatorEmail,
       required String name,
       required int upvotes}) {
     return _Song(
+      id: id,
       artist: artist,
       createdAt: createdAt,
       creatorEmail: creatorEmail,
@@ -39,6 +41,7 @@ const $Song = _$SongTearOff();
 
 /// @nodoc
 mixin _$Song {
+  String get id => throw _privateConstructorUsedError;
   String get artist => throw _privateConstructorUsedError;
   DateTime get createdAt => throw _privateConstructorUsedError;
   String get creatorEmail => throw _privateConstructorUsedError;
@@ -54,7 +57,8 @@ abstract class $SongCopyWith<$Res> {
   factory $SongCopyWith(Song value, $Res Function(Song) then) =
       _$SongCopyWithImpl<$Res>;
   $Res call(
-      {String artist,
+      {String id,
+      String artist,
       DateTime createdAt,
       String creatorEmail,
       String name,
@@ -71,6 +75,7 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? artist = freezed,
     Object? createdAt = freezed,
     Object? creatorEmail = freezed,
@@ -78,6 +83,10 @@ class _$SongCopyWithImpl<$Res> implements $SongCopyWith<$Res> {
     Object? upvotes = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       artist: artist == freezed
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -108,7 +117,8 @@ abstract class _$SongCopyWith<$Res> implements $SongCopyWith<$Res> {
       __$SongCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String artist,
+      {String id,
+      String artist,
       DateTime createdAt,
       String creatorEmail,
       String name,
@@ -126,6 +136,7 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? artist = freezed,
     Object? createdAt = freezed,
     Object? creatorEmail = freezed,
@@ -133,6 +144,10 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
     Object? upvotes = freezed,
   }) {
     return _then(_Song(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       artist: artist == freezed
           ? _value.artist
           : artist // ignore: cast_nullable_to_non_nullable
@@ -161,12 +176,15 @@ class __$SongCopyWithImpl<$Res> extends _$SongCopyWithImpl<$Res>
 
 class _$_Song implements _Song {
   const _$_Song(
-      {required this.artist,
+      {required this.id,
+      required this.artist,
       required this.createdAt,
       required this.creatorEmail,
       required this.name,
       required this.upvotes});
 
+  @override
+  final String id;
   @override
   final String artist;
   @override
@@ -180,7 +198,7 @@ class _$_Song implements _Song {
 
   @override
   String toString() {
-    return 'Song(artist: $artist, createdAt: $createdAt, creatorEmail: $creatorEmail, name: $name, upvotes: $upvotes)';
+    return 'Song(id: $id, artist: $artist, createdAt: $createdAt, creatorEmail: $creatorEmail, name: $name, upvotes: $upvotes)';
   }
 
   @override
@@ -188,6 +206,7 @@ class _$_Song implements _Song {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _Song &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.artist, artist) &&
             const DeepCollectionEquality().equals(other.createdAt, createdAt) &&
             const DeepCollectionEquality()
@@ -199,6 +218,7 @@ class _$_Song implements _Song {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(artist),
       const DeepCollectionEquality().hash(createdAt),
       const DeepCollectionEquality().hash(creatorEmail),
@@ -213,12 +233,15 @@ class _$_Song implements _Song {
 
 abstract class _Song implements Song {
   const factory _Song(
-      {required String artist,
+      {required String id,
+      required String artist,
       required DateTime createdAt,
       required String creatorEmail,
       required String name,
       required int upvotes}) = _$_Song;
 
+  @override
+  String get id;
   @override
   String get artist;
   @override

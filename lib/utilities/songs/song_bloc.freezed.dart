@@ -33,6 +33,13 @@ class _$SongEventTearOff {
     );
   }
 
+  _upvoteSong upvoteSong({required String id, required int amount}) {
+    return _upvoteSong(
+      id: id,
+      amount: amount,
+    );
+  }
+
   _resetSongs resetSongs() {
     return const _resetSongs();
   }
@@ -52,6 +59,7 @@ mixin _$SongEvent {
     required TResult Function() getSongs,
     required TResult Function(String creatorEmail, String artist, String name)
         addSong,
+    required TResult Function(String id, int amount) upvoteSong,
     required TResult Function() resetSongs,
     required TResult Function() resetFailSuccess,
   }) =>
@@ -60,6 +68,7 @@ mixin _$SongEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
   }) =>
@@ -68,6 +77,7 @@ mixin _$SongEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -77,6 +87,7 @@ mixin _$SongEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_getSongs value) getSongs,
     required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
     required TResult Function(_resetSongs value) resetSongs,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
@@ -85,6 +96,7 @@ mixin _$SongEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
@@ -93,6 +105,7 @@ mixin _$SongEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -156,6 +169,7 @@ class _$_getSongs implements _getSongs {
     required TResult Function() getSongs,
     required TResult Function(String creatorEmail, String artist, String name)
         addSong,
+    required TResult Function(String id, int amount) upvoteSong,
     required TResult Function() resetSongs,
     required TResult Function() resetFailSuccess,
   }) {
@@ -167,6 +181,7 @@ class _$_getSongs implements _getSongs {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
   }) {
@@ -178,6 +193,7 @@ class _$_getSongs implements _getSongs {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -193,6 +209,7 @@ class _$_getSongs implements _getSongs {
   TResult map<TResult extends Object?>({
     required TResult Function(_getSongs value) getSongs,
     required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
     required TResult Function(_resetSongs value) resetSongs,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -204,6 +221,7 @@ class _$_getSongs implements _getSongs {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -215,6 +233,7 @@ class _$_getSongs implements _getSongs {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -316,6 +335,7 @@ class _$_addSong implements _addSong {
     required TResult Function() getSongs,
     required TResult Function(String creatorEmail, String artist, String name)
         addSong,
+    required TResult Function(String id, int amount) upvoteSong,
     required TResult Function() resetSongs,
     required TResult Function() resetFailSuccess,
   }) {
@@ -327,6 +347,7 @@ class _$_addSong implements _addSong {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
   }) {
@@ -338,6 +359,7 @@ class _$_addSong implements _addSong {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -353,6 +375,7 @@ class _$_addSong implements _addSong {
   TResult map<TResult extends Object?>({
     required TResult Function(_getSongs value) getSongs,
     required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
     required TResult Function(_resetSongs value) resetSongs,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -364,6 +387,7 @@ class _$_addSong implements _addSong {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -375,6 +399,7 @@ class _$_addSong implements _addSong {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -397,6 +422,170 @@ abstract class _addSong implements SongEvent {
   String get name;
   @JsonKey(ignore: true)
   _$addSongCopyWith<_addSong> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$upvoteSongCopyWith<$Res> {
+  factory _$upvoteSongCopyWith(
+          _upvoteSong value, $Res Function(_upvoteSong) then) =
+      __$upvoteSongCopyWithImpl<$Res>;
+  $Res call({String id, int amount});
+}
+
+/// @nodoc
+class __$upvoteSongCopyWithImpl<$Res> extends _$SongEventCopyWithImpl<$Res>
+    implements _$upvoteSongCopyWith<$Res> {
+  __$upvoteSongCopyWithImpl(
+      _upvoteSong _value, $Res Function(_upvoteSong) _then)
+      : super(_value, (v) => _then(v as _upvoteSong));
+
+  @override
+  _upvoteSong get _value => super._value as _upvoteSong;
+
+  @override
+  $Res call({
+    Object? id = freezed,
+    Object? amount = freezed,
+  }) {
+    return _then(_upvoteSong(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
+      amount: amount == freezed
+          ? _value.amount
+          : amount // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_upvoteSong implements _upvoteSong {
+  const _$_upvoteSong({required this.id, required this.amount});
+
+  @override
+  final String id;
+  @override
+  final int amount;
+
+  @override
+  String toString() {
+    return 'SongEvent.upvoteSong(id: $id, amount: $amount)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _upvoteSong &&
+            const DeepCollectionEquality().equals(other.id, id) &&
+            const DeepCollectionEquality().equals(other.amount, amount));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(id),
+      const DeepCollectionEquality().hash(amount));
+
+  @JsonKey(ignore: true)
+  @override
+  _$upvoteSongCopyWith<_upvoteSong> get copyWith =>
+      __$upvoteSongCopyWithImpl<_upvoteSong>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getSongs,
+    required TResult Function(String creatorEmail, String artist, String name)
+        addSong,
+    required TResult Function(String id, int amount) upvoteSong,
+    required TResult Function() resetSongs,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return upvoteSong(id, amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getSongs,
+    TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
+    TResult Function()? resetSongs,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return upvoteSong?.call(id, amount);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getSongs,
+    TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
+    TResult Function()? resetSongs,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (upvoteSong != null) {
+      return upvoteSong(id, amount);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getSongs value) getSongs,
+    required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
+    required TResult Function(_resetSongs value) resetSongs,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return upvoteSong(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getSongs value)? getSongs,
+    TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
+    TResult Function(_resetSongs value)? resetSongs,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return upvoteSong?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getSongs value)? getSongs,
+    TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
+    TResult Function(_resetSongs value)? resetSongs,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (upvoteSong != null) {
+      return upvoteSong(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _upvoteSong implements SongEvent {
+  const factory _upvoteSong({required String id, required int amount}) =
+      _$_upvoteSong;
+
+  String get id;
+  int get amount;
+  @JsonKey(ignore: true)
+  _$upvoteSongCopyWith<_upvoteSong> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -443,6 +632,7 @@ class _$_resetSongs implements _resetSongs {
     required TResult Function() getSongs,
     required TResult Function(String creatorEmail, String artist, String name)
         addSong,
+    required TResult Function(String id, int amount) upvoteSong,
     required TResult Function() resetSongs,
     required TResult Function() resetFailSuccess,
   }) {
@@ -454,6 +644,7 @@ class _$_resetSongs implements _resetSongs {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
   }) {
@@ -465,6 +656,7 @@ class _$_resetSongs implements _resetSongs {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -480,6 +672,7 @@ class _$_resetSongs implements _resetSongs {
   TResult map<TResult extends Object?>({
     required TResult Function(_getSongs value) getSongs,
     required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
     required TResult Function(_resetSongs value) resetSongs,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -491,6 +684,7 @@ class _$_resetSongs implements _resetSongs {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -502,6 +696,7 @@ class _$_resetSongs implements _resetSongs {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -561,6 +756,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     required TResult Function() getSongs,
     required TResult Function(String creatorEmail, String artist, String name)
         addSong,
+    required TResult Function(String id, int amount) upvoteSong,
     required TResult Function() resetSongs,
     required TResult Function() resetFailSuccess,
   }) {
@@ -572,6 +768,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
   }) {
@@ -583,6 +780,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getSongs,
     TResult Function(String creatorEmail, String artist, String name)? addSong,
+    TResult Function(String id, int amount)? upvoteSong,
     TResult Function()? resetSongs,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -598,6 +796,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult map<TResult extends Object?>({
     required TResult Function(_getSongs value) getSongs,
     required TResult Function(_addSong value) addSong,
+    required TResult Function(_upvoteSong value) upvoteSong,
     required TResult Function(_resetSongs value) resetSongs,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -609,6 +808,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -620,6 +820,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getSongs value)? getSongs,
     TResult Function(_addSong value)? addSong,
+    TResult Function(_upvoteSong value)? upvoteSong,
     TResult Function(_resetSongs value)? resetSongs,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),

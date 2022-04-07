@@ -50,11 +50,12 @@ class SongsApi {
   }
 
   static Future<Either<Failure, Success>> upvoteSong(
-      {required String songId}) async {
+      {required String songId, required int amount}) async {
     try {
       var uri = Uri.parse(upvoteSongEndpoint);
       uri = uri.replace(queryParameters: {
         'songId': songId,
+        'amount': amount.toString(),
       });
       Response res = await post(uri);
       if (res.statusCode == 200) {

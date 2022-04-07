@@ -22,7 +22,7 @@ class SongsRepository {
   }
 
   static Future<Either<Failure, Success>> upvoteSong(
-      {required String songId}) async {
-    return await SongsApi.upvoteSong(songId: songId);
+      {required String songId, required int amount}) async {
+    return await SongsApi.upvoteSong(songId: songId, amount: amount);
   }
 }
