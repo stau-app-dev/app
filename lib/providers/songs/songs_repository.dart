@@ -20,4 +20,9 @@ class SongsRepository {
     return await SongsApi.addSong(
         creatorEmail: creatorEmail, artist: artist, name: name);
   }
+
+  static Future<Either<Failure, Success>> upvoteSong(
+      {required String songId}) async {
+    return await SongsApi.upvoteSong(songId: songId);
+  }
 }

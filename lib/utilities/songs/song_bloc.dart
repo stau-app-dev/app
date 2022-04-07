@@ -23,6 +23,11 @@ class SongBloc extends Bloc<SongEvent, SongState> {
               creatorEmail: e.creatorEmail, artist: e.artist, name: e.name);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
+        }, upvoteSong: (e) async {
+          Either<Failure, Success> res =
+              await SongsRepository.upvoteSong(songId: e.id);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
         }, resetSongs: (e) async {
           return emit(state.copyWith(songs: []));
         }, resetFailSuccess: (e) async {
