@@ -15,12 +15,14 @@ part 'auth_bloc.freezed.dart';
 @singleton
 class AuthBloc extends Bloc<AuthEvent, AuthState> {
   AuthBloc() : super(AuthState.initial()) {
-    on<AuthEvent>((event, emit) => event.map(initializeFirebase: (e) async {
+    on<AuthEvent>((event, emit) => event.map(
+        initializeFirebase: (e) async {
           Either<Failure, FirebaseApp> res =
               await AuthRepository.initializeFirebase();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(firebaseApp: r)));
-        }, checkSignedIn: (e) async {
+        },
+        checkSignedIn: (e) async {
           Either<Failure, User?> res = await AuthRepository.checkSignedIn();
           return emit(res.fold((l) => state.copyWith(failure: l), (r) {
             if (r != null) {
@@ -29,16 +31,18 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
               return state.copyWith(user: null);
             }
           }));
-        }, signIn: (e) async {
+        },
+        signIn: (e) async {
           Either<Failure, User?> res = await AuthRepository.signInWithGoogle();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r, isAuthenticated: true)));
-        }, signOut: (e) async {
+        },
+        signOut: (e) async {
           Either<Failure, Success> res = await AuthRepository.signOut();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: null, isAuthenticated: false)));
-        }, resetFailSuccess: (e) {
-          return emit(state.copyWith(failure: null, success: null));
-        }));
+        },
+        resetFailSuccess: (e) =>
+            emit(state.copyWith(failure: null, success: null))));
   }
 }

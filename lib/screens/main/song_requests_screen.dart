@@ -8,7 +8,7 @@ import 'package:staugustinechsnewapp/widgets/song_requests/song_requests.dart';
 class SongRequestsScreen extends StatefulWidget {
   final List<Song> songs;
   final Function() onAddSong;
-  final Function(bool upvoted, String songName) onUpvote;
+  final Function(bool upvoted, String id) onUpvote;
 
   const SongRequestsScreen(
       {Key? key,

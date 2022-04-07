@@ -6,7 +6,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 class SongRequests extends StatefulWidget {
   final List<Song> songs;
   final Function() onAddSong;
-  final Function(bool upvoted, String songName) onUpvote;
+  final Function(bool upvoted, String id) onUpvote;
 
   const SongRequests(
       {Key? key,
@@ -52,32 +52,33 @@ class _SongRequestsState extends State<SongRequests> {
   List<Widget> buildItems() {
     List<Widget> songs = [];
     for (var song in widget.songs) {
-      Color upvoteColor = Styles.white;
+      bool upvoted = song.upvoted ?? false;
+      Color upvoteColor = upvoted ? Styles.secondary : Styles.white;
 
       songs.add(Container(
           width: getWidth(context),
           decoration: const BoxDecoration(
               color: Styles.primary, borderRadius: Styles.mainBorderRadius),
           child: Row(children: [
-            Container(
-                padding: const EdgeInsets.symmetric(
-                    vertical: 10.0, horizontal: 16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    IconButton(
-                        padding: EdgeInsets.zero,
-                        constraints: const BoxConstraints(),
-                        onPressed: () => widget.onUpvote(true, song.name),
-                        icon: Icon(Icons.keyboard_arrow_up_rounded,
-                            color: upvoteColor)),
-                    Text(
-                      song.upvotes.toString(),
-                      style:
-                          const TextStyle(color: Styles.white, fontSize: 12.0),
-                    ),
-                  ],
-                )),
+            GestureDetector(
+                onTap: () {
+                  widget.onUpvote(!upvoted, song.id);
+                },
+                child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 16.0),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Icon(Icons.keyboard_arrow_up_rounded,
+                            color: upvoteColor),
+                        Text(
+                          song.upvotes.toString(),
+                          style: const TextStyle(
+                              color: Styles.white, fontSize: 12.0),
+                        ),
+                      ],
+                    ))),
             buildSongInfo(song.name, song.artist),
           ])));
       songs.add(const SizedBox(height: 10.0));

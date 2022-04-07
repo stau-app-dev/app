@@ -14,19 +14,52 @@ part 'song_bloc.freezed.dart';
 @singleton
 class SongBloc extends Bloc<SongEvent, SongState> {
   SongBloc() : super(SongState.initial()) {
-    on<SongEvent>((event, emit) => event.map(getSongs: (e) async {
+    on<SongEvent>((event, emit) => event.map(
+        getSongs: (e) async {
           Either<Failure, List<Song>> res = await SongsRepository.getSongs();
           return emit(res.fold((l) => state.copyWith(failure: l),
-              (r) => state.copyWith(songs: r)));
-        }, addSong: (e) async {
+              (r) => state.copyWith(songs: r, lastUpdated: DateTime.now())));
+        },
+        addSong: (e) async {
           Either<Failure, Success> res = await SongsRepository.addSong(
               creatorEmail: e.creatorEmail, artist: e.artist, name: e.name);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
-        }, resetSongs: (e) async {
-          return emit(state.copyWith(songs: []));
-        }, resetFailSuccess: (e) async {
-          return emit(state.copyWith(failure: null, success: null));
-        }));
+        },
+        upvoteSong: (e) async {
+          Either<Failure, Success> res = await SongsRepository.upvoteSong(
+              songId: e.id, upvotes: e.upvotes);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        setUpvoted: (e) {
+          Map<String, dynamic> upvotedMap = e.upvoted;
+
+          // Create a new map with the current state
+          List<Map<String, dynamic>> newSongs = [];
+          for (int i = 0; i < state.songs.length; i++) {
+            newSongs.add(Song.toJson(state.songs[i]));
+          }
+
+          // Iterate through saved upvotes in local storage and update state
+          for (Song song in state.songs) {
+            if (upvotedMap.containsKey(song.id)) {
+              int index =
+                  newSongs.indexWhere((element) => element['id'] == song.id);
+              newSongs[index]['upvoted'] = upvotedMap[song.id];
+            }
+          }
+
+          // Convert back to list of songs
+          List<Song> newSongsList = [];
+          for (Map<String, dynamic> song in newSongs) {
+            newSongsList.add(Song.fromJson(song));
+          }
+
+          return emit(state.copyWith(songs: newSongsList));
+        },
+        resetSongs: (e) => emit(state.copyWith(songs: [])),
+        resetFailSuccess: (e) =>
+            emit(state.copyWith(failure: null, success: null))));
   }
 }
