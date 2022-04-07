@@ -5,6 +5,7 @@ part 'song.freezed.dart';
 @freezed
 class Song with _$Song {
   const factory Song({
+    required String id,
     required String artist,
     required DateTime createdAt,
     required String creatorEmail,
@@ -16,6 +17,7 @@ class Song with _$Song {
     Timestamp createdAt = Timestamp(
         json['createdAt']['_seconds'], json['createdAt']['_nanoseconds']);
     return Song(
+      id: json['id'] as String,
       artist: json['artist'] as String,
       createdAt: createdAt.toDate(),
       creatorEmail: json['creatorEmail'] as String,

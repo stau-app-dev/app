@@ -48,4 +48,23 @@ class SongsApi {
       return const Left(Failure(message: errorAddingSong));
     }
   }
+
+  static Future<Either<Failure, Success>> upvoteSong(
+      {required String songId}) async {
+    try {
+      var uri = Uri.parse(upvoteSongEndpoint);
+      uri = uri.replace(queryParameters: {
+        'songId': songId,
+      });
+      Response res = await post(uri);
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorUpvotingSong));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorUpvotingSong));
+    }
+  }
 }
