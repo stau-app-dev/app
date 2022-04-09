@@ -1,16 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
-import 'package:staugustinechsnewapp/screens/main/join_clubs_screen.dart';
+import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
-class JoinClubsScaffold extends StatefulWidget {
-  const JoinClubsScaffold({Key? key}) : super(key: key);
+class SocialsScaffold extends StatefulWidget {
+  const SocialsScaffold({Key? key}) : super(key: key);
   @override
-  State<JoinClubsScaffold> createState() => _JoinClubsScaffoldState();
+  State<SocialsScaffold> createState() => _SocialsScaffoldState();
 }
 
-class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
+class _SocialsScaffoldState extends State<SocialsScaffold> {
   late NavBloc navBloc;
 
   @override
@@ -30,7 +30,8 @@ class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
         'member2@ycdsbk12.ca',
         'member3@ycdsbk12.ca',
       ],
-      name: 'Engineering Club',
+      name:
+          'Club name that is really long and will wrap around to the next line probably',
       pending: [
         'pending@ycdsbk12.ca',
         'pending2@ycdsbk12.ca',
@@ -47,7 +48,7 @@ class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
         'member2@ycdsbk12.ca',
         'member3@ycdsbk12.ca',
       ],
-      name: 'Science Club',
+      name: 'Club name',
       pending: [
         'pending@ycdsbk12.ca',
         'pending2@ycdsbk12.ca',
@@ -65,7 +66,7 @@ class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
         'member2@ycdsbk12.ca',
         'member3@ycdsbk12.ca',
       ],
-      name: 'Wow Club',
+      name: 'Spectrum',
       pending: [
         'pending@ycdsbk12.ca',
         'pending2@ycdsbk12.ca',
@@ -73,37 +74,20 @@ class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
       pictureUrl:
           'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
     ),
-    const Club(
-      id: '1',
-      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
-      description:
-          'Spectrum is a club that focuses on the development of the student body. We are a group of students who are passionate about technology and want to help others learn about it.',
-      members: [
-        'member@ycdsbk12.ca',
-        'member2@ycdsbk12.ca',
-        'member3@ycdsbk12.ca',
-      ],
-      name: 'Best Buddies Club',
-      pending: [
-        'pending@ycdsbk12.ca',
-        'pending2@ycdsbk12.ca',
-      ],
-      pictureUrl:
-          'https://s.yimg.com/uu/api/res/1.2/BhsE8N4Y7U7o8h9gnp8IaA--~B/aD05MDA7dz0xNjAwO2FwcGlkPXl0YWNoeW9u/https://o.aolcdn.com/images/dims?crop=1280%2C720%2C0%2C0&quality=85&format=jpg&resize=1600%2C900&image_uri=https://s.yimg.com/os/creatr-uploaded-images/2019-09/f5bb6880-d0c7-11e9-9d7f-8cca8390b2a6&client=a1acac3e1b3290917d92&signature=bc7f19652615e0174015ca8a944c2f07e8bf0da9',
-    ),
   ];
 
   void onPressedClub(String clubId) {}
 
-  void onPressJoinClub() {
+  void onPressJoinClubsButton() {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.joinClubs));
   }
 
   @override
   Widget build(BuildContext context) {
-    return JoinClubsScreen(
+    return SocialsScreen(
       clubs: sampleClubs,
       onPressClub: onPressedClub,
+      onPressJoinClubsButton: onPressJoinClubsButton,
     );
   }
 }
