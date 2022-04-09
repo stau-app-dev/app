@@ -5,23 +5,19 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';
 
-class SocialsScreen extends StatefulWidget {
+class JoinClubsScreen extends StatefulWidget {
   final List<Club> clubs;
   final Function(String) onPressClub;
-  final Function() onPressJoinClubsButton;
 
-  const SocialsScreen({
-    Key? key,
-    required this.clubs,
-    required this.onPressClub,
-    required this.onPressJoinClubsButton,
-  }) : super(key: key);
+  const JoinClubsScreen(
+      {Key? key, required this.clubs, required this.onPressClub})
+      : super(key: key);
 
   @override
-  State<SocialsScreen> createState() => _SocialsScreenState();
+  State<JoinClubsScreen> createState() => _JoinClubsScreenState();
 }
 
-class _SocialsScreenState extends State<SocialsScreen> {
+class _JoinClubsScreenState extends State<JoinClubsScreen> {
   @override
   Widget build(BuildContext context) {
     return PageLayout(
@@ -30,11 +26,10 @@ class _SocialsScreenState extends State<SocialsScreen> {
         const ScreenHeader(headerText: 'Socials'),
         const SizedBox(height: Styles.mainSpacing),
         ClubsList(
-          title: 'My Clubs',
+          title: 'Join Clubs',
           items: widget.clubs,
+          showJoinClubsButton: false,
           onPressClub: widget.onPressClub,
-          showJoinClubsButton: true,
-          onPressJoinClubsButton: widget.onPressJoinClubsButton,
         ),
       ],
     );

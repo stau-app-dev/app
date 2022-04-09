@@ -18,7 +18,8 @@ class _LoginScreenState extends State<LoginScreen> {
     return PageLayout(
       children: [
         IconButton(
-            onPressed: widget.onPressedClose, icon: const Icon(Icons.close)),
+            onPressed: widget.onPressedClose,
+            icon: const Icon(Icons.close_rounded)),
         Image.asset(
           'assets/logos/sta_logo.png',
           height: 160,

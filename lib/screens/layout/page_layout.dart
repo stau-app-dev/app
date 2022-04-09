@@ -69,7 +69,7 @@ class PageLayout extends StatelessWidget {
               icon: const Padding(
                 padding: EdgeInsets.only(left: 0),
                 child: Icon(
-                  Icons.arrow_back_ios_new,
+                  Icons.arrow_back_ios_new_rounded,
                   size: 20,
                 ),
               ),

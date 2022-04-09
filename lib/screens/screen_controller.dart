@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/cafe_menu_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/home_scaffold.dart';
+import 'package:staugustinechsnewapp/screens/scaffolds/join_clubs_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/login_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/profile_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/settings_scaffold.dart';
@@ -18,6 +19,7 @@ Map<ENav, Widget> _screens = {
   ENav.cafeMenu: const CafeMenuScaffold(),
   ENav.home: const HomeScaffold(),
   ENav.login: const LoginScaffold(),
+  ENav.joinClubs: const JoinClubsScaffold(),
   ENav.profile: const ProfileScaffold(),
   ENav.socials: const SocialsScaffold(),
   ENav.songRequests: const SongRequestsScaffold(),
