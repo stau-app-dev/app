@@ -9,7 +9,8 @@ class CafeMenuRepository {
   CafeMenuRepository();
 
   static Future<Either<Failure, List<CafeMenuItem>>> getCafeMenu(
-      {required bool isTodaysSpecial}) async {
-    return await CafeMenuApi.getCafeMenuItems(isTodaysSpecial: isTodaysSpecial);
+      {required bool isTodaysSpecial, int? limit}) async {
+    return await CafeMenuApi.getCafeMenuItems(
+        isTodaysSpecial: isTodaysSpecial, limit: limit);
   }
 }

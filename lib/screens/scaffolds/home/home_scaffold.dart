@@ -25,6 +25,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
   void onRefresh() {
     homeBloc.add(const HomeEvent.getDayNumber());
     homeBloc.add(const HomeEvent.getGeneralAnnouncements());
+    homeBloc.add(const HomeEvent.getFeaturedCafeMenuItems());
     homeBloc.add(const HomeEvent.getSpiritMeters());
     homeBloc.add(const HomeEvent.getVerseOfDay());
   }
@@ -48,7 +49,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
           dayNumber: homeState.dayNumber,
           userName: authState.user?.displayName,
           generalAnnouncements: homeState.generalAnnouncements,
-          featuredCafeItems: [],
+          featuredCafeItems: homeState.featuredCafeMenuItems,
           spiritMeters: homeState.spiritMeters,
           verseOfDay: homeState.verseOfDay,
         );
