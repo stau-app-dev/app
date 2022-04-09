@@ -126,6 +126,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         songs: state.songs,
         onAddSong: onAddSong,
         onUpvote: onUpvote,
+        disableUpvote: state.isLoading,
       ));
     });
   }

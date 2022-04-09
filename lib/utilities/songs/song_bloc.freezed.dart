@@ -1044,11 +1044,13 @@ class _$SongStateTearOff {
   _SongState call(
       {List<Song> songs = const [],
       DateTime? lastUpdated,
+      bool isLoading = false,
       Failure? failure,
       Success? success}) {
     return _SongState(
       songs: songs,
       lastUpdated: lastUpdated,
+      isLoading: isLoading,
       failure: failure,
       success: success,
     );
@@ -1062,6 +1064,7 @@ const $SongState = _$SongStateTearOff();
 mixin _$SongState {
   List<Song> get songs => throw _privateConstructorUsedError;
   DateTime? get lastUpdated => throw _privateConstructorUsedError;
+  bool get isLoading => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
 
@@ -1077,6 +1080,7 @@ abstract class $SongStateCopyWith<$Res> {
   $Res call(
       {List<Song> songs,
       DateTime? lastUpdated,
+      bool isLoading,
       Failure? failure,
       Success? success});
 
@@ -1096,6 +1100,7 @@ class _$SongStateCopyWithImpl<$Res> implements $SongStateCopyWith<$Res> {
   $Res call({
     Object? songs = freezed,
     Object? lastUpdated = freezed,
+    Object? isLoading = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -1108,6 +1113,10 @@ class _$SongStateCopyWithImpl<$Res> implements $SongStateCopyWith<$Res> {
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1151,6 +1160,7 @@ abstract class _$SongStateCopyWith<$Res> implements $SongStateCopyWith<$Res> {
   $Res call(
       {List<Song> songs,
       DateTime? lastUpdated,
+      bool isLoading,
       Failure? failure,
       Success? success});
 
@@ -1173,6 +1183,7 @@ class __$SongStateCopyWithImpl<$Res> extends _$SongStateCopyWithImpl<$Res>
   $Res call({
     Object? songs = freezed,
     Object? lastUpdated = freezed,
+    Object? isLoading = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -1185,6 +1196,10 @@ class __$SongStateCopyWithImpl<$Res> extends _$SongStateCopyWithImpl<$Res>
           ? _value.lastUpdated
           : lastUpdated // ignore: cast_nullable_to_non_nullable
               as DateTime?,
+      isLoading: isLoading == freezed
+          ? _value.isLoading
+          : isLoading // ignore: cast_nullable_to_non_nullable
+              as bool,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -1201,13 +1216,20 @@ class __$SongStateCopyWithImpl<$Res> extends _$SongStateCopyWithImpl<$Res>
 
 class _$_SongState implements _SongState {
   const _$_SongState(
-      {this.songs = const [], this.lastUpdated, this.failure, this.success});
+      {this.songs = const [],
+      this.lastUpdated,
+      this.isLoading = false,
+      this.failure,
+      this.success});
 
   @JsonKey()
   @override
   final List<Song> songs;
   @override
   final DateTime? lastUpdated;
+  @JsonKey()
+  @override
+  final bool isLoading;
   @override
   final Failure? failure;
   @override
@@ -1215,7 +1237,7 @@ class _$_SongState implements _SongState {
 
   @override
   String toString() {
-    return 'SongState(songs: $songs, lastUpdated: $lastUpdated, failure: $failure, success: $success)';
+    return 'SongState(songs: $songs, lastUpdated: $lastUpdated, isLoading: $isLoading, failure: $failure, success: $success)';
   }
 
   @override
@@ -1226,6 +1248,7 @@ class _$_SongState implements _SongState {
             const DeepCollectionEquality().equals(other.songs, songs) &&
             const DeepCollectionEquality()
                 .equals(other.lastUpdated, lastUpdated) &&
+            const DeepCollectionEquality().equals(other.isLoading, isLoading) &&
             const DeepCollectionEquality().equals(other.failure, failure) &&
             const DeepCollectionEquality().equals(other.success, success));
   }
@@ -1235,6 +1258,7 @@ class _$_SongState implements _SongState {
       runtimeType,
       const DeepCollectionEquality().hash(songs),
       const DeepCollectionEquality().hash(lastUpdated),
+      const DeepCollectionEquality().hash(isLoading),
       const DeepCollectionEquality().hash(failure),
       const DeepCollectionEquality().hash(success));
 
@@ -1248,6 +1272,7 @@ abstract class _SongState implements SongState {
   const factory _SongState(
       {List<Song> songs,
       DateTime? lastUpdated,
+      bool isLoading,
       Failure? failure,
       Success? success}) = _$_SongState;
 
@@ -1255,6 +1280,8 @@ abstract class _SongState implements SongState {
   List<Song> get songs;
   @override
   DateTime? get lastUpdated;
+  @override
+  bool get isLoading;
   @override
   Failure? get failure;
   @override

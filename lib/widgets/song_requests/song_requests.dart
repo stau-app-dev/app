@@ -7,12 +7,14 @@ class SongRequests extends StatefulWidget {
   final List<Song> songs;
   final Function() onAddSong;
   final Function(bool upvoted, String id) onUpvote;
+  final bool disableUpvote;
 
   const SongRequests(
       {Key? key,
       required this.songs,
       required this.onAddSong,
-      required this.onUpvote})
+      required this.onUpvote,
+      required this.disableUpvote})
       : super(key: key);
 
   @override
@@ -62,8 +64,11 @@ class _SongRequestsState extends State<SongRequests> {
                   color: Styles.primary, borderRadius: Styles.mainBorderRadius),
               child: InkWell(
                   borderRadius: Styles.mainBorderRadius,
-                  splashColor: Styles.secondary,
+                  splashColor: widget.disableUpvote ? Styles.secondary : null,
                   onTap: () {
+                    if (widget.disableUpvote) {
+                      return;
+                    }
                     widget.onUpvote(!upvoted, song.id);
                   },
                   child: Row(children: [

@@ -9,12 +9,14 @@ class SongRequestsScreen extends StatefulWidget {
   final List<Song> songs;
   final Function() onAddSong;
   final Function(bool upvoted, String id) onUpvote;
+  final bool disableUpvote;
 
   const SongRequestsScreen(
       {Key? key,
       required this.songs,
       required this.onAddSong,
-      required this.onUpvote})
+      required this.onUpvote,
+      required this.disableUpvote})
       : super(key: key);
 
   @override
@@ -32,6 +34,7 @@ class _SongRequestsScreenState extends State<SongRequestsScreen> {
           songs: widget.songs,
           onAddSong: widget.onAddSong,
           onUpvote: widget.onUpvote,
+          disableUpvote: widget.disableUpvote,
         ),
       ],
     );
