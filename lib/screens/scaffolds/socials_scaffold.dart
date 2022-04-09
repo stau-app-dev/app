@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials_screen.dart';
 
 class SocialsScaffold extends StatefulWidget {
@@ -8,8 +9,70 @@ class SocialsScaffold extends StatefulWidget {
 }
 
 class _SocialsScaffoldState extends State<SocialsScaffold> {
+  List<Club> sampleClubs = [
+    const Club(
+      id: '1',
+      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
+      description:
+          'Club description that is really long and will wrap around to the next line probably',
+      members: [
+        'member@ycdsbk12.ca',
+        'member2@ycdsbk12.ca',
+        'member3@ycdsbk12.ca',
+      ],
+      name:
+          'Club name that is really long and will wrap around to the next line probably',
+      pending: [
+        'pending@ycdsbk12.ca',
+        'pending2@ycdsbk12.ca',
+      ],
+      pictureUrl:
+          'https://static.boredpanda.com/blog/wp-content/uploads/2019/04/funny-dancing-cats-fb3-png__700.jpg',
+    ),
+    const Club(
+      id: '1',
+      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
+      description: 'App Development Club',
+      members: [
+        'member@ycdsbk12.ca',
+        'member2@ycdsbk12.ca',
+        'member3@ycdsbk12.ca',
+      ],
+      name: 'Club name',
+      pending: [
+        'pending@ycdsbk12.ca',
+        'pending2@ycdsbk12.ca',
+      ],
+      pictureUrl:
+          'https://cdn.vox-cdn.com/thumbor/MZRJnpwAMIHQ5-XT4FwNv0rivw4=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19397812/1048232144.jpg.jpg',
+    ),
+    const Club(
+      id: '1',
+      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
+      description:
+          'Spectrum is a club that focuses on the development of the student body. We are a group of students who are passionate about technology and want to help others learn about it.',
+      members: [
+        'member@ycdsbk12.ca',
+        'member2@ycdsbk12.ca',
+        'member3@ycdsbk12.ca',
+      ],
+      name: 'Spectrum',
+      pending: [
+        'pending@ycdsbk12.ca',
+        'pending2@ycdsbk12.ca',
+      ],
+      pictureUrl:
+          'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
+    ),
+  ];
+
+  void onJoinClub() {}
+
   @override
   Widget build(BuildContext context) {
-    return const SocialsScreen();
+    return SocialsScreen(
+      clubs: sampleClubs,
+      onJoinClub: onJoinClub,
+    );
   }
 }
