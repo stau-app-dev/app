@@ -4,13 +4,13 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
 class AddSongForm extends StatefulWidget {
-  final Function() onSubmitSong;
+  final Function() onPressedSubmit;
   final TextEditingController songNameController;
   final TextEditingController artistNameController;
 
   const AddSongForm(
       {Key? key,
-      required this.onSubmitSong,
+      required this.onPressedSubmit,
       required this.songNameController,
       required this.artistNameController})
       : super(key: key);
@@ -35,7 +35,7 @@ class _AddSongFormState extends State<AddSongForm> {
           RoundedTextField(
               hintText: 'Artist Name', controller: widget.artistNameController),
           const SizedBox(height: 10.0),
-          RoundedButton(text: 'Submit', onPressed: widget.onSubmitSong),
+          RoundedButton(text: 'Submit', onPressed: widget.onPressedSubmit),
           const SizedBox(height: 30.0),
           Container(
               alignment: Alignment.center,

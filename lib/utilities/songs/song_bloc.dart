@@ -16,9 +16,12 @@ class SongBloc extends Bloc<SongEvent, SongState> {
   SongBloc() : super(SongState.initial()) {
     on<SongEvent>((event, emit) => event.map(
         getSongs: (e) async {
+          emit(state.copyWith(isLoading: true));
           Either<Failure, List<Song>> res = await SongsRepository.getSongs();
-          return emit(res.fold((l) => state.copyWith(failure: l),
-              (r) => state.copyWith(songs: r, lastUpdated: DateTime.now())));
+          return emit(res.fold(
+              (l) => state.copyWith(failure: l, isLoading: false),
+              (r) => state.copyWith(
+                  songs: r, lastUpdated: DateTime.now(), isLoading: false)));
         },
         addSong: (e) async {
           Either<Failure, Success> res = await SongsRepository.addSong(
