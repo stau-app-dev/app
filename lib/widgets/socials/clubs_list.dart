@@ -27,19 +27,55 @@ class ClubsList extends StatefulWidget {
 class _ClubsListState extends State<ClubsList> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  Widget buildTile(
+  Widget buildTile({required String clubId, required String name}) {
+    double tileWidth = getWidth(context) - (Styles.mainOutsidePadding * 2);
+
+    return Container(
+        height: Styles.cafeItemHeight,
+        width: tileWidth,
+        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+        child: Container(
+            alignment: Alignment.bottomCenter,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [
+                Flexible(
+                    child: Text(
+                  name,
+                  textAlign: TextAlign.start,
+                  style: const TextStyle(
+                      fontFamily: Styles.fontFamilyNormal,
+                      fontWeight: FontWeight.bold,
+                      color: Styles.white),
+                )),
+                if (!widget.showJoinClubsButton)
+                  ClipOval(
+                    child: Material(
+                      color: Styles.white, // Button color
+                      child: InkWell(
+                        splashColor: Styles.primary, // Splash color
+                        onTap: () {},
+                        child: const SizedBox(
+                            width: 30,
+                            height: 30,
+                            child: Icon(
+                              Icons.add_rounded,
+                              color: Styles.primary,
+                            )),
+                      ),
+                    ),
+                  )
+              ],
+            )));
+  }
+
+  Widget buildTileWrapper(
       {required String clubId,
       required String name,
       required String pictureUrl}) {
-    double tileWidth = getWidth(context) - (Styles.mainOutsidePadding * 2);
-
-    return InkWell(
-        onTap: () => widget.onPressClub(name),
-        child: Container(
-            height: Styles.cafeItemHeight,
-            width: tileWidth,
-            padding:
-                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+    return Material(
+        child: Ink(
             decoration: BoxDecoration(
                 image: DecorationImage(
                   image: CachedNetworkImageProvider(pictureUrl),
@@ -50,47 +86,18 @@ class _ClubsListState extends State<ClubsList> {
                   width: 1.0,
                 ),
                 borderRadius: Styles.mainBorderRadius),
-            child: Container(
-                alignment: Alignment.bottomCenter,
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Flexible(
-                        child: Text(
-                      name,
-                      textAlign: TextAlign.start,
-                      style: const TextStyle(
-                          fontFamily: Styles.fontFamilyNormal,
-                          fontWeight: FontWeight.bold,
-                          color: Styles.white),
-                    )),
-                    if (!widget.showJoinClubsButton)
-                      ClipOval(
-                        child: Material(
-                          color: Styles.white, // Button color
-                          child: InkWell(
-                            splashColor: Styles.primary, // Splash color
-                            onTap: () {},
-                            child: const SizedBox(
-                                width: 30,
-                                height: 30,
-                                child: Icon(
-                                  Icons.add_rounded,
-                                  color: Styles.primary,
-                                )),
-                          ),
-                        ),
-                      )
-                  ],
-                ))));
+            child: InkWell(
+                borderRadius: Styles.mainBorderRadius,
+                splashColor: Styles.primary,
+                onTap: () => widget.onPressClub(clubId),
+                child: buildTile(clubId: clubId, name: name))));
   }
 
   Widget buildItems() {
     List<Widget> rows = [];
     for (int i = 0; i < widget.items.length; i += 1) {
       rows.add(
-        buildTile(
+        buildTileWrapper(
             clubId: widget.items[i].id,
             name: widget.items[i].name,
             pictureUrl: widget.items[i].pictureUrl),
