@@ -17,19 +17,15 @@ class _HomeScaffoldState extends State<HomeScaffold> {
   @override
   void initState() {
     homeBloc = BlocProvider.of<HomeBloc>(context);
-    getAllData();
+    onRefresh();
     super.initState();
   }
 
-  void getAllData() {
+  void onRefresh() {
     homeBloc.add(const HomeEvent.getDayNumber());
     homeBloc.add(const HomeEvent.getGeneralAnnouncements());
     homeBloc.add(const HomeEvent.getSpiritMeters());
     homeBloc.add(const HomeEvent.getVerseOfDay());
-  }
-
-  void onRefresh() {
-    getAllData();
   }
 
   List<Map<String, String>> sampleFeaturedCafeItems = [

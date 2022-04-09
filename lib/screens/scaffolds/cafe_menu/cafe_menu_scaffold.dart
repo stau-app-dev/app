@@ -16,9 +16,13 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
   @override
   void initState() {
     cafeMenuBloc = BlocProvider.of<CafeMenuBloc>(context);
+    onRefresh();
+    super.initState();
+  }
+
+  void onRefresh() {
     cafeMenuBloc.add(const CafeMenuEvent.getCafeMenu());
     cafeMenuBloc.add(const CafeMenuEvent.getTodaysSpecials());
-    super.initState();
   }
 
   @override
@@ -36,6 +40,7 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
       return CafeMenuScreen(
         todaysSpecials: state.todaysSpecials,
         menuItems: state.menuItems,
+        onRefresh: onRefresh,
       );
     });
   }
