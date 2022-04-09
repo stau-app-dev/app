@@ -66,12 +66,9 @@ class _BottomNavBarState extends State<BottomNavBar> {
   int getIndex(ENav nav) {
     if (nav == ENav.settings) {
       return eNavToIndex(ENav.profile);
-    }
-    // TODO: When any clubs screen is added, uncomment this or add more cases
-    // else if (nav == ENav.clubs) {
-    //   return eNavToIndex(ENav.socials);
-    // }
-    else if (eNavToIndex(nav) > 4) {
+    } else if (nav == ENav.joinClubs) {
+      return eNavToIndex(ENav.socials);
+    } else if (eNavToIndex(nav) > 4) {
       return eNavToIndex(ENav.home);
     } else {
       return eNavToIndex(nav);

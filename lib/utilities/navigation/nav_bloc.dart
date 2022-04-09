@@ -10,6 +10,7 @@ enum ENav {
   cafeMenu,
   home,
   login,
+  joinClubs,
   profile,
   settings,
   socials,
