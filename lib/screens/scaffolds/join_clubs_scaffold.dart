@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/join_clubs_screen.dart';
-import 'package:staugustinechsnewapp/screens/main/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 class JoinClubsScaffold extends StatefulWidget {
