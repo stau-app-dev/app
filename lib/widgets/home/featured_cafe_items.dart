@@ -35,6 +35,8 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
             alignment: Alignment.bottomCenter,
+            height: Styles.featuredCafeItemHeight,
+            width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding),
             child: Text(
               widget.cafeItems[i].name,
               textAlign: TextAlign.center,
