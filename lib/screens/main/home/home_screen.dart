@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
@@ -15,7 +16,7 @@ class HomeScreen extends StatefulWidget {
   final int? dayNumber;
   final String? userName;
   final List<GeneralAnnouncement>? generalAnnouncements;
-  final List<Map<String, String>>? featuredCafeItems;
+  final List<CafeMenuItem>? featuredCafeItems;
   final SpiritMeters? spiritMeters;
   final VerseOfDay? verseOfDay;
 

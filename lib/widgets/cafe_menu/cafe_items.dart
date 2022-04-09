@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 
 class CafeMenuItems extends StatefulWidget {
   final String title;
@@ -22,43 +23,37 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
     double tileWidth =
         getWidth(context) * 0.5 - (Styles.mainOutsidePadding * 2);
 
-    return Container(
-        height: Styles.cafeItemHeight,
-        width: tileWidth,
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              image: CachedNetworkImageProvider(pictureUrl),
-              fit: BoxFit.cover,
-            ),
-            border: Border.all(
-              color: Styles.primary,
-              width: 1.0,
-            ),
-            borderRadius: Styles.mainBorderRadius),
-        child: Container(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Flexible(
-                    child: Text(
-                  name,
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                      fontFamily: Styles.fontFamilyNormal,
-                      fontWeight: FontWeight.bold,
-                      color: Styles.white),
-                )),
-                Text(
-                  '\$${price.toStringAsFixed(2)}',
-                  textAlign: TextAlign.center,
-                  style: const TextStyle(
-                      fontFamily: Styles.fontFamilyNormal, color: Styles.white),
-                )
-              ],
-            )));
+    return Stack(children: [
+      ImageShadowContainer(pictureUrl: pictureUrl, width: tileWidth),
+      Container(
+          height: Styles.pictureContainerHeight,
+          width: tileWidth,
+          padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
+          child: Container(
+              alignment: Alignment.bottomCenter,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                crossAxisAlignment: CrossAxisAlignment.end,
+                children: [
+                  Flexible(
+                      child: Text(
+                    name,
+                    textAlign: TextAlign.start,
+                    style: const TextStyle(
+                        fontFamily: Styles.fontFamilyNormal,
+                        fontWeight: FontWeight.bold,
+                        color: Styles.white),
+                  )),
+                  Text(
+                    '\$${price.toStringAsFixed(2)}',
+                    textAlign: TextAlign.center,
+                    style: const TextStyle(
+                        fontFamily: Styles.fontFamilyNormal,
+                        color: Styles.white),
+                  )
+                ],
+              )))
+    ]);
   }
 
   Widget buildItems() {

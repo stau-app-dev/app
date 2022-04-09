@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/screens/main/home/home_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
@@ -28,21 +29,6 @@ class _HomeScaffoldState extends State<HomeScaffold> {
     homeBloc.add(const HomeEvent.getVerseOfDay());
   }
 
-  List<Map<String, String>> sampleFeaturedCafeItems = [
-    {
-      'food': 'Caramel Latte',
-      'image': 'assets/images/cat.jpg',
-    },
-    {
-      'food': 'Mocha',
-      'image': 'assets/images/cat.jpg',
-    },
-    {
-      'food': 'Pumpkin Spice Latte with Vanilla Cream',
-      'image': 'assets/images/cat.jpg',
-    },
-  ];
-
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
@@ -62,7 +48,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
           dayNumber: homeState.dayNumber,
           userName: authState.user?.displayName,
           generalAnnouncements: homeState.generalAnnouncements,
-          featuredCafeItems: sampleFeaturedCafeItems,
+          featuredCafeItems: [],
           spiritMeters: homeState.spiritMeters,
           verseOfDay: homeState.verseOfDay,
         );

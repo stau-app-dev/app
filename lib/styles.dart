@@ -116,7 +116,7 @@ class Styles {
   static const double featuredCafeItemHeight = 200.0;
 
   /// 150.0
-  static const double cafeItemHeight = 150.0;
+  static const double pictureContainerHeight = 150.0;
 }
 
 /// Use this method to determine if the app should render the UI for a tablet.
