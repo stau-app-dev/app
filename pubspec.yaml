@@ -36,6 +36,7 @@ dependencies:
   firebase_auth: ^3.3.10
   firebase_core: ^1.13.1
   flutter_bloc: ^8.0.1
+  flutter_linkify: ^5.0.2
   freezed_annotation: ^1.1.0
   google_sign_in: ^5.0.0
   http: ^0.13.4
@@ -43,6 +44,7 @@ dependencies:
   intl: ^0.17.0
   json_serializable: ^6.1.5
   path_provider: ^2.0.9
+  url_launcher: ^6.0.20
 
 # Dev dependencies that are used at the development stage to test the apps, generate files.
 # Not required to run the actual app at runtime

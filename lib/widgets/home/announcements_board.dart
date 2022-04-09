@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
+import 'package:staugustinechsnewapp/providers/network.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
@@ -35,9 +37,13 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
                   announcement.title,
                   style: Styles.normalSubText,
                 ),
-                Text(
-                  announcement.content,
+                Linkify(
+                  text: announcement.content,
                   style: Styles.normalText,
+                  linkStyle: Styles.urlText,
+                  onOpen: (link) async {
+                    launchURL(url: link.url);
+                  },
                 ),
               ],
             )),
