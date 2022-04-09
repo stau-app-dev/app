@@ -15,8 +15,8 @@ import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 
 /// Control the app's environment. Uncomment the dev line if you are running the backend locally.
-// const env = kReleaseMode ? Environment.prod : Environment.test;
-const env = Environment.dev;
+const env = kReleaseMode ? Environment.prod : Environment.test;
+// const env = Environment.dev;
 
 void main() async {
   if (kDebugMode) {
