@@ -26,8 +26,8 @@ class _$HomeEventTearOff {
     return const _getGeneralAnnouncements();
   }
 
-  _resetFailSuccess resetFailSuccess() {
-    return const _resetFailSuccess();
+  _getFeaturedCafeMenuItems getFeaturedCafeMenuItems() {
+    return const _getFeaturedCafeMenuItems();
   }
 
   _getSpiritMeters getSpiritMeters() {
@@ -36,6 +36,10 @@ class _$HomeEventTearOff {
 
   _getVerseOfDay getVerseOfDay() {
     return const _getVerseOfDay();
+  }
+
+  _resetFailSuccess resetFailSuccess() {
+    return const _resetFailSuccess();
   }
 }
 
@@ -48,27 +52,30 @@ mixin _$HomeEvent {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -77,27 +84,31 @@ mixin _$HomeEvent {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
       throw _privateConstructorUsedError;
@@ -160,9 +171,10 @@ class _$_getDayNumber implements _getDayNumber {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) {
     return getDayNumber();
   }
@@ -172,9 +184,10 @@ class _$_getDayNumber implements _getDayNumber {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) {
     return getDayNumber?.call();
   }
@@ -184,9 +197,10 @@ class _$_getDayNumber implements _getDayNumber {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getDayNumber != null) {
@@ -201,9 +215,11 @@ class _$_getDayNumber implements _getDayNumber {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getDayNumber(this);
   }
@@ -213,9 +229,10 @@ class _$_getDayNumber implements _getDayNumber {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getDayNumber?.call(this);
   }
@@ -225,9 +242,10 @@ class _$_getDayNumber implements _getDayNumber {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getDayNumber != null) {
@@ -285,9 +303,10 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) {
     return getGeneralAnnouncements();
   }
@@ -297,9 +316,10 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) {
     return getGeneralAnnouncements?.call();
   }
@@ -309,9 +329,10 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getGeneralAnnouncements != null) {
@@ -326,9 +347,11 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getGeneralAnnouncements(this);
   }
@@ -338,9 +361,10 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getGeneralAnnouncements?.call(this);
   }
@@ -350,9 +374,10 @@ class _$_getGeneralAnnouncements implements _getGeneralAnnouncements {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getGeneralAnnouncements != null) {
@@ -367,38 +392,40 @@ abstract class _getGeneralAnnouncements implements HomeEvent {
 }
 
 /// @nodoc
-abstract class _$resetFailSuccessCopyWith<$Res> {
-  factory _$resetFailSuccessCopyWith(
-          _resetFailSuccess value, $Res Function(_resetFailSuccess) then) =
-      __$resetFailSuccessCopyWithImpl<$Res>;
+abstract class _$getFeaturedCafeMenuItemsCopyWith<$Res> {
+  factory _$getFeaturedCafeMenuItemsCopyWith(_getFeaturedCafeMenuItems value,
+          $Res Function(_getFeaturedCafeMenuItems) then) =
+      __$getFeaturedCafeMenuItemsCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$resetFailSuccessCopyWithImpl<$Res>
+class __$getFeaturedCafeMenuItemsCopyWithImpl<$Res>
     extends _$HomeEventCopyWithImpl<$Res>
-    implements _$resetFailSuccessCopyWith<$Res> {
-  __$resetFailSuccessCopyWithImpl(
-      _resetFailSuccess _value, $Res Function(_resetFailSuccess) _then)
-      : super(_value, (v) => _then(v as _resetFailSuccess));
+    implements _$getFeaturedCafeMenuItemsCopyWith<$Res> {
+  __$getFeaturedCafeMenuItemsCopyWithImpl(_getFeaturedCafeMenuItems _value,
+      $Res Function(_getFeaturedCafeMenuItems) _then)
+      : super(_value, (v) => _then(v as _getFeaturedCafeMenuItems));
 
   @override
-  _resetFailSuccess get _value => super._value as _resetFailSuccess;
+  _getFeaturedCafeMenuItems get _value =>
+      super._value as _getFeaturedCafeMenuItems;
 }
 
 /// @nodoc
 
-class _$_resetFailSuccess implements _resetFailSuccess {
-  const _$_resetFailSuccess();
+class _$_getFeaturedCafeMenuItems implements _getFeaturedCafeMenuItems {
+  const _$_getFeaturedCafeMenuItems();
 
   @override
   String toString() {
-    return 'HomeEvent.resetFailSuccess()';
+    return 'HomeEvent.getFeaturedCafeMenuItems()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _resetFailSuccess);
+        (other.runtimeType == runtimeType &&
+            other is _getFeaturedCafeMenuItems);
   }
 
   @override
@@ -409,11 +436,12 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) {
-    return resetFailSuccess();
+    return getFeaturedCafeMenuItems();
   }
 
   @override
@@ -421,11 +449,12 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) {
-    return resetFailSuccess?.call();
+    return getFeaturedCafeMenuItems?.call();
   }
 
   @override
@@ -433,13 +462,14 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (resetFailSuccess != null) {
-      return resetFailSuccess();
+    if (getFeaturedCafeMenuItems != null) {
+      return getFeaturedCafeMenuItems();
     }
     return orElse();
   }
@@ -450,11 +480,13 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
-    return resetFailSuccess(this);
+    return getFeaturedCafeMenuItems(this);
   }
 
   @override
@@ -462,11 +494,12 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
-    return resetFailSuccess?.call(this);
+    return getFeaturedCafeMenuItems?.call(this);
   }
 
   @override
@@ -474,20 +507,21 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (resetFailSuccess != null) {
-      return resetFailSuccess(this);
+    if (getFeaturedCafeMenuItems != null) {
+      return getFeaturedCafeMenuItems(this);
     }
     return orElse();
   }
 }
 
-abstract class _resetFailSuccess implements HomeEvent {
-  const factory _resetFailSuccess() = _$_resetFailSuccess;
+abstract class _getFeaturedCafeMenuItems implements HomeEvent {
+  const factory _getFeaturedCafeMenuItems() = _$_getFeaturedCafeMenuItems;
 }
 
 /// @nodoc
@@ -532,9 +566,10 @@ class _$_getSpiritMeters implements _getSpiritMeters {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) {
     return getSpiritMeters();
   }
@@ -544,9 +579,10 @@ class _$_getSpiritMeters implements _getSpiritMeters {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) {
     return getSpiritMeters?.call();
   }
@@ -556,9 +592,10 @@ class _$_getSpiritMeters implements _getSpiritMeters {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getSpiritMeters != null) {
@@ -573,9 +610,11 @@ class _$_getSpiritMeters implements _getSpiritMeters {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getSpiritMeters(this);
   }
@@ -585,9 +624,10 @@ class _$_getSpiritMeters implements _getSpiritMeters {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getSpiritMeters?.call(this);
   }
@@ -597,9 +637,10 @@ class _$_getSpiritMeters implements _getSpiritMeters {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getSpiritMeters != null) {
@@ -655,9 +696,10 @@ class _$_getVerseOfDay implements _getVerseOfDay {
   TResult when<TResult extends Object?>({
     required TResult Function() getDayNumber,
     required TResult Function() getGeneralAnnouncements,
-    required TResult Function() resetFailSuccess,
+    required TResult Function() getFeaturedCafeMenuItems,
     required TResult Function() getSpiritMeters,
     required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
   }) {
     return getVerseOfDay();
   }
@@ -667,9 +709,10 @@ class _$_getVerseOfDay implements _getVerseOfDay {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
   }) {
     return getVerseOfDay?.call();
   }
@@ -679,9 +722,10 @@ class _$_getVerseOfDay implements _getVerseOfDay {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function()? getDayNumber,
     TResult Function()? getGeneralAnnouncements,
-    TResult Function()? resetFailSuccess,
+    TResult Function()? getFeaturedCafeMenuItems,
     TResult Function()? getSpiritMeters,
     TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getVerseOfDay != null) {
@@ -696,9 +740,11 @@ class _$_getVerseOfDay implements _getVerseOfDay {
     required TResult Function(_getDayNumber value) getDayNumber,
     required TResult Function(_getGeneralAnnouncements value)
         getGeneralAnnouncements,
-    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
     required TResult Function(_getSpiritMeters value) getSpiritMeters,
     required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getVerseOfDay(this);
   }
@@ -708,9 +754,10 @@ class _$_getVerseOfDay implements _getVerseOfDay {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getVerseOfDay?.call(this);
   }
@@ -720,9 +767,10 @@ class _$_getVerseOfDay implements _getVerseOfDay {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getDayNumber value)? getDayNumber,
     TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
-    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
     TResult Function(_getSpiritMeters value)? getSpiritMeters,
     TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getVerseOfDay != null) {
@@ -737,6 +785,137 @@ abstract class _getVerseOfDay implements HomeEvent {
 }
 
 /// @nodoc
+abstract class _$resetFailSuccessCopyWith<$Res> {
+  factory _$resetFailSuccessCopyWith(
+          _resetFailSuccess value, $Res Function(_resetFailSuccess) then) =
+      __$resetFailSuccessCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$resetFailSuccessCopyWithImpl<$Res>
+    extends _$HomeEventCopyWithImpl<$Res>
+    implements _$resetFailSuccessCopyWith<$Res> {
+  __$resetFailSuccessCopyWithImpl(
+      _resetFailSuccess _value, $Res Function(_resetFailSuccess) _then)
+      : super(_value, (v) => _then(v as _resetFailSuccess));
+
+  @override
+  _resetFailSuccess get _value => super._value as _resetFailSuccess;
+}
+
+/// @nodoc
+
+class _$_resetFailSuccess implements _resetFailSuccess {
+  const _$_resetFailSuccess();
+
+  @override
+  String toString() {
+    return 'HomeEvent.resetFailSuccess()';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _resetFailSuccess);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function() getDayNumber,
+    required TResult Function() getGeneralAnnouncements,
+    required TResult Function() getFeaturedCafeMenuItems,
+    required TResult Function() getSpiritMeters,
+    required TResult Function() getVerseOfDay,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return resetFailSuccess();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function()? getDayNumber,
+    TResult Function()? getGeneralAnnouncements,
+    TResult Function()? getFeaturedCafeMenuItems,
+    TResult Function()? getSpiritMeters,
+    TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return resetFailSuccess?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function()? getDayNumber,
+    TResult Function()? getGeneralAnnouncements,
+    TResult Function()? getFeaturedCafeMenuItems,
+    TResult Function()? getSpiritMeters,
+    TResult Function()? getVerseOfDay,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (resetFailSuccess != null) {
+      return resetFailSuccess();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getDayNumber value) getDayNumber,
+    required TResult Function(_getGeneralAnnouncements value)
+        getGeneralAnnouncements,
+    required TResult Function(_getFeaturedCafeMenuItems value)
+        getFeaturedCafeMenuItems,
+    required TResult Function(_getSpiritMeters value) getSpiritMeters,
+    required TResult Function(_getVerseOfDay value) getVerseOfDay,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return resetFailSuccess(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getDayNumber value)? getDayNumber,
+    TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
+    TResult Function(_getSpiritMeters value)? getSpiritMeters,
+    TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return resetFailSuccess?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getDayNumber value)? getDayNumber,
+    TResult Function(_getGeneralAnnouncements value)? getGeneralAnnouncements,
+    TResult Function(_getFeaturedCafeMenuItems value)? getFeaturedCafeMenuItems,
+    TResult Function(_getSpiritMeters value)? getSpiritMeters,
+    TResult Function(_getVerseOfDay value)? getVerseOfDay,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (resetFailSuccess != null) {
+      return resetFailSuccess(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _resetFailSuccess implements HomeEvent {
+  const factory _resetFailSuccess() = _$_resetFailSuccess;
+}
+
+/// @nodoc
 class _$HomeStateTearOff {
   const _$HomeStateTearOff();
 
@@ -745,6 +924,7 @@ class _$HomeStateTearOff {
       Success? success,
       int? dayNumber,
       List<GeneralAnnouncement>? generalAnnouncements,
+      List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay}) {
     return _HomeState(
@@ -752,6 +932,7 @@ class _$HomeStateTearOff {
       success: success,
       dayNumber: dayNumber,
       generalAnnouncements: generalAnnouncements,
+      featuredCafeMenuItems: featuredCafeMenuItems,
       spiritMeters: spiritMeters,
       verseOfDay: verseOfDay,
     );
@@ -767,6 +948,8 @@ mixin _$HomeState {
   Success? get success => throw _privateConstructorUsedError;
   int? get dayNumber => throw _privateConstructorUsedError;
   List<GeneralAnnouncement>? get generalAnnouncements =>
+      throw _privateConstructorUsedError;
+  List<CafeMenuItem>? get featuredCafeMenuItems =>
       throw _privateConstructorUsedError;
   SpiritMeters? get spiritMeters => throw _privateConstructorUsedError;
   VerseOfDay? get verseOfDay => throw _privateConstructorUsedError;
@@ -785,6 +968,7 @@ abstract class $HomeStateCopyWith<$Res> {
       Success? success,
       int? dayNumber,
       List<GeneralAnnouncement>? generalAnnouncements,
+      List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay});
 
@@ -808,6 +992,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
     Object? success = freezed,
     Object? dayNumber = freezed,
     Object? generalAnnouncements = freezed,
+    Object? featuredCafeMenuItems = freezed,
     Object? spiritMeters = freezed,
     Object? verseOfDay = freezed,
   }) {
@@ -828,6 +1013,10 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
           ? _value.generalAnnouncements
           : generalAnnouncements // ignore: cast_nullable_to_non_nullable
               as List<GeneralAnnouncement>?,
+      featuredCafeMenuItems: featuredCafeMenuItems == freezed
+          ? _value.featuredCafeMenuItems
+          : featuredCafeMenuItems // ignore: cast_nullable_to_non_nullable
+              as List<CafeMenuItem>?,
       spiritMeters: spiritMeters == freezed
           ? _value.spiritMeters
           : spiritMeters // ignore: cast_nullable_to_non_nullable
@@ -895,6 +1084,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       Success? success,
       int? dayNumber,
       List<GeneralAnnouncement>? generalAnnouncements,
+      List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay});
 
@@ -923,6 +1113,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
     Object? success = freezed,
     Object? dayNumber = freezed,
     Object? generalAnnouncements = freezed,
+    Object? featuredCafeMenuItems = freezed,
     Object? spiritMeters = freezed,
     Object? verseOfDay = freezed,
   }) {
@@ -943,6 +1134,10 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
           ? _value.generalAnnouncements
           : generalAnnouncements // ignore: cast_nullable_to_non_nullable
               as List<GeneralAnnouncement>?,
+      featuredCafeMenuItems: featuredCafeMenuItems == freezed
+          ? _value.featuredCafeMenuItems
+          : featuredCafeMenuItems // ignore: cast_nullable_to_non_nullable
+              as List<CafeMenuItem>?,
       spiritMeters: spiritMeters == freezed
           ? _value.spiritMeters
           : spiritMeters // ignore: cast_nullable_to_non_nullable
@@ -963,6 +1158,7 @@ class _$_HomeState implements _HomeState {
       this.success,
       this.dayNumber,
       this.generalAnnouncements,
+      this.featuredCafeMenuItems,
       this.spiritMeters,
       this.verseOfDay});
 
@@ -975,13 +1171,15 @@ class _$_HomeState implements _HomeState {
   @override
   final List<GeneralAnnouncement>? generalAnnouncements;
   @override
+  final List<CafeMenuItem>? featuredCafeMenuItems;
+  @override
   final SpiritMeters? spiritMeters;
   @override
   final VerseOfDay? verseOfDay;
 
   @override
   String toString() {
-    return 'HomeState(failure: $failure, success: $success, dayNumber: $dayNumber, generalAnnouncements: $generalAnnouncements, spiritMeters: $spiritMeters, verseOfDay: $verseOfDay)';
+    return 'HomeState(failure: $failure, success: $success, dayNumber: $dayNumber, generalAnnouncements: $generalAnnouncements, featuredCafeMenuItems: $featuredCafeMenuItems, spiritMeters: $spiritMeters, verseOfDay: $verseOfDay)';
   }
 
   @override
@@ -995,6 +1193,8 @@ class _$_HomeState implements _HomeState {
             const DeepCollectionEquality()
                 .equals(other.generalAnnouncements, generalAnnouncements) &&
             const DeepCollectionEquality()
+                .equals(other.featuredCafeMenuItems, featuredCafeMenuItems) &&
+            const DeepCollectionEquality()
                 .equals(other.spiritMeters, spiritMeters) &&
             const DeepCollectionEquality()
                 .equals(other.verseOfDay, verseOfDay));
@@ -1007,6 +1207,7 @@ class _$_HomeState implements _HomeState {
       const DeepCollectionEquality().hash(success),
       const DeepCollectionEquality().hash(dayNumber),
       const DeepCollectionEquality().hash(generalAnnouncements),
+      const DeepCollectionEquality().hash(featuredCafeMenuItems),
       const DeepCollectionEquality().hash(spiritMeters),
       const DeepCollectionEquality().hash(verseOfDay));
 
@@ -1022,6 +1223,7 @@ abstract class _HomeState implements HomeState {
       Success? success,
       int? dayNumber,
       List<GeneralAnnouncement>? generalAnnouncements,
+      List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay}) = _$_HomeState;
 
@@ -1033,6 +1235,8 @@ abstract class _HomeState implements HomeState {
   int? get dayNumber;
   @override
   List<GeneralAnnouncement>? get generalAnnouncements;
+  @override
+  List<CafeMenuItem>? get featuredCafeMenuItems;
   @override
   SpiritMeters? get spiritMeters;
   @override

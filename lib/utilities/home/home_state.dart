@@ -7,6 +7,7 @@ class HomeState with _$HomeState {
     Success? success,
     int? dayNumber,
     List<GeneralAnnouncement>? generalAnnouncements,
+    List<CafeMenuItem>? featuredCafeMenuItems,
     SpiritMeters? spiritMeters,
     VerseOfDay? verseOfDay,
   }) = _HomeState;

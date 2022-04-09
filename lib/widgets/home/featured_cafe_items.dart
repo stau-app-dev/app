@@ -1,10 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 
 class FeaturedCafeItems extends StatefulWidget {
-  final List<Map<String, String>> cafeItems;
+  final List<CafeMenuItem> cafeItems;
   const FeaturedCafeItems({Key? key, required this.cafeItems})
       : super(key: key);
   @override
@@ -24,24 +26,19 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
   Widget buildFeaturedCafeItems() {
     List<Widget> featuredCafeItems = [];
     for (int i = 0; i < widget.cafeItems.length; i++) {
-      featuredCafeItems.add(Container(
-        height: Styles.featuredCafeItemHeight,
-        width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding),
-        padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(widget.cafeItems[i]['image']!),
-              fit: BoxFit.cover,
-            ),
-            border: Border.all(
-              color: Styles.primary,
-              width: 1.0,
-            ),
-            borderRadius: Styles.mainBorderRadius),
-        child: Container(
+      featuredCafeItems.add(Stack(children: [
+        ImageShadowContainer(
+            pictureUrl: widget.cafeItems[i].pictureUrl,
+            height: Styles.featuredCafeItemHeight,
+            width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding)),
+        Container(
+            padding:
+                const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
             alignment: Alignment.bottomCenter,
+            height: Styles.featuredCafeItemHeight,
+            width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding),
             child: Text(
-              widget.cafeItems[i]['food']!,
+              widget.cafeItems[i].name,
               textAlign: TextAlign.center,
               style: const TextStyle(
                   fontFamily: Styles.fontFamilyNormal,
@@ -49,7 +46,7 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
                   fontWeight: FontWeight.bold,
                   color: Styles.white),
             )),
-      ));
+      ]));
       if (i != widget.cafeItems.length - 1) {
         featuredCafeItems.add(const Spacer());
       }

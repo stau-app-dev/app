@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/screens/main/song_requests_screen.dart';
+import 'package:staugustinechsnewapp/screens/main/song_requests/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/local_storage/write_to_local_storage.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
@@ -25,22 +25,26 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   void initState() {
     authBloc = BlocProvider.of<AuthBloc>(context);
     songBloc = BlocProvider.of<SongBloc>(context);
-    songBloc.add(const SongEvent.getSongs());
+    onRefresh();
     super.initState();
   }
 
-  void onAddSong() {
+  void onRefresh() {
+    songBloc.add(const SongEvent.getSongs());
+  }
+
+  void onPressedAddSong() {
     usePopupCard(
         context: context,
         title: 'Add Song',
         child: AddSongForm(
-          onSubmitSong: onSubmitSong,
+          onPressedSubmit: onPressedSubmit,
           songNameController: songNameController,
           artistNameController: artistNameController,
         ));
   }
 
-  void onSubmitSong() {
+  void onPressedSubmit() {
     songBloc.add(SongEvent.addSong(
         name: songNameController.text,
         artist: artistNameController.text,
@@ -48,7 +52,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
     Navigator.pop(context);
   }
 
-  void onUpvote(bool upvoted, String id) {
+  void onPressedUpvote(bool upvoted, String id) {
     setUpvotedData(
       upvoted: upvoted,
       id: id,
@@ -124,8 +128,10 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
       return SafeArea(
           child: SongRequestsScreen(
         songs: state.songs,
-        onAddSong: onAddSong,
-        onUpvote: onUpvote,
+        onPressedAddSong: onPressedAddSong,
+        onPressedUpvote: onPressedUpvote,
+        onRefresh: onRefresh,
+        disableUpvote: state.isLoading,
       ));
     });
   }

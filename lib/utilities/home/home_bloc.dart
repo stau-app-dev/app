@@ -3,11 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
+import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/providers/announcements/announcements_repository.dart';
+import 'package:staugustinechsnewapp/providers/cafe_menu/cafe_menu_repository.dart';
 import 'package:staugustinechsnewapp/providers/home/home_repository.dart';
 part 'home_event.dart';
 part 'home_state.dart';
@@ -28,6 +30,13 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               await AnnouncementsRepository.getGeneralAnnouncements();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(generalAnnouncements: r)));
+        },
+        getFeaturedCafeMenuItems: (e) async {
+          Either<Failure, List<CafeMenuItem>> res =
+              await CafeMenuRepository.getCafeMenu(
+                  isTodaysSpecial: true, limit: 3);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(featuredCafeMenuItems: r)));
         },
         getSpiritMeters: (e) async {
           Either<Failure, SpiritMeters> res =

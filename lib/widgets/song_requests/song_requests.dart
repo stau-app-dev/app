@@ -5,14 +5,16 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
 class SongRequests extends StatefulWidget {
   final List<Song> songs;
-  final Function() onAddSong;
-  final Function(bool upvoted, String id) onUpvote;
+  final Function() onPressedAddSong;
+  final Function(bool upvoted, String id) onPressedUpvote;
+  final bool disableUpvote;
 
   const SongRequests(
       {Key? key,
       required this.songs,
-      required this.onAddSong,
-      required this.onUpvote})
+      required this.onPressedAddSong,
+      required this.onPressedUpvote,
+      required this.disableUpvote})
       : super(key: key);
 
   @override
@@ -62,9 +64,12 @@ class _SongRequestsState extends State<SongRequests> {
                   color: Styles.primary, borderRadius: Styles.mainBorderRadius),
               child: InkWell(
                   borderRadius: Styles.mainBorderRadius,
-                  splashColor: Styles.secondary,
+                  splashColor: widget.disableUpvote ? Styles.secondary : null,
                   onTap: () {
-                    widget.onUpvote(!upvoted, song.id);
+                    if (widget.disableUpvote) {
+                      return;
+                    }
+                    widget.onPressedUpvote(!upvoted, song.id);
                   },
                   child: Row(children: [
                     Container(
@@ -101,7 +106,7 @@ class _SongRequestsState extends State<SongRequests> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            RoundedButton(text: 'Add Song', onPressed: widget.onAddSong),
+            RoundedButton(text: 'Add Song', onPressed: widget.onPressedAddSong),
             const SizedBox(height: Styles.mainSpacing),
             ...buildItems(),
           ],

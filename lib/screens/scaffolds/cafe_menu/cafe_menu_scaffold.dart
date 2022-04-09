@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/screens/main/cafe_menu_screen.dart';
+import 'package:staugustinechsnewapp/screens/main/cafe_menu/cafe_menu_screen.dart';
 import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
@@ -16,9 +16,13 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
   @override
   void initState() {
     cafeMenuBloc = BlocProvider.of<CafeMenuBloc>(context);
+    onRefresh();
+    super.initState();
+  }
+
+  void onRefresh() {
     cafeMenuBloc.add(const CafeMenuEvent.getCafeMenu());
     cafeMenuBloc.add(const CafeMenuEvent.getTodaysSpecials());
-    super.initState();
   }
 
   @override
@@ -36,6 +40,7 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
       return CafeMenuScreen(
         todaysSpecials: state.todaysSpecials,
         menuItems: state.menuItems,
+        onRefresh: onRefresh,
       );
     });
   }

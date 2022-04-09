@@ -1,7 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
 class ClubsList extends StatefulWidget {
@@ -31,66 +31,36 @@ class _ClubsListState extends State<ClubsList> {
     double tileWidth = getWidth(context) - (Styles.mainOutsidePadding * 2);
 
     return Container(
-        height: Styles.cafeItemHeight,
+        height: Styles.pictureContainerHeight,
         width: tileWidth,
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         child: Container(
-            alignment: Alignment.bottomCenter,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              crossAxisAlignment: CrossAxisAlignment.end,
-              children: [
-                Flexible(
-                    child: Text(
-                  name,
-                  textAlign: TextAlign.start,
-                  style: const TextStyle(
-                      fontFamily: Styles.fontFamilyNormal,
-                      fontWeight: FontWeight.bold,
-                      color: Styles.white),
-                )),
-                if (!widget.showJoinClubsButton)
-                  ClipOval(
-                    child: Material(
-                      color: Styles.white, // Button color
-                      child: InkWell(
-                        splashColor: Styles.primary, // Splash color
-                        onTap: () {},
-                        child: const SizedBox(
-                            width: 30,
-                            height: 30,
-                            child: Icon(
-                              Icons.add_rounded,
-                              color: Styles.primary,
-                            )),
-                      ),
-                    ),
-                  )
-              ],
-            )));
+          alignment: Alignment.bottomLeft,
+          child: Text(
+            name,
+            textAlign: TextAlign.start,
+            style: const TextStyle(
+                fontFamily: Styles.fontFamilyNormal,
+                fontWeight: FontWeight.bold,
+                color: Styles.white),
+          ),
+        ));
   }
 
   Widget buildTileWrapper(
       {required String clubId,
       required String name,
       required String pictureUrl}) {
-    return Material(
-        child: Ink(
-            decoration: BoxDecoration(
-                image: DecorationImage(
-                  image: CachedNetworkImageProvider(pictureUrl),
-                  fit: BoxFit.cover,
-                ),
-                border: Border.all(
-                  color: Styles.primary,
-                  width: 1.0,
-                ),
-                borderRadius: Styles.mainBorderRadius),
-            child: InkWell(
-                borderRadius: Styles.mainBorderRadius,
-                splashColor: Styles.primary,
-                onTap: () => widget.onPressClub(clubId),
-                child: buildTile(clubId: clubId, name: name))));
+    return Stack(children: [
+      ImageShadowContainer(pictureUrl: pictureUrl),
+      Material(
+          color: Styles.transparent,
+          child: InkWell(
+              borderRadius: Styles.mainBorderRadius,
+              splashColor: Styles.primary,
+              onTap: () => widget.onPressClub(clubId),
+              child: buildTile(clubId: clubId, name: name)))
+    ]);
   }
 
   Widget buildItems() {

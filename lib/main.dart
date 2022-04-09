@@ -35,12 +35,6 @@ void main() async {
   SystemChrome.setEnabledSystemUIMode(SystemUiMode.manual,
       overlays: [SystemUiOverlay.bottom, SystemUiOverlay.top]);
 
-  // Set status bar text colour to dark for both iOS and Android  (Note: It appears to be opposite for android)
-  SystemChrome.setSystemUIOverlayStyle(const SystemUiOverlayStyle(
-      statusBarIconBrightness: Brightness.dark, // Only honoured in Android
-      statusBarBrightness: Brightness.light // Only honoured in iOS
-      ));
-
   // Wrap the app in a MultiBlocProvider so that the Blocs can be accessed from any part of the app
   runApp(MultiBlocProvider(
     providers: [
@@ -50,7 +44,8 @@ void main() async {
       BlocProvider(create: (context) => getIt<SongBloc>()),
       BlocProvider(create: (context) => getIt<CafeMenuBloc>()),
     ],
-    child: const MyApp(),
+    child: const AnnotatedRegion<SystemUiOverlayStyle>(
+        value: SystemUiOverlayStyle.dark, child: MyApp()),
   ));
 }
 
@@ -60,6 +55,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'St Augustine CHS',
       theme: ThemeData(
         brightness: Brightness.light,

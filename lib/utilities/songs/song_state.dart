@@ -5,6 +5,7 @@ class SongState with _$SongState {
   const factory SongState({
     @Default([]) List<Song> songs,
     DateTime? lastUpdated,
+    @Default(false) bool isLoading,
     Failure? failure,
     Success? success,
   }) = _SongState;

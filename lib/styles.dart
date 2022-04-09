@@ -72,6 +72,14 @@ class Styles {
       fontWeight: FontWeight.normal,
       color: primary);
 
+  /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
+  static const urlText = TextStyle(
+      fontSize: fontSizeNormal,
+      fontFamily: fontFamilyNormal,
+      fontWeight: FontWeight.normal,
+      decoration: TextDecoration.underline,
+      color: secondary);
+
   /// Color RGBO 0 0 0 0.3, spreadRadius 0, blurRadius 10, offset 0 2.
   static final normalBoxShadow = [
     const BoxShadow(
@@ -108,7 +116,7 @@ class Styles {
   static const double featuredCafeItemHeight = 200.0;
 
   /// 150.0
-  static const double cafeItemHeight = 150.0;
+  static const double pictureContainerHeight = 150.0;
 }
 
 /// Use this method to determine if the app should render the UI for a tablet.
