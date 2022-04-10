@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
-import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
-import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';
 
 class ClubScreen extends StatefulWidget {
   final Club club;
