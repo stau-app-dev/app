@@ -19,14 +19,10 @@ class _$ProfileEventTearOff {
   const _$ProfileEventTearOff();
 
   _getUser getUser(
-      {required String id,
-      required String email,
-      required String msgToken,
-      required String name}) {
+      {required String id, required String email, required String name}) {
     return _getUser(
       id: id,
       email: email,
-      msgToken: msgToken,
       name: name,
     );
   }
@@ -43,23 +39,19 @@ const $ProfileEvent = _$ProfileEventTearOff();
 mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String email, String msgToken, String name)
-        getUser,
+    required TResult Function(String id, String email, String name) getUser,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -105,7 +97,7 @@ class _$ProfileEventCopyWithImpl<$Res> implements $ProfileEventCopyWith<$Res> {
 abstract class _$getUserCopyWith<$Res> {
   factory _$getUserCopyWith(_getUser value, $Res Function(_getUser) then) =
       __$getUserCopyWithImpl<$Res>;
-  $Res call({String id, String email, String msgToken, String name});
+  $Res call({String id, String email, String name});
 }
 
 /// @nodoc
@@ -121,7 +113,6 @@ class __$getUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
   $Res call({
     Object? id = freezed,
     Object? email = freezed,
-    Object? msgToken = freezed,
     Object? name = freezed,
   }) {
     return _then(_getUser(
@@ -132,10 +123,6 @@ class __$getUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
       email: email == freezed
           ? _value.email
           : email // ignore: cast_nullable_to_non_nullable
-              as String,
-      msgToken: msgToken == freezed
-          ? _value.msgToken
-          : msgToken // ignore: cast_nullable_to_non_nullable
               as String,
       name: name == freezed
           ? _value.name
@@ -148,24 +135,18 @@ class __$getUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_getUser implements _getUser {
-  const _$_getUser(
-      {required this.id,
-      required this.email,
-      required this.msgToken,
-      required this.name});
+  const _$_getUser({required this.id, required this.email, required this.name});
 
   @override
   final String id;
   @override
   final String email;
   @override
-  final String msgToken;
-  @override
   final String name;
 
   @override
   String toString() {
-    return 'ProfileEvent.getUser(id: $id, email: $email, msgToken: $msgToken, name: $name)';
+    return 'ProfileEvent.getUser(id: $id, email: $email, name: $name)';
   }
 
   @override
@@ -175,7 +156,6 @@ class _$_getUser implements _getUser {
             other is _getUser &&
             const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.email, email) &&
-            const DeepCollectionEquality().equals(other.msgToken, msgToken) &&
             const DeepCollectionEquality().equals(other.name, name));
   }
 
@@ -184,7 +164,6 @@ class _$_getUser implements _getUser {
       runtimeType,
       const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(email),
-      const DeepCollectionEquality().hash(msgToken),
       const DeepCollectionEquality().hash(name));
 
   @JsonKey(ignore: true)
@@ -195,34 +174,30 @@ class _$_getUser implements _getUser {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String email, String msgToken, String name)
-        getUser,
+    required TResult Function(String id, String email, String name) getUser,
     required TResult Function() resetFailSuccess,
   }) {
-    return getUser(id, email, msgToken, name);
+    return getUser(id, email, name);
   }
 
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
   }) {
-    return getUser?.call(id, email, msgToken, name);
+    return getUser?.call(id, email, name);
   }
 
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
     if (getUser != null) {
-      return getUser(id, email, msgToken, name);
+      return getUser(id, email, name);
     }
     return orElse();
   }
@@ -263,12 +238,10 @@ abstract class _getUser implements ProfileEvent {
   const factory _getUser(
       {required String id,
       required String email,
-      required String msgToken,
       required String name}) = _$_getUser;
 
   String get id;
   String get email;
-  String get msgToken;
   String get name;
   @JsonKey(ignore: true)
   _$getUserCopyWith<_getUser> get copyWith =>
@@ -316,9 +289,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
-    required TResult Function(
-            String id, String email, String msgToken, String name)
-        getUser,
+    required TResult Function(String id, String email, String name) getUser,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -327,8 +298,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -337,8 +307,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
-    TResult Function(String id, String email, String msgToken, String name)?
-        getUser,
+    TResult Function(String id, String email, String name)? getUser,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {

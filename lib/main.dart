@@ -12,6 +12,7 @@ import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 
 /// Control the app's environment. Uncomment the dev line if you are running the backend locally.
@@ -38,11 +39,12 @@ void main() async {
   // Wrap the app in a MultiBlocProvider so that the Blocs can be accessed from any part of the app
   runApp(MultiBlocProvider(
     providers: [
-      BlocProvider(create: (context) => getIt<NavBloc>()),
       BlocProvider(create: (context) => getIt<AuthBloc>()),
-      BlocProvider(create: (context) => getIt<HomeBloc>()),
-      BlocProvider(create: (context) => getIt<SongBloc>()),
       BlocProvider(create: (context) => getIt<CafeMenuBloc>()),
+      BlocProvider(create: (context) => getIt<HomeBloc>()),
+      BlocProvider(create: (context) => getIt<NavBloc>()),
+      BlocProvider(create: (context) => getIt<ProfileBloc>()),
+      BlocProvider(create: (context) => getIt<SongBloc>()),
     ],
     child: const AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.dark, child: MyApp()),

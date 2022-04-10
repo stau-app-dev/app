@@ -9,11 +9,7 @@ class ProfileRepository {
   ProfileRepository();
 
   static Future<Either<Failure, User>> getUser(
-      {required String id,
-      required String email,
-      required String msgToken,
-      required String name}) async {
-    return await ProfileApi.getUser(
-        id: id, email: email, msgToken: msgToken, name: name);
+      {required String id, required String email, required String name}) async {
+    return await ProfileApi.getUser(id: id, email: email, name: name);
   }
 }

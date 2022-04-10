@@ -17,7 +17,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
     on<ProfileEvent>((event, emit) => event.map(
         getUser: (e) async {
           Either<Failure, User> res = await ProfileRepository.getUser(
-              id: e.id, email: e.email, msgToken: e.msgToken, name: e.name);
+              id: e.id, email: e.email, name: e.name);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r)));
         },
