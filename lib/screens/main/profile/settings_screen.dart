@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
 class SettingsScreen extends StatefulWidget {
@@ -19,40 +20,28 @@ class _SettingsScreenState extends State<SettingsScreen> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   Widget buildOptions() {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          children: [
-            TextButton(
-                onPressed: widget.onPressedLogout,
-                child: const Text('Log Out', style: Styles.normalSubText)),
-          ],
-        ));
+      children: [
+        TextButton(
+            onPressed: widget.onPressedLogout,
+            child: const Text('Log Out', style: Styles.normalSubText)),
+      ],
+    ));
   }
 
   Widget buildFAQ() {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Row(
-          children: [
-            const Text('FAQ', style: Styles.normalMainText),
-            const Spacer(),
-            IconButton(
-                onPressed: widget.onPressedFAQ,
-                icon: const Icon(Icons.arrow_forward_rounded,
-                    color: Styles.secondary))
-          ],
-        ));
+      children: [
+        const Text('FAQ', style: Styles.normalMainText),
+        const Spacer(),
+        IconButton(
+            onPressed: widget.onPressedFAQ,
+            icon: const Icon(Icons.arrow_forward_rounded,
+                color: Styles.secondary))
+      ],
+    ));
   }
 
   @override

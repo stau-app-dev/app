@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class CourseTimetable extends StatefulWidget {
   const CourseTimetable({Key? key}) : super(key: key);
@@ -69,20 +70,14 @@ class _CourseTimetableState extends State<CourseTimetable> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Course Timetable', style: Styles.normalMainText),
-            const SizedBox(height: Styles.mainSpacing),
-            buildItems(),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Course Timetable', style: Styles.normalMainText),
+        const SizedBox(height: Styles.mainSpacing),
+        buildItems(),
+      ],
+    ));
   }
 }

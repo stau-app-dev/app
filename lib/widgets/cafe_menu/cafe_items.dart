@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 
 class CafeMenuItems extends StatefulWidget {
@@ -80,20 +81,14 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(widget.title, style: Styles.normalMainText),
-            const SizedBox(height: Styles.mainSpacing),
-            buildItems(),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(widget.title, style: Styles.normalMainText),
+        const SizedBox(height: Styles.mainSpacing),
+        buildItems(),
+      ],
+    ));
   }
 }

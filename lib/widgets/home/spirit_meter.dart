@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/home/word_to_number_conversion.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
 class SpiritMeterBars extends StatefulWidget {
@@ -58,20 +59,14 @@ class _SpiritMeterBarsState extends State<SpiritMeterBars> {
           twelve: 0,
         );
 
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Spirit Meter', style: Styles.normalMainText),
-            const SizedBox(height: 20.0),
-            ...buildSpiritMeters(spiritMeters),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Spirit Meter', style: Styles.normalMainText),
+        const SizedBox(height: 20.0),
+        ...buildSpiritMeters(spiritMeters),
+      ],
+    ));
   }
 }

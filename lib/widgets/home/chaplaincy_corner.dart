@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class ChaplaincyCorner extends StatefulWidget {
   final VerseOfDay? verseOfDay;
@@ -41,22 +42,16 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Chaplaincy Corner', style: Styles.normalMainText),
-            const SizedBox(height: 20.0),
-            widget.verseOfDay != null
-                ? buildVerseOfDay(widget.verseOfDay!)
-                : const Text('Loading...'),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Chaplaincy Corner', style: Styles.normalMainText),
+        const SizedBox(height: 20.0),
+        widget.verseOfDay != null
+            ? buildVerseOfDay(widget.verseOfDay!)
+            : const Text('Loading...'),
+      ],
+    ));
   }
 }

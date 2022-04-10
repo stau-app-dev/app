@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class WelcomeBanner extends StatefulWidget {
   final int? dayNumber;
@@ -26,7 +27,7 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
         widget.dayNumber != null ? 'day ${widget.dayNumber}' : 'day';
     String dateText = DateFormat('MMMM d, yyyy').format(DateTime.now());
 
-    return Container(
+    return BasicContainer(
         decoration: BoxDecoration(
             color: Styles.primary,
             border: Border.all(
@@ -35,8 +36,6 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
             ),
             borderRadius: Styles.mainBorderRadius,
             boxShadow: Styles.headerBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
         child: Row(
           children: [
             SizedBox(
