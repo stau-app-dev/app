@@ -15,14 +15,17 @@ import 'providers/cafe_menu/cafe_menu_api.dart' as _i8;
 import 'providers/cafe_menu/cafe_menu_repository.dart' as _i10;
 import 'providers/home/home_api.dart' as _i11;
 import 'providers/home/home_repository.dart' as _i13;
-import 'providers/songs/songs_api.dart' as _i16;
-import 'providers/songs/songs_repository.dart' as _i17;
+import 'providers/profile/profile_api.dart' as _i15;
+import 'providers/profile/profile_repository.dart' as _i17;
+import 'providers/songs/songs_api.dart' as _i19;
+import 'providers/songs/songs_repository.dart' as _i20;
 import 'utilities/auth/auth_bloc.dart' as _i6;
 import 'utilities/cafe_menu/cafe_menu_bloc.dart' as _i9;
 import 'utilities/home/home_bloc.dart' as _i12;
 import 'utilities/navigation/nav_bloc.dart' as _i14;
+import 'utilities/profile/profile_bloc.dart' as _i16;
 import 'utilities/songs/song_bloc.dart'
-    as _i15; // ignore_for_file: unnecessary_lambdas
+    as _i18; // ignore_for_file: unnecessary_lambdas
 
 // ignore_for_file: lines_longer_than_80_chars
 /// initializes the registration of provided dependencies inside of [GetIt]
@@ -42,8 +45,11 @@ _i1.GetIt $initGetIt(_i1.GetIt get,
   gh.factory<_i12.HomeBloc>(() => _i12.HomeBloc());
   gh.lazySingleton<_i13.HomeRepository>(() => _i13.HomeRepository());
   gh.factory<_i14.NavBloc>(() => _i14.NavBloc());
-  gh.factory<_i15.SongBloc>(() => _i15.SongBloc());
-  gh.factory<_i16.SongsApi>(() => _i16.SongsApi());
-  gh.lazySingleton<_i17.SongsRepository>(() => _i17.SongsRepository());
+  gh.factory<_i15.ProfileApi>(() => _i15.ProfileApi());
+  gh.factory<_i16.ProfileBloc>(() => _i16.ProfileBloc());
+  gh.lazySingleton<_i17.ProfileRepository>(() => _i17.ProfileRepository());
+  gh.factory<_i18.SongBloc>(() => _i18.SongBloc());
+  gh.factory<_i19.SongsApi>(() => _i19.SongsApi());
+  gh.lazySingleton<_i20.SongsRepository>(() => _i20.SongsRepository());
   return get;
 }

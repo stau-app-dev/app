@@ -18,7 +18,7 @@ class AuthRepository {
     return await AuthApi.checkSignedIn();
   }
 
-  static Future<Either<Failure, User?>> signInWithGoogle() async {
+  static Future<Either<Failure, User?>> signIn() async {
     return await AuthApi.signInWithGoogle();
   }
 
