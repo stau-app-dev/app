@@ -12,7 +12,7 @@ const googleErrorCodeInvalidCredentials = 'invalid-credential';
 
 // NOTE: Please add your gmail to the allowedGmails list if you want to bypass the email domain restriction.
 const allowedGmails = [
-  'sachstesterforapple@gmail.com',
-  'stauchsappdev@gmail.com',
   'kennymiu2@gmail.com',
+  'sachstesterforapple@gmail.com',
+  'stauchsappdev@gmail.com'
 ];
