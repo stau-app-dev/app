@@ -20,6 +20,8 @@ int eNavToIndex(ENav nav) {
       return 6;
     case ENav.joinClubs:
       return 7;
+    case ENav.club:
+      return 8;
     default:
       return 0;
   }
@@ -44,6 +46,8 @@ ENav indexToENav(int index) {
       return ENav.settings;
     case 7:
       return ENav.joinClubs;
+    case 8:
+      return ENav.club;
     default:
       return ENav.home;
   }

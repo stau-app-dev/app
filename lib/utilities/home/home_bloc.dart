@@ -2,7 +2,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
-import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
+import 'package:staugustinechsnewapp/models/announcements/general_announcement/announcement.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
@@ -26,7 +26,7 @@ class HomeBloc extends Bloc<HomeEvent, HomeState> {
               (r) => state.copyWith(dayNumber: r)));
         },
         getGeneralAnnouncements: (e) async {
-          Either<Failure, List<GeneralAnnouncement>> res =
+          Either<Failure, List<Announcement>> res =
               await AnnouncementsRepository.getGeneralAnnouncements();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(generalAnnouncements: r)));

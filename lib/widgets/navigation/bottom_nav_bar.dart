@@ -64,10 +64,10 @@ class _BottomNavBarState extends State<BottomNavBar> {
   /// This is to calculate which navbar item to highlight.
   /// It should never be greater than 4
   int getIndex(ENav nav) {
-    if (nav == ENav.settings) {
-      return eNavToIndex(ENav.profile);
-    } else if (nav == ENav.joinClubs) {
+    if (nav == ENav.joinClubs || nav == ENav.club) {
       return eNavToIndex(ENav.socials);
+    } else if (nav == ENav.settings) {
+      return eNavToIndex(ENav.profile);
     } else if (eNavToIndex(nav) > 4) {
       return eNavToIndex(ENav.home);
     } else {

@@ -923,7 +923,7 @@ class _$HomeStateTearOff {
       {Failure? failure,
       Success? success,
       int? dayNumber,
-      List<GeneralAnnouncement>? generalAnnouncements,
+      List<Announcement>? generalAnnouncements,
       List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay}) {
@@ -947,7 +947,7 @@ mixin _$HomeState {
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
   int? get dayNumber => throw _privateConstructorUsedError;
-  List<GeneralAnnouncement>? get generalAnnouncements =>
+  List<Announcement>? get generalAnnouncements =>
       throw _privateConstructorUsedError;
   List<CafeMenuItem>? get featuredCafeMenuItems =>
       throw _privateConstructorUsedError;
@@ -967,7 +967,7 @@ abstract class $HomeStateCopyWith<$Res> {
       {Failure? failure,
       Success? success,
       int? dayNumber,
-      List<GeneralAnnouncement>? generalAnnouncements,
+      List<Announcement>? generalAnnouncements,
       List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay});
@@ -1012,7 +1012,7 @@ class _$HomeStateCopyWithImpl<$Res> implements $HomeStateCopyWith<$Res> {
       generalAnnouncements: generalAnnouncements == freezed
           ? _value.generalAnnouncements
           : generalAnnouncements // ignore: cast_nullable_to_non_nullable
-              as List<GeneralAnnouncement>?,
+              as List<Announcement>?,
       featuredCafeMenuItems: featuredCafeMenuItems == freezed
           ? _value.featuredCafeMenuItems
           : featuredCafeMenuItems // ignore: cast_nullable_to_non_nullable
@@ -1083,7 +1083,7 @@ abstract class _$HomeStateCopyWith<$Res> implements $HomeStateCopyWith<$Res> {
       {Failure? failure,
       Success? success,
       int? dayNumber,
-      List<GeneralAnnouncement>? generalAnnouncements,
+      List<Announcement>? generalAnnouncements,
       List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay});
@@ -1133,7 +1133,7 @@ class __$HomeStateCopyWithImpl<$Res> extends _$HomeStateCopyWithImpl<$Res>
       generalAnnouncements: generalAnnouncements == freezed
           ? _value.generalAnnouncements
           : generalAnnouncements // ignore: cast_nullable_to_non_nullable
-              as List<GeneralAnnouncement>?,
+              as List<Announcement>?,
       featuredCafeMenuItems: featuredCafeMenuItems == freezed
           ? _value.featuredCafeMenuItems
           : featuredCafeMenuItems // ignore: cast_nullable_to_non_nullable
@@ -1169,7 +1169,7 @@ class _$_HomeState implements _HomeState {
   @override
   final int? dayNumber;
   @override
-  final List<GeneralAnnouncement>? generalAnnouncements;
+  final List<Announcement>? generalAnnouncements;
   @override
   final List<CafeMenuItem>? featuredCafeMenuItems;
   @override
@@ -1222,7 +1222,7 @@ abstract class _HomeState implements HomeState {
       {Failure? failure,
       Success? success,
       int? dayNumber,
-      List<GeneralAnnouncement>? generalAnnouncements,
+      List<Announcement>? generalAnnouncements,
       List<CafeMenuItem>? featuredCafeMenuItems,
       SpiritMeters? spiritMeters,
       VerseOfDay? verseOfDay}) = _$_HomeState;
@@ -1234,7 +1234,7 @@ abstract class _HomeState implements HomeState {
   @override
   int? get dayNumber;
   @override
-  List<GeneralAnnouncement>? get generalAnnouncements;
+  List<Announcement>? get generalAnnouncements;
   @override
   List<CafeMenuItem>? get featuredCafeMenuItems;
   @override
