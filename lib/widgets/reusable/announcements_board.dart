@@ -60,19 +60,25 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
 
   @override
   Widget build(BuildContext context) {
-    List<Announcement> announcements = widget.announcements ??
-        [
-          const Announcement(
-              title: 'No Announcements',
-              content: 'There are no announcements at this time.')
-        ];
+    List<Announcement> announcements = widget.announcements ?? [];
+    List<Announcement> clubAnnouncements = widget.clubAnnouncements ?? [];
+    List<Announcement> allAnnouncements = [];
+
+    if (announcements.isEmpty && clubAnnouncements.isEmpty) {
+      allAnnouncements.add(const Announcement(
+          title: 'No announcements yet!',
+          content: 'There are no announcements yet. Check back later!'));
+    } else {
+      allAnnouncements.addAll(announcements);
+      allAnnouncements.addAll(clubAnnouncements);
+    }
 
     return BasicContainer(
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text('Announcements Board', style: Styles.normalMainText),
-        ...buildItems(announcements),
+        ...buildItems(allAnnouncements),
       ],
     ));
   }
