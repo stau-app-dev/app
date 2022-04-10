@@ -8,6 +8,7 @@ part 'nav_bloc.freezed.dart';
 // Possible screens
 enum ENav {
   cafeMenu,
+  club,
   home,
   login,
   joinClubs,

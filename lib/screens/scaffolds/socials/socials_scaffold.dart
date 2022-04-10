@@ -76,7 +76,9 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     ),
   ];
 
-  void onPressedClub(String clubId) {}
+  void onPressedClub(String clubId) {
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.club));
+  }
 
   void onPressJoinClubsButton() {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.joinClubs));
