@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
-import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
-import 'package:staugustinechsnewapp/widgets/home/announcements_board.dart';
+import 'package:staugustinechsnewapp/models/announcements/general_announcement/announcement.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 
 void main() {
   group('AnnouncementsBoard widget tests', () {
@@ -24,8 +24,8 @@ void main() {
       },
     ];
 
-    List<GeneralAnnouncement> testAnnouncements = testAnnouncementsJson
-        .map((announcement) => GeneralAnnouncement.fromJson(announcement))
+    List<Announcement> testAnnouncements = testAnnouncementsJson
+        .map((announcement) => Announcement.fromJson(announcement))
         .toList();
 
     testWidgets('it displays title', (tester) async {

@@ -6,7 +6,7 @@ class HomeState with _$HomeState {
     Failure? failure,
     Success? success,
     int? dayNumber,
-    List<GeneralAnnouncement>? generalAnnouncements,
+    List<Announcement>? generalAnnouncements,
     List<CafeMenuItem>? featuredCafeMenuItems,
     SpiritMeters? spiritMeters,
     VerseOfDay? verseOfDay,

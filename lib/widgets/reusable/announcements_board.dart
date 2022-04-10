@@ -1,14 +1,18 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_linkify/flutter_linkify.dart';
-import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
+import 'package:staugustinechsnewapp/models/announcements/general_announcement/announcement.dart';
 import 'package:staugustinechsnewapp/providers/network.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
-  final List<GeneralAnnouncement>? announcements;
-  const AnnouncementsBoard({Key? key, required this.announcements})
+  final List<Announcement>? announcements;
+  final List<Announcement>? clubAnnouncements;
+
+  const AnnouncementsBoard(
+      {Key? key, this.announcements, this.clubAnnouncements})
       : super(key: key);
+
   @override
   State<AnnouncementsBoard> createState() => _AnnouncementsBoardState();
 }
@@ -16,7 +20,7 @@ class AnnouncementsBoard extends StatefulWidget {
 class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  List<Widget> buildItems(List<GeneralAnnouncement> announcements) {
+  List<Widget> buildItems(List<Announcement> announcements) {
     List<Widget> rows = [const SizedBox(height: 20.0)];
     for (var announcement in announcements) {
       rows.add(
@@ -56,9 +60,9 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
 
   @override
   Widget build(BuildContext context) {
-    List<GeneralAnnouncement> announcements = widget.announcements ??
+    List<Announcement> announcements = widget.announcements ??
         [
-          const GeneralAnnouncement(
+          const Announcement(
               title: 'No Announcements',
               content: 'There are no announcements at this time.')
         ];
