@@ -33,7 +33,7 @@ class AuthBloc extends Bloc<AuthEvent, AuthState> {
           }));
         },
         signIn: (e) async {
-          Either<Failure, User?> res = await AuthRepository.signInWithGoogle();
+          Either<Failure, User?> res = await AuthRepository.signIn();
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r, isAuthenticated: true)));
         },
