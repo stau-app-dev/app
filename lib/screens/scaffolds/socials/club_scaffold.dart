@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
+import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 class ClubScaffold extends StatefulWidget {
@@ -35,9 +36,22 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
     );
 
-    return ClubScreen(
-      club: club,
-      onPressJoin: onPressJoin,
-    );
+    return Stack(children: [
+      Container(
+        height:
+            MediaQuery.of(context).size.height * Styles.backgroundBannerDepth,
+        decoration: const BoxDecoration(
+          color: Styles.primary,
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(Styles.mainBorderRadiusValue),
+            bottomRight: Radius.circular(Styles.mainBorderRadiusValue),
+          ),
+        ),
+      ),
+      ClubScreen(
+        club: club,
+        onPressJoin: onPressJoin,
+      )
+    ]);
   }
 }
