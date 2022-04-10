@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 /// {@template screen_header}
 /// A widget that displays the main header title for each screen.
@@ -19,7 +20,7 @@ class _ScreenHeaderState extends State<ScreenHeader> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
+    return BasicContainer(
       decoration: const BoxDecoration(
           color: Styles.primary,
           borderRadius: Styles.mainBorderRadius,
@@ -32,7 +33,6 @@ class _ScreenHeaderState extends State<ScreenHeader> {
             )
           ]),
       padding: const EdgeInsets.all(Styles.mainInsidePadding + 4.0),
-      width: getWidth(context),
       child: Text(widget.headerText, style: Styles.headerMainText),
     );
   }

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
@@ -79,27 +80,21 @@ class _ClubsListState extends State<ClubsList> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(widget.title, style: Styles.normalMainText),
-            const SizedBox(height: Styles.mainSpacing),
-            buildItems(),
-            if (widget.showJoinClubsButton) ...[
-              const SizedBox(height: Styles.mainSpacing),
-              RoundedButton(
-                text: 'Join a Club',
-                onPressed: widget.onPressJoinClubsButton ?? () {},
-              ),
-            ]
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Text(widget.title, style: Styles.normalMainText),
+        const SizedBox(height: Styles.mainSpacing),
+        buildItems(),
+        if (widget.showJoinClubsButton) ...[
+          const SizedBox(height: Styles.mainSpacing),
+          RoundedButton(
+            text: 'Join a Club',
+            onPressed: widget.onPressJoinClubsButton ?? () {},
+          ),
+        ]
+      ],
+    ));
   }
 }

@@ -3,6 +3,7 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/general_announcement.dart';
 import 'package:staugustinechsnewapp/providers/network.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class AnnouncementsBoard extends StatefulWidget {
   final List<GeneralAnnouncement>? announcements;
@@ -62,19 +63,13 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
               content: 'There are no announcements at this time.')
         ];
 
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const Text('Announcements Board', style: Styles.normalMainText),
-            ...buildItems(announcements),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const Text('Announcements Board', style: Styles.normalMainText),
+        ...buildItems(announcements),
+      ],
+    ));
   }
 }

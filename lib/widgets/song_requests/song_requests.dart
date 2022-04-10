@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/songs/song/song.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
 class SongRequests extends StatefulWidget {
@@ -96,20 +97,14 @@ class _SongRequestsState extends State<SongRequests> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-        decoration: BoxDecoration(
-            color: Styles.white,
-            borderRadius: Styles.mainBorderRadius,
-            boxShadow: Styles.normalBoxShadow),
-        padding: const EdgeInsets.all(Styles.mainInsidePadding),
-        width: getWidth(context),
+    return BasicContainer(
         child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            RoundedButton(text: 'Add Song', onPressed: widget.onPressedAddSong),
-            const SizedBox(height: Styles.mainSpacing),
-            ...buildItems(),
-          ],
-        ));
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        RoundedButton(text: 'Add Song', onPressed: widget.onPressedAddSong),
+        const SizedBox(height: Styles.mainSpacing),
+        ...buildItems(),
+      ],
+    ));
   }
 }
