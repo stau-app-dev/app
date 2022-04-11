@@ -85,15 +85,20 @@ class _ClubSettingsState extends State<ClubSettings> {
               hintText: 'My really cool description',
               isMultiline: true,
               controller: clubDescriptionController),
-          const SizedBox(height: 25.0),
+          const SizedBox(height: 20.0),
           const Text('Banner', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
+          Container(
+            color: Styles.grey,
+            height: 100.0,
+          ),
+          const SizedBox(height: 5.0),
           RoundedButton(text: 'Choose Image', onPressed: () {}),
-          const SizedBox(height: 25.0),
+          const SizedBox(height: 20.0),
           const Text('Join Preferences', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           ...buildJoinPreferences(),
-          const SizedBox(height: 25.0),
+          const SizedBox(height: 10.0),
           RoundedButton(
               text: 'Create Club', onPressed: () => widget.onPressedSubmit()),
         ]));
