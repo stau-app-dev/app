@@ -3,6 +3,7 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/measure_size_render_object.dart';
 
 /// Creates the modal popup for the app. Please use this as it follows the Figma design.
 ///
@@ -30,6 +31,8 @@ class _PopupCard extends StatefulWidget {
 }
 
 class _PopupCardState extends State<_PopupCard> {
+  var _size = Size.zero;
+
   void onClose() {
     Navigator.of(context).pop();
   }
@@ -46,7 +49,13 @@ class _PopupCardState extends State<_PopupCard> {
         style: Styles.headerMainText.copyWith(color: Styles.primary),
       ),
       const SizedBox(height: Styles.mainSpacing),
-      widget.child,
+      MeasureSize(
+          onChange: (size) {
+            setState(() {
+              _size = size;
+            });
+          },
+          child: widget.child),
     ];
   }
 
@@ -74,7 +83,7 @@ class _PopupCardState extends State<_PopupCard> {
                             spreadRadius: 0.0)
                       ]),
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: _size.height + 125.0,
                   width: MediaQuery.of(context).size.width,
                   child: Column(children: buildChildren()),
                 ))));
