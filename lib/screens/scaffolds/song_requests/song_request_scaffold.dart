@@ -10,6 +10,7 @@ import 'package:staugustinechsnewapp/widgets/song_requests/add_song_form.dart';
 
 class SongRequestsScaffold extends StatefulWidget {
   const SongRequestsScaffold({Key? key}) : super(key: key);
+
   @override
   State<SongRequestsScaffold> createState() => _SongRequestsScaffoldState();
 }
@@ -17,9 +18,6 @@ class SongRequestsScaffold extends StatefulWidget {
 class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   late AuthBloc authBloc;
   late SongBloc songBloc;
-
-  TextEditingController songNameController = TextEditingController();
-  TextEditingController artistNameController = TextEditingController();
 
   @override
   void initState() {
@@ -39,15 +37,13 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         title: 'Add Song',
         child: AddSongForm(
           onPressedSubmit: onPressedSubmit,
-          songNameController: songNameController,
-          artistNameController: artistNameController,
         ));
   }
 
-  void onPressedSubmit() {
+  void onPressedSubmit(String songName, String artistName) {
     songBloc.add(SongEvent.addSong(
-        name: songNameController.text,
-        artist: artistNameController.text,
+        name: songName,
+        artist: artistName,
         creatorEmail: authBloc.state.user!.email!));
     Navigator.pop(context);
   }
