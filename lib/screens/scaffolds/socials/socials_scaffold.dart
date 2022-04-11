@@ -89,7 +89,11 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
   void onPressedCreateClub() {
     usePopupCard(
-        context: context, title: 'Create Club', child: const ClubSettings());
+        context: context,
+        title: 'Create Club',
+        child: ClubSettings(
+          onPressedSubmit: () {},
+        ));
   }
 
   @override

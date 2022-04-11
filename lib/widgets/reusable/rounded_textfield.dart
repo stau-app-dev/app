@@ -11,10 +11,17 @@ class RoundedTextField extends StatefulWidget {
   /// The controller for the textfield.
   final TextEditingController controller;
 
+  // Is Multiline
+  final bool isMultiline;
+
   /// {@macro rounded_text_field}
   const RoundedTextField(
-      {Key? key, required this.hintText, required this.controller})
+      {Key? key,
+      required this.hintText,
+      required this.controller,
+      this.isMultiline = false})
       : super(key: key);
+
   @override
   State<RoundedTextField> createState() => _RoundedTextFieldState();
 }
@@ -41,6 +48,8 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
         height: 35.0,
         child: TextField(
           controller: widget.controller,
+          keyboardType: widget.isMultiline ? TextInputType.multiline : null,
+          maxLines: widget.isMultiline ? null : 1,
           cursorColor: Styles.secondary,
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
