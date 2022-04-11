@@ -3,18 +3,23 @@ import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart';
 import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';
 
 class SocialsScreen extends StatefulWidget {
   final List<Club> clubs;
   final Function(String) onPressClub;
   final Function() onPressJoinClubsButton;
+  final bool isAdmin;
+  final Function() onPressCreateClub;
 
   const SocialsScreen({
     Key? key,
     required this.clubs,
     required this.onPressClub,
     required this.onPressJoinClubsButton,
+    required this.isAdmin,
+    required this.onPressCreateClub,
   }) : super(key: key);
 
   @override
@@ -36,6 +41,11 @@ class _SocialsScreenState extends State<SocialsScreen> {
           showJoinClubsButton: true,
           onPressJoinClubsButton: widget.onPressJoinClubsButton,
         ),
+        if (widget.isAdmin) ...[
+          const SizedBox(height: Styles.mainSpacing),
+          TextArrowContainer(
+              text: 'Create a Club', onPressed: widget.onPressCreateClub),
+        ]
       ],
     );
   }
