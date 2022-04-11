@@ -25,12 +25,13 @@ class _AddSongFormState extends State<AddSongForm> {
           const Text('Song Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'Song Name', controller: songNameController),
+              hintText: 'Never Gonna Give You Up',
+              controller: songNameController),
           const SizedBox(height: 10.0),
           const Text('Artist Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'Artist Name', controller: artistNameController),
+              hintText: 'Rick Astley', controller: artistNameController),
           const SizedBox(height: 10.0),
           RoundedButton(
               text: 'Submit',
