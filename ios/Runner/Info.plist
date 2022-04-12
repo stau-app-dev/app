@@ -45,6 +45,7 @@
 		<false/>
 		<key>UIStatusBarHidden</key>
 		<false/>
+		
 		<!-- Google Sign-In section -->
 		<key>CFBundleURLTypes</key>
 		<array>
@@ -59,5 +60,16 @@
 			</dict>
 		</array>
 		<!-- End of the Google Sign-In section -->
+
+		<!-- Image picker section -->
+		<key>NSPhotoLibraryUsageDescription</key>
+		<string>This app needs access to your photos for club banner selection.</string>
+		<!-- End of the Image picker section -->
+		
+		<!-- Not needed for now -->
+		<!-- <key>NSCameraUsageDescription</key>
+		<string>This app needs access to your camera for club banner selection.</string>
+		<key>NSMicrophoneUsageDescription</key>
+		<string>This app needs access to your microphone for club banner selection.</string> -->
 	</dict>
 </plist>

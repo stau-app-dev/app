@@ -1,5 +1,7 @@
+import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/image/image_utils.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
@@ -14,12 +16,39 @@ class ClubSettings extends StatefulWidget {
 }
 
 class _ClubSettingsState extends State<ClubSettings> {
+  File? image;
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   EdgeInsetsGeometry padding =
       const EdgeInsets.symmetric(vertical: 7.0, horizontal: 16.0);
 
   TextEditingController clubNameController = TextEditingController();
   TextEditingController clubDescriptionController = TextEditingController();
+
+  double bannerRatioX = 1.8;
+  double bannerRatioY = 1.0;
+
+  Future<void> onPressedChooseImage() async {
+    // Step #1: Pick Image From Gallery.
+    await ImageUtils.pickImageFromGallery().then((pickedFile) async {
+      // Step #2: Check if we actually picked an image. Otherwise -> stop;
+      if (pickedFile == null) return;
+
+      // Step #3: Crop earlier selected image
+      await ImageUtils.cropSelectedImage(
+        filePath: pickedFile.path,
+        ratioX: bannerRatioX,
+        ratioY: bannerRatioY,
+      ).then((croppedFile) {
+        // Step #4: Check if we actually cropped an image. Otherwise -> stop;
+        if (croppedFile == null) return;
+
+        // Step #5: Display image on screen
+        setState(() {
+          image = croppedFile;
+        });
+      });
+    });
+  }
 
   List<Widget> buildJoinPreferences() {
     List<String> joinPreferences = [
@@ -71,8 +100,12 @@ class _ClubSettingsState extends State<ClubSettings> {
 
   @override
   Widget build(BuildContext context) {
+    double padding = 45.0;
+    double bannerWidth = getWidth(context) - (padding * 2);
+    double bannerHeight = bannerWidth / bannerRatioX * bannerRatioY;
+
     return Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 45.0, vertical: 5.0),
+        padding: EdgeInsets.symmetric(horizontal: padding, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
           const Text('Club Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
@@ -89,11 +122,19 @@ class _ClubSettingsState extends State<ClubSettings> {
           const Text('Banner', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           Container(
-            color: Styles.grey,
-            height: 100.0,
+            decoration: image != null
+                ? BoxDecoration(
+                    image: DecorationImage(
+                      image: FileImage(image!),
+                    ),
+                    color: Styles.grey,
+                  )
+                : null,
+            color: image != null ? null : Styles.grey,
+            height: bannerHeight,
           ),
           const SizedBox(height: 5.0),
-          RoundedButton(text: 'Choose Image', onPressed: () {}),
+          RoundedButton(text: 'Choose Image', onPressed: onPressedChooseImage),
           const SizedBox(height: 20.0),
           const Text('Join Preferences', style: Styles.normalSubText),
           const SizedBox(height: 5.0),

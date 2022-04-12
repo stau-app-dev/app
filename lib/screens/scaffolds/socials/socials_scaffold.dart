@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
-import 'package:staugustinechsnewapp/screens/scaffolds/socials/club_settings.dart';
+import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
