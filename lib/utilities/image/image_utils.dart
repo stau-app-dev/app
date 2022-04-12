@@ -21,8 +21,8 @@ class ImageUtils {
     return await ImageCropper().cropImage(
       sourcePath: filePath,
       aspectRatio: CropAspectRatio(ratioX: ratioX, ratioY: ratioY),
-      iosUiSettings: const IOSUiSettings(
-        title: 'Crop Image',
+      iosUiSettings: IOSUiSettings(
+        title: 'Crop Image to ($ratioX:$ratioY) Ratio',
         aspectRatioLockEnabled: true,
         aspectRatioPickerButtonHidden: true,
       ),

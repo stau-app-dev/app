@@ -91,6 +91,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     usePopupCard(
         context: context,
         title: 'Create Club',
+        listView: true,
         child: ClubSettings(
           onPressedSubmit: () {},
         ));

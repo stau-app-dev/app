@@ -49,10 +49,11 @@ class _WelcomeBannerState extends State<WelcomeBanner> {
                   ],
                 )),
             const Spacer(),
-            SizedBox(
+            Container(
+                constraints: const BoxConstraints(maxHeight: 200.0),
                 width: getChildWidth(context, 0.3),
                 child: Image.asset('assets/logos/sta_logo.png',
-                    fit: BoxFit.fitWidth)),
+                    fit: BoxFit.fitHeight)),
           ],
         ));
   }

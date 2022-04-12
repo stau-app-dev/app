@@ -2,6 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/image/image_utils.dart';
+import 'package:staugustinechsnewapp/utilities/profile/banner_dimensions.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
@@ -24,9 +25,6 @@ class _ClubSettingsState extends State<ClubSettings> {
   TextEditingController clubNameController = TextEditingController();
   TextEditingController clubDescriptionController = TextEditingController();
 
-  double bannerRatioX = 1.8;
-  double bannerRatioY = 1.0;
-
   Future<void> onPressedChooseImage() async {
     // Step #1: Pick Image From Gallery.
     await ImageUtils.pickImageFromGallery().then((pickedFile) async {
@@ -36,8 +34,8 @@ class _ClubSettingsState extends State<ClubSettings> {
       // Step #3: Crop earlier selected image
       await ImageUtils.cropSelectedImage(
         filePath: pickedFile.path,
-        ratioX: bannerRatioX,
-        ratioY: bannerRatioY,
+        ratioX: bannerRatioXY,
+        ratioY: 1.0,
       ).then((croppedFile) {
         // Step #4: Check if we actually cropped an image. Otherwise -> stop;
         if (croppedFile == null) return;
@@ -102,7 +100,11 @@ class _ClubSettingsState extends State<ClubSettings> {
   Widget build(BuildContext context) {
     double padding = 45.0;
     double bannerWidth = getWidth(context) - (padding * 2);
-    double bannerHeight = bannerWidth / bannerRatioX * bannerRatioY;
+
+    Map<String, double> pictureContainerDimensions =
+        Styles.pictureContainerDimensions(context: context, width: bannerWidth);
+    double bannerHeight = pictureContainerDimensions['height']!;
+    bannerWidth = pictureContainerDimensions['width']!;
 
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: padding, vertical: 5.0),
@@ -121,18 +123,21 @@ class _ClubSettingsState extends State<ClubSettings> {
           const SizedBox(height: 20.0),
           const Text('Banner', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
-          Container(
-            decoration: image != null
-                ? BoxDecoration(
-                    image: DecorationImage(
-                      image: FileImage(image!),
-                    ),
-                    color: Styles.grey,
-                  )
-                : null,
-            color: image != null ? null : Styles.grey,
-            height: bannerHeight,
-          ),
+          Align(
+              alignment: Alignment.center,
+              child: Container(
+                decoration: image != null
+                    ? BoxDecoration(
+                        image: DecorationImage(
+                          image: FileImage(image!),
+                        ),
+                        color: Styles.grey,
+                      )
+                    : null,
+                color: image != null ? null : Styles.grey,
+                height: bannerHeight,
+                width: bannerWidth,
+              )),
           const SizedBox(height: 5.0),
           RoundedButton(text: 'Choose Image', onPressed: onPressedChooseImage),
           const SizedBox(height: 20.0),

@@ -78,10 +78,14 @@ class _BottomNavBarState extends State<BottomNavBar> {
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavBloc, NavState>(builder: (context, state) {
-      double height = state.navbarVisible ? Styles.appBarHeight : 0.0;
-      if (useTabletLayout(context) && state.navbarVisible) {
+      double height = Styles.appBarHeight;
+
+      if (!state.navbarVisible) {
+        height = 0;
+      } else if (useTabletLayout(context)) {
         height += 4.0;
       }
+
       return SizedBox(
           height: height,
           child: ClipRRect(
