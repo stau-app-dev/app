@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
@@ -16,8 +17,9 @@ void main() {
     testWidgets('it displays title', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: SpiritMeterBars(spiritMeters: testSpiritMeterData),
+          home: PageLayout(
+            listView: true,
+            children: [SpiritMeterBars(spiritMeters: testSpiritMeterData)],
           ),
         ),
       );
@@ -28,8 +30,9 @@ void main() {
     testWidgets('it displays items', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: SpiritMeterBars(spiritMeters: testSpiritMeterData),
+          home: PageLayout(
+            listView: true,
+            children: [SpiritMeterBars(spiritMeters: testSpiritMeterData)],
           ),
         ),
       );

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/announcement.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 
 void main() {
@@ -31,8 +32,9 @@ void main() {
     testWidgets('it displays title', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: AnnouncementsBoard(announcements: testAnnouncements),
+          home: PageLayout(
+            listView: true,
+            children: [AnnouncementsBoard(announcements: testAnnouncements)],
           ),
         ),
       );
@@ -43,8 +45,9 @@ void main() {
     testWidgets('it displays items', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: AnnouncementsBoard(announcements: testAnnouncements),
+          home: PageLayout(
+            listView: true,
+            children: [AnnouncementsBoard(announcements: testAnnouncements)],
           ),
         ),
       );
