@@ -28,11 +28,13 @@ class ClubsList extends StatefulWidget {
 class _ClubsListState extends State<ClubsList> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
-  Widget buildTile({required String clubId, required String name}) {
-    double tileWidth = getWidth(context) - (Styles.mainOutsidePadding * 2);
-
+  Widget buildTile(
+      {required String clubId,
+      required String name,
+      required double tileWidth,
+      required double tileHeight}) {
     return Container(
-        height: Styles.pictureContainerHeight,
+        height: tileHeight,
         width: tileWidth,
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         child: Container(
@@ -52,15 +54,28 @@ class _ClubsListState extends State<ClubsList> {
       {required String clubId,
       required String name,
       required String pictureUrl}) {
+    double padding = (Styles.mainOutsidePadding * 2);
+    double tileWidth = getWidth(context) - padding;
+
+    Map<String, double> pictureContainerDimensions =
+        Styles.pictureContainerDimensions(context: context, width: tileWidth);
+    double tileHeight = pictureContainerDimensions['height']!;
+    tileWidth = pictureContainerDimensions['width']!;
+
     return Stack(children: [
-      ImageShadowContainer(pictureUrl: pictureUrl),
+      ImageShadowContainer(
+          pictureUrl: pictureUrl, height: tileHeight, width: tileWidth),
       Material(
           color: Styles.transparent,
           child: InkWell(
               borderRadius: Styles.mainBorderRadius,
               splashColor: Styles.primary,
               onTap: () => widget.onPressClub(clubId),
-              child: buildTile(clubId: clubId, name: name)))
+              child: buildTile(
+                  clubId: clubId,
+                  name: name,
+                  tileWidth: tileWidth,
+                  tileHeight: tileHeight)))
     ]);
   }
 
@@ -75,7 +90,7 @@ class _ClubsListState extends State<ClubsList> {
       );
       rows.add(const SizedBox(height: 10.0));
     }
-    return Column(children: rows);
+    return SizedBox(width: getWidth(context), child: Column(children: rows));
   }
 
   @override

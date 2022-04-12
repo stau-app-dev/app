@@ -24,19 +24,29 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
   }
 
   Widget buildFeaturedCafeItems() {
+    double padding = Styles.mainOutsidePadding;
+    double tileWidth = getWidth(context) * 0.3 - padding;
+    double ratioXY = 0.6;
+
+    Map<String, double> pictureContainerDimensions =
+        Styles.pictureContainerDimensions(
+            context: context, width: tileWidth, ratioXY: ratioXY);
+    double tileHeight = pictureContainerDimensions['height']!;
+    tileWidth = pictureContainerDimensions['width']!;
+
     List<Widget> featuredCafeItems = [];
     for (int i = 0; i < widget.cafeItems.length; i++) {
       featuredCafeItems.add(Stack(children: [
         ImageShadowContainer(
             pictureUrl: widget.cafeItems[i].pictureUrl,
-            height: Styles.featuredCafeItemHeight,
-            width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding)),
+            height: tileHeight,
+            width: tileWidth),
         Container(
             padding:
                 const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
             alignment: Alignment.bottomCenter,
-            height: Styles.featuredCafeItemHeight,
-            width: getWidth(context) * 0.3 - (Styles.mainOutsidePadding),
+            height: tileHeight,
+            width: tileWidth,
             child: Text(
               widget.cafeItems[i].name,
               textAlign: TextAlign.center,
@@ -47,11 +57,10 @@ class _FeaturedCafeItemsState extends State<FeaturedCafeItems> {
                   color: Styles.white),
             )),
       ]));
-      if (i != widget.cafeItems.length - 1) {
-        featuredCafeItems.add(const Spacer());
-      }
     }
-    return Row(children: featuredCafeItems);
+    return Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: featuredCafeItems);
   }
 
   Widget buildHeader() {

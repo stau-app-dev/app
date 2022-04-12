@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/utilities/profile/banner_dimensions.dart';
 
 /// This class holds all the styling for the app.
 class Styles {
@@ -112,11 +113,13 @@ class Styles {
   /// Background banner depth. Default is 0.5
   static const double backgroundBannerDepth = 0.5;
 
-  /// 200.0
-  static const double featuredCafeItemHeight = 200.0;
-
-  /// 150.0
-  static const double pictureContainerHeight = 150.0;
+  /// Basic height for picture containers. Returns "height" and "width".
+  /// Note that width should be the same as inputted width unless maxWidth is reached.
+  static Map<String, double> pictureContainerDimensions(
+          {required BuildContext context,
+          required double width,
+          double? ratioXY}) =>
+      getBannerDimensions(context: context, width: width, ratioXY: ratioXY);
 }
 
 /// Use this method to determine if the app should render the UI for a tablet.

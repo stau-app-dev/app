@@ -3,26 +3,36 @@
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/measure_size_render_object.dart';
 
 /// Creates the modal popup for the app. Please use this as it follows the Figma design.
 ///
 /// The [title] is the displayed at the top of the popup.
 /// The [child] widget is displayed in the center of the card.
+/// The [listView] is an optional parameter to convert the popup into a [ListView]
 ///
-/// This widget has no bottom constraint.
-void usePopupCard(
-    {required BuildContext context,
-    required String title,
-    required Widget child}) {
+/// By default, the popup auto resizes to fit the child widget.
+void usePopupCard({
+  required BuildContext context,
+  required String title,
+  required Widget child,
+  bool listView = false,
+}) {
   Navigator.of(context).push(_PopupCardRoute(
-      builder: (context) => _PopupCard(title: title, child: child)));
+      builder: (context) =>
+          _PopupCard(title: title, child: child, listView: listView)));
 }
 
 class _PopupCard extends StatefulWidget {
   final String title;
   final Widget child;
+  final bool listView;
 
-  const _PopupCard({Key? key, required this.title, required this.child})
+  const _PopupCard(
+      {Key? key,
+      required this.title,
+      required this.child,
+      this.listView = false})
       : super(key: key);
 
   @override
@@ -30,6 +40,8 @@ class _PopupCard extends StatefulWidget {
 }
 
 class _PopupCardState extends State<_PopupCard> {
+  var _size = Size.zero;
+
   void onClose() {
     Navigator.of(context).pop();
   }
@@ -41,17 +53,34 @@ class _PopupCardState extends State<_PopupCard> {
           child: IconButton(
               onPressed: onClose,
               icon: const Icon(Icons.close_rounded, color: Styles.secondary))),
-      Text(
-        widget.title,
-        style: Styles.headerMainText.copyWith(color: Styles.primary),
-      ),
+      Align(
+          alignment: Alignment.center,
+          child: Text(
+            widget.title,
+            style: Styles.headerMainText.copyWith(color: Styles.primary),
+          )),
       const SizedBox(height: Styles.mainSpacing),
-      widget.child,
+      widget.listView
+          ? widget.child
+          : MeasureSize(
+              onChange: (size) {
+                setState(() {
+                  _size = size;
+                });
+              },
+              child: widget.child),
     ];
   }
 
   @override
   Widget build(BuildContext context) {
+    double height;
+    if (widget.listView) {
+      height = MediaQuery.of(context).size.height * 0.8;
+    } else {
+      height = _size.height + 125.0;
+    }
+
     return BackdropFilter(
         filter: ImageFilter.blur(sigmaX: 10, sigmaY: 10),
         child: Scaffold(
@@ -74,9 +103,13 @@ class _PopupCardState extends State<_PopupCard> {
                             spreadRadius: 0.0)
                       ]),
                   alignment: Alignment.center,
-                  height: MediaQuery.of(context).size.height * 0.5,
+                  height: height,
                   width: MediaQuery.of(context).size.width,
-                  child: Column(children: buildChildren()),
+                  child: widget.listView
+                      ? ListView(
+                          children: buildChildren(),
+                        )
+                      : Column(children: buildChildren()),
                 ))));
   }
 }

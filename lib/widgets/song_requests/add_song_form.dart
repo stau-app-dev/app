@@ -4,15 +4,9 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
 class AddSongForm extends StatefulWidget {
-  final Function() onPressedSubmit;
-  final TextEditingController songNameController;
-  final TextEditingController artistNameController;
+  final Function(String songName, String artistName) onPressedSubmit;
 
-  const AddSongForm(
-      {Key? key,
-      required this.onPressedSubmit,
-      required this.songNameController,
-      required this.artistNameController})
+  const AddSongForm({Key? key, required this.onPressedSubmit})
       : super(key: key);
 
   @override
@@ -20,6 +14,9 @@ class AddSongForm extends StatefulWidget {
 }
 
 class _AddSongFormState extends State<AddSongForm> {
+  TextEditingController songNameController = TextEditingController();
+  TextEditingController artistNameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -28,14 +25,18 @@ class _AddSongFormState extends State<AddSongForm> {
           const Text('Song Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'Song Name', controller: widget.songNameController),
+              hintText: 'Never Gonna Give You Up',
+              controller: songNameController),
           const SizedBox(height: 10.0),
           const Text('Artist Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'Artist Name', controller: widget.artistNameController),
+              hintText: 'Rick Astley', controller: artistNameController),
           const SizedBox(height: 10.0),
-          RoundedButton(text: 'Submit', onPressed: widget.onPressedSubmit),
+          RoundedButton(
+              text: 'Submit',
+              onPressed: () => widget.onPressedSubmit(
+                  songNameController.text, artistNameController.text)),
           const SizedBox(height: 30.0),
           Container(
               alignment: Alignment.center,

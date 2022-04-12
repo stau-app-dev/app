@@ -8,10 +8,15 @@ class BasicContainer extends StatelessWidget {
   final Widget child;
   final Decoration? decoration;
   final EdgeInsetsGeometry? padding;
+  final Function()? onPressed;
 
   /// {@macro basic_container}
   const BasicContainer(
-      {Key? key, required this.child, this.decoration, this.padding})
+      {Key? key,
+      required this.child,
+      this.decoration,
+      this.padding,
+      this.onPressed})
       : super(key: key);
 
   @override
@@ -25,10 +30,19 @@ class BasicContainer extends StatelessWidget {
     EdgeInsetsGeometry padding =
         this.padding ?? const EdgeInsets.all(Styles.mainInsidePadding);
 
-    return Container(
+    Container container = Container(
         decoration: decoration,
         padding: padding,
         width: MediaQuery.of(context).size.width,
         child: child);
+
+    if (onPressed != null) {
+      return GestureDetector(
+        onTap: onPressed,
+        child: container,
+      );
+    } else {
+      return container;
+    }
   }
 }

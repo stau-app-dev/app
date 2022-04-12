@@ -40,6 +40,8 @@ dependencies:
   freezed_annotation: ^1.1.0
   google_sign_in: ^5.0.0
   http: ^0.13.4
+  image_cropper: ^1.5.1
+  image_picker: ^0.8.5
   injectable: ^1.5.3
   intl: ^0.17.0
   json_serializable: ^6.1.5

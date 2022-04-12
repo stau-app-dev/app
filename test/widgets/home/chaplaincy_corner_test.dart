@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
+import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 
 void main() {
@@ -10,8 +11,9 @@ void main() {
     testWidgets('it displays title', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: ChaplaincyCorner(verseOfDay: testVerses),
+          home: PageLayout(
+            listView: true,
+            children: [ChaplaincyCorner(verseOfDay: testVerses)],
           ),
         ),
       );
@@ -22,8 +24,9 @@ void main() {
     testWidgets('it displays items', (tester) async {
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: ChaplaincyCorner(verseOfDay: testVerses),
+          home: PageLayout(
+            listView: true,
+            children: [ChaplaincyCorner(verseOfDay: testVerses)],
           ),
         ),
       );

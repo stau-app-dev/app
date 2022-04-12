@@ -8,14 +8,18 @@ class ImageShadowContainer extends StatelessWidget {
   final double? width;
 
   const ImageShadowContainer(
-      {Key? key,
-      required this.pictureUrl,
-      this.height = Styles.pictureContainerHeight,
-      this.width})
+      {Key? key, required this.pictureUrl, this.height, this.width})
       : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Map<String, double> pictureContainerDimensions =
+        Styles.pictureContainerDimensions(
+            context: context,
+            width: width ?? MediaQuery.of(context).size.width);
+    double finalHeight = height ?? pictureContainerDimensions['height']!;
+    double finalWidth = width ?? pictureContainerDimensions['width']!;
+
     return Stack(children: [
       Container(
         decoration: BoxDecoration(
@@ -25,12 +29,12 @@ class ImageShadowContainer extends StatelessWidget {
           ),
           borderRadius: Styles.mainBorderRadius,
         ),
-        height: height,
-        width: width,
+        height: finalHeight,
+        width: finalWidth,
       ),
       Container(
-          height: height,
-          width: width,
+          height: finalHeight,
+          width: finalWidth,
           decoration: BoxDecoration(
               borderRadius: Styles.mainBorderRadius,
               border: Border.all(

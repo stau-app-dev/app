@@ -20,13 +20,21 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
       {required String name,
       required double price,
       required String pictureUrl}) {
-    double tileWidth =
-        getWidth(context) * 0.5 - (Styles.mainOutsidePadding * 2);
+    double padding = Styles.mainOutsidePadding * 2;
+    double tileWidth = getWidth(context) * 0.5 - padding;
+    double ratioXY = 0.83;
+
+    Map<String, double> pictureContainerDimensions =
+        Styles.pictureContainerDimensions(
+            context: context, width: tileWidth, ratioXY: ratioXY);
+    double tileHeight = pictureContainerDimensions['height']!;
+    tileWidth = pictureContainerDimensions['width']!;
 
     return Stack(children: [
-      ImageShadowContainer(pictureUrl: pictureUrl, width: tileWidth),
+      ImageShadowContainer(
+          pictureUrl: pictureUrl, height: tileHeight, width: tileWidth),
       Container(
-          height: Styles.pictureContainerHeight,
+          height: tileHeight,
           width: tileWidth,
           padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
           child: Container(
@@ -60,18 +68,17 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
     List<Widget> rows = [];
     for (int i = 0; i < widget.items.length; i += 2) {
       rows.add(Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           buildTile(
               name: widget.items[i].name,
               price: widget.items[i].price,
               pictureUrl: widget.items[i].pictureUrl),
-          const Spacer(),
-          i + 1 < widget.items.length
-              ? buildTile(
-                  name: widget.items[i + 1].name,
-                  price: widget.items[i + 1].price,
-                  pictureUrl: widget.items[i + 1].pictureUrl)
-              : Container(),
+          if (i + 1 < widget.items.length)
+            buildTile(
+                name: widget.items[i + 1].name,
+                price: widget.items[i + 1].price,
+                pictureUrl: widget.items[i + 1].pictureUrl)
         ],
       ));
       rows.add(const SizedBox(height: 10.0));

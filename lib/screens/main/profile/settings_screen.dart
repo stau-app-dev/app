@@ -3,6 +3,7 @@ import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart';
 
 class SettingsScreen extends StatefulWidget {
   final void Function() onPressedLogout;
@@ -31,17 +32,7 @@ class _SettingsScreenState extends State<SettingsScreen> {
   }
 
   Widget buildFAQ() {
-    return BasicContainer(
-        child: Row(
-      children: [
-        const Text('FAQ', style: Styles.normalMainText),
-        const Spacer(),
-        IconButton(
-            onPressed: widget.onPressedFAQ,
-            icon: const Icon(Icons.arrow_forward_rounded,
-                color: Styles.secondary))
-      ],
-    ));
+    return TextArrowContainer(text: 'FAQ', onPressed: widget.onPressedFAQ);
   }
 
   @override

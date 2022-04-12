@@ -2,7 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
+import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 
 class SocialsScaffold extends StatefulWidget {
   const SocialsScaffold({Key? key}) : super(key: key);
@@ -84,12 +87,30 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.joinClubs));
   }
 
+  void onPressedCreateClub() {
+    usePopupCard(
+        context: context,
+        title: 'Create Club',
+        listView: true,
+        child: ClubSettings(
+          onPressedSubmit: () {},
+        ));
+  }
+
   @override
   Widget build(BuildContext context) {
-    return SocialsScreen(
-      clubs: sampleClubs,
-      onPressClub: onPressedClub,
-      onPressJoinClubsButton: onPressJoinClubsButton,
-    );
+    return BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, profileState) {
+      bool isAdmin =
+          profileState.user != null ? profileState.user!.status > 0 : false;
+
+      return SocialsScreen(
+        clubs: sampleClubs,
+        onPressClub: onPressedClub,
+        onPressJoinClubsButton: onPressJoinClubsButton,
+        isAdmin: isAdmin,
+        onPressCreateClub: onPressedCreateClub,
+      );
+    });
   }
 }
