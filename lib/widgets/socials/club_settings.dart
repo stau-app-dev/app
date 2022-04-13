@@ -63,7 +63,7 @@ class _ClubSettingsState extends State<ClubSettings> {
       useCustomSnackbar(
           context: context,
           message: 'Please fill out all required fields',
-          type: ESnackBarType.error);
+          type: ESnackBarType.failure);
       return;
     }
     widget.onPressedSubmit(

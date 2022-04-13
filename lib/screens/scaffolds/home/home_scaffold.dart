@@ -39,7 +39,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
           useCustomSnackbar(
               context: context,
               message: state.failure!.message,
-              type: ESnackBarType.error);
+              type: ESnackBarType.failure);
           homeBloc.add(const HomeEvent.resetFailSuccess());
         }
       }, builder: (context, homeState) {

@@ -106,7 +106,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         useCustomSnackbar(
             context: context,
             message: state.failure!.message,
-            type: ESnackBarType.error);
+            type: ESnackBarType.failure);
         songBloc.add(const SongEvent.resetFailSuccess());
       }
       // NOTE: Do note show success snackbar after a successful upvote

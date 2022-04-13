@@ -141,7 +141,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         useCustomSnackbar(
             context: context,
             message: state.failure?.message ?? 'Failure!',
-            type: ESnackBarType.error);
+            type: ESnackBarType.failure);
       }
     }, builder: (context, profileState) {
       bool isAdmin =

@@ -104,7 +104,7 @@ class PageLayout extends StatelessWidget {
                       useCustomSnackbar(
                           context: context,
                           message: 'Error Refreshing',
-                          type: ESnackBarType.error);
+                          type: ESnackBarType.failure);
                     }
                   },
                   child: pageWrapper(),
