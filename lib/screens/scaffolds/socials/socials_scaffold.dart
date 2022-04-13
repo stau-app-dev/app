@@ -136,12 +136,14 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
             context: context,
             message: state.success?.message ?? 'Success!',
             type: ESnackBarType.success);
+        profileBloc.add(const ProfileEvent.resetFailSuccess());
       }
       if (state.failure != null) {
         useCustomSnackbar(
             context: context,
             message: state.failure?.message ?? 'Failure!',
             type: ESnackBarType.failure);
+        profileBloc.add(const ProfileEvent.resetFailSuccess());
       }
     }, builder: (context, profileState) {
       bool isAdmin =
