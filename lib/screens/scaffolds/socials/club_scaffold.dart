@@ -31,6 +31,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       ],
       pictureUrl:
           'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
+      joinPreference: 0,
     );
 
     return Stack(children: [

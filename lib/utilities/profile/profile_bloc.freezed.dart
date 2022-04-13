@@ -27,6 +27,30 @@ class _$ProfileEventTearOff {
     );
   }
 
+  _uploadImageFile uploadImageFile(
+      {required File picture, required String path, required String fileName}) {
+    return _uploadImageFile(
+      picture: picture,
+      path: path,
+      fileName: fileName,
+    );
+  }
+
+  _addClub addClub(
+      {required String name,
+      required String description,
+      required String email,
+      required String pictureId,
+      required int joinPreference}) {
+    return _addClub(
+      name: name,
+      description: description,
+      email: email,
+      pictureId: pictureId,
+      joinPreference: joinPreference,
+    );
+  }
+
   _resetFailSuccess resetFailSuccess() {
     return const _resetFailSuccess();
   }
@@ -40,18 +64,33 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(File picture, String path, String fileName)
+        uploadImageFile,
+    required TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)
+        addClub,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -59,18 +98,24 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_uploadImageFile value) uploadImageFile,
+    required TResult Function(_addClub value) addClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -175,6 +220,11 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(File picture, String path, String fileName)
+        uploadImageFile,
+    required TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)
+        addClub,
     required TResult Function() resetFailSuccess,
   }) {
     return getUser(id, email, name);
@@ -184,6 +234,11 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
   }) {
     return getUser?.call(id, email, name);
@@ -193,6 +248,11 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -206,6 +266,8 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_uploadImageFile value) uploadImageFile,
+    required TResult Function(_addClub value) addClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getUser(this);
@@ -215,6 +277,8 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getUser?.call(this);
@@ -224,6 +288,8 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -245,6 +311,396 @@ abstract class _getUser implements ProfileEvent {
   String get name;
   @JsonKey(ignore: true)
   _$getUserCopyWith<_getUser> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$uploadImageFileCopyWith<$Res> {
+  factory _$uploadImageFileCopyWith(
+          _uploadImageFile value, $Res Function(_uploadImageFile) then) =
+      __$uploadImageFileCopyWithImpl<$Res>;
+  $Res call({File picture, String path, String fileName});
+}
+
+/// @nodoc
+class __$uploadImageFileCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$uploadImageFileCopyWith<$Res> {
+  __$uploadImageFileCopyWithImpl(
+      _uploadImageFile _value, $Res Function(_uploadImageFile) _then)
+      : super(_value, (v) => _then(v as _uploadImageFile));
+
+  @override
+  _uploadImageFile get _value => super._value as _uploadImageFile;
+
+  @override
+  $Res call({
+    Object? picture = freezed,
+    Object? path = freezed,
+    Object? fileName = freezed,
+  }) {
+    return _then(_uploadImageFile(
+      picture: picture == freezed
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as File,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String,
+      fileName: fileName == freezed
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_uploadImageFile implements _uploadImageFile {
+  const _$_uploadImageFile(
+      {required this.picture, required this.path, required this.fileName});
+
+  @override
+  final File picture;
+  @override
+  final String path;
+  @override
+  final String fileName;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.uploadImageFile(picture: $picture, path: $path, fileName: $fileName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _uploadImageFile &&
+            const DeepCollectionEquality().equals(other.picture, picture) &&
+            const DeepCollectionEquality().equals(other.path, path) &&
+            const DeepCollectionEquality().equals(other.fileName, fileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(picture),
+      const DeepCollectionEquality().hash(path),
+      const DeepCollectionEquality().hash(fileName));
+
+  @JsonKey(ignore: true)
+  @override
+  _$uploadImageFileCopyWith<_uploadImageFile> get copyWith =>
+      __$uploadImageFileCopyWithImpl<_uploadImageFile>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(File picture, String path, String fileName)
+        uploadImageFile,
+    required TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)
+        addClub,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return uploadImageFile(picture, path, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return uploadImageFile?.call(picture, path, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (uploadImageFile != null) {
+      return uploadImageFile(picture, path, fileName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_uploadImageFile value) uploadImageFile,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return uploadImageFile(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return uploadImageFile?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (uploadImageFile != null) {
+      return uploadImageFile(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _uploadImageFile implements ProfileEvent {
+  const factory _uploadImageFile(
+      {required File picture,
+      required String path,
+      required String fileName}) = _$_uploadImageFile;
+
+  File get picture;
+  String get path;
+  String get fileName;
+  @JsonKey(ignore: true)
+  _$uploadImageFileCopyWith<_uploadImageFile> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$addClubCopyWith<$Res> {
+  factory _$addClubCopyWith(_addClub value, $Res Function(_addClub) then) =
+      __$addClubCopyWithImpl<$Res>;
+  $Res call(
+      {String name,
+      String description,
+      String email,
+      String pictureId,
+      int joinPreference});
+}
+
+/// @nodoc
+class __$addClubCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$addClubCopyWith<$Res> {
+  __$addClubCopyWithImpl(_addClub _value, $Res Function(_addClub) _then)
+      : super(_value, (v) => _then(v as _addClub));
+
+  @override
+  _addClub get _value => super._value as _addClub;
+
+  @override
+  $Res call({
+    Object? name = freezed,
+    Object? description = freezed,
+    Object? email = freezed,
+    Object? pictureId = freezed,
+    Object? joinPreference = freezed,
+  }) {
+    return _then(_addClub(
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      email: email == freezed
+          ? _value.email
+          : email // ignore: cast_nullable_to_non_nullable
+              as String,
+      pictureId: pictureId == freezed
+          ? _value.pictureId
+          : pictureId // ignore: cast_nullable_to_non_nullable
+              as String,
+      joinPreference: joinPreference == freezed
+          ? _value.joinPreference
+          : joinPreference // ignore: cast_nullable_to_non_nullable
+              as int,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_addClub implements _addClub {
+  const _$_addClub(
+      {required this.name,
+      required this.description,
+      required this.email,
+      required this.pictureId,
+      required this.joinPreference});
+
+  @override
+  final String name;
+  @override
+  final String description;
+  @override
+  final String email;
+  @override
+  final String pictureId;
+  @override
+  final int joinPreference;
+
+  @override
+  String toString() {
+    return 'ProfileEvent.addClub(name: $name, description: $description, email: $email, pictureId: $pictureId, joinPreference: $joinPreference)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _addClub &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality().equals(other.email, email) &&
+            const DeepCollectionEquality().equals(other.pictureId, pictureId) &&
+            const DeepCollectionEquality()
+                .equals(other.joinPreference, joinPreference));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(email),
+      const DeepCollectionEquality().hash(pictureId),
+      const DeepCollectionEquality().hash(joinPreference));
+
+  @JsonKey(ignore: true)
+  @override
+  _$addClubCopyWith<_addClub> get copyWith =>
+      __$addClubCopyWithImpl<_addClub>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(File picture, String path, String fileName)
+        uploadImageFile,
+    required TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)
+        addClub,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return addClub(name, description, email, pictureId, joinPreference);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return addClub?.call(name, description, email, pictureId, joinPreference);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addClub != null) {
+      return addClub(name, description, email, pictureId, joinPreference);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_uploadImageFile value) uploadImageFile,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return addClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return addClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addClub != null) {
+      return addClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _addClub implements ProfileEvent {
+  const factory _addClub(
+      {required String name,
+      required String description,
+      required String email,
+      required String pictureId,
+      required int joinPreference}) = _$_addClub;
+
+  String get name;
+  String get description;
+  String get email;
+  String get pictureId;
+  int get joinPreference;
+  @JsonKey(ignore: true)
+  _$addClubCopyWith<_addClub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -290,6 +746,11 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(File picture, String path, String fileName)
+        uploadImageFile,
+    required TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)
+        addClub,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -299,6 +760,11 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -308,6 +774,11 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(File picture, String path, String fileName)?
+        uploadImageFile,
+    TResult Function(String name, String description, String email,
+            String pictureId, int joinPreference)?
+        addClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -321,6 +792,8 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_uploadImageFile value) uploadImageFile,
+    required TResult Function(_addClub value) addClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return resetFailSuccess(this);
@@ -330,6 +803,8 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return resetFailSuccess?.call(this);
@@ -339,6 +814,8 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_uploadImageFile value)? uploadImageFile,
+    TResult Function(_addClub value)? addClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {

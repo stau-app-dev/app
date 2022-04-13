@@ -17,6 +17,7 @@ _$_Club _$$_ClubFromJson(Map<String, dynamic> json) => _$_Club(
       pending:
           (json['pending'] as List<dynamic>).map((e) => e as String).toList(),
       pictureUrl: json['pictureUrl'] as String,
+      joinPreference: json['joinPreference'] as int,
     );
 
 Map<String, dynamic> _$$_ClubToJson(_$_Club instance) => <String, dynamic>{
@@ -27,4 +28,5 @@ Map<String, dynamic> _$$_ClubToJson(_$_Club instance) => <String, dynamic>{
       'name': instance.name,
       'pending': instance.pending,
       'pictureUrl': instance.pictureUrl,
+      'joinPreference': instance.joinPreference,
     };

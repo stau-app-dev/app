@@ -1,7 +1,11 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
+import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
@@ -15,10 +19,12 @@ class SocialsScaffold extends StatefulWidget {
 
 class _SocialsScaffoldState extends State<SocialsScaffold> {
   late NavBloc navBloc;
+  late ProfileBloc profileBloc;
 
   @override
   void initState() {
     navBloc = BlocProvider.of<NavBloc>(context);
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
     super.initState();
   }
 
@@ -41,6 +47,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
       ],
       pictureUrl:
           'https://static.boredpanda.com/blog/wp-content/uploads/2019/04/funny-dancing-cats-fb3-png__700.jpg',
+      joinPreference: 0,
     ),
     const Club(
       id: '1',
@@ -58,6 +65,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
       ],
       pictureUrl:
           'https://cdn.vox-cdn.com/thumbor/MZRJnpwAMIHQ5-XT4FwNv0rivw4=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19397812/1048232144.jpg.jpg',
+      joinPreference: 0,
     ),
     const Club(
       id: '1',
@@ -76,6 +84,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
       ],
       pictureUrl:
           'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
+      joinPreference: 0,
     ),
   ];
 
@@ -93,14 +102,48 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         title: 'Create Club',
         listView: true,
         child: ClubSettings(
-          onPressedSubmit: () {},
+          onPressedSubmit: onSubmitCreateClub,
         ));
+  }
+
+  void onSubmitCreateClub({
+    required String name,
+    required String description,
+    required File picture,
+    required int joinPreference,
+  }) {
+    String pictureId = GeneralUtils.generateRandomString(length: 10);
+    profileBloc.add(ProfileEvent.uploadImageFile(
+      picture: picture,
+      path: 'newClubBanners',
+      fileName: pictureId,
+    ));
+    profileBloc.add(ProfileEvent.addClub(
+      name: name.trim(),
+      description: description.trim(),
+      pictureId: pictureId,
+      email: profileBloc.state.user!.email,
+      joinPreference: joinPreference,
+    ));
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, profileState) {
+    return BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
+      if (state.success != null) {
+        useCustomSnackbar(
+            context: context,
+            message: state.success?.message ?? 'Success!',
+            type: ESnackBarType.success);
+      }
+      if (state.failure != null) {
+        useCustomSnackbar(
+            context: context,
+            message: state.failure?.message ?? 'Failure!',
+            type: ESnackBarType.error);
+      }
+    }, builder: (context, profileState) {
       bool isAdmin =
           profileState.user != null ? profileState.user!.status > 0 : false;
 

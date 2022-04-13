@@ -29,7 +29,8 @@ class _$ClubTearOff {
       required List<String> members,
       required String name,
       required List<String> pending,
-      required String pictureUrl}) {
+      required String pictureUrl,
+      required int joinPreference}) {
     return _Club(
       id: id,
       admins: admins,
@@ -38,6 +39,7 @@ class _$ClubTearOff {
       name: name,
       pending: pending,
       pictureUrl: pictureUrl,
+      joinPreference: joinPreference,
     );
   }
 
@@ -58,6 +60,7 @@ mixin _$Club {
   String get name => throw _privateConstructorUsedError;
   List<String> get pending => throw _privateConstructorUsedError;
   String get pictureUrl => throw _privateConstructorUsedError;
+  int get joinPreference => throw _privateConstructorUsedError;
 
   Map<String, dynamic> toJson() => throw _privateConstructorUsedError;
   @JsonKey(ignore: true)
@@ -75,7 +78,8 @@ abstract class $ClubCopyWith<$Res> {
       List<String> members,
       String name,
       List<String> pending,
-      String pictureUrl});
+      String pictureUrl,
+      int joinPreference});
 }
 
 /// @nodoc
@@ -95,6 +99,7 @@ class _$ClubCopyWithImpl<$Res> implements $ClubCopyWith<$Res> {
     Object? name = freezed,
     Object? pending = freezed,
     Object? pictureUrl = freezed,
+    Object? joinPreference = freezed,
   }) {
     return _then(_value.copyWith(
       id: id == freezed
@@ -125,6 +130,10 @@ class _$ClubCopyWithImpl<$Res> implements $ClubCopyWith<$Res> {
           ? _value.pictureUrl
           : pictureUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      joinPreference: joinPreference == freezed
+          ? _value.joinPreference
+          : joinPreference // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -141,7 +150,8 @@ abstract class _$ClubCopyWith<$Res> implements $ClubCopyWith<$Res> {
       List<String> members,
       String name,
       List<String> pending,
-      String pictureUrl});
+      String pictureUrl,
+      int joinPreference});
 }
 
 /// @nodoc
@@ -162,6 +172,7 @@ class __$ClubCopyWithImpl<$Res> extends _$ClubCopyWithImpl<$Res>
     Object? name = freezed,
     Object? pending = freezed,
     Object? pictureUrl = freezed,
+    Object? joinPreference = freezed,
   }) {
     return _then(_Club(
       id: id == freezed
@@ -192,6 +203,10 @@ class __$ClubCopyWithImpl<$Res> extends _$ClubCopyWithImpl<$Res>
           ? _value.pictureUrl
           : pictureUrl // ignore: cast_nullable_to_non_nullable
               as String,
+      joinPreference: joinPreference == freezed
+          ? _value.joinPreference
+          : joinPreference // ignore: cast_nullable_to_non_nullable
+              as int,
     ));
   }
 }
@@ -206,7 +221,8 @@ class _$_Club implements _Club {
       required this.members,
       required this.name,
       required this.pending,
-      required this.pictureUrl});
+      required this.pictureUrl,
+      required this.joinPreference});
 
   factory _$_Club.fromJson(Map<String, dynamic> json) => _$$_ClubFromJson(json);
 
@@ -224,10 +240,12 @@ class _$_Club implements _Club {
   final List<String> pending;
   @override
   final String pictureUrl;
+  @override
+  final int joinPreference;
 
   @override
   String toString() {
-    return 'Club(id: $id, admins: $admins, description: $description, members: $members, name: $name, pending: $pending, pictureUrl: $pictureUrl)';
+    return 'Club(id: $id, admins: $admins, description: $description, members: $members, name: $name, pending: $pending, pictureUrl: $pictureUrl, joinPreference: $joinPreference)';
   }
 
   @override
@@ -243,7 +261,9 @@ class _$_Club implements _Club {
             const DeepCollectionEquality().equals(other.name, name) &&
             const DeepCollectionEquality().equals(other.pending, pending) &&
             const DeepCollectionEquality()
-                .equals(other.pictureUrl, pictureUrl));
+                .equals(other.pictureUrl, pictureUrl) &&
+            const DeepCollectionEquality()
+                .equals(other.joinPreference, joinPreference));
   }
 
   @override
@@ -255,7 +275,8 @@ class _$_Club implements _Club {
       const DeepCollectionEquality().hash(members),
       const DeepCollectionEquality().hash(name),
       const DeepCollectionEquality().hash(pending),
-      const DeepCollectionEquality().hash(pictureUrl));
+      const DeepCollectionEquality().hash(pictureUrl),
+      const DeepCollectionEquality().hash(joinPreference));
 
   @JsonKey(ignore: true)
   @override
@@ -276,7 +297,8 @@ abstract class _Club implements Club {
       required List<String> members,
       required String name,
       required List<String> pending,
-      required String pictureUrl}) = _$_Club;
+      required String pictureUrl,
+      required int joinPreference}) = _$_Club;
 
   factory _Club.fromJson(Map<String, dynamic> json) = _$_Club.fromJson;
 
@@ -294,6 +316,8 @@ abstract class _Club implements Club {
   List<String> get pending;
   @override
   String get pictureUrl;
+  @override
+  int get joinPreference;
   @override
   @JsonKey(ignore: true)
   _$ClubCopyWith<_Club> get copyWith => throw _privateConstructorUsedError;
