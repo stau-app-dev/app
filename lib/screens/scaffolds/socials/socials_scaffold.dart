@@ -100,7 +100,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
         return Stack(children: [
           SocialsScreen(
-            clubs: [],
+            clubs: const [],
             onPressClub: onPressedClub,
             onPressJoinClubsButton: onPressJoinClubsButton,
             isAdmin: isAdmin,

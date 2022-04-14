@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/models/socials/club/club.dart';
-import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 class ClubScaffold extends StatefulWidget {

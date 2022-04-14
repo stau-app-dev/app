@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/join_clubs_screen.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
@@ -28,7 +27,7 @@ class _JoinClubsScaffoldState extends State<JoinClubsScaffold> {
   @override
   Widget build(BuildContext context) {
     return JoinClubsScreen(
-      clubs: [],
+      clubs: const [],
       onPressClub: onPressedClub,
     );
   }
