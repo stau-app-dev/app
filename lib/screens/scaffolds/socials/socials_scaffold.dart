@@ -1,10 +1,9 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
+import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
@@ -20,11 +19,13 @@ class SocialsScaffold extends StatefulWidget {
 class _SocialsScaffoldState extends State<SocialsScaffold> {
   late NavBloc navBloc;
   late ProfileBloc profileBloc;
+  late SocialsBloc socialsBloc;
 
   @override
   void initState() {
     navBloc = BlocProvider.of<NavBloc>(context);
     profileBloc = BlocProvider.of<ProfileBloc>(context);
+    socialsBloc = BlocProvider.of<SocialsBloc>(context);
     super.initState();
   }
 
@@ -53,7 +54,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     required int joinPreference,
   }) {
     String pictureId = GeneralUtils.generateRandomString(length: 10);
-    profileBloc.add(ProfileEvent.addClub(
+    socialsBloc.add(SocialsEvent.addClub(
       name: name.trim(),
       description: description.trim(),
       pictureId: pictureId,
@@ -68,32 +69,45 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
-      if (state.success != null) {
-        useCustomSnackbar(
-            context: context,
-            message: state.success?.message ?? 'Success!',
-            type: ESnackBarType.success);
-        profileBloc.add(const ProfileEvent.resetFailSuccess());
-      }
-      if (state.failure != null) {
-        useCustomSnackbar(
-            context: context,
-            message: state.failure?.message ?? 'Failure!',
-            type: ESnackBarType.failure);
-        profileBloc.add(const ProfileEvent.resetFailSuccess());
-      }
-    }, builder: (context, profileState) {
-      bool isAdmin =
-          profileState.user != null ? profileState.user!.status > 0 : false;
+    return BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, profileState) {
+      return BlocConsumer<SocialsBloc, SocialsState>(
+          listener: (context, state) {
+        if (state.success != null) {
+          useCustomSnackbar(
+              context: context,
+              message: state.success?.message ?? 'Success!',
+              type: ESnackBarType.success);
+          socialsBloc.add(const SocialsEvent.resetFailSuccess());
+        }
+        if (state.failure != null) {
+          useCustomSnackbar(
+              context: context,
+              message: state.failure?.message ?? 'Failure!',
+              type: ESnackBarType.failure);
+          socialsBloc.add(const SocialsEvent.resetFailSuccess());
+        }
+        if (state.addedClubId != null) {
+          List<String> newUserClubIds = profileState.user!.clubs;
+          newUserClubIds.add(state.addedClubId!);
+          profileBloc.add(ProfileEvent.updateUserField(
+              field: 'clubs', value: newUserClubIds));
+          socialsBloc.add(const SocialsEvent.resetAddedClubId());
+        }
+      }, builder: (context, state) {
+        bool isAdmin =
+            profileState.user != null ? profileState.user!.status > 0 : false;
 
-      return SocialsScreen(
-        clubs: [],
-        onPressClub: onPressedClub,
-        onPressJoinClubsButton: onPressJoinClubsButton,
-        isAdmin: isAdmin,
-        onPressCreateClub: onPressedCreateClub,
-      );
+        return Stack(children: [
+          SocialsScreen(
+            clubs: [],
+            onPressClub: onPressedClub,
+            onPressJoinClubsButton: onPressJoinClubsButton,
+            isAdmin: isAdmin,
+            onPressCreateClub: onPressedCreateClub,
+          ),
+        ]);
+      });
     });
   }
 }

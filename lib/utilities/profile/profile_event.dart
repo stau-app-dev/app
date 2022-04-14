@@ -6,14 +6,7 @@ class ProfileEvent with _$ProfileEvent {
       {required String id,
       required String email,
       required String name}) = _getUser;
-  const factory ProfileEvent.addClub(
-      {required String description,
-      required String email,
-      required int joinPreference,
-      required String name,
-      required String pictureId,
-      required File picture,
-      required String path,
-      required String fileName}) = _addClub;
+  const factory ProfileEvent.updateUserField(
+      {required String field, required dynamic value}) = _updateUserField;
   const factory ProfileEvent.resetFailSuccess() = _resetFailSuccess;
 }
