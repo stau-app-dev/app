@@ -1,6 +1,8 @@
 import 'package:staugustinechsnewapp/providers/network.dart';
 
-String getUserEndpoint = getCloudFunctionsDomain() + '/getUser';
 String addClubEndpoint = getCloudFunctionsDomain() + '/addClub';
-const errorGettingUser = 'Error getting user';
+String getUserEndpoint = getCloudFunctionsDomain() + '/getUser';
+String updateUserFieldEndpoint = getCloudFunctionsDomain() + '/updateUserField';
 const errorAddingClub = 'Error adding club';
+const errorGettingUser = 'Error getting user';
+const errorUpdatingUserField = 'Error updating user field';

@@ -28,66 +28,6 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     super.initState();
   }
 
-  List<Club> sampleClubs = [
-    const Club(
-      id: '1',
-      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
-      description:
-          'Club description that is really long and will wrap around to the next line probably',
-      members: [
-        'member@ycdsbk12.ca',
-        'member2@ycdsbk12.ca',
-        'member3@ycdsbk12.ca',
-      ],
-      name:
-          'Club name that is really long and will wrap around to the next line probably',
-      pending: [
-        'pending@ycdsbk12.ca',
-        'pending2@ycdsbk12.ca',
-      ],
-      pictureUrl:
-          'https://static.boredpanda.com/blog/wp-content/uploads/2019/04/funny-dancing-cats-fb3-png__700.jpg',
-      joinPreference: 0,
-    ),
-    const Club(
-      id: '1',
-      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
-      description: 'App Development Club',
-      members: [
-        'member@ycdsbk12.ca',
-        'member2@ycdsbk12.ca',
-        'member3@ycdsbk12.ca',
-      ],
-      name: 'Club name',
-      pending: [
-        'pending@ycdsbk12.ca',
-        'pending2@ycdsbk12.ca',
-      ],
-      pictureUrl:
-          'https://cdn.vox-cdn.com/thumbor/MZRJnpwAMIHQ5-XT4FwNv0rivw4=/1400x1400/filters:format(jpeg)/cdn.vox-cdn.com/uploads/chorus_asset/file/19397812/1048232144.jpg.jpg',
-      joinPreference: 0,
-    ),
-    const Club(
-      id: '1',
-      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
-      description:
-          'Spectrum is a club that focuses on the development of the student body. We are a group of students who are passionate about technology and want to help others learn about it.',
-      members: [
-        'member@ycdsbk12.ca',
-        'member2@ycdsbk12.ca',
-        'member3@ycdsbk12.ca',
-      ],
-      name: 'Spectrum',
-      pending: [
-        'pending@ycdsbk12.ca',
-        'pending2@ycdsbk12.ca',
-      ],
-      pictureUrl:
-          'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
-      joinPreference: 0,
-    ),
-  ];
-
   void onPressedClub(String clubId) {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.club));
   }
@@ -113,17 +53,15 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
     required int joinPreference,
   }) {
     String pictureId = GeneralUtils.generateRandomString(length: 10);
-    profileBloc.add(ProfileEvent.uploadImageFile(
-      picture: picture,
-      path: 'newClubBanners',
-      fileName: pictureId,
-    ));
     profileBloc.add(ProfileEvent.addClub(
       name: name.trim(),
       description: description.trim(),
       pictureId: pictureId,
       email: profileBloc.state.user!.email,
       joinPreference: joinPreference,
+      picture: picture,
+      path: 'newClubBanners',
+      fileName: pictureId,
     ));
     Navigator.pop(context);
   }
@@ -150,7 +88,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
           profileState.user != null ? profileState.user!.status > 0 : false;
 
       return SocialsScreen(
-        clubs: sampleClubs,
+        clubs: [],
         onPressClub: onPressedClub,
         onPressJoinClubsButton: onPressJoinClubsButton,
         isAdmin: isAdmin,

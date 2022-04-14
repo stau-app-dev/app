@@ -14,26 +14,6 @@ class _ClubScaffoldState extends State<ClubScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    const club = Club(
-      id: '1',
-      admins: ['admin@ycdsbk12.ca', 'admin2@ycdsbk12.ca'],
-      description:
-          'Spectrum is a club that focuses on the development of the student body. We are a group of students who are passionate about technology and want to help others learn about it.',
-      members: [
-        'member@ycdsbk12.ca',
-        'member2@ycdsbk12.ca',
-        'member3@ycdsbk12.ca',
-      ],
-      name: 'Spectrum',
-      pending: [
-        'pending@ycdsbk12.ca',
-        'pending2@ycdsbk12.ca',
-      ],
-      pictureUrl:
-          'https://c.tenor.com/vUiP93AK6wQAAAAC/hollow-knight-primal-aspid.gif',
-      joinPreference: 0,
-    );
-
     return Stack(children: [
       Container(
         height:
@@ -46,10 +26,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           ),
         ),
       ),
-      ClubScreen(
-        club: club,
-        onPressJoin: onPressJoin,
-      )
+      // ClubScreen(
+      //   club: ,
+      //   onPressJoin: onPressJoin,
+      // )
     ]);
   }
 }

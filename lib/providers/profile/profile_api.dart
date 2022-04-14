@@ -4,7 +4,7 @@ import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/profile/user/user.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
-import 'package:staugustinechsnewapp/models/shared/success/success.dart';
+import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/providers/profile/consts.dart';
 
 @Injectable()
@@ -30,7 +30,7 @@ class ProfileApi {
     }
   }
 
-  static Future<Either<Failure, Success>> addClub({
+  static Future<Either<Failure, Club>> addClub({
     required String description,
     required String email,
     required int joinPreference,
@@ -49,13 +49,38 @@ class ProfileApi {
         }),
       );
       if (res.statusCode == 200) {
-        String message = json.decode(res.body)['data']['message'] as String;
-        return Right(Success(message: message));
+        Club club = Club.fromJson(json.decode(res.body)['data']['club']);
+        return Right(club);
       } else {
         return const Left(Failure(message: errorAddingClub));
       }
     } catch (e) {
       return const Left(Failure(message: errorAddingClub));
+    }
+  }
+
+  static Future<Either<Failure, User>> updateUserField({
+    required String id,
+    required String field,
+    required dynamic value,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(updateUserFieldEndpoint),
+        body: json.encode({
+          'id': id,
+          'field': field,
+          'value': value,
+        }),
+      );
+      if (res.statusCode == 200) {
+        User user = User.fromJson(json.decode(res.body)['data']['user']);
+        return Right(user);
+      } else {
+        return const Left(Failure(message: errorUpdatingUserField));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorUpdatingUserField));
     }
   }
 }
