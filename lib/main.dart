@@ -13,6 +13,7 @@ import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 
 /// Control the app's environment. Uncomment the dev line if you are running the backend locally.
@@ -44,6 +45,7 @@ void main() async {
       BlocProvider(create: (context) => getIt<HomeBloc>()),
       BlocProvider(create: (context) => getIt<NavBloc>()),
       BlocProvider(create: (context) => getIt<ProfileBloc>()),
+      BlocProvider(create: (context) => getIt<SocialsBloc>()),
       BlocProvider(create: (context) => getIt<SongBloc>()),
     ],
     child: const AnnotatedRegion<SystemUiOverlayStyle>(

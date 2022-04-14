@@ -12,4 +12,12 @@ class ProfileRepository {
       {required String id, required String email, required String name}) async {
     return await ProfileApi.getUser(id: id, email: email, name: name);
   }
+
+  static Future<Either<Failure, User>> updateUserField({
+    required String id,
+    required String field,
+    required dynamic value,
+  }) async {
+    return await ProfileApi.updateUserField(id: id, field: field, value: value);
+  }
 }

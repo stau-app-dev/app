@@ -3,11 +3,17 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/image/image_utils.dart';
 import 'package:staugustinechsnewapp/utilities/profile/banner_dimensions.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
 class ClubSettings extends StatefulWidget {
-  final Function() onPressedSubmit;
+  final Function({
+    required String name,
+    required String description,
+    required File picture,
+    required int joinPreference,
+  }) onPressedSubmit;
 
   const ClubSettings({Key? key, required this.onPressedSubmit})
       : super(key: key);
@@ -17,13 +23,14 @@ class ClubSettings extends StatefulWidget {
 }
 
 class _ClubSettingsState extends State<ClubSettings> {
-  File? image;
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   EdgeInsetsGeometry padding =
       const EdgeInsets.symmetric(vertical: 7.0, horizontal: 16.0);
 
   TextEditingController clubNameController = TextEditingController();
   TextEditingController clubDescriptionController = TextEditingController();
+  File? image;
+  int joinPreference = -1;
 
   Future<void> onPressedChooseImage() async {
     // Step #1: Pick Image From Gallery.
@@ -48,6 +55,24 @@ class _ClubSettingsState extends State<ClubSettings> {
     });
   }
 
+  void onPressedSubmit() {
+    if (clubNameController.text.isEmpty ||
+        clubDescriptionController.text.isEmpty ||
+        image == null ||
+        joinPreference == -1) {
+      useCustomSnackbar(
+          context: context,
+          message: 'Please fill out all required fields',
+          type: ESnackBarType.failure);
+      return;
+    }
+    widget.onPressedSubmit(
+        name: clubNameController.text,
+        description: clubDescriptionController.text,
+        picture: image!,
+        joinPreference: joinPreference);
+  }
+
   List<Widget> buildJoinPreferences() {
     List<String> joinPreferences = [
       'Not accepting new members',
@@ -57,40 +82,54 @@ class _ClubSettingsState extends State<ClubSettings> {
 
     List<Widget> rows = [];
     for (var preference in joinPreferences) {
-      rows.add(
-        Container(
-            width: getWidth(context),
-            decoration: BoxDecoration(
-                color: Styles.white,
-                border: Border.all(
-                  color: Styles.primary,
-                  width: 1.0,
-                ),
-                borderRadius: Styles.mainBorderRadius),
-            child: Row(
-              children: <Widget>[
-                Padding(
-                    padding: padding,
-                    child: Text(
-                      preference,
-                      style: Styles.normalSubText,
-                    )),
-                const Spacer(),
-                Container(
-                    alignment: Alignment.center,
-                    width: 50.0,
-                    decoration: const BoxDecoration(
-                      border: Border(
-                        left: BorderSide(width: 1.0, color: Styles.primary),
-                      ),
-                      // color: Colors.white,
+      rows.add(Container(
+        width: getWidth(context),
+        decoration: BoxDecoration(
+            color: Styles.white,
+            border: Border.all(
+              color: Styles.primary,
+              width: 1.0,
+            ),
+            borderRadius: Styles.mainBorderRadius),
+        child: InkWell(
+          child: Row(
+            children: <Widget>[
+              Padding(
+                  padding: padding,
+                  child: Text(
+                    preference,
+                    style: Styles.normalSubText,
+                  )),
+              const Spacer(),
+              Container(
+                  alignment: Alignment.center,
+                  width: 50.0,
+                  decoration: const BoxDecoration(
+                    border: Border(
+                      left: BorderSide(width: 1.0, color: Styles.primary),
                     ),
-                    child: Padding(
-                        padding: padding,
-                        child: InkWell(onTap: () {}, child: const Text(''))))
-              ],
-            )),
-      );
+                    // color: Colors.white,
+                  ),
+                  child: Padding(
+                    padding: padding,
+                    child: joinPreference == joinPreferences.indexOf(preference)
+                        ? const Icon(
+                            Icons.check,
+                            color: Styles.primary,
+                          )
+                        : const Icon(
+                            null,
+                          ),
+                  ))
+            ],
+          ),
+          onTap: () {
+            setState(() {
+              joinPreference = joinPreferences.indexOf(preference);
+            });
+          },
+        ),
+      ));
       rows.add(const SizedBox(height: 10.0));
     }
     return rows;
@@ -146,7 +185,9 @@ class _ClubSettingsState extends State<ClubSettings> {
           ...buildJoinPreferences(),
           const SizedBox(height: 10.0),
           RoundedButton(
-              text: 'Create Club', onPressed: () => widget.onPressedSubmit()),
+            text: 'Create Club',
+            onPressed: onPressedSubmit,
+          )
         ]));
   }
 }

@@ -14,7 +14,7 @@ void useCustomSnackbar(
   Color backgroundColor;
   Color textColor;
 
-  if (type == ESnackBarType.error) {
+  if (type == ESnackBarType.failure) {
     backgroundColor = Colors.red.withOpacity(opacity);
     textColor = Styles.white;
   } else if (type == ESnackBarType.success) {
@@ -42,7 +42,7 @@ void useCustomSnackbar(
 }
 
 enum ESnackBarType {
-  error,
+  failure,
   success,
   info,
 }

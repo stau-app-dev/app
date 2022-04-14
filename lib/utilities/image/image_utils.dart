@@ -26,6 +26,10 @@ class ImageUtils {
         aspectRatioLockEnabled: true,
         aspectRatioPickerButtonHidden: true,
       ),
+      androidUiSettings: AndroidUiSettings(
+        toolbarTitle: 'Crop Image to ($ratioX:$ratioY) Ratio',
+        lockAspectRatio: true,
+      ),
     );
   }
 }

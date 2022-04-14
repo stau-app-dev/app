@@ -1,4 +1,5 @@
 import 'package:dartz/dartz.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
@@ -18,6 +19,12 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
         getUser: (e) async {
           Either<Failure, User> res = await ProfileRepository.getUser(
               id: e.id, email: e.email, name: e.name);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(user: r)));
+        },
+        updateUserField: (e) async {
+          Either<Failure, User> res = await ProfileRepository.updateUserField(
+              id: state.user!.id, field: e.field, value: e.value);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r)));
         },

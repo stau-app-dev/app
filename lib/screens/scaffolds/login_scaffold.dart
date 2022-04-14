@@ -52,7 +52,7 @@ class _LoginScaffoldState extends State<LoginScaffold> {
           useCustomSnackbar(
               context: context,
               message: authState.failure!.message,
-              type: ESnackBarType.error);
+              type: ESnackBarType.failure);
           authBloc.add(const AuthEvent.resetFailSuccess());
         }
         if (authState.firebaseApp != null) {

@@ -33,7 +33,7 @@ class _CafeMenuScaffoldState extends State<CafeMenuScaffold> {
         useCustomSnackbar(
             context: context,
             message: state.failure!.message,
-            type: ESnackBarType.error);
+            type: ESnackBarType.failure);
         cafeMenuBloc.add(const CafeMenuEvent.resetFailSuccess());
       }
     }, builder: (context, state) {

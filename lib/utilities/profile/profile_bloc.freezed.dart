@@ -27,6 +27,14 @@ class _$ProfileEventTearOff {
     );
   }
 
+  _updateUserField updateUserField(
+      {required String field, required dynamic value}) {
+    return _updateUserField(
+      field: field,
+      value: value,
+    );
+  }
+
   _resetFailSuccess resetFailSuccess() {
     return const _resetFailSuccess();
   }
@@ -40,18 +48,21 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -59,18 +70,21 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -134,7 +148,7 @@ class __$getUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_getUser implements _getUser {
+class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   const _$_getUser({required this.id, required this.email, required this.name});
 
   @override
@@ -145,8 +159,18 @@ class _$_getUser implements _getUser {
   final String name;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.getUser(id: $id, email: $email, name: $name)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.getUser'))
+      ..add(DiagnosticsProperty('id', id))
+      ..add(DiagnosticsProperty('email', email))
+      ..add(DiagnosticsProperty('name', name));
   }
 
   @override
@@ -175,6 +199,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) {
     return getUser(id, email, name);
@@ -184,6 +209,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) {
     return getUser?.call(id, email, name);
@@ -193,6 +219,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -206,6 +233,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getUser(this);
@@ -215,6 +243,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getUser?.call(this);
@@ -224,6 +253,7 @@ class _$_getUser implements _getUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -249,6 +279,169 @@ abstract class _getUser implements ProfileEvent {
 }
 
 /// @nodoc
+abstract class _$updateUserFieldCopyWith<$Res> {
+  factory _$updateUserFieldCopyWith(
+          _updateUserField value, $Res Function(_updateUserField) then) =
+      __$updateUserFieldCopyWithImpl<$Res>;
+  $Res call({String field, dynamic value});
+}
+
+/// @nodoc
+class __$updateUserFieldCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$updateUserFieldCopyWith<$Res> {
+  __$updateUserFieldCopyWithImpl(
+      _updateUserField _value, $Res Function(_updateUserField) _then)
+      : super(_value, (v) => _then(v as _updateUserField));
+
+  @override
+  _updateUserField get _value => super._value as _updateUserField;
+
+  @override
+  $Res call({
+    Object? field = freezed,
+    Object? value = freezed,
+  }) {
+    return _then(_updateUserField(
+      field: field == freezed
+          ? _value.field
+          : field // ignore: cast_nullable_to_non_nullable
+              as String,
+      value: value == freezed
+          ? _value.value
+          : value // ignore: cast_nullable_to_non_nullable
+              as dynamic,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_updateUserField
+    with DiagnosticableTreeMixin
+    implements _updateUserField {
+  const _$_updateUserField({required this.field, required this.value});
+
+  @override
+  final String field;
+  @override
+  final dynamic value;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.updateUserField(field: $field, value: $value)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.updateUserField'))
+      ..add(DiagnosticsProperty('field', field))
+      ..add(DiagnosticsProperty('value', value));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _updateUserField &&
+            const DeepCollectionEquality().equals(other.field, field) &&
+            const DeepCollectionEquality().equals(other.value, value));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(field),
+      const DeepCollectionEquality().hash(value));
+
+  @JsonKey(ignore: true)
+  @override
+  _$updateUserFieldCopyWith<_updateUserField> get copyWith =>
+      __$updateUserFieldCopyWithImpl<_updateUserField>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return updateUserField(field, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return updateUserField?.call(field, value);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateUserField != null) {
+      return updateUserField(field, value);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return updateUserField(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return updateUserField?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateUserField != null) {
+      return updateUserField(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateUserField implements ProfileEvent {
+  const factory _updateUserField(
+      {required String field, required dynamic value}) = _$_updateUserField;
+
+  String get field;
+  dynamic get value;
+  @JsonKey(ignore: true)
+  _$updateUserFieldCopyWith<_updateUserField> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
 abstract class _$resetFailSuccessCopyWith<$Res> {
   factory _$resetFailSuccessCopyWith(
           _resetFailSuccess value, $Res Function(_resetFailSuccess) then) =
@@ -269,12 +462,21 @@ class __$resetFailSuccessCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_resetFailSuccess implements _resetFailSuccess {
+class _$_resetFailSuccess
+    with DiagnosticableTreeMixin
+    implements _resetFailSuccess {
   const _$_resetFailSuccess();
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileEvent.resetFailSuccess()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.resetFailSuccess'));
   }
 
   @override
@@ -290,6 +492,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -299,6 +502,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -308,6 +512,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -321,6 +526,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return resetFailSuccess(this);
@@ -330,6 +536,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return resetFailSuccess?.call(this);
@@ -339,6 +546,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -508,7 +716,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
 
 /// @nodoc
 
-class _$_ProfileState implements _ProfileState {
+class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
   const _$_ProfileState({this.user, this.failure, this.success});
 
   @override
@@ -519,8 +727,18 @@ class _$_ProfileState implements _ProfileState {
   final Success? success;
 
   @override
-  String toString() {
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
     return 'ProfileState(user: $user, failure: $failure, success: $success)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileState'))
+      ..add(DiagnosticsProperty('user', user))
+      ..add(DiagnosticsProperty('failure', failure))
+      ..add(DiagnosticsProperty('success', success));
   }
 
   @override

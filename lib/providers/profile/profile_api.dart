@@ -28,4 +28,29 @@ class ProfileApi {
       return const Left(Failure(message: errorGettingUser));
     }
   }
+
+  static Future<Either<Failure, User>> updateUserField({
+    required String id,
+    required String field,
+    required dynamic value,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(updateUserFieldEndpoint),
+        body: json.encode({
+          'id': id,
+          'field': field,
+          'value': value,
+        }),
+      );
+      if (res.statusCode == 200) {
+        User user = User.fromJson(json.decode(res.body)['data']['user']);
+        return Right(user);
+      } else {
+        return const Left(Failure(message: errorUpdatingUserField));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorUpdatingUserField));
+    }
+  }
 }
