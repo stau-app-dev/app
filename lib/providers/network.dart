@@ -6,7 +6,7 @@ import 'package:url_launcher/url_launcher.dart';
 String getCloudFunctionsDomain() {
   if (env == Environment.dev) {
     // Replace with your IP address
-    String ipAddress = '192.168.0.133';
+    String ipAddress = '127.0.0.0.1';
 
     // If you change the port, change it here too. It should default to 5001
     String port = '5001';
