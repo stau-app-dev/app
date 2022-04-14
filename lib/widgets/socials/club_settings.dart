@@ -151,12 +151,13 @@ class _ClubSettingsState extends State<ClubSettings> {
           const Text('Club Name', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'My Cool Club', controller: clubNameController),
+              hintText: 'Nano Engineering Club',
+              controller: clubNameController),
           const SizedBox(height: 10.0),
           const Text('Club Desc.', style: Styles.normalSubText),
           const SizedBox(height: 5.0),
           RoundedTextField(
-              hintText: 'My really cool description',
+              hintText: 'A club for students who think the QNC is cool!',
               isMultiline: true,
               controller: clubDescriptionController),
           const SizedBox(height: 20.0),
