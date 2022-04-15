@@ -37,7 +37,6 @@ class _ClubScreenState extends State<ClubScreen> {
         const SizedBox(height: 125.0),
         ClubDescription(
           description: widget.club?.description ?? '',
-          instructionsToJoin: 'wow this is a club',
           onPressJoin: widget.onPressJoin,
         ),
       ],
