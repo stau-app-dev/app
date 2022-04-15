@@ -69,8 +69,11 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(
-        builder: (context, profileState) {
+    return BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
+      if (state.user?.id != null) {
+        socialsBloc.add(SocialsEvent.getUserClubs(userId: state.user!.id));
+      }
+    }, builder: (context, profileState) {
       return BlocConsumer<SocialsBloc, SocialsState>(
           listener: (context, state) {
         if (state.success != null) {
@@ -100,7 +103,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
         return Stack(children: [
           SocialsScreen(
-            clubs: const [],
+            clubs: state.clubQuickAccessItems ?? [],
             onPressClub: onPressedClub,
             onPressJoinClubsButton: onPressJoinClubsButton,
             isAdmin: isAdmin,

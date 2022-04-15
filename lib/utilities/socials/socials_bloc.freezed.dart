@@ -18,6 +18,12 @@ final _privateConstructorUsedError = UnsupportedError(
 class _$SocialsEventTearOff {
   const _$SocialsEventTearOff();
 
+  _getUserClubs getUserClubs({required String userId}) {
+    return _getUserClubs(
+      userId: userId,
+    );
+  }
+
   _addClub addClub(
       {required String description,
       required String email,
@@ -55,6 +61,7 @@ const $SocialsEvent = _$SocialsEventTearOff();
 mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
     required TResult Function(
             String description,
             String email,
@@ -71,6 +78,7 @@ mixin _$SocialsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -87,6 +95,7 @@ mixin _$SocialsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -104,6 +113,7 @@ mixin _$SocialsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -111,6 +121,7 @@ mixin _$SocialsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -118,6 +129,7 @@ mixin _$SocialsEvent {
       throw _privateConstructorUsedError;
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -140,6 +152,178 @@ class _$SocialsEventCopyWithImpl<$Res> implements $SocialsEventCopyWith<$Res> {
   final SocialsEvent _value;
   // ignore: unused_field
   final $Res Function(SocialsEvent) _then;
+}
+
+/// @nodoc
+abstract class _$getUserClubsCopyWith<$Res> {
+  factory _$getUserClubsCopyWith(
+          _getUserClubs value, $Res Function(_getUserClubs) then) =
+      __$getUserClubsCopyWithImpl<$Res>;
+  $Res call({String userId});
+}
+
+/// @nodoc
+class __$getUserClubsCopyWithImpl<$Res> extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$getUserClubsCopyWith<$Res> {
+  __$getUserClubsCopyWithImpl(
+      _getUserClubs _value, $Res Function(_getUserClubs) _then)
+      : super(_value, (v) => _then(v as _getUserClubs));
+
+  @override
+  _getUserClubs get _value => super._value as _getUserClubs;
+
+  @override
+  $Res call({
+    Object? userId = freezed,
+  }) {
+    return _then(_getUserClubs(
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_getUserClubs implements _getUserClubs {
+  const _$_getUserClubs({required this.userId});
+
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.getUserClubs(userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _getUserClubs &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$getUserClubsCopyWith<_getUserClubs> get copyWith =>
+      __$getUserClubsCopyWithImpl<_getUserClubs>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function() resetAddedClubId,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return getUserClubs(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return getUserClubs?.call(userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getUserClubs != null) {
+      return getUserClubs(userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return getUserClubs(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return getUserClubs?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getUserClubs != null) {
+      return getUserClubs(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getUserClubs implements SocialsEvent {
+  const factory _getUserClubs({required String userId}) = _$_getUserClubs;
+
+  String get userId;
+  @JsonKey(ignore: true)
+  _$getUserClubsCopyWith<_getUserClubs> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -286,6 +470,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
     required TResult Function(
             String description,
             String email,
@@ -306,6 +491,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -326,6 +512,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -350,6 +537,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -360,6 +548,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -370,6 +559,7 @@ class _$_addClub implements _addClub {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -447,6 +637,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
     required TResult Function(
             String description,
             String email,
@@ -466,6 +657,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -485,6 +677,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -508,6 +701,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -518,6 +712,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -528,6 +723,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -585,6 +781,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
     required TResult Function(
             String description,
             String email,
@@ -604,6 +801,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -623,6 +821,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
     TResult Function(
             String description,
             String email,
@@ -646,6 +845,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -656,6 +856,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -666,6 +867,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @override
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -687,12 +889,14 @@ class _$SocialsStateTearOff {
   const _$SocialsStateTearOff();
 
   _SocialsState call(
-      {List<Club>? clubs,
+      {List<ClubQuickAccessItem>? clubQuickAccessItems,
+      Club? club,
       String? addedClubId,
       Failure? failure,
       Success? success}) {
     return _SocialsState(
-      clubs: clubs,
+      clubQuickAccessItems: clubQuickAccessItems,
+      club: club,
       addedClubId: addedClubId,
       failure: failure,
       success: success,
@@ -705,7 +909,9 @@ const $SocialsState = _$SocialsStateTearOff();
 
 /// @nodoc
 mixin _$SocialsState {
-  List<Club>? get clubs => throw _privateConstructorUsedError;
+  List<ClubQuickAccessItem>? get clubQuickAccessItems =>
+      throw _privateConstructorUsedError;
+  Club? get club => throw _privateConstructorUsedError;
   String? get addedClubId => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
@@ -721,11 +927,13 @@ abstract class $SocialsStateCopyWith<$Res> {
           SocialsState value, $Res Function(SocialsState) then) =
       _$SocialsStateCopyWithImpl<$Res>;
   $Res call(
-      {List<Club>? clubs,
+      {List<ClubQuickAccessItem>? clubQuickAccessItems,
+      Club? club,
       String? addedClubId,
       Failure? failure,
       Success? success});
 
+  $ClubCopyWith<$Res>? get club;
   $FailureCopyWith<$Res>? get failure;
   $SuccessCopyWith<$Res>? get success;
 }
@@ -740,16 +948,21 @@ class _$SocialsStateCopyWithImpl<$Res> implements $SocialsStateCopyWith<$Res> {
 
   @override
   $Res call({
-    Object? clubs = freezed,
+    Object? clubQuickAccessItems = freezed,
+    Object? club = freezed,
     Object? addedClubId = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
     return _then(_value.copyWith(
-      clubs: clubs == freezed
-          ? _value.clubs
-          : clubs // ignore: cast_nullable_to_non_nullable
-              as List<Club>?,
+      clubQuickAccessItems: clubQuickAccessItems == freezed
+          ? _value.clubQuickAccessItems
+          : clubQuickAccessItems // ignore: cast_nullable_to_non_nullable
+              as List<ClubQuickAccessItem>?,
+      club: club == freezed
+          ? _value.club
+          : club // ignore: cast_nullable_to_non_nullable
+              as Club?,
       addedClubId: addedClubId == freezed
           ? _value.addedClubId
           : addedClubId // ignore: cast_nullable_to_non_nullable
@@ -763,6 +976,17 @@ class _$SocialsStateCopyWithImpl<$Res> implements $SocialsStateCopyWith<$Res> {
           : success // ignore: cast_nullable_to_non_nullable
               as Success?,
     ));
+  }
+
+  @override
+  $ClubCopyWith<$Res>? get club {
+    if (_value.club == null) {
+      return null;
+    }
+
+    return $ClubCopyWith<$Res>(_value.club!, (value) {
+      return _then(_value.copyWith(club: value));
+    });
   }
 
   @override
@@ -796,11 +1020,14 @@ abstract class _$SocialsStateCopyWith<$Res>
       __$SocialsStateCopyWithImpl<$Res>;
   @override
   $Res call(
-      {List<Club>? clubs,
+      {List<ClubQuickAccessItem>? clubQuickAccessItems,
+      Club? club,
       String? addedClubId,
       Failure? failure,
       Success? success});
 
+  @override
+  $ClubCopyWith<$Res>? get club;
   @override
   $FailureCopyWith<$Res>? get failure;
   @override
@@ -819,16 +1046,21 @@ class __$SocialsStateCopyWithImpl<$Res> extends _$SocialsStateCopyWithImpl<$Res>
 
   @override
   $Res call({
-    Object? clubs = freezed,
+    Object? clubQuickAccessItems = freezed,
+    Object? club = freezed,
     Object? addedClubId = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
     return _then(_SocialsState(
-      clubs: clubs == freezed
-          ? _value.clubs
-          : clubs // ignore: cast_nullable_to_non_nullable
-              as List<Club>?,
+      clubQuickAccessItems: clubQuickAccessItems == freezed
+          ? _value.clubQuickAccessItems
+          : clubQuickAccessItems // ignore: cast_nullable_to_non_nullable
+              as List<ClubQuickAccessItem>?,
+      club: club == freezed
+          ? _value.club
+          : club // ignore: cast_nullable_to_non_nullable
+              as Club?,
       addedClubId: addedClubId == freezed
           ? _value.addedClubId
           : addedClubId // ignore: cast_nullable_to_non_nullable
@@ -849,10 +1081,16 @@ class __$SocialsStateCopyWithImpl<$Res> extends _$SocialsStateCopyWithImpl<$Res>
 
 class _$_SocialsState implements _SocialsState {
   const _$_SocialsState(
-      {this.clubs, this.addedClubId, this.failure, this.success});
+      {this.clubQuickAccessItems,
+      this.club,
+      this.addedClubId,
+      this.failure,
+      this.success});
 
   @override
-  final List<Club>? clubs;
+  final List<ClubQuickAccessItem>? clubQuickAccessItems;
+  @override
+  final Club? club;
   @override
   final String? addedClubId;
   @override
@@ -862,7 +1100,7 @@ class _$_SocialsState implements _SocialsState {
 
   @override
   String toString() {
-    return 'SocialsState(clubs: $clubs, addedClubId: $addedClubId, failure: $failure, success: $success)';
+    return 'SocialsState(clubQuickAccessItems: $clubQuickAccessItems, club: $club, addedClubId: $addedClubId, failure: $failure, success: $success)';
   }
 
   @override
@@ -870,7 +1108,9 @@ class _$_SocialsState implements _SocialsState {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _SocialsState &&
-            const DeepCollectionEquality().equals(other.clubs, clubs) &&
+            const DeepCollectionEquality()
+                .equals(other.clubQuickAccessItems, clubQuickAccessItems) &&
+            const DeepCollectionEquality().equals(other.club, club) &&
             const DeepCollectionEquality()
                 .equals(other.addedClubId, addedClubId) &&
             const DeepCollectionEquality().equals(other.failure, failure) &&
@@ -880,7 +1120,8 @@ class _$_SocialsState implements _SocialsState {
   @override
   int get hashCode => Object.hash(
       runtimeType,
-      const DeepCollectionEquality().hash(clubs),
+      const DeepCollectionEquality().hash(clubQuickAccessItems),
+      const DeepCollectionEquality().hash(club),
       const DeepCollectionEquality().hash(addedClubId),
       const DeepCollectionEquality().hash(failure),
       const DeepCollectionEquality().hash(success));
@@ -893,13 +1134,16 @@ class _$_SocialsState implements _SocialsState {
 
 abstract class _SocialsState implements SocialsState {
   const factory _SocialsState(
-      {List<Club>? clubs,
+      {List<ClubQuickAccessItem>? clubQuickAccessItems,
+      Club? club,
       String? addedClubId,
       Failure? failure,
       Success? success}) = _$_SocialsState;
 
   @override
-  List<Club>? get clubs;
+  List<ClubQuickAccessItem>? get clubQuickAccessItems;
+  @override
+  Club? get club;
   @override
   String? get addedClubId;
   @override
