@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
+import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/providers/image_upload/image_upload_repository.dart';
 import 'package:staugustinechsnewapp/providers/socials/socials_repository.dart';
 part 'socials_event.dart';
@@ -17,6 +18,18 @@ part 'socials_bloc.freezed.dart';
 class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
   SocialsBloc() : super(SocialsState.initial()) {
     on<SocialsEvent>((event, emit) => event.map(
+        getUserClubs: (e) async {
+          Either<Failure, List<ClubQuickAccessItem>> res =
+              await SocialsRepository.getUserClubs(userId: e.userId);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(clubQuickAccessItems: r)));
+        },
+        getClub: (e) async {
+          Either<Failure, Club> res = await SocialsRepository.getClub(
+              clubId: e.clubId, pictureUrl: e.pictureUrl);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(club: r)));
+        },
         addClub: (e) async {
           await ImageUploadRepository.uploadImageFile(
               picture: e.picture, path: e.path, fileName: e.fileName);

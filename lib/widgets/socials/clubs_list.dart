@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/models/socials/club/club.dart';
+import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
@@ -7,7 +7,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
 class ClubsList extends StatefulWidget {
   final String title;
-  final List<Club> items;
+  final List<ClubQuickAccessItem> items;
   final bool showJoinClubsButton;
   final Function(String) onPressClub;
   final Function()? onPressJoinClubsButton;

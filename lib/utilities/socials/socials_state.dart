@@ -3,7 +3,8 @@ part of 'socials_bloc.dart';
 @freezed
 class SocialsState with _$SocialsState {
   const factory SocialsState({
-    List<Club>? clubs,
+    List<ClubQuickAccessItem>? clubQuickAccessItems,
+    Club? club,
     String? addedClubId,
     Failure? failure,
     Success? success,
