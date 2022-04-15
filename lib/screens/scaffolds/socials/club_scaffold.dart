@@ -12,6 +12,8 @@ class ClubScaffold extends StatefulWidget {
 }
 
 class _ClubScaffoldState extends State<ClubScaffold> {
+  double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
   void onPressJoin() {}
 
   @override
@@ -20,32 +22,32 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       return Stack(children: [
         if (state.club?.pictureUrl != null)
           Container(
+            height: getHeight(context) * 0.5,
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: CachedNetworkImageProvider(state.club!.pictureUrl),
-                fit: BoxFit.cover,
-              ),
-              color: Styles.secondary,
+              image: state.club?.pictureUrl != null
+                  ? DecorationImage(
+                      image: CachedNetworkImageProvider(state.club!.pictureUrl),
+                      fit: BoxFit.cover,
+                    )
+                  : null,
+              boxShadow: const [
+                BoxShadow(
+                  color: Styles.primary,
+                  spreadRadius: 0,
+                  blurRadius: 5,
+                  offset: Offset(0, 0),
+                )
+              ],
               borderRadius: Styles.mainBorderRadius,
             ),
           ),
         Container(
-            decoration: BoxDecoration(
-                borderRadius: Styles.mainBorderRadius,
-                color: Colors.white,
-                gradient: LinearGradient(
-                    begin: FractionalOffset.topCenter,
-                    end: FractionalOffset.bottomCenter,
-                    colors: [
-                      Styles.transparent,
-                      Styles.grey.withOpacity(0.1),
-                      Styles.grey.withOpacity(0.5),
-                    ],
-                    stops: const [
-                      0.3,
-                      0.5,
-                      1.0
-                    ]))),
+          height: getHeight(context) * 0.5,
+          decoration: BoxDecoration(
+            borderRadius: Styles.mainBorderRadius,
+            color: Styles.primary.withOpacity(0.5),
+          ),
+        ),
         ClubScreen(
           club: state.club,
           onPressJoin: onPressJoin,
