@@ -1,17 +1,23 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 
 class ClubScreen extends StatefulWidget {
   final Club? club;
+  final List<ClubAnnouncement>? clubAnnouncements;
   final Function() onPressJoin;
+  final Function()? onPressAddAnnouncement;
 
   const ClubScreen({
     Key? key,
-    this.club,
+    required this.club,
+    required this.clubAnnouncements,
     required this.onPressJoin,
+    this.onPressAddAnnouncement,
   }) : super(key: key);
 
   @override
@@ -21,6 +27,15 @@ class ClubScreen extends StatefulWidget {
 class _ClubScreenState extends State<ClubScreen> {
   @override
   Widget build(BuildContext context) {
+    List<ClubAnnouncement> clubAnnouncements;
+
+    if (widget.clubAnnouncements != null &&
+        widget.clubAnnouncements!.isNotEmpty) {
+      clubAnnouncements = widget.clubAnnouncements!;
+    } else {
+      clubAnnouncements = [];
+    }
+
     return PageLayout(
       verticalPadding: 0,
       children: [
@@ -38,6 +53,12 @@ class _ClubScreenState extends State<ClubScreen> {
         ClubDescription(
           description: widget.club?.description ?? '',
           onPressJoin: widget.onPressJoin,
+        ),
+        const SizedBox(height: 20.0),
+        AnnouncementsBoard(
+          clubAnnouncements: clubAnnouncements,
+          isClubScreen: true,
+          onPressAddAnnouncement: widget.onPressAddAnnouncement,
         ),
       ],
     );

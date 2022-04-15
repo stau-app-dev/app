@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 
 class ClubScaffold extends StatefulWidget {
@@ -16,43 +17,56 @@ class _ClubScaffoldState extends State<ClubScaffold> {
 
   void onPressJoin() {}
 
+  void onPressAddAnnouncement() {}
+
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<SocialsBloc, SocialsState>(builder: (context, state) {
-      return Stack(children: [
-        if (state.club?.pictureUrl != null)
+    return BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, profileState) {
+      return BlocBuilder<SocialsBloc, SocialsState>(
+          builder: (context, socialsState) {
+        bool isClubAdmin =
+            socialsState.club?.admins.contains(profileState.user?.email) ??
+                false;
+
+        return Stack(children: [
+          if (socialsState.club?.pictureUrl != null)
+            Container(
+              height: getHeight(context) * 0.5,
+              decoration: BoxDecoration(
+                image: socialsState.club?.pictureUrl != null
+                    ? DecorationImage(
+                        image: CachedNetworkImageProvider(
+                            socialsState.club!.pictureUrl),
+                        fit: BoxFit.cover,
+                      )
+                    : null,
+                boxShadow: const [
+                  BoxShadow(
+                    color: Styles.primary,
+                    spreadRadius: 0,
+                    blurRadius: 5,
+                    offset: Offset(0, 0),
+                  )
+                ],
+                borderRadius: Styles.mainBorderRadius,
+              ),
+            ),
           Container(
             height: getHeight(context) * 0.5,
             decoration: BoxDecoration(
-              image: state.club?.pictureUrl != null
-                  ? DecorationImage(
-                      image: CachedNetworkImageProvider(state.club!.pictureUrl),
-                      fit: BoxFit.cover,
-                    )
-                  : null,
-              boxShadow: const [
-                BoxShadow(
-                  color: Styles.primary,
-                  spreadRadius: 0,
-                  blurRadius: 5,
-                  offset: Offset(0, 0),
-                )
-              ],
               borderRadius: Styles.mainBorderRadius,
+              color: Styles.primary.withOpacity(0.5),
             ),
           ),
-        Container(
-          height: getHeight(context) * 0.5,
-          decoration: BoxDecoration(
-            borderRadius: Styles.mainBorderRadius,
-            color: Styles.primary.withOpacity(0.5),
-          ),
-        ),
-        ClubScreen(
-          club: state.club,
-          onPressJoin: onPressJoin,
-        )
-      ]);
+          ClubScreen(
+            club: socialsState.club,
+            clubAnnouncements: [],
+            onPressJoin: onPressJoin,
+            onPressAddAnnouncement: isClubAdmin ? onPressAddAnnouncement : null,
+          )
+        ]);
+      });
     });
   }
 }
