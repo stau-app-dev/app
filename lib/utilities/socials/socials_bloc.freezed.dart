@@ -24,6 +24,13 @@ class _$SocialsEventTearOff {
     );
   }
 
+  _getClub getClub({required String clubId, required String pictureUrl}) {
+    return _getClub(
+      clubId: clubId,
+      pictureUrl: pictureUrl,
+    );
+  }
+
   _addClub addClub(
       {required String description,
       required String email,
@@ -62,6 +69,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
     required TResult Function(
             String description,
             String email,
@@ -79,6 +87,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -96,6 +105,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -114,6 +124,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -122,6 +133,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -130,6 +142,7 @@ mixin _$SocialsEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -219,6 +232,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
     required TResult Function(
             String description,
             String email,
@@ -239,6 +253,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -259,6 +274,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -283,6 +299,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -294,6 +311,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -305,6 +323,7 @@ class _$_getUserClubs implements _getUserClubs {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -323,6 +342,195 @@ abstract class _getUserClubs implements SocialsEvent {
   String get userId;
   @JsonKey(ignore: true)
   _$getUserClubsCopyWith<_getUserClubs> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$getClubCopyWith<$Res> {
+  factory _$getClubCopyWith(_getClub value, $Res Function(_getClub) then) =
+      __$getClubCopyWithImpl<$Res>;
+  $Res call({String clubId, String pictureUrl});
+}
+
+/// @nodoc
+class __$getClubCopyWithImpl<$Res> extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$getClubCopyWith<$Res> {
+  __$getClubCopyWithImpl(_getClub _value, $Res Function(_getClub) _then)
+      : super(_value, (v) => _then(v as _getClub));
+
+  @override
+  _getClub get _value => super._value as _getClub;
+
+  @override
+  $Res call({
+    Object? clubId = freezed,
+    Object? pictureUrl = freezed,
+  }) {
+    return _then(_getClub(
+      clubId: clubId == freezed
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
+              as String,
+      pictureUrl: pictureUrl == freezed
+          ? _value.pictureUrl
+          : pictureUrl // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_getClub implements _getClub {
+  const _$_getClub({required this.clubId, required this.pictureUrl});
+
+  @override
+  final String clubId;
+  @override
+  final String pictureUrl;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.getClub(clubId: $clubId, pictureUrl: $pictureUrl)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _getClub &&
+            const DeepCollectionEquality().equals(other.clubId, clubId) &&
+            const DeepCollectionEquality()
+                .equals(other.pictureUrl, pictureUrl));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(clubId),
+      const DeepCollectionEquality().hash(pictureUrl));
+
+  @JsonKey(ignore: true)
+  @override
+  _$getClubCopyWith<_getClub> get copyWith =>
+      __$getClubCopyWithImpl<_getClub>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function() resetAddedClubId,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return getClub(clubId, pictureUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return getClub?.call(clubId, pictureUrl);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getClub != null) {
+      return getClub(clubId, pictureUrl);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return getClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return getClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getClub != null) {
+      return getClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getClub implements SocialsEvent {
+  const factory _getClub({required String clubId, required String pictureUrl}) =
+      _$_getClub;
+
+  String get clubId;
+  String get pictureUrl;
+  @JsonKey(ignore: true)
+  _$getClubCopyWith<_getClub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -471,6 +679,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
     required TResult Function(
             String description,
             String email,
@@ -492,6 +701,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -513,6 +723,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -538,6 +749,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -549,6 +761,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -560,6 +773,7 @@ class _$_addClub implements _addClub {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -638,6 +852,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
     required TResult Function(
             String description,
             String email,
@@ -658,6 +873,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -678,6 +894,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -702,6 +919,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -713,6 +931,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -724,6 +943,7 @@ class _$_resetAddedClubId implements _resetAddedClubId {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -782,6 +1002,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
     required TResult Function(
             String description,
             String email,
@@ -802,6 +1023,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -822,6 +1044,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
     TResult Function(
             String description,
             String email,
@@ -846,6 +1069,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
@@ -857,6 +1081,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
@@ -868,6 +1093,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,

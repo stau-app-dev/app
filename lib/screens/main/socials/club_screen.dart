@@ -5,12 +5,12 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 
 class ClubScreen extends StatefulWidget {
-  final Club club;
+  final Club? club;
   final Function() onPressJoin;
 
   const ClubScreen({
     Key? key,
-    required this.club,
+    this.club,
     required this.onPressJoin,
   }) : super(key: key);
 
@@ -33,11 +33,10 @@ class _ClubScreenState extends State<ClubScreen> {
                   color: Styles.white,
                 ))),
         const SizedBox(height: 85.0),
-        Text(widget.club.name, style: Styles.headerMainText),
+        Text(widget.club?.name ?? '', style: Styles.headerMainText),
         const SizedBox(height: 125.0),
         ClubDescription(
-          description: widget.club.description,
-          // instructionsToJoin: widget.club.instructionsToJoin,
+          description: widget.club?.description ?? '',
           instructionsToJoin: 'wow this is a club',
           onPressJoin: widget.onPressJoin,
         ),

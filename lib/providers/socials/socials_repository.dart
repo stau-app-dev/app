@@ -14,6 +14,11 @@ class SocialsRepository {
     return await SocialsApi.getUserClubs(userId: userId);
   }
 
+  static Future<Either<Failure, Club>> getClub(
+      {required String clubId, required String pictureUrl}) async {
+    return await SocialsApi.getClub(clubId: clubId, pictureUrl: pictureUrl);
+  }
+
   static Future<Either<Failure, Club>> addClub({
     required String description,
     required String email,

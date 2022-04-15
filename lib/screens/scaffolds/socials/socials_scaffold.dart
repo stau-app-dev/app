@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/providers/network.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
@@ -30,7 +31,20 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
   }
 
   void onPressedClub(String clubId) {
-    navBloc.add(const NavEvent.changeScreen(screen: ENav.club));
+    int index = socialsBloc.state.clubQuickAccessItems!
+        .indexWhere((element) => element.id == clubId);
+    if (index != -1) {
+      String pictureUrl =
+          socialsBloc.state.clubQuickAccessItems![index].pictureUrl;
+      socialsBloc
+          .add(SocialsEvent.getClub(clubId: clubId, pictureUrl: pictureUrl));
+      navBloc.add(const NavEvent.changeScreen(screen: ENav.club));
+    } else {
+      useCustomSnackbar(
+          context: context,
+          message: 'Club details not found',
+          type: ESnackBarType.failure);
+    }
   }
 
   void onPressJoinClubsButton() {

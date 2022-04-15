@@ -25,3 +25,6 @@ void launchURL({required String url}) async {
     throw 'Could not launch $url';
   }
 }
+
+const defaultErrorImageURL =
+    'https://www.armandhammer.com/-/media/aah/feature/articles/cat-litter-articles/happy-cat.jpg';

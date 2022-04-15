@@ -20,16 +20,39 @@ class SocialsApi {
       Response res = await get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
-        List<ClubQuickAccessItem> songs = [];
+        List<ClubQuickAccessItem> clubs = [];
         for (var i = 0; i < data.length; i++) {
-          songs.add(ClubQuickAccessItem.fromJson(data[i]));
+          clubs.add(ClubQuickAccessItem.fromJson(data[i]));
         }
-        return Right(songs);
+        return Right(clubs);
       } else {
         return const Left(Failure(message: errorGettingUserClubs));
       }
     } catch (e) {
       return const Left(Failure(message: errorGettingUserClubs));
+    }
+  }
+
+  static Future<Either<Failure, Club>> getClub({
+    required String clubId,
+    required String pictureUrl,
+  }) async {
+    try {
+      var uri = Uri.parse(getClubEndpoint);
+      uri = uri.replace(queryParameters: {
+        'clubId': clubId,
+      });
+      Response res = await get(uri);
+      if (res.statusCode == 200) {
+        dynamic data = json.decode(res.body)['data'];
+        Club club =
+            Club.fromJson({...data, 'id': clubId, 'pictureUrl': pictureUrl});
+        return Right(club);
+      } else {
+        return const Left(Failure(message: errorGettingClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorGettingClub));
     }
   }
 

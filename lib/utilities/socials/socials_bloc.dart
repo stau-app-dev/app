@@ -24,6 +24,12 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(clubQuickAccessItems: r)));
         },
+        getClub: (e) async {
+          Either<Failure, Club> res = await SocialsRepository.getClub(
+              clubId: e.clubId, pictureUrl: e.pictureUrl);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(club: r)));
+        },
         addClub: (e) async {
           await ImageUploadRepository.uploadImageFile(
               picture: e.picture, path: e.path, fileName: e.fileName);
