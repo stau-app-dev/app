@@ -2,15 +2,15 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+// Replace with your IP address. Don't commit these changes.
+String ipAddress = '0.0.0.0';
+
+// If you change the port, change it here too. It should default to 5001
+String port = '5001';
+
 /// The domain of the server.
 String getCloudFunctionsDomain() {
   if (env == Environment.dev) {
-    // Replace with your IP address
-    String ipAddress = '192.168.0.133';
-
-    // If you change the port, change it here too. It should default to 5001
-    String port = '5001';
-
     return 'http://$ipAddress:$port/staugustinechsapp/us-central1';
   } else {
     return 'https://us-central1-staugustinechsapp.cloudfunctions.net';
