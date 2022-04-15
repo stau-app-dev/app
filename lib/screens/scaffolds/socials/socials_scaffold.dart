@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:staugustinechsnewapp/providers/network.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
