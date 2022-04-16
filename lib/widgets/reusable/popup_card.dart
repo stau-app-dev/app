@@ -2,7 +2,7 @@
 
 import 'dart:ui';
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/measure_size_render_object.dart';
 
 /// Creates the modal popup for the app. Please use this as it follows the Figma design.

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/profile/profile_screen.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 class ProfileScaffold extends StatefulWidget {

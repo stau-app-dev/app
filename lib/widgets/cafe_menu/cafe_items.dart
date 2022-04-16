@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 

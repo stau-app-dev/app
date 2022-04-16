@@ -1,6 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// {@template image_shadow_container}
 /// Reusable widget for displaying a container with a image with a shadow on it.

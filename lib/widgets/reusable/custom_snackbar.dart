@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// Custom snackbar to display.
 /// By default it uses a translucent secondary background color and primary text color.

@@ -1,12 +1,14 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
+import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 
 class ClubScaffold extends StatefulWidget {
   const ClubScaffold({Key? key}) : super(key: key);
@@ -18,7 +20,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   late final SocialsBloc socialsBloc;
   late final ProfileBloc profileBloc;
 
-  double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+  bool showMembersScreen = false;
 
   @override
   void initState() {
@@ -28,8 +30,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   }
 
   void onRefresh() {
-    socialsBloc.add(
-        SocialsEvent.getClubAnnouncements(clubId: socialsBloc.state.club!.id));
+    String clubId = socialsBloc.state.club!.id;
+    socialsBloc.add(SocialsEvent.getClub(
+        clubId: clubId, pictureUrl: socialsBloc.state.club!.pictureUrl));
+    socialsBloc.add(SocialsEvent.getClubAnnouncements(clubId: clubId));
   }
 
   void onPressJoin() {}
@@ -39,6 +43,21 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         context: context,
         title: 'Add Announcement',
         child: AddAnnouncementForm(onPressedSubmit: onSubmitAddAnnouncement));
+  }
+
+  void onPressedSettings(bool isAdmin) {
+    usePopupCard(
+        context: context,
+        title: 'Club Settings',
+        child: ClubSettings(
+          isAdmin: isAdmin,
+          onPressMembersList: () {
+            setState(() {
+              showMembersScreen = true;
+            });
+            Navigator.pop(context);
+          },
+        ));
   }
 
   void onSubmitAddAnnouncement(String content) {
@@ -83,7 +102,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
             Container(
-              height: getHeight(context) * 0.5,
+              height: MediaQuery.of(context).size.height * 0.5,
               decoration: BoxDecoration(
                 image: socialsState.club?.pictureUrl != null
                     ? DecorationImage(
@@ -104,19 +123,33 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               ),
             ),
           Container(
-            height: getHeight(context) * 0.5,
+            height: MediaQuery.of(context).size.height * 0.5,
             decoration: BoxDecoration(
               borderRadius: Styles.mainBorderRadius,
               color: Styles.primary.withOpacity(0.5),
             ),
           ),
-          ClubScreen(
-            club: socialsState.club,
-            clubAnnouncements: socialsState.clubAnnouncements,
-            onRefresh: onRefresh,
-            onPressJoin: onPressJoin,
-            onPressAddAnnouncement: isClubAdmin ? onPressAddAnnouncement : null,
-          )
+          showMembersScreen
+              ? ClubMembersScreen(
+                  onPressBack: () {
+                    setState(() {
+                      showMembersScreen = false;
+                    });
+                  },
+                  clubName: socialsState.club?.name ?? '',
+                  admins: socialsState.club?.admins ?? [],
+                  members: socialsState.club?.members ?? [],
+                  pending: isClubAdmin ? socialsState.club?.pending : null,
+                )
+              : ClubScreen(
+                  club: socialsState.club,
+                  clubAnnouncements: socialsState.clubAnnouncements,
+                  onRefresh: onRefresh,
+                  onPressJoin: onPressJoin,
+                  onPressAddAnnouncement:
+                      isClubAdmin ? onPressAddAnnouncement : null,
+                  onPressedSettings: () => onPressedSettings(isClubAdmin),
+                )
         ]);
       });
     });

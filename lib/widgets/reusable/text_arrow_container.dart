@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 /// {@template text_arrow_container}

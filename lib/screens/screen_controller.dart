@@ -9,7 +9,7 @@ import 'package:staugustinechsnewapp/screens/scaffolds/socials/club_scaffold.dar
 import 'package:staugustinechsnewapp/screens/scaffolds/socials/join_clubs_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/socials/socials_scaffold.dart';
 import 'package:staugustinechsnewapp/screens/scaffolds/song_requests/song_request_scaffold.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';

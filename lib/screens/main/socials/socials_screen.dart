@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart';
 import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';

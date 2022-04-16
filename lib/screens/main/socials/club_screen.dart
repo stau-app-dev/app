@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 
@@ -11,6 +11,7 @@ class ClubScreen extends StatelessWidget {
   final List<ClubAnnouncement>? clubAnnouncements;
   final Function() onRefresh;
   final Function() onPressJoin;
+  final Function() onPressedSettings;
   final Function()? onPressAddAnnouncement;
 
   const ClubScreen({
@@ -19,6 +20,7 @@ class ClubScreen extends StatelessWidget {
     required this.clubAnnouncements,
     required this.onRefresh,
     required this.onPressJoin,
+    required this.onPressedSettings,
     this.onPressAddAnnouncement,
   }) : super(key: key);
 
@@ -40,7 +42,7 @@ class ClubScreen extends StatelessWidget {
         Align(
             alignment: Alignment.topRight,
             child: IconButton(
-                onPressed: () {},
+                onPressed: onPressedSettings,
                 icon: const Icon(
                   Icons.settings_rounded,
                   color: Styles.white,

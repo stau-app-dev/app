@@ -1,7 +1,7 @@
 // From: https://stackoverflow.com/a/67898454/10014923
 
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// Creates a RoundedLinearProgressIndicator. Unlike the original, this one has a rounded edge all around.
 class RoundedLinearProgressIndicator extends StatelessWidget {

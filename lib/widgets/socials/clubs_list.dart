@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';

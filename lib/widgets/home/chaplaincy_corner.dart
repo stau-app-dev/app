@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
 class ChaplaincyCorner extends StatelessWidget {
