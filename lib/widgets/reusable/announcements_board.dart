@@ -55,8 +55,10 @@ class AnnouncementsBoard extends StatelessWidget {
               ),
               Linkify(
                 text: content,
-                style: Styles.normalText,
-                linkStyle: Styles.urlText,
+                linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      color: Styles.secondary,
+                      decoration: TextDecoration.underline,
+                    ),
                 onOpen: (link) async {
                   launchURL(url: link.url);
                 },

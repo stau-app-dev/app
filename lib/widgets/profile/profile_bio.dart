@@ -19,7 +19,13 @@ class ProfileBio extends StatelessWidget {
               backgroundColor: Styles.grey,
             )),
         const SizedBox(height: 20.0),
-        const Text('John Doe', style: Styles.headerMainText),
+        Text(
+          'John Doe',
+          style: Theme.of(context)
+              .textTheme
+              .headline5!
+              .copyWith(color: Styles.white),
+        ),
         const SizedBox(height: 2.0),
         const Text('John.doe00@ycdsbk12.ca', style: Styles.headerSubText),
       ],

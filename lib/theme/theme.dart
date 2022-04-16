@@ -16,7 +16,7 @@ ThemeData appThemeData = ThemeData(
   ),
   brightness: Brightness.light,
   colorScheme: ColorScheme.fromSwatch()
-      .copyWith(secondary: createMaterialColor(Styles.secondary)),
+      .copyWith(primary: Styles.primary, secondary: Styles.secondary),
   fontFamily: Styles.fontFamilyNormal,
   hintColor: Styles.grey,
   iconTheme: const IconThemeData(color: Styles.primary),
@@ -61,13 +61,13 @@ ThemeData appThemeData = ThemeData(
     headline5: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 24.0,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: Styles.primary,
         letterSpacing: 0.0),
     headline6: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 20.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 0.15),
     subtitle1: TextStyle(

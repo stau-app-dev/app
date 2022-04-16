@@ -28,13 +28,6 @@ class Styles {
   /// Default font for text. Defaults to Source Sans Pro.
   static const String fontFamilyNormal = 'SourceSansPro';
 
-  /// Font size 24.0, font family Raleway, font weight 800, color white.
-  static const headerMainText = TextStyle(
-      fontSize: 24,
-      fontFamily: fontFamilyTitles,
-      fontWeight: FontWeight.w800,
-      color: Colors.white);
-
   /// Font size 14.0, font family Source Sans Pro, font weight normal, color white.
   static const headerSubText = TextStyle(
       fontSize: fontSizeNormal,
