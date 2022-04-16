@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:injectable/injectable.dart';
+import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
@@ -44,6 +45,22 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
               (r) => state.copyWith(
                   success: const Success(message: 'Successfully added club'),
                   addedClubId: r.id)));
+        },
+        addClubAnnouncement: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.addClubAnnouncement(
+                  clubId: e.clubId,
+                  clubName: e.clubName,
+                  content: e.content,
+                  creatorName: e.creatorName);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        getClubAnnouncements: (e) async {
+          Either<Failure, List<ClubAnnouncement>> res =
+              await SocialsRepository.getClubAnnouncements(clubId: e.clubId);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(clubAnnouncements: r)));
         },
         resetAddedClubId: (e) => emit(state.copyWith(addedClubId: null)),
         resetFailSuccess: (e) =>

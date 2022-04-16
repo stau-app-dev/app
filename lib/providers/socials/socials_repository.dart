@@ -1,6 +1,8 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
+import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/providers/socials/socials_api.dart';
@@ -32,5 +34,23 @@ class SocialsRepository {
         email: email,
         pictureId: pictureId,
         joinPreference: joinPreference);
+  }
+
+  static Future<Either<Failure, Success>> addClubAnnouncement({
+    required String clubId,
+    required String clubName,
+    required String content,
+    required String creatorName,
+  }) async {
+    return await SocialsApi.addClubAnnouncement(
+        clubId: clubId,
+        clubName: clubName,
+        content: content,
+        creatorName: creatorName);
+  }
+
+  static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements(
+      {required String clubId}) async {
+    return await SocialsApi.getClubAnnouncements(clubId: clubId);
   }
 }
