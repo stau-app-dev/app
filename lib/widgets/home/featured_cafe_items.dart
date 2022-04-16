@@ -13,7 +13,7 @@ class FeaturedCafeItems extends StatelessWidget {
       : super(key: key);
 
   Widget buildFeaturedCafeItems(BuildContext context) {
-    double padding = Styles.mainOutsidePadding;
+    double padding = Styles.mainHorizontalPadding;
     double tileWidth = MediaQuery.of(context).size.width * 0.3 - padding;
     double ratioXY = 0.6;
 

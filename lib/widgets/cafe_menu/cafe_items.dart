@@ -16,7 +16,7 @@ class CafeItems extends StatelessWidget {
       required String name,
       required double price,
       required String pictureUrl}) {
-    double padding = Styles.mainOutsidePadding * 2;
+    double padding = Styles.mainHorizontalPadding * 2;
     double tileWidth = MediaQuery.of(context).size.width * 0.5 - padding;
     double ratioXY = 0.83;
 

@@ -48,7 +48,7 @@ class ClubsList extends StatelessWidget {
       required String clubId,
       required String name,
       required String pictureUrl}) {
-    double padding = (Styles.mainOutsidePadding * 2);
+    double padding = (Styles.mainHorizontalPadding * 2);
     double tileWidth = MediaQuery.of(context).size.width - padding;
 
     Map<String, double> pictureContainerDimensions =
