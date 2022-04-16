@@ -20,7 +20,6 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   late final SocialsBloc socialsBloc;
   late final ProfileBloc profileBloc;
 
-  double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
   bool showMembersScreen = false;
 
   @override
@@ -101,7 +100,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
             Container(
-              height: getHeight(context) * 0.5,
+              height: MediaQuery.of(context).size.height * 0.5,
               decoration: BoxDecoration(
                 image: socialsState.club?.pictureUrl != null
                     ? DecorationImage(
@@ -122,7 +121,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               ),
             ),
           Container(
-            height: getHeight(context) * 0.5,
+            height: MediaQuery.of(context).size.height * 0.5,
             decoration: BoxDecoration(
               borderRadius: Styles.mainBorderRadius,
               color: Styles.primary.withOpacity(0.5),

@@ -10,9 +10,8 @@ class WelcomeBanner extends StatelessWidget {
   const WelcomeBanner({Key? key, this.dayNumber, this.userName})
       : super(key: key);
 
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   double getChildWidth(BuildContext context, double percentage) =>
-      getWidth(context) * percentage - Styles.mainInsidePadding;
+      MediaQuery.of(context).size.width * percentage - Styles.mainInsidePadding;
 
   @override
   Widget build(BuildContext context) {

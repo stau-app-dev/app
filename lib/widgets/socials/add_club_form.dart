@@ -23,7 +23,6 @@ class AddClubForm extends StatefulWidget {
 }
 
 class _AddClubFormState extends State<AddClubForm> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   EdgeInsetsGeometry padding =
       const EdgeInsets.symmetric(vertical: 7.0, horizontal: 16.0);
 
@@ -83,7 +82,7 @@ class _AddClubFormState extends State<AddClubForm> {
     List<Widget> rows = [];
     for (var preference in joinPreferences) {
       rows.add(Container(
-        width: getWidth(context),
+        width: MediaQuery.of(context).size.width,
         decoration: BoxDecoration(
             color: Styles.white,
             border: Border.all(
@@ -138,7 +137,7 @@ class _AddClubFormState extends State<AddClubForm> {
   @override
   Widget build(BuildContext context) {
     double padding = 45.0;
-    double bannerWidth = getWidth(context) - (padding * 2);
+    double bannerWidth = MediaQuery.of(context).size.width - (padding * 2);
 
     Map<String, double> pictureContainerDimensions =
         Styles.pictureContainerDimensions(context: context, width: bannerWidth);
