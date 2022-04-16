@@ -1,17 +1,42 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 
 class ClubMembersList extends StatelessWidget {
   final String title;
   final List<String> members;
+  final bool isAdmin;
 
-  const ClubMembersList({Key? key, required this.title, required this.members})
+  const ClubMembersList(
+      {Key? key,
+      required this.title,
+      required this.members,
+      required this.isAdmin})
       : super(key: key);
 
-  List<Widget> buildMembers() {
+  List<Widget> buildMembers(BuildContext context) {
     return members
-        .map((member) => Text(member, style: Styles.normalText))
+        .map((member) => Row(
+              children: [
+                Text(member, style: Styles.normalText),
+                if (isAdmin) ...[
+                  const Spacer(),
+                  IconButton(
+                      onPressed: () {
+                        showConfirmationDialog(
+                            context: context,
+                            title: 'Confirmation',
+                            content: 'Are you sure you want to remove $member?',
+                            onPressConfirm: () {
+                              Navigator.of(context).pop();
+                            });
+                      },
+                      icon: const Icon(Icons.close_rounded,
+                          color: Styles.secondary))
+                ]
+              ],
+            ))
         .toList();
   }
 
@@ -23,7 +48,7 @@ class ClubMembersList extends StatelessWidget {
       children: [
         Text(title, style: Styles.normalMainText),
         const SizedBox(height: 10.0),
-        ...buildMembers(),
+        ...buildMembers(context),
       ],
     ));
   }
