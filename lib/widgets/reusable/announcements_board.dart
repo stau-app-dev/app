@@ -84,8 +84,8 @@ class AnnouncementsBoard extends StatelessWidget {
       String title = isClubScreen
           ? clubAnnouncement.creatorName
           : clubAnnouncement.clubName;
-      buildContent(
-          context: context, title: title, content: clubAnnouncement.content);
+      rows.add(buildContent(
+          context: context, title: title, content: clubAnnouncement.content));
       rows.add(const SizedBox(height: 10.0));
     }
 
