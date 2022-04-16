@@ -7,6 +7,7 @@ import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
+import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 
 class ClubScaffold extends StatefulWidget {
   const ClubScaffold({Key? key}) : super(key: key);
@@ -39,6 +40,13 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         context: context,
         title: 'Add Announcement',
         child: AddAnnouncementForm(onPressedSubmit: onSubmitAddAnnouncement));
+  }
+
+  void onPressedSettings(bool isAdmin) {
+    usePopupCard(
+        context: context,
+        title: 'Club Settings',
+        child: ClubSettings(isAdmin: isAdmin));
   }
 
   void onSubmitAddAnnouncement(String content) {
@@ -116,6 +124,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
             onRefresh: onRefresh,
             onPressJoin: onPressJoin,
             onPressAddAnnouncement: isClubAdmin ? onPressAddAnnouncement : null,
+            onPressedSettings: () => onPressedSettings(isClubAdmin),
           )
         ]);
       });

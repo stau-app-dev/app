@@ -11,6 +11,7 @@ class ClubScreen extends StatelessWidget {
   final List<ClubAnnouncement>? clubAnnouncements;
   final Function() onRefresh;
   final Function() onPressJoin;
+  final Function() onPressedSettings;
   final Function()? onPressAddAnnouncement;
 
   const ClubScreen({
@@ -19,6 +20,7 @@ class ClubScreen extends StatelessWidget {
     required this.clubAnnouncements,
     required this.onRefresh,
     required this.onPressJoin,
+    required this.onPressedSettings,
     this.onPressAddAnnouncement,
   }) : super(key: key);
 
@@ -40,7 +42,7 @@ class ClubScreen extends StatelessWidget {
         Align(
             alignment: Alignment.topRight,
             child: IconButton(
-                onPressed: () {},
+                onPressed: onPressedSettings,
                 icon: const Icon(
                   Icons.settings_rounded,
                   color: Styles.white,

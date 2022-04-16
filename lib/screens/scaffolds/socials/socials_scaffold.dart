@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
-import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
+import 'package:staugustinechsnewapp/widgets/socials/add_club_form.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
@@ -55,7 +55,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         context: context,
         title: 'Create Club',
         listView: true,
-        child: ClubSettings(
+        child: AddClubForm(
           onPressedSubmit: onSubmitCreateClub,
         ));
   }
