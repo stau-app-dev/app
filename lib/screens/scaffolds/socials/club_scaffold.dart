@@ -1,6 +1,7 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
@@ -20,6 +21,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   late final ProfileBloc profileBloc;
 
   double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+  bool showMembersScreen = false;
 
   @override
   void initState() {
@@ -46,7 +48,15 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     usePopupCard(
         context: context,
         title: 'Club Settings',
-        child: ClubSettings(isAdmin: isAdmin));
+        child: ClubSettings(
+          isAdmin: isAdmin,
+          onPressMembersList: () {
+            setState(() {
+              showMembersScreen = true;
+            });
+            Navigator.pop(context);
+          },
+        ));
   }
 
   void onSubmitAddAnnouncement(String content) {
@@ -118,14 +128,27 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               color: Styles.primary.withOpacity(0.5),
             ),
           ),
-          ClubScreen(
-            club: socialsState.club,
-            clubAnnouncements: socialsState.clubAnnouncements,
-            onRefresh: onRefresh,
-            onPressJoin: onPressJoin,
-            onPressAddAnnouncement: isClubAdmin ? onPressAddAnnouncement : null,
-            onPressedSettings: () => onPressedSettings(isClubAdmin),
-          )
+          showMembersScreen
+              ? ClubMembersScreen(
+                  onPressBack: () {
+                    setState(() {
+                      showMembersScreen = false;
+                    });
+                  },
+                  clubName: socialsState.club?.name ?? '',
+                  admins: socialsState.club?.admins ?? [],
+                  members: socialsState.club?.members ?? [],
+                  pending: isClubAdmin ? socialsState.club?.pending : null,
+                )
+              : ClubScreen(
+                  club: socialsState.club,
+                  clubAnnouncements: socialsState.clubAnnouncements,
+                  onRefresh: onRefresh,
+                  onPressJoin: onPressJoin,
+                  onPressAddAnnouncement:
+                      isClubAdmin ? onPressAddAnnouncement : null,
+                  onPressedSettings: () => onPressedSettings(isClubAdmin),
+                )
         ]);
       });
     });
