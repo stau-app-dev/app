@@ -4,7 +4,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
-class SongRequests extends StatefulWidget {
+class SongRequests extends StatelessWidget {
   final List<Song> songs;
   final Function() onPressedAddSong;
   final Function(bool upvoted, String id) onPressedUpvote;
@@ -17,13 +17,6 @@ class SongRequests extends StatefulWidget {
       required this.onPressedUpvote,
       required this.disableUpvote})
       : super(key: key);
-
-  @override
-  State<SongRequests> createState() => _SongRequestsState();
-}
-
-class _SongRequestsState extends State<SongRequests> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   Widget buildSongInfo(String songName, String artistName) {
     return Expanded(
@@ -52,25 +45,25 @@ class _SongRequestsState extends State<SongRequests> {
             )));
   }
 
-  List<Widget> buildItems() {
-    List<Widget> songs = [];
-    for (var song in widget.songs) {
+  List<Widget> buildItems(BuildContext context) {
+    List<Widget> widgets = [];
+    for (var song in songs) {
       bool upvoted = song.upvoted ?? false;
       Color upvoteColor = upvoted ? Styles.secondary : Styles.white;
 
-      songs.add(Material(
+      widgets.add(Material(
           child: Ink(
-              width: getWidth(context),
+              width: MediaQuery.of(context).size.width,
               decoration: const BoxDecoration(
                   color: Styles.primary, borderRadius: Styles.mainBorderRadius),
               child: InkWell(
                   borderRadius: Styles.mainBorderRadius,
-                  splashColor: widget.disableUpvote ? Styles.secondary : null,
+                  splashColor: disableUpvote ? Styles.secondary : null,
                   onTap: () {
-                    if (widget.disableUpvote) {
+                    if (disableUpvote) {
                       return;
                     }
-                    widget.onPressedUpvote(!upvoted, song.id);
+                    onPressedUpvote(!upvoted, song.id);
                   },
                   child: Row(children: [
                     Container(
@@ -90,9 +83,9 @@ class _SongRequestsState extends State<SongRequests> {
                         )),
                     buildSongInfo(song.name, song.artist),
                   ])))));
-      songs.add(const SizedBox(height: 10.0));
+      widgets.add(const SizedBox(height: 10.0));
     }
-    return songs;
+    return widgets;
   }
 
   @override
@@ -101,9 +94,9 @@ class _SongRequestsState extends State<SongRequests> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        RoundedButton(text: 'Add Song', onPressed: widget.onPressedAddSong),
+        RoundedButton(text: 'Add Song', onPressed: onPressedAddSong),
         const SizedBox(height: Styles.mainSpacing),
-        ...buildItems(),
+        ...buildItems(context),
       ],
     ));
   }
