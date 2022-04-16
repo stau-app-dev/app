@@ -2,11 +2,36 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 
 ThemeData appThemeData = ThemeData(
+  appBarTheme: const AppBarTheme(
+    color: Styles.primary,
+    elevation: 0.0,
+    iconTheme: IconThemeData(color: Styles.secondary),
+    toolbarTextStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.secondary,
+      letterSpacing: 0.15,
+    ),
+  ),
   brightness: Brightness.light,
-  primaryColor: createMaterialColor(Styles.primary),
   colorScheme: ColorScheme.fromSwatch()
       .copyWith(secondary: createMaterialColor(Styles.secondary)),
   fontFamily: Styles.fontFamilyNormal,
+  hintColor: Styles.grey,
+  primaryColor: createMaterialColor(Styles.primary),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      primary: Styles.secondary,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      textStyle: const TextStyle(fontFamily: Styles.fontFamilyNormal),
+    ),
+  ),
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: Styles.secondary,
+    selectionHandleColor: Styles.secondary,
+    selectionColor: Styles.secondary.withOpacity(0.5),
+  ),
   textTheme: const TextTheme(
     headline1: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
@@ -87,18 +112,6 @@ ThemeData appThemeData = ThemeData(
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 1.5),
-  ),
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      primary: Styles.secondary,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    ),
-  ),
-  hintColor: Styles.grey,
-  textSelectionTheme: TextSelectionThemeData(
-    cursorColor: Styles.secondary,
-    selectionHandleColor: Styles.secondary,
-    selectionColor: Styles.secondary.withOpacity(0.5),
   ),
 );
 
