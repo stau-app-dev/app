@@ -21,6 +21,8 @@ class ClubMembersScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool isAdmin = pending != null;
+
     List<String> adminData = ['There are no admins'];
     if (admins.isNotEmpty) {
       adminData = admins;
@@ -30,9 +32,10 @@ class ClubMembersScreen extends StatelessWidget {
       membersData = members;
     }
     List<String> pendingData = ['There are no pending members'];
-    if (pending != null && pending!.isNotEmpty) {
+    if (isAdmin && pending!.isNotEmpty) {
       pendingData = pending!;
     }
+
     return PageLayout(
       verticalPadding: 0,
       listView: true,
@@ -52,14 +55,20 @@ class ClubMembersScreen extends StatelessWidget {
         ClubMembersList(
           title: 'Admins',
           members: adminData,
+          isAdmin: isAdmin && admins.isNotEmpty,
         ),
         const SizedBox(height: 20.0),
-        ClubMembersList(title: 'Members List', members: membersData),
+        ClubMembersList(
+          title: 'Members List',
+          members: membersData,
+          isAdmin: isAdmin && members.isNotEmpty,
+        ),
         const SizedBox(height: 20.0),
-        if (pending != null)
+        if (isAdmin)
           ClubMembersList(
             title: 'Pending',
             members: pendingData,
+            isAdmin: isAdmin && pending!.isNotEmpty,
           ),
         const SizedBox(height: 20.0),
       ],
