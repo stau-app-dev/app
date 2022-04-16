@@ -30,8 +30,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   }
 
   void onRefresh() {
-    socialsBloc.add(
-        SocialsEvent.getClubAnnouncements(clubId: socialsBloc.state.club!.id));
+    String clubId = socialsBloc.state.club!.id;
+    socialsBloc.add(SocialsEvent.getClub(
+        clubId: clubId, pictureUrl: socialsBloc.state.club!.pictureUrl));
+    socialsBloc.add(SocialsEvent.getClubAnnouncements(clubId: clubId));
   }
 
   void onPressJoin() {}
