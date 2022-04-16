@@ -28,13 +28,6 @@ class Styles {
   /// Default font for text. Defaults to Source Sans Pro.
   static const String fontFamilyNormal = 'SourceSansPro';
 
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color white.
-  static const headerSubText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      color: Colors.white);
-
   /// Color primary, spreadRadius 0, blurRadius 5, offset 0 0.
   static final headerBoxShadow = [
     const BoxShadow(

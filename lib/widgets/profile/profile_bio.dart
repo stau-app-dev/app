@@ -27,7 +27,8 @@ class ProfileBio extends StatelessWidget {
               .copyWith(color: Styles.white),
         ),
         const SizedBox(height: 2.0),
-        const Text('John.doe00@ycdsbk12.ca', style: Styles.headerSubText),
+        Text('John.doe00@ycdsbk12.ca',
+            style: Theme.of(context).textTheme.subtitle2),
       ],
     );
   }
