@@ -2,19 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
-class CourseTimetable extends StatefulWidget {
+class CourseTimetable extends StatelessWidget {
   const CourseTimetable({Key? key}) : super(key: key);
 
-  @override
-  State<CourseTimetable> createState() => _CourseTimetableState();
-}
-
-class _CourseTimetableState extends State<CourseTimetable> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-  EdgeInsetsGeometry padding =
-      const EdgeInsets.symmetric(vertical: 7.0, horizontal: 16.0);
-
-  Widget buildItems() {
+  Widget buildItems(BuildContext context) {
     List<Map<String, String>> sampleCourses = [
       {'course': 'ENG4U - English', 'lunch': 'n/a'},
       {'course': 'ICS4U - Computer Science', 'lunch': 'n/a'},
@@ -24,9 +15,12 @@ class _CourseTimetableState extends State<CourseTimetable> {
 
     List<Widget> rows = [];
     for (var course in sampleCourses) {
+      EdgeInsetsGeometry padding =
+          const EdgeInsets.symmetric(vertical: 7.0, horizontal: 16.0);
+
       rows.add(
         Container(
-            width: getWidth(context),
+            width: MediaQuery.of(context).size.width,
             decoration: BoxDecoration(
                 color: Styles.white,
                 border: Border.all(
@@ -76,7 +70,7 @@ class _CourseTimetableState extends State<CourseTimetable> {
       children: [
         const Text('Course Timetable', style: Styles.normalMainText),
         const SizedBox(height: Styles.mainSpacing),
-        buildItems(),
+        buildItems(context),
       ],
     ));
   }
