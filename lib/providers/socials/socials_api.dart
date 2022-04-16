@@ -3,6 +3,7 @@ import 'package:dartz/dartz.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
+import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/providers/socials/consts.dart';
@@ -82,6 +83,33 @@ class SocialsApi {
       }
     } catch (e) {
       return const Left(Failure(message: errorAddingClub));
+    }
+  }
+
+  static Future<Either<Failure, Success>> addClubAnnouncement({
+    required String clubId,
+    required String clubName,
+    required String content,
+    required String creatorName,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(addClubAnnouncementEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'clubName': clubName,
+          'content': content,
+          'creatorName': creatorName,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorAddingClubAnnouncement));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorAddingClubAnnouncement));
     }
   }
 }

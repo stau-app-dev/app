@@ -15,7 +15,17 @@ class ClubScaffold extends StatefulWidget {
 }
 
 class _ClubScaffoldState extends State<ClubScaffold> {
+  late final SocialsBloc socialsBloc;
+  late final ProfileBloc profileBloc;
+
   double getHeight(BuildContext context) => MediaQuery.of(context).size.height;
+
+  @override
+  void initState() {
+    socialsBloc = BlocProvider.of<SocialsBloc>(context);
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
+    super.initState();
+  }
 
   void onPressJoin() {}
 
@@ -27,7 +37,12 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   }
 
   void onSubmitAddAnnouncement(String content) {
-    print(content);
+    socialsBloc.add(SocialsEvent.addClubAnnouncement(
+      clubId: socialsBloc.state.club!.id,
+      content: content,
+      clubName: socialsBloc.state.club!.name,
+      creatorName: profileBloc.state.user!.name,
+    ));
     Navigator.pop(context);
   }
 

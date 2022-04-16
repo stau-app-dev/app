@@ -45,6 +45,16 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
                   success: const Success(message: 'Successfully added club'),
                   addedClubId: r.id)));
         },
+        addClubAnnouncement: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.addClubAnnouncement(
+                  clubId: e.clubId,
+                  clubName: e.clubName,
+                  content: e.content,
+                  creatorName: e.creatorName);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
         resetAddedClubId: (e) => emit(state.copyWith(addedClubId: null)),
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));
