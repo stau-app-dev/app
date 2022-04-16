@@ -9,6 +9,7 @@ import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 class ClubScreen extends StatefulWidget {
   final Club? club;
   final List<ClubAnnouncement>? clubAnnouncements;
+  final Function() onRefresh;
   final Function() onPressJoin;
   final Function()? onPressAddAnnouncement;
 
@@ -16,6 +17,7 @@ class ClubScreen extends StatefulWidget {
     Key? key,
     required this.club,
     required this.clubAnnouncements,
+    required this.onRefresh,
     required this.onPressJoin,
     this.onPressAddAnnouncement,
   }) : super(key: key);
@@ -38,6 +40,8 @@ class _ClubScreenState extends State<ClubScreen> {
 
     return PageLayout(
       verticalPadding: 0,
+      listView: true,
+      onRefresh: widget.onRefresh,
       children: [
         Align(
             alignment: Alignment.topRight,
@@ -60,6 +64,7 @@ class _ClubScreenState extends State<ClubScreen> {
           isClubScreen: true,
           onPressAddAnnouncement: widget.onPressAddAnnouncement,
         ),
+        const SizedBox(height: 20.0),
       ],
     );
   }

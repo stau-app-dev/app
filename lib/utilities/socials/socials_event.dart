@@ -20,6 +20,8 @@ class SocialsEvent with _$SocialsEvent {
       required String clubName,
       required String content,
       required String creatorName}) = _addClubAnnouncement;
+  const factory SocialsEvent.getClubAnnouncements({required String clubId}) =
+      _getClubAnnouncements;
   const factory SocialsEvent.resetAddedClubId() = _resetAddedClubId;
   const factory SocialsEvent.resetFailSuccess() = _resetFailSuccess;
 }

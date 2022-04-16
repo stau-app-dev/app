@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:injectable/injectable.dart';
+import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
@@ -46,5 +47,10 @@ class SocialsRepository {
         clubName: clubName,
         content: content,
         creatorName: creatorName);
+  }
+
+  static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements(
+      {required String clubId}) async {
+    return await SocialsApi.getClubAnnouncements(clubId: clubId);
   }
 }

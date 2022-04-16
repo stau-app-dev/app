@@ -27,6 +27,11 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     super.initState();
   }
 
+  void onRefresh() {
+    socialsBloc.add(
+        SocialsEvent.getClubAnnouncements(clubId: socialsBloc.state.club!.id));
+  }
+
   void onPressJoin() {}
 
   void onPressAddAnnouncement() {
@@ -50,8 +55,21 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(
         builder: (context, profileState) {
-      return BlocBuilder<SocialsBloc, SocialsState>(
-          builder: (context, socialsState) {
+      return BlocConsumer<SocialsBloc, SocialsState>(
+          listenWhen: (previous, current) {
+        return previous.club != current.club;
+      }, listener: (context, state) {
+        // NOTE: The socials scaffold is active since it's a stack.
+        // That means that it will still listen for success and failure events
+        // from the socials bloc and show the appropriate snackbar.
+        // Therefore, we don't need to do anything here.
+        // It's not great and should probably be refactored.
+        // But that's a later issue.
+        if (state.club != null) {
+          socialsBloc
+              .add(SocialsEvent.getClubAnnouncements(clubId: state.club!.id));
+        }
+      }, builder: (context, socialsState) {
         bool isClubAdmin =
             socialsState.club?.admins.contains(profileState.user?.email) ??
                 false;
@@ -88,7 +106,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           ),
           ClubScreen(
             club: socialsState.club,
-            clubAnnouncements: [],
+            clubAnnouncements: socialsState.clubAnnouncements,
+            onRefresh: onRefresh,
             onPressJoin: onPressJoin,
             onPressAddAnnouncement: isClubAdmin ? onPressAddAnnouncement : null,
           )

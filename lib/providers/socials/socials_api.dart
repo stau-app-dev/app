@@ -2,6 +2,7 @@ import 'dart:convert';
 import 'package:dartz/dartz.dart';
 import 'package:http/http.dart';
 import 'package:injectable/injectable.dart';
+import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
@@ -110,6 +111,30 @@ class SocialsApi {
       }
     } catch (e) {
       return const Left(Failure(message: errorAddingClubAnnouncement));
+    }
+  }
+
+  static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements({
+    required String clubId,
+  }) async {
+    try {
+      var uri = Uri.parse(getClubAnnouncementsEndpoint);
+      uri = uri.replace(queryParameters: {
+        'clubId': clubId,
+      });
+      Response res = await get(uri);
+      if (res.statusCode == 200) {
+        List<dynamic> data = json.decode(res.body)['data'];
+        List<ClubAnnouncement> announcements = [];
+        for (var i = 0; i < data.length; i++) {
+          announcements.add(ClubAnnouncement.fromJson(data[i]));
+        }
+        return Right(announcements);
+      } else {
+        return const Left(Failure(message: errorGettingClubAnnouncements));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorGettingClubAnnouncements));
     }
   }
 }
