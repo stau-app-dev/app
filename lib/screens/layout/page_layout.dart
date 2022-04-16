@@ -36,7 +36,8 @@ class PageLayout extends StatelessWidget {
     return listView
         ? ListView(
             children: page(),
-            physics: const BouncingScrollPhysics(),
+            physics: const BouncingScrollPhysics(
+                parent: AlwaysScrollableScrollPhysics()),
           )
         : Column(
             crossAxisAlignment: crossAxisAlignment,

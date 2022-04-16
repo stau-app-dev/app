@@ -57,7 +57,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         builder: (context, profileState) {
       return BlocConsumer<SocialsBloc, SocialsState>(
           listenWhen: (previous, current) {
-        return previous.club != current.club;
+        return (previous.club != current.club) ||
+            (previous.success != current.success);
       }, listener: (context, state) {
         // NOTE: The socials scaffold is active since it's a stack.
         // That means that it will still listen for success and failure events
@@ -68,6 +69,11 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         if (state.club != null) {
           socialsBloc
               .add(SocialsEvent.getClubAnnouncements(clubId: state.club!.id));
+        }
+        // Refresh the announcements when the club changes.
+        if (state.success != null && state.club != null) {
+          socialsBloc.add(SocialsEvent.getClubAnnouncements(
+              clubId: socialsBloc.state.club!.id));
         }
       }, builder: (context, socialsState) {
         bool isClubAdmin =
