@@ -19,12 +19,14 @@ class _$ClubAnnouncementTearOff {
   const _$ClubAnnouncementTearOff();
 
   _ClubAnnouncement call(
-      {required String clubId,
+      {required String id,
+      required String clubId,
       required String clubName,
       required String content,
       required DateTime createdAt,
       required String creatorName}) {
     return _ClubAnnouncement(
+      id: id,
       clubId: clubId,
       clubName: clubName,
       content: content,
@@ -39,6 +41,7 @@ const $ClubAnnouncement = _$ClubAnnouncementTearOff();
 
 /// @nodoc
 mixin _$ClubAnnouncement {
+  String get id => throw _privateConstructorUsedError;
   String get clubId => throw _privateConstructorUsedError;
   String get clubName => throw _privateConstructorUsedError;
   String get content => throw _privateConstructorUsedError;
@@ -56,7 +59,8 @@ abstract class $ClubAnnouncementCopyWith<$Res> {
           ClubAnnouncement value, $Res Function(ClubAnnouncement) then) =
       _$ClubAnnouncementCopyWithImpl<$Res>;
   $Res call(
-      {String clubId,
+      {String id,
+      String clubId,
       String clubName,
       String content,
       DateTime createdAt,
@@ -74,6 +78,7 @@ class _$ClubAnnouncementCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? clubId = freezed,
     Object? clubName = freezed,
     Object? content = freezed,
@@ -81,6 +86,10 @@ class _$ClubAnnouncementCopyWithImpl<$Res>
     Object? creatorName = freezed,
   }) {
     return _then(_value.copyWith(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       clubId: clubId == freezed
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
@@ -113,7 +122,8 @@ abstract class _$ClubAnnouncementCopyWith<$Res>
       __$ClubAnnouncementCopyWithImpl<$Res>;
   @override
   $Res call(
-      {String clubId,
+      {String id,
+      String clubId,
       String clubName,
       String content,
       DateTime createdAt,
@@ -133,6 +143,7 @@ class __$ClubAnnouncementCopyWithImpl<$Res>
 
   @override
   $Res call({
+    Object? id = freezed,
     Object? clubId = freezed,
     Object? clubName = freezed,
     Object? content = freezed,
@@ -140,6 +151,10 @@ class __$ClubAnnouncementCopyWithImpl<$Res>
     Object? creatorName = freezed,
   }) {
     return _then(_ClubAnnouncement(
+      id: id == freezed
+          ? _value.id
+          : id // ignore: cast_nullable_to_non_nullable
+              as String,
       clubId: clubId == freezed
           ? _value.clubId
           : clubId // ignore: cast_nullable_to_non_nullable
@@ -168,12 +183,15 @@ class __$ClubAnnouncementCopyWithImpl<$Res>
 
 class _$_ClubAnnouncement implements _ClubAnnouncement {
   const _$_ClubAnnouncement(
-      {required this.clubId,
+      {required this.id,
+      required this.clubId,
       required this.clubName,
       required this.content,
       required this.createdAt,
       required this.creatorName});
 
+  @override
+  final String id;
   @override
   final String clubId;
   @override
@@ -187,7 +205,7 @@ class _$_ClubAnnouncement implements _ClubAnnouncement {
 
   @override
   String toString() {
-    return 'ClubAnnouncement(clubId: $clubId, clubName: $clubName, content: $content, createdAt: $createdAt, creatorName: $creatorName)';
+    return 'ClubAnnouncement(id: $id, clubId: $clubId, clubName: $clubName, content: $content, createdAt: $createdAt, creatorName: $creatorName)';
   }
 
   @override
@@ -195,6 +213,7 @@ class _$_ClubAnnouncement implements _ClubAnnouncement {
     return identical(this, other) ||
         (other.runtimeType == runtimeType &&
             other is _ClubAnnouncement &&
+            const DeepCollectionEquality().equals(other.id, id) &&
             const DeepCollectionEquality().equals(other.clubId, clubId) &&
             const DeepCollectionEquality().equals(other.clubName, clubName) &&
             const DeepCollectionEquality().equals(other.content, content) &&
@@ -206,6 +225,7 @@ class _$_ClubAnnouncement implements _ClubAnnouncement {
   @override
   int get hashCode => Object.hash(
       runtimeType,
+      const DeepCollectionEquality().hash(id),
       const DeepCollectionEquality().hash(clubId),
       const DeepCollectionEquality().hash(clubName),
       const DeepCollectionEquality().hash(content),
@@ -220,12 +240,15 @@ class _$_ClubAnnouncement implements _ClubAnnouncement {
 
 abstract class _ClubAnnouncement implements ClubAnnouncement {
   const factory _ClubAnnouncement(
-      {required String clubId,
+      {required String id,
+      required String clubId,
       required String clubName,
       required String content,
       required DateTime createdAt,
       required String creatorName}) = _$_ClubAnnouncement;
 
+  @override
+  String get id;
   @override
   String get clubId;
   @override
