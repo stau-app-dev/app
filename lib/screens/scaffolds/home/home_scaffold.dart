@@ -3,6 +3,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/home/home_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
 class HomeScaffold extends StatefulWidget {
@@ -13,10 +14,12 @@ class HomeScaffold extends StatefulWidget {
 
 class _HomeScaffoldState extends State<HomeScaffold> {
   late HomeBloc homeBloc;
+  late NavBloc navBloc;
 
   @override
   void initState() {
     homeBloc = BlocProvider.of<HomeBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
     onRefresh();
     super.initState();
   }
@@ -45,6 +48,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
       }, builder: (context, homeState) {
         return HomeScreen(
           onRefresh: onRefresh,
+          navBloc: navBloc,
           dayNumber: homeState.dayNumber,
           userName: authState.user?.displayName,
           generalAnnouncements: homeState.generalAnnouncements,

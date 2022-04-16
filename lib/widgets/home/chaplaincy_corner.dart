@@ -3,20 +3,14 @@ import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart'
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
-class ChaplaincyCorner extends StatefulWidget {
+class ChaplaincyCorner extends StatelessWidget {
   final VerseOfDay? verseOfDay;
+
   const ChaplaincyCorner({Key? key, this.verseOfDay}) : super(key: key);
 
-  @override
-  State<ChaplaincyCorner> createState() => _ChaplaincyCornerState();
-}
-
-class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
-  Widget buildVerseOfDay(VerseOfDay verseOfDay) {
+  Widget buildVerseOfDay(BuildContext context, VerseOfDay verseOfDay) {
     return Container(
-        width: getWidth(context),
+        width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             color: Styles.white,
@@ -48,8 +42,8 @@ class _ChaplaincyCornerState extends State<ChaplaincyCorner> {
       children: [
         const Text('Chaplaincy Corner', style: Styles.normalMainText),
         const SizedBox(height: 20.0),
-        widget.verseOfDay != null
-            ? buildVerseOfDay(widget.verseOfDay!)
+        verseOfDay != null
+            ? buildVerseOfDay(context, verseOfDay!)
             : const Text('Loading...'),
       ],
     ));

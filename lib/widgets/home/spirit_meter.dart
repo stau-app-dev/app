@@ -5,26 +5,21 @@ import 'package:staugustinechsnewapp/utilities/home/word_to_number_conversion.da
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_linear_progress_indicator.dart';
 
-class SpiritMeterBars extends StatefulWidget {
+class SpiritMeterBars extends StatelessWidget {
   final SpiritMeters? spiritMeters;
+
   const SpiritMeterBars({Key? key, this.spiritMeters}) : super(key: key);
 
-  @override
-  State<SpiritMeterBars> createState() => _SpiritMeterBarsState();
-}
-
-class _SpiritMeterBarsState extends State<SpiritMeterBars> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
-  List<Widget> buildSpiritMeters(SpiritMeters spiritMetersData) {
+  List<Widget> buildSpiritMeters(
+      BuildContext context, SpiritMeters spiritMetersData) {
     List<Widget> spiritMeters = [];
     spiritMetersData.toJson().forEach((key, value) {
       spiritMeters.add(SizedBox(
-        width: getWidth(context),
+        width: MediaQuery.of(context).size.width,
         height: 30.0,
         child: Row(children: [
           SizedBox(
-              width: getWidth(context) * 0.075,
+              width: MediaQuery.of(context).size.width * 0.075,
               child: Text(
                 wordToNumberConversion(key),
                 style: const TextStyle(
@@ -51,7 +46,7 @@ class _SpiritMeterBarsState extends State<SpiritMeterBars> {
 
   @override
   Widget build(BuildContext context) {
-    SpiritMeters spiritMeters = widget.spiritMeters ??
+    SpiritMeters data = spiritMeters ??
         const SpiritMeters(
           nine: 0,
           ten: 0,
@@ -65,7 +60,7 @@ class _SpiritMeterBarsState extends State<SpiritMeterBars> {
       children: [
         const Text('Spirit Meter', style: Styles.normalMainText),
         const SizedBox(height: 20.0),
-        ...buildSpiritMeters(spiritMeters),
+        ...buildSpiritMeters(context, data),
       ],
     ));
   }

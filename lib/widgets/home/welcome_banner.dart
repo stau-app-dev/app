@@ -3,28 +3,22 @@ import 'package:intl/intl.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
-class WelcomeBanner extends StatefulWidget {
+class WelcomeBanner extends StatelessWidget {
   final int? dayNumber;
   final String? userName;
+
   const WelcomeBanner({Key? key, this.dayNumber, this.userName})
       : super(key: key);
 
-  @override
-  State<WelcomeBanner> createState() => _WelcomeBannerState();
-}
-
-class _WelcomeBannerState extends State<WelcomeBanner> {
   double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
   double getChildWidth(BuildContext context, double percentage) =>
       getWidth(context) * percentage - Styles.mainInsidePadding;
 
   @override
   Widget build(BuildContext context) {
-    String welcomeText = widget.userName != null
-        ? 'Welcome ${widget.userName}'
-        : 'Welcome to St. Augustine';
-    String dayNumberText =
-        widget.dayNumber != null ? 'day ${widget.dayNumber}' : 'day';
+    String welcomeText =
+        userName != null ? 'Welcome $userName' : 'Welcome to St. Augustine';
+    String dayNumberText = dayNumber != null ? 'day $dayNumber' : 'day';
     String dateText = DateFormat('MMMM d, yyyy').format(DateTime.now());
 
     return BasicContainer(
