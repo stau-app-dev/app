@@ -19,6 +19,7 @@ ThemeData appThemeData = ThemeData(
       .copyWith(secondary: createMaterialColor(Styles.secondary)),
   fontFamily: Styles.fontFamilyNormal,
   hintColor: Styles.grey,
+  iconTheme: const IconThemeData(color: Styles.primary),
   primaryColor: createMaterialColor(Styles.primary),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(

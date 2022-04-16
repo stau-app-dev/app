@@ -16,21 +16,22 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageLayout(
       children: [
-        IconButton(
-            onPressed: onPressedClose, icon: const Icon(Icons.close_rounded)),
+        Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+                onPressed: onPressedClose,
+                icon: const Icon(Icons.close_rounded))),
         Image.asset(
           'assets/logos/sta_logo.png',
           height: 160,
         ),
         const SizedBox(height: 20),
-        const Text(
+        Text(
           'St. Augustine CHS',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Styles.primary,
-            fontSize: 26,
-          ),
+          style: Theme.of(context).textTheme.headline5,
         ),
+        const SizedBox(height: 20),
         GoogleSignInButton(
           authBloc: authBloc,
         ),
