@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// {@template rounded_button}
 /// Custom button for the app. Please use this as it follows the Figma design.

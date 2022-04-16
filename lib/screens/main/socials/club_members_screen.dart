@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_members_list.dart';
 
 class ClubMembersScreen extends StatelessWidget {

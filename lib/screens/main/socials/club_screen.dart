@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/announcements/club_announcement/club_announcement.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 

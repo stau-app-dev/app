@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/profile/course_timetable.dart';
 import 'package:staugustinechsnewapp/widgets/profile/profile_bio.dart';
 

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 

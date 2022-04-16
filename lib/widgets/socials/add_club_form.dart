@@ -1,6 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/image/image_utils.dart';
 import 'package:staugustinechsnewapp/utilities/profile/banner_dimensions.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';

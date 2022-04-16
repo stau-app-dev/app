@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 
 class ProfileBio extends StatelessWidget {
   const ProfileBio({Key? key}) : super(key: key);
