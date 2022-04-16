@@ -5,6 +5,8 @@ import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
+import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
 
 class ClubScaffold extends StatefulWidget {
   const ClubScaffold({Key? key}) : super(key: key);
@@ -17,7 +19,17 @@ class _ClubScaffoldState extends State<ClubScaffold> {
 
   void onPressJoin() {}
 
-  void onPressAddAnnouncement() {}
+  void onPressAddAnnouncement() {
+    usePopupCard(
+        context: context,
+        title: 'Add Announcement',
+        child: AddAnnouncementForm(onPressedSubmit: onSubmitAddAnnouncement));
+  }
+
+  void onSubmitAddAnnouncement(String content) {
+    print(content);
+    Navigator.pop(context);
+  }
 
   @override
   Widget build(BuildContext context) {
