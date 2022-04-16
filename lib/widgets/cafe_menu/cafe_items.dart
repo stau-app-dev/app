@@ -4,24 +4,20 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 
-class CafeMenuItems extends StatefulWidget {
+class CafeItems extends StatelessWidget {
   final String title;
   final List<CafeMenuItem> items;
-  const CafeMenuItems({Key? key, required this.title, required this.items})
-      : super(key: key);
-  @override
-  State<CafeMenuItems> createState() => _CafeMenuItemsState();
-}
 
-class _CafeMenuItemsState extends State<CafeMenuItems> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
+  const CafeItems({Key? key, required this.title, required this.items})
+      : super(key: key);
 
   Widget buildTile(
-      {required String name,
+      {required BuildContext context,
+      required String name,
       required double price,
       required String pictureUrl}) {
-    double padding = Styles.mainOutsidePadding * 2;
-    double tileWidth = getWidth(context) * 0.5 - padding;
+    double padding = Styles.mainHorizontalPadding * 2;
+    double tileWidth = MediaQuery.of(context).size.width * 0.5 - padding;
     double ratioXY = 0.83;
 
     Map<String, double> pictureContainerDimensions =
@@ -64,21 +60,23 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
     ]);
   }
 
-  Widget buildItems() {
+  Widget buildItems(BuildContext context) {
     List<Widget> rows = [];
-    for (int i = 0; i < widget.items.length; i += 2) {
+    for (int i = 0; i < items.length; i += 2) {
       rows.add(Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: [
           buildTile(
-              name: widget.items[i].name,
-              price: widget.items[i].price,
-              pictureUrl: widget.items[i].pictureUrl),
-          if (i + 1 < widget.items.length)
+              context: context,
+              name: items[i].name,
+              price: items[i].price,
+              pictureUrl: items[i].pictureUrl),
+          if (i + 1 < items.length)
             buildTile(
-                name: widget.items[i + 1].name,
-                price: widget.items[i + 1].price,
-                pictureUrl: widget.items[i + 1].pictureUrl)
+                context: context,
+                name: items[i + 1].name,
+                price: items[i + 1].price,
+                pictureUrl: items[i + 1].pictureUrl)
         ],
       ));
       rows.add(const SizedBox(height: 10.0));
@@ -92,9 +90,9 @@ class _CafeMenuItemsState extends State<CafeMenuItems> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title, style: Styles.normalMainText),
+        Text(title, style: Styles.normalMainText),
         const SizedBox(height: Styles.mainSpacing),
-        buildItems(),
+        buildItems(context)
       ],
     ));
   }

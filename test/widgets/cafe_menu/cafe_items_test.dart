@@ -5,18 +5,18 @@ import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 
 void main() {
-  group('CafeMenuItems widget tests', () {
+  group('CafeMenu widget tests', () {
     testWidgets('it displays title', (tester) async {
       String testTitle = 'Cafe Items';
 
       await tester.pumpWidget(
         MaterialApp(
-          home: Scaffold(
-            body: CafeMenuItems(
+          home: PageLayout(listView: true, children: [
+            CafeItems(
               title: testTitle,
               items: const [],
             ),
-          ),
+          ]),
         ),
       );
 
@@ -52,7 +52,7 @@ void main() {
       await tester.pumpWidget(
         MaterialApp(
           home: PageLayout(listView: true, children: [
-            CafeMenuItems(
+            CafeItems(
               title: testTitle,
               items: testItems,
             )

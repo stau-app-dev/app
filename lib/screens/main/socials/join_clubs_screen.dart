@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';
 
-class JoinClubsScreen extends StatefulWidget {
+class JoinClubsScreen extends StatelessWidget {
   final List<ClubQuickAccessItem> clubs;
   final Function(String) onPressClub;
 
@@ -13,11 +13,6 @@ class JoinClubsScreen extends StatefulWidget {
       {Key? key, required this.clubs, required this.onPressClub})
       : super(key: key);
 
-  @override
-  State<JoinClubsScreen> createState() => _JoinClubsScreenState();
-}
-
-class _JoinClubsScreenState extends State<JoinClubsScreen> {
   @override
   Widget build(BuildContext context) {
     return PageLayout(
@@ -27,9 +22,9 @@ class _JoinClubsScreenState extends State<JoinClubsScreen> {
         const SizedBox(height: Styles.mainSpacing),
         ClubsList(
           title: 'Join Clubs',
-          items: widget.clubs,
+          items: clubs,
           showJoinClubsButton: false,
-          onPressClub: widget.onPressClub,
+          onPressClub: onPressClub,
         ),
       ],
     );

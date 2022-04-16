@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/image_shadow_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
-class ClubsList extends StatefulWidget {
+class ClubsList extends StatelessWidget {
   final String title;
   final List<ClubQuickAccessItem> items;
   final bool showJoinClubsButton;
@@ -20,13 +20,6 @@ class ClubsList extends StatefulWidget {
       this.showJoinClubsButton = true,
       this.onPressJoinClubsButton})
       : super(key: key);
-
-  @override
-  State<ClubsList> createState() => _ClubsListState();
-}
-
-class _ClubsListState extends State<ClubsList> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
 
   Widget buildTile(
       {required String clubId,
@@ -51,11 +44,12 @@ class _ClubsListState extends State<ClubsList> {
   }
 
   Widget buildTileWrapper(
-      {required String clubId,
+      {required BuildContext context,
+      required String clubId,
       required String name,
       required String pictureUrl}) {
-    double padding = (Styles.mainOutsidePadding * 2);
-    double tileWidth = getWidth(context) - padding;
+    double padding = (Styles.mainHorizontalPadding * 2);
+    double tileWidth = MediaQuery.of(context).size.width - padding;
 
     Map<String, double> pictureContainerDimensions =
         Styles.pictureContainerDimensions(context: context, width: tileWidth);
@@ -70,7 +64,7 @@ class _ClubsListState extends State<ClubsList> {
           child: InkWell(
               borderRadius: Styles.mainBorderRadius,
               splashColor: Styles.primary,
-              onTap: () => widget.onPressClub(clubId),
+              onTap: () => onPressClub(clubId),
               child: buildTile(
                   clubId: clubId,
                   name: name,
@@ -79,18 +73,21 @@ class _ClubsListState extends State<ClubsList> {
     ]);
   }
 
-  Widget buildItems() {
+  Widget buildItems(BuildContext context) {
     List<Widget> rows = [];
-    for (int i = 0; i < widget.items.length; i += 1) {
+    for (int i = 0; i < items.length; i += 1) {
       rows.add(
         buildTileWrapper(
-            clubId: widget.items[i].id,
-            name: widget.items[i].name,
-            pictureUrl: widget.items[i].pictureUrl),
+            context: context,
+            clubId: items[i].id,
+            name: items[i].name,
+            pictureUrl: items[i].pictureUrl),
       );
       rows.add(const SizedBox(height: 10.0));
     }
-    return SizedBox(width: getWidth(context), child: Column(children: rows));
+    return SizedBox(
+        width: MediaQuery.of(context).size.width,
+        child: Column(children: rows));
   }
 
   @override
@@ -99,14 +96,14 @@ class _ClubsListState extends State<ClubsList> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title, style: Styles.normalMainText),
+        Text(title, style: Styles.normalMainText),
         const SizedBox(height: Styles.mainSpacing),
-        buildItems(),
-        if (widget.showJoinClubsButton) ...[
+        buildItems(context),
+        if (showJoinClubsButton) ...[
           const SizedBox(height: Styles.mainSpacing),
           RoundedButton(
             text: 'Join a Club',
-            onPressed: widget.onPressJoinClubsButton ?? () {},
+            onPressed: onPressJoinClubsButton ?? () {},
           ),
         ]
       ],

@@ -2,9 +2,9 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
 /// {@template rounded_text_field}
-/// Custom textfield for the app. Please use this as it follows the Figma design.
+/// Custom textfield wrapper for the app. Please use this as it follows the Figma design.
 /// {@endtemplate}
-class RoundedTextField extends StatefulWidget {
+class RoundedTextField extends StatelessWidget {
   /// The hint text to display.
   final String hintText;
 
@@ -27,11 +27,6 @@ class RoundedTextField extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<RoundedTextField> createState() => _RoundedTextFieldState();
-}
-
-class _RoundedTextFieldState extends State<RoundedTextField> {
-  @override
   Widget build(BuildContext context) {
     OutlineInputBorder border = const OutlineInputBorder(
       borderRadius: Styles.mainBorderRadius,
@@ -49,17 +44,17 @@ class _RoundedTextFieldState extends State<RoundedTextField> {
     );
 
     return SizedBox(
-        height: widget.height,
+        height: height,
         child: TextField(
-          expands: widget.isMultiline,
-          controller: widget.controller,
-          keyboardType: widget.isMultiline ? TextInputType.multiline : null,
-          maxLines: widget.isMultiline ? null : 1,
+          expands: isMultiline,
+          controller: controller,
+          keyboardType: isMultiline ? TextInputType.multiline : null,
+          maxLines: isMultiline ? null : 1,
           cursorColor: Styles.secondary,
           textAlignVertical: TextAlignVertical.center,
           decoration: InputDecoration(
-            hintText: widget.hintText,
-            hintMaxLines: widget.isMultiline ? 10 : null,
+            hintText: hintText,
+            hintMaxLines: isMultiline ? 10 : null,
             hintStyle:
                 Styles.normalText.copyWith(color: Styles.grey, fontSize: 12),
             border: border,

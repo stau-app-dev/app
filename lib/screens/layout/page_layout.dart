@@ -6,6 +6,36 @@ import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 /// Custom page layout for the app. Please use this as it follows the Figma design.
 /// {@endtemplate}
 class PageLayout extends StatelessWidget {
+  /// The list of widgets to display.
+  final List<Widget> children;
+
+  /// Whether or not to make the page into a listView. Default is false.
+  final bool listView;
+
+  /// Function to call on refresh.
+  final Function? onRefresh;
+
+  /// Function to call when the back button is pressed.
+  final Function? onBack;
+
+  /// Whether or not to display safe areas. Default is false.
+  final bool disableSafeArea;
+
+  /// The value of the vertical padding. Defaults to [Styles.mainVerticalPadding].
+  final double verticalPadding;
+
+  /// The value of the horizontal padding. Defaults to [Styles.mainHorizontalPadding].
+  final double horizontalPadding;
+
+  /// The crossAxisAlignment of the children. Defaults to [CrossAxisAlignment.center].
+  final CrossAxisAlignment crossAxisAlignment;
+
+  /// Optional background widget to display behind the children.
+  final Widget? background;
+
+  /// Optional footer widget to display at the bottom of the page.
+  final Widget? footer;
+
   /// {@macro page_layout}
   const PageLayout({
     Key? key,
@@ -15,22 +45,11 @@ class PageLayout extends StatelessWidget {
     this.onBack,
     this.disableSafeArea = false,
     this.verticalPadding = Styles.mainVerticalPadding,
-    this.horizontalPadding = Styles.mainOutsidePadding,
+    this.horizontalPadding = Styles.mainHorizontalPadding,
     this.crossAxisAlignment = CrossAxisAlignment.center,
     this.background,
     this.footer,
   }) : super(key: key);
-
-  final List<Widget> children;
-  final bool listView;
-  final Function? onRefresh;
-  final Function? onBack;
-  final bool disableSafeArea;
-  final double verticalPadding;
-  final double horizontalPadding;
-  final CrossAxisAlignment crossAxisAlignment;
-  final Widget? background;
-  final Widget? footer;
 
   Widget pageWrapper() {
     return listView

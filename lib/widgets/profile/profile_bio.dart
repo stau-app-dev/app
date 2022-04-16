@@ -1,18 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
-class ProfileBio extends StatefulWidget {
+class ProfileBio extends StatelessWidget {
   const ProfileBio({Key? key}) : super(key: key);
 
   @override
-  State<ProfileBio> createState() => _ProfileBioState();
-}
-
-class _ProfileBioState extends State<ProfileBio> {
-  double radius = 75.0;
-
-  @override
   Widget build(BuildContext context) {
+    double radius = 75.0;
+
     return Column(
       children: [
         CircleAvatar(

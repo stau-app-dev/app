@@ -28,6 +28,12 @@ Map<ENav, Widget> _screens = {
   ENav.settings: const SettingsScaffold(),
 };
 
+List<ENav> _guardedScreens = [
+  ENav.profile,
+  ENav.socials,
+  ENav.songRequests,
+];
+
 List<Widget> _generateScreensStack() {
   List<Widget> screensStack = [];
   for (int i = 0; i < _screens.length; i++) {
@@ -51,12 +57,6 @@ class _ScreenControllerState extends State<ScreenController> {
   late AuthBloc authBloc;
   late NavBloc navBloc;
 
-  List<ENav> guardedScreens = [
-    ENav.profile,
-    ENav.socials,
-    ENav.songRequests,
-  ];
-
   @override
   void initState() {
     authBloc = BlocProvider.of<AuthBloc>(context);
@@ -69,7 +69,7 @@ class _ScreenControllerState extends State<ScreenController> {
     return BlocBuilder<NavBloc, NavState>(builder: (context, navState) {
       return BlocBuilder<AuthBloc, AuthState>(builder: (context, authState) {
         if (!authState.isAuthenticated &&
-            guardedScreens.contains(navState.currentScreen)) {
+            _guardedScreens.contains(navState.currentScreen)) {
           navBloc.add(const NavEvent.setNavbarVisible(isVisible: false));
           navBloc.add(const NavEvent.changeScreen(screen: ENav.login));
           return Container(
@@ -82,7 +82,7 @@ class _ScreenControllerState extends State<ScreenController> {
               children: _generateScreensStack(),
               duration: const Duration(milliseconds: 250),
             ),
-            bottomNavigationBar: const BottomNavBar(),
+            bottomNavigationBar: BottomNavBar(navBloc: navBloc),
           );
         }
       });

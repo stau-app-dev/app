@@ -5,7 +5,6 @@ import 'package:staugustinechsnewapp/utilities/navigation/enav_index_conversion.
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 
 // NOTE: To change tab order, see eNavToIndex(ENav eNav)
-
 Map<ENav, Map<String, Object>> _bottomNavbarItems = {
   ENav.cafeMenu: {
     'icon': Icons.restaurant_rounded,
@@ -29,33 +28,10 @@ Map<ENav, Map<String, Object>> _bottomNavbarItems = {
   },
 };
 
-class BottomNavBar extends StatefulWidget {
-  const BottomNavBar({Key? key}) : super(key: key);
-  @override
-  _BottomNavBarState createState() => _BottomNavBarState();
-}
+class BottomNavBar extends StatelessWidget {
+  final NavBloc navBloc;
 
-class _BottomNavBarState extends State<BottomNavBar> {
-  late NavBloc navBloc;
-  static const double borderRadius = 16.0;
-
-  @override
-  void initState() {
-    navBloc = BlocProvider.of<NavBloc>(context);
-    super.initState();
-  }
-
-  List<BottomNavigationBarItem> buildItems() {
-    List<BottomNavigationBarItem> itemsList = [];
-    for (int i = 0; i < _bottomNavbarItems.length; i++) {
-      ENav nav = indexToENav(i);
-      itemsList.add(BottomNavigationBarItem(
-        icon: Icon(_bottomNavbarItems[nav]!['icon'] as IconData),
-        label: _bottomNavbarItems[nav]!['label'] as String,
-      ));
-    }
-    return itemsList;
-  }
+  const BottomNavBar({Key? key, required this.navBloc}) : super(key: key);
 
   void onItemTapped(int index) {
     navBloc.add(NavEvent.changeScreen(screen: indexToENav(index)));
@@ -75,6 +51,18 @@ class _BottomNavBarState extends State<BottomNavBar> {
     }
   }
 
+  List<BottomNavigationBarItem> buildItems() {
+    List<BottomNavigationBarItem> itemsList = [];
+    for (int i = 0; i < _bottomNavbarItems.length; i++) {
+      ENav nav = indexToENav(i);
+      itemsList.add(BottomNavigationBarItem(
+        icon: Icon(_bottomNavbarItems[nav]!['icon'] as IconData),
+        label: _bottomNavbarItems[nav]!['label'] as String,
+      ));
+    }
+    return itemsList;
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<NavBloc, NavState>(builder: (context, state) {
@@ -89,9 +77,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
       return SizedBox(
           height: height,
           child: ClipRRect(
-              borderRadius: const BorderRadius.all(
-                Radius.circular(borderRadius),
-              ),
+              borderRadius: const BorderRadius.all(Radius.circular(16.0)),
               child: BottomNavigationBar(
                 type: BottomNavigationBarType.fixed,
                 items: buildItems(),

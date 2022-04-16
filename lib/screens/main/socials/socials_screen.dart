@@ -6,7 +6,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart';
 import 'package:staugustinechsnewapp/widgets/socials/clubs_list.dart';
 
-class SocialsScreen extends StatefulWidget {
+class SocialsScreen extends StatelessWidget {
   final List<ClubQuickAccessItem> clubs;
   final Function(String) onPressClub;
   final Function() onPressJoinClubsButton;
@@ -23,11 +23,6 @@ class SocialsScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<SocialsScreen> createState() => _SocialsScreenState();
-}
-
-class _SocialsScreenState extends State<SocialsScreen> {
-  @override
   Widget build(BuildContext context) {
     return PageLayout(
       listView: true,
@@ -36,15 +31,15 @@ class _SocialsScreenState extends State<SocialsScreen> {
         const SizedBox(height: Styles.mainSpacing),
         ClubsList(
           title: 'My Clubs',
-          items: widget.clubs,
-          onPressClub: widget.onPressClub,
+          items: clubs,
+          onPressClub: onPressClub,
           showJoinClubsButton: true,
-          onPressJoinClubsButton: widget.onPressJoinClubsButton,
+          onPressJoinClubsButton: onPressJoinClubsButton,
         ),
-        if (widget.isAdmin) ...[
+        if (isAdmin) ...[
           const SizedBox(height: Styles.mainSpacing),
           TextArrowContainer(
-              text: 'Create a Club', onPressed: widget.onPressCreateClub),
+              text: 'Create a Club', onPressed: onPressCreateClub),
         ]
       ],
     );

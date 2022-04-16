@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 /// {@template badges_list}
 /// Reusable widget for displaying a list of badges.
 /// {@endtemplate}
-class BadgesList extends StatefulWidget {
+class BadgesList extends StatelessWidget {
   /// The title of the badges list.
   final String title;
 
@@ -16,17 +16,10 @@ class BadgesList extends StatefulWidget {
   const BadgesList({Key? key, required this.title, required this.badges})
       : super(key: key);
 
-  @override
-  State<BadgesList> createState() => _BadgesListState();
-}
-
-class _BadgesListState extends State<BadgesList> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
   Widget buildItems() {
     double radius = 30.0;
     List<Widget> rows = [];
-    for (var badge in widget.badges) {
+    for (var badge in badges) {
       rows.add(
         Row(children: [
           CircleAvatar(
@@ -54,7 +47,7 @@ class _BadgesListState extends State<BadgesList> {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(widget.title, style: Styles.normalMainText),
+        Text(title, style: Styles.normalMainText),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(),
       ],

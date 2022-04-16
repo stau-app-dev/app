@@ -41,6 +41,10 @@ void useCustomSnackbar(
   ));
 }
 
+/// Snackbar types:
+/// - [ESnackBarType.failure]
+/// - [ESnackBarType.success]
+/// - [ESnackBarType.info]
 enum ESnackBarType {
   failure,
   success,

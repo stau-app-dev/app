@@ -5,14 +5,16 @@ import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dar
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 import 'package:staugustinechsnewapp/widgets/home/featured_cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
 
-class HomeScreen extends StatefulWidget {
+class HomeScreen extends StatelessWidget {
   final Function() onRefresh;
+  final NavBloc navBloc;
   final int? dayNumber;
   final String? userName;
   final List<Announcement>? generalAnnouncements;
@@ -23,6 +25,7 @@ class HomeScreen extends StatefulWidget {
   const HomeScreen({
     Key? key,
     required this.onRefresh,
+    required this.navBloc,
     this.dayNumber,
     this.userName,
     this.generalAnnouncements,
@@ -32,32 +35,27 @@ class HomeScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<HomeScreen> createState() => _HomeScreenState();
-}
-
-class _HomeScreenState extends State<HomeScreen> {
-  @override
   Widget build(BuildContext context) {
     return PageLayout(
-      onRefresh: widget.onRefresh,
+      onRefresh: onRefresh,
       listView: true,
       children: [
         WelcomeBanner(
-          dayNumber: widget.dayNumber,
-          userName: widget.userName,
+          dayNumber: dayNumber,
+          userName: userName,
         ),
         const SizedBox(height: Styles.mainSpacing),
         AnnouncementsBoard(
-          announcements: widget.generalAnnouncements,
+          announcements: generalAnnouncements,
         ),
         const SizedBox(height: Styles.mainSpacing),
-        FeaturedCafeItems(cafeItems: widget.featuredCafeItems ?? []),
+        FeaturedCafeItems(cafeItems: featuredCafeItems ?? [], navBloc: navBloc),
         const SizedBox(height: Styles.mainSpacing),
         SpiritMeterBars(
-          spiritMeters: widget.spiritMeters,
+          spiritMeters: spiritMeters,
         ),
         const SizedBox(height: Styles.mainSpacing),
-        ChaplaincyCorner(verseOfDay: widget.verseOfDay),
+        ChaplaincyCorner(verseOfDay: verseOfDay),
       ],
     );
   }

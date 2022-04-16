@@ -6,7 +6,10 @@ import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 /// A basic widget that displays text and an arrow icon.
 /// {@endtemplate}
 class TextArrowContainer extends StatelessWidget {
+  /// The text to display.
   final String text;
+
+  /// Function to call when the container is pressed.
   final Function() onPressed;
 
   /// {@macro text_arrow_container}

@@ -1,25 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
 import 'package:staugustinechsnewapp/styles.dart';
+import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/login/google_sign_in_button.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   final void Function() onPressedClose;
+  final AuthBloc authBloc;
 
-  const LoginScreen({Key? key, required this.onPressedClose}) : super(key: key);
+  const LoginScreen(
+      {Key? key, required this.onPressedClose, required this.authBloc})
+      : super(key: key);
 
-  @override
-  State<LoginScreen> createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   @override
   Widget build(BuildContext context) {
     return PageLayout(
       children: [
         IconButton(
-            onPressed: widget.onPressedClose,
-            icon: const Icon(Icons.close_rounded)),
+            onPressed: onPressedClose, icon: const Icon(Icons.close_rounded)),
         Image.asset(
           'assets/logos/sta_logo.png',
           height: 160,
@@ -33,7 +31,9 @@ class _LoginScreenState extends State<LoginScreen> {
             fontSize: 26,
           ),
         ),
-        const GoogleSignInButton(),
+        GoogleSignInButton(
+          authBloc: authBloc,
+        ),
       ],
     );
   }

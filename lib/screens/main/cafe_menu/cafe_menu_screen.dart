@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/cafe_menu/cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 
-class CafeMenuScreen extends StatefulWidget {
+class CafeMenuScreen extends StatelessWidget {
   final List<CafeMenuItem> todaysSpecials;
   final List<CafeMenuItem> menuItems;
   final Function() onRefresh;
@@ -18,21 +18,16 @@ class CafeMenuScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<CafeMenuScreen> createState() => _CafeMenuScreenState();
-}
-
-class _CafeMenuScreenState extends State<CafeMenuScreen> {
-  @override
   Widget build(BuildContext context) {
     return PageLayout(
       listView: true,
-      onRefresh: widget.onRefresh,
+      onRefresh: onRefresh,
       children: [
         const ScreenHeader(headerText: 'Cafeteria Menu'),
         const SizedBox(height: Styles.mainSpacing),
-        CafeMenuItems(title: "Today's Specials", items: widget.todaysSpecials),
+        CafeItems(title: "Today's Specials", items: todaysSpecials),
         const SizedBox(height: Styles.mainSpacing),
-        CafeMenuItems(title: 'Menu', items: widget.menuItems),
+        CafeItems(title: 'Menu', items: menuItems),
       ],
     );
   }

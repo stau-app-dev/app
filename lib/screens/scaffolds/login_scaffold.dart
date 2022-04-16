@@ -67,6 +67,7 @@ class _LoginScaffoldState extends State<LoginScaffold> {
       }, builder: (context, authState) {
         return LoginScreen(
           onPressedClose: onPressedClose,
+          authBloc: authBloc,
         );
       });
     });

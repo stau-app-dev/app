@@ -5,9 +5,16 @@ import 'package:staugustinechsnewapp/styles.dart';
 /// Reusable widget for displaying a container with a border radius and shadow.
 /// {@endtemplate}
 class BasicContainer extends StatelessWidget {
+  /// The child widget to display inside the container.
   final Widget child;
+
+  /// Decoration for the container.
   final Decoration? decoration;
+
+  /// Padding for the container.
   final EdgeInsetsGeometry? padding;
+
+  /// Function to call when the user presses on the container.
   final Function()? onPressed;
 
   /// {@macro basic_container}

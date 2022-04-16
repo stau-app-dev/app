@@ -2,11 +2,22 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/styles.dart';
 
+/// {@template image_shadow_container}
+/// Reusable widget for displaying a container with a image with a shadow on it.
+/// {@endtemplate}
 class ImageShadowContainer extends StatelessWidget {
+  /// The url of the image to display inside the container.
   final String pictureUrl;
+
+  /// The height of the container.
+  /// Defaults to [pictureContainerDimensions].
   final double? height;
+
+  /// The width of the container.
+  /// Defaults to [pictureContainerDimensions].
   final double? width;
 
+  /// {@macro image_shadow_container}
   const ImageShadowContainer(
       {Key? key, required this.pictureUrl, this.height, this.width})
       : super(key: key);
