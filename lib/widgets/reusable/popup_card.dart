@@ -9,7 +9,8 @@ import 'package:staugustinechsnewapp/widgets/reusable/measure_size_render_object
 ///
 /// The [title] is the displayed at the top of the popup.
 /// The [child] widget is displayed in the center of the card.
-/// The [listView] is an optional parameter to convert the popup into a [ListView]
+/// The [listView] is an optional parameter to convert the popup into a [ListView].
+/// If true, the height of the popup will be [0.8 * screen height].
 ///
 /// By default, the popup auto resizes to fit the child widget.
 void usePopupCard({

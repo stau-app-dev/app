@@ -7,12 +7,23 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
-class AnnouncementsBoard extends StatefulWidget {
+/// {@template announcements_board}
+/// Reusable widget for displaying a list of announcements.
+/// {@endtemplate}
+class AnnouncementsBoard extends StatelessWidget {
+  /// The list of general announcements.
   final List<Announcement>? announcements;
+
+  /// The list of club announcements.
   final List<ClubAnnouncement>? clubAnnouncements;
+
+  /// Whether or not it is on the club screen.
   final bool isClubScreen;
+
+  /// Function to call when the user presses the Add Announcement button.
   final Function()? onPressAddAnnouncement;
 
+  /// {@macro announcements_board}
   const AnnouncementsBoard(
       {Key? key,
       this.announcements,
@@ -21,16 +32,12 @@ class AnnouncementsBoard extends StatefulWidget {
       this.onPressAddAnnouncement})
       : super(key: key);
 
-  @override
-  State<AnnouncementsBoard> createState() => _AnnouncementsBoardState();
-}
-
-class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
-  Widget buildContent(String title, String content) {
+  Widget buildContent(
+      {required BuildContext context,
+      required String title,
+      required String content}) {
     return Container(
-        width: getWidth(context),
+        width: MediaQuery.of(context).size.width,
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         decoration: BoxDecoration(
             color: Styles.white,
@@ -58,25 +65,27 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
   }
 
   List<Widget> buildWrapper(
-    List<Announcement> announcements,
-    List<ClubAnnouncement> clubAnnouncements,
-  ) {
+      {required BuildContext context,
+      required List<Announcement> data,
+      required List<ClubAnnouncement> clubData}) {
     List<Widget> rows = [const SizedBox(height: 20.0)];
 
-    for (var announcement in announcements) {
+    for (var announcement in data) {
       rows.add(
-        buildContent(announcement.title, announcement.content),
+        buildContent(
+            context: context,
+            title: announcement.title,
+            content: announcement.content),
       );
       rows.add(const SizedBox(height: 10.0));
     }
 
-    for (var clubAnnouncement in clubAnnouncements) {
-      String title = widget.isClubScreen
+    for (var clubAnnouncement in clubData) {
+      String title = isClubScreen
           ? clubAnnouncement.creatorName
           : clubAnnouncement.clubName;
-      rows.add(
-        buildContent(title, clubAnnouncement.content),
-      );
+      buildContent(
+          context: context, title: title, content: clubAnnouncement.content);
       rows.add(const SizedBox(height: 10.0));
     }
 
@@ -85,11 +94,11 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
 
   @override
   Widget build(BuildContext context) {
-    List<Announcement> announcements = widget.announcements ?? [];
-    List<ClubAnnouncement> clubAnnouncements = widget.clubAnnouncements ?? [];
+    List<Announcement> data = announcements ?? [];
+    List<ClubAnnouncement> clubData = clubAnnouncements ?? [];
 
-    if (announcements.isEmpty && clubAnnouncements.isEmpty) {
-      announcements.add(const Announcement(
+    if (data.isEmpty && clubData.isEmpty) {
+      data.add(const Announcement(
           title: 'No announcements yet!',
           content: 'There are no announcements yet. Check back later!'));
     }
@@ -99,12 +108,11 @@ class _AnnouncementsBoardState extends State<AnnouncementsBoard> {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         const Text('Announcements Board', style: Styles.normalMainText),
-        ...buildWrapper(announcements, clubAnnouncements),
-        if (widget.onPressAddAnnouncement != null) ...[
+        ...buildWrapper(context: context, data: data, clubData: clubData),
+        if (onPressAddAnnouncement != null) ...[
           const SizedBox(height: 15.0),
           RoundedButton(
-              text: 'Add Announcement',
-              onPressed: widget.onPressAddAnnouncement!),
+              text: 'Add Announcement', onPressed: onPressAddAnnouncement!),
         ]
       ],
     ));

@@ -7,6 +7,7 @@ import 'package:flutter/rendering.dart';
 /// Measures the size of a child and returns the size.
 /// {@endtemplate}
 class MeasureSize extends SingleChildRenderObjectWidget {
+  /// Use with setState to update the size of something.
   final OnWidgetSizeChange onChange;
 
   /// {@macro measure_size_render_object}
