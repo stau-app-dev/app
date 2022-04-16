@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/song_requests/song_requests.dart';
 
-class SongRequestsScreen extends StatefulWidget {
+class SongRequestsScreen extends StatelessWidget {
   final List<Song> songs;
   final Function() onPressedAddSong;
   final Function(bool upvoted, String id) onPressedUpvote;
@@ -22,23 +22,18 @@ class SongRequestsScreen extends StatefulWidget {
       : super(key: key);
 
   @override
-  State<SongRequestsScreen> createState() => _SongRequestsScreenState();
-}
-
-class _SongRequestsScreenState extends State<SongRequestsScreen> {
-  @override
   Widget build(BuildContext context) {
     return PageLayout(
-      onRefresh: widget.onRefresh,
+      onRefresh: onRefresh,
       listView: true,
       children: [
         const ScreenHeader(headerText: 'Song Requests'),
         const SizedBox(height: Styles.mainSpacing),
         SongRequests(
-          songs: widget.songs,
-          onPressedAddSong: widget.onPressedAddSong,
-          onPressedUpvote: widget.onPressedUpvote,
-          disableUpvote: widget.disableUpvote,
+          songs: songs,
+          onPressedAddSong: onPressedAddSong,
+          onPressedUpvote: onPressedUpvote,
+          disableUpvote: disableUpvote,
         ),
       ],
     );

@@ -6,7 +6,7 @@ import 'package:staugustinechsnewapp/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/announcements_board.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_description.dart';
 
-class ClubScreen extends StatefulWidget {
+class ClubScreen extends StatelessWidget {
   final Club? club;
   final List<ClubAnnouncement>? clubAnnouncements;
   final Function() onRefresh;
@@ -23,25 +23,19 @@ class ClubScreen extends StatefulWidget {
   }) : super(key: key);
 
   @override
-  State<ClubScreen> createState() => _ClubScreenState();
-}
-
-class _ClubScreenState extends State<ClubScreen> {
-  @override
   Widget build(BuildContext context) {
-    List<ClubAnnouncement> clubAnnouncements;
+    List<ClubAnnouncement> data;
 
-    if (widget.clubAnnouncements != null &&
-        widget.clubAnnouncements!.isNotEmpty) {
-      clubAnnouncements = widget.clubAnnouncements!;
+    if (clubAnnouncements != null && clubAnnouncements!.isNotEmpty) {
+      data = clubAnnouncements!;
     } else {
-      clubAnnouncements = [];
+      data = [];
     }
 
     return PageLayout(
       verticalPadding: 0,
       listView: true,
-      onRefresh: widget.onRefresh,
+      onRefresh: onRefresh,
       children: [
         Align(
             alignment: Alignment.topRight,
@@ -52,17 +46,17 @@ class _ClubScreenState extends State<ClubScreen> {
                   color: Styles.white,
                 ))),
         const SizedBox(height: 85.0),
-        Text(widget.club?.name ?? '', style: Styles.headerMainText),
+        Text(club?.name ?? '', style: Styles.headerMainText),
         const SizedBox(height: 125.0),
         ClubDescription(
-          description: widget.club?.description ?? '',
-          onPressJoin: widget.onPressJoin,
+          description: club?.description ?? '',
+          onPressJoin: onPressJoin,
         ),
         const SizedBox(height: 20.0),
         AnnouncementsBoard(
-          clubAnnouncements: clubAnnouncements,
+          clubAnnouncements: data,
           isClubScreen: true,
-          onPressAddAnnouncement: widget.onPressAddAnnouncement,
+          onPressAddAnnouncement: onPressAddAnnouncement,
         ),
         const SizedBox(height: 20.0),
       ],

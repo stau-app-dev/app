@@ -5,7 +5,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/screen_header.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart';
 
-class SettingsScreen extends StatefulWidget {
+class SettingsScreen extends StatelessWidget {
   final void Function() onPressedLogout;
   final void Function() onPressedFAQ;
 
@@ -13,26 +13,19 @@ class SettingsScreen extends StatefulWidget {
       {Key? key, required this.onPressedLogout, required this.onPressedFAQ})
       : super(key: key);
 
-  @override
-  State<SettingsScreen> createState() => _SettingsScreenState();
-}
-
-class _SettingsScreenState extends State<SettingsScreen> {
-  double getWidth(BuildContext context) => MediaQuery.of(context).size.width;
-
   Widget buildOptions() {
     return BasicContainer(
         child: Column(
       children: [
         TextButton(
-            onPressed: widget.onPressedLogout,
+            onPressed: onPressedLogout,
             child: const Text('Log Out', style: Styles.normalSubText)),
       ],
     ));
   }
 
   Widget buildFAQ() {
-    return TextArrowContainer(text: 'FAQ', onPressed: widget.onPressedFAQ);
+    return TextArrowContainer(text: 'FAQ', onPressed: onPressedFAQ);
   }
 
   @override
