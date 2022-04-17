@@ -50,7 +50,9 @@ class ClubScreen extends StatelessWidget {
         const SizedBox(height: 85.0),
         Text(
           club?.name ?? '',
-          style: Theme.of(context).textTheme.headline5,
+          style: Theme.of(context).textTheme.headline5!.copyWith(
+                color: Styles.white,
+              ),
         ),
         const SizedBox(height: 125.0),
         ClubDescription(

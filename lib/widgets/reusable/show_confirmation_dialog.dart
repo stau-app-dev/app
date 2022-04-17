@@ -19,7 +19,10 @@ void showConfirmationDialog(
 
   AlertDialog alert = AlertDialog(
     title: Text(title),
-    content: Text(content),
+    content: Text(
+      content,
+      style: Theme.of(context).textTheme.bodyText2,
+    ),
     actions: [
       cancelButton,
       continueButton,

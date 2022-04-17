@@ -49,9 +49,13 @@ class ClubMembersScreen extends StatelessWidget {
                   color: Styles.white,
                 ))),
         const SizedBox(height: 85.0),
-        Text('$clubName Settings',
-            style: Theme.of(context).textTheme.headline5,
-            textAlign: TextAlign.center),
+        Text(
+          '$clubName Settings',
+          textAlign: TextAlign.center,
+          style: Theme.of(context).textTheme.headline5!.copyWith(
+                color: Styles.white,
+              ),
+        ),
         const SizedBox(height: 125.0),
         ClubMembersList(
           title: 'Admins',
