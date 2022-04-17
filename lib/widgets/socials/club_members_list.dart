@@ -21,6 +21,16 @@ class ClubMembersList extends StatelessWidget {
       required this.onPressRemoveUser})
       : super(key: key);
 
+  void onPressConfirmAdd(BuildContext context, String userEmail) {
+    onPressAddUser(userEmail);
+    Navigator.of(context).pop();
+  }
+
+  void onPressConfirmRemove(BuildContext context, String userEmail) {
+    onPressRemoveUser(userEmail);
+    Navigator.of(context).pop();
+  }
+
   List<Widget> buildMembers(BuildContext context) {
     return members
         .map((member) => Padding(
@@ -37,10 +47,8 @@ class ClubMembersList extends StatelessWidget {
                         context: context,
                         title: 'Confirm',
                         content: 'Are you sure you want to accept $member?',
-                        onPressConfirm: () {
-                          onPressAddUser(member);
-                          Navigator.of(context).pop();
-                        },
+                        onPressConfirm: () =>
+                            onPressConfirmAdd(context, member),
                       ),
                     ),
                     const SizedBox(width: 5.0),
@@ -51,10 +59,8 @@ class ClubMembersList extends StatelessWidget {
                             context: context,
                             title: 'Confirmation',
                             content: 'Are you sure you want to remove $member?',
-                            onPressConfirm: () {
-                              onPressRemoveUser(member);
-                              Navigator.of(context).pop();
-                            });
+                            onPressConfirm: () =>
+                                onPressConfirmRemove(context, member));
                       },
                       icon: const Icon(Icons.close_rounded,
                           color: Styles.secondary))
