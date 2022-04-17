@@ -20,6 +20,7 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
   SocialsBloc() : super(SocialsState.initial()) {
     on<SocialsEvent>((event, emit) => event.map(
         getUserClubs: (e) async {
+          emit(state.copyWith(clubQuickAccessItems: []));
           Either<Failure, List<ClubQuickAccessItem>> res =
               await SocialsRepository.getUserClubs(userId: e.userId);
           return emit(res.fold((l) => state.copyWith(failure: l),
