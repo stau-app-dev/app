@@ -9,6 +9,7 @@ import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 
@@ -102,6 +103,19 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               showMembersScreen = true;
             });
             Navigator.pop(context);
+          },
+          onPressLeaveClub: () {
+            showConfirmationDialog(
+                context: context,
+                content: 'Are you sure you want to leave this club?',
+                onPressConfirm: () {
+                  onPressRemoveUser(profileBloc.state.user!.email);
+                  // Need to double pop to remove:
+                  // 1. The confirmation dialog
+                  // 2. The popup card
+                  Navigator.pop(context);
+                  Navigator.pop(context);
+                });
           },
         ));
   }

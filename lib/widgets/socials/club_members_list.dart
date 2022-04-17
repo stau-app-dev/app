@@ -45,7 +45,6 @@ class ClubMembersList extends StatelessWidget {
                       icon: const Icon(Icons.check, color: Styles.secondary),
                       onPressed: () => showConfirmationDialog(
                         context: context,
-                        title: 'Confirm',
                         content: 'Are you sure you want to accept $member?',
                         onPressConfirm: () =>
                             onPressConfirmAdd(context, member),
@@ -54,14 +53,11 @@ class ClubMembersList extends StatelessWidget {
                     const SizedBox(width: 5.0),
                   ],
                   IconButton(
-                      onPressed: () {
-                        showConfirmationDialog(
-                            context: context,
-                            title: 'Confirmation',
-                            content: 'Are you sure you want to remove $member?',
-                            onPressConfirm: () =>
-                                onPressConfirmRemove(context, member));
-                      },
+                      onPressed: () => showConfirmationDialog(
+                          context: context,
+                          content: 'Are you sure you want to remove $member?',
+                          onPressConfirm: () =>
+                              onPressConfirmRemove(context, member)),
                       icon: const Icon(Icons.close_rounded,
                           color: Styles.secondary))
                 ]
