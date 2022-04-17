@@ -20,21 +20,34 @@ ThemeData appThemeData = ThemeData(
   fontFamily: Styles.fontFamilyNormal,
   hintColor: Styles.grey,
   iconTheme: const IconThemeData(color: Styles.primary),
-  inputDecorationTheme: InputDecorationTheme(
-    border: OutlineInputBorder(
-      borderRadius: BorderRadius.circular(10.0),
+  inputDecorationTheme: const InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(
+      horizontal: Styles.mainHorizontalPadding,
+      vertical: Styles.mainVerticalPadding,
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: Styles.mainBorderRadius,
       borderSide: BorderSide(
-        color: Styles.grey,
+        color: Styles.secondary,
         width: 1.0,
       ),
     ),
-    contentPadding: const EdgeInsets.symmetric(
-      horizontal: Styles.mainHorizontalPadding,
-      vertical: Styles.mainVerticalPadding,
+    enabledBorder: OutlineInputBorder(
+      borderRadius: Styles.mainBorderRadius,
+      borderSide: BorderSide(
+        color: Styles.primary,
+        width: 1.0,
+      ),
     ),
     labelStyle: TextStyle(
       fontFamily: Styles.fontFamilyNormal,
       fontSize: 14.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.primary,
+    ),
+    hintStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 12.0,
       fontWeight: FontWeight.w500,
       color: Styles.grey,
     ),

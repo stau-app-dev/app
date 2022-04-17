@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// {@template rounded_text_field}
 /// Custom textfield wrapper for the app. Please use this as it follows the Figma design.
@@ -28,21 +27,6 @@ class RoundedTextField extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    OutlineInputBorder border = const OutlineInputBorder(
-      borderRadius: Styles.mainBorderRadius,
-      borderSide: BorderSide(
-        color: Styles.primary,
-        width: 1.0,
-      ),
-    );
-    OutlineInputBorder focusedBorder = const OutlineInputBorder(
-      borderRadius: Styles.mainBorderRadius,
-      borderSide: BorderSide(
-        color: Styles.secondary,
-        width: 1.0,
-      ),
-    );
-
     return SizedBox(
         height: height,
         child: TextField(
@@ -54,12 +38,9 @@ class RoundedTextField extends StatelessWidget {
           decoration: InputDecoration(
             hintText: hintText,
             hintMaxLines: isMultiline ? 10 : null,
-            border: border,
-            enabledBorder: border,
-            focusedBorder: focusedBorder,
             contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
           ),
-          style: Styles.normalText.copyWith(fontSize: 12.0),
+          style: Theme.of(context).textTheme.bodyText2,
         ));
   }
 }
