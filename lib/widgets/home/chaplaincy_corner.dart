@@ -24,10 +24,7 @@ class ChaplaincyCorner extends StatelessWidget {
           children: <Widget>[
             Text('Verse of The Day',
                 style: Theme.of(context).textTheme.subtitle2),
-            Text(
-              verseOfDay.verseOfDay,
-              style: Styles.normalText,
-            ),
+            Text(verseOfDay.verseOfDay),
           ],
         ));
   }

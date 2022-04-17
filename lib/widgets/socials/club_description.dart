@@ -31,7 +31,7 @@ class ClubDescription extends StatelessWidget {
                 .headline6!
                 .copyWith(fontSize: 11.0)),
         const SizedBox(height: 10.0),
-        Text(instructionsToJoin ?? '', style: Styles.normalText),
+        Text(instructionsToJoin ?? ''),
         const SizedBox(height: 10.0),
         RoundedButton(text: 'Join!', onPressed: onPressJoin!),
       ],
@@ -46,7 +46,7 @@ class ClubDescription extends StatelessWidget {
       children: [
         Text('Description', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: 10.0),
-        Text(description, style: Styles.normalText),
+        Text(description),
         buildInstructionsToJoin(context),
       ],
     ));

@@ -37,10 +37,7 @@ class SongRequests extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text(songName, style: Theme.of(context).textTheme.subtitle2),
-                Text(
-                  'By: $artistName',
-                  style: Styles.normalText,
-                ),
+                Text('By: $artistName'),
               ],
             )));
   }

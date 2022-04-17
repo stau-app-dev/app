@@ -35,20 +35,6 @@ class Styles {
     )
   ];
 
-  /// Font size 14.0, font family Source Sans Pro, font weight bold, color primary.
-  // static const normalSubText = TextStyle(
-  //     fontSize: 14.0,
-  //     fontFamily: fontFamilyNormal,
-  //     fontWeight: FontWeight.bold,
-  //     color: primary);
-
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
-  static const normalText = TextStyle(
-      fontSize: 14.0,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      color: primary);
-
   /// Color RGBO 0 0 0 0.3, spreadRadius 0, blurRadius 10, offset 0 2.
   static final normalBoxShadow = [
     const BoxShadow(

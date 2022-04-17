@@ -19,7 +19,7 @@ class ClubMembersList extends StatelessWidget {
     return members
         .map((member) => Row(
               children: [
-                Text(member, style: Styles.normalText),
+                Text(member),
                 if (isAdmin) ...[
                   const Spacer(),
                   IconButton(

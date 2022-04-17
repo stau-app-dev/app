@@ -20,6 +20,25 @@ ThemeData appThemeData = ThemeData(
   fontFamily: Styles.fontFamilyNormal,
   hintColor: Styles.grey,
   iconTheme: const IconThemeData(color: Styles.primary),
+  inputDecorationTheme: InputDecorationTheme(
+    border: OutlineInputBorder(
+      borderRadius: BorderRadius.circular(10.0),
+      borderSide: BorderSide(
+        color: Styles.grey,
+        width: 1.0,
+      ),
+    ),
+    contentPadding: const EdgeInsets.symmetric(
+      horizontal: Styles.mainHorizontalPadding,
+      vertical: Styles.mainVerticalPadding,
+    ),
+    labelStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 14.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.grey,
+    ),
+  ),
   primaryColor: createMaterialColor(Styles.primary),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
