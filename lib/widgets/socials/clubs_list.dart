@@ -96,7 +96,7 @@ class ClubsList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.normalMainText),
+        Text(title, style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
         if (showJoinClubsButton) ...[

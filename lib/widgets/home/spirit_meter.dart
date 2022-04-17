@@ -58,7 +58,7 @@ class SpiritMeterBars extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Spirit Meter', style: Styles.normalMainText),
+        Text('Spirit Meter', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: 20.0),
         ...buildSpiritMeters(context, data),
       ],

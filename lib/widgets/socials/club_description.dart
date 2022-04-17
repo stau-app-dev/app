@@ -16,7 +16,7 @@ class ClubDescription extends StatelessWidget {
       : super(key: key);
 
   // This is unused, but it's here for future reference.
-  Widget buildInstructionsToJoin() {
+  Widget buildInstructionsToJoin(BuildContext context) {
     if (instructionsToJoin == null || onPressJoin == null) {
       return Container();
     }
@@ -26,7 +26,10 @@ class ClubDescription extends StatelessWidget {
       children: [
         const SizedBox(height: 15.0),
         Text('Instructions to Join',
-            style: Styles.normalMainText.copyWith(fontSize: 11.0)),
+            style: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(fontSize: 11.0)),
         const SizedBox(height: 10.0),
         Text(instructionsToJoin ?? '', style: Styles.normalText),
         const SizedBox(height: 10.0),
@@ -41,10 +44,10 @@ class ClubDescription extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Description', style: Styles.normalMainText),
+        Text('Description', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: 10.0),
         Text(description, style: Styles.normalText),
-        buildInstructionsToJoin(),
+        buildInstructionsToJoin(context),
       ],
     ));
   }

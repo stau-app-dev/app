@@ -68,7 +68,7 @@ class CourseTimetable extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Course Timetable', style: Styles.normalMainText),
+        Text('Course Timetable', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
       ],

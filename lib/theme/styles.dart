@@ -38,13 +38,6 @@ class Styles {
     )
   ];
 
-  /// Font size 18.0, font family Raleway, font weight bold, color primary.
-  static const normalMainText = TextStyle(
-      fontSize: 18,
-      fontFamily: fontFamilyTitles,
-      fontWeight: FontWeight.bold,
-      color: primary);
-
   /// Font size 14.0, font family Source Sans Pro, font weight bold, color primary.
   static const normalSubText = TextStyle(
       fontSize: fontSizeNormal,

@@ -52,9 +52,9 @@ class FeaturedCafeItems extends StatelessWidget {
         children: featuredCafeItems);
   }
 
-  Widget buildHeader() {
+  Widget buildHeader(BuildContext context) {
     return Row(children: [
-      const Text('Featured Cafe Items', style: Styles.normalMainText),
+      Text('Featured Cafe Items', style: Theme.of(context).textTheme.headline6),
       const Spacer(),
       TextButton(
           onPressed: onViewMorePressed,
@@ -83,7 +83,7 @@ class FeaturedCafeItems extends StatelessWidget {
             bottom: Styles.mainInsidePadding),
         width: MediaQuery.of(context).size.width,
         child: Column(children: [
-          buildHeader(),
+          buildHeader(context),
           const SizedBox(height: 15.0),
           buildFeaturedCafeItems(context),
         ]));

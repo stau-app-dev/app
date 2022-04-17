@@ -16,7 +16,7 @@ class BadgesList extends StatelessWidget {
   const BadgesList({Key? key, required this.title, required this.badges})
       : super(key: key);
 
-  Widget buildItems() {
+  Widget buildItems(BuildContext context) {
     double radius = 30.0;
     List<Widget> rows = [];
     for (var badge in badges) {
@@ -31,9 +31,7 @@ class BadgesList extends StatelessWidget {
                 backgroundColor: Styles.grey,
               )),
           const SizedBox(width: 20.0),
-          Text(badge['name']!,
-              style: Styles.normalMainText
-                  .copyWith(fontSize: Styles.fontSizeNormal)),
+          Text(badge['name']!, style: Theme.of(context).textTheme.headline6),
         ]),
       );
       rows.add(const SizedBox(height: 20.0));
@@ -47,9 +45,9 @@ class BadgesList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.normalMainText),
+        Text(title, style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
-        buildItems(),
+        buildItems(context),
       ],
     ));
   }

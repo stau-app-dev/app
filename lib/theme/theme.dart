@@ -65,9 +65,9 @@ ThemeData appThemeData = ThemeData(
         color: Styles.primary,
         letterSpacing: 0.0),
     headline6: TextStyle(
-        fontFamily: Styles.fontFamilyNormal,
-        fontSize: 20.0,
-        fontWeight: FontWeight.w400,
+        fontFamily: Styles.fontFamilyTitles,
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
         color: Styles.primary,
         letterSpacing: 0.15),
     subtitle1: TextStyle(
