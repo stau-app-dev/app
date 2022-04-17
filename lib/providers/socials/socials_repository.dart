@@ -53,4 +53,26 @@ class SocialsRepository {
       {required String clubId}) async {
     return await SocialsApi.getClubAnnouncements(clubId: clubId);
   }
+
+  static Future<Either<Failure, Success>> addUserToClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    return await SocialsApi.addUserToClub(clubId: clubId, userId: userId);
+  }
+
+  static Future<Either<Failure, Success>> addUserToPendingClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    return await SocialsApi.addUserToPendingClub(
+        clubId: clubId, userId: userId);
+  }
+
+  static Future<Either<Failure, Success>> removeUserFromClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    return await SocialsApi.removeUserFromClub(clubId: clubId, userId: userId);
+  }
 }

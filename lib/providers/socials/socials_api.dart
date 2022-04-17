@@ -137,4 +137,73 @@ class SocialsApi {
       return const Left(Failure(message: errorGettingClubAnnouncements));
     }
   }
+
+  static Future<Either<Failure, Success>> addUserToClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(addUserToClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userId': userId,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorAddingUserToClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorAddingUserToClub));
+    }
+  }
+
+  static Future<Either<Failure, Success>> addUserToPendingClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(addUserToPendingClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userId': userId,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorAddingUserToPendingClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorAddingUserToPendingClub));
+    }
+  }
+
+  static Future<Either<Failure, Success>> removeUserFromClub({
+    required String clubId,
+    required String userId,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(removeUserFromClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userId': userId,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorRemovingUserFromClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorRemovingUserFromClub));
+    }
+  }
 }
