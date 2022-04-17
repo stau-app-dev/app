@@ -64,21 +64,21 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
         },
         addUserToClub: (e) async {
           Either<Failure, Success> res = await SocialsRepository.addUserToClub(
-              clubId: e.clubId, userId: e.userId);
+              clubId: e.clubId, userEmail: e.userEmail);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },
         addUserToPendingClub: (e) async {
           Either<Failure, Success> res =
               await SocialsRepository.addUserToPendingClub(
-                  clubId: e.clubId, userId: e.userId);
+                  clubId: e.clubId, userEmail: e.userEmail);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },
         removeUserFromClub: (e) async {
           Either<Failure, Success> res =
               await SocialsRepository.removeUserFromClub(
-                  clubId: e.clubId, userId: e.userId);
+                  clubId: e.clubId, userEmail: e.userEmail);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },

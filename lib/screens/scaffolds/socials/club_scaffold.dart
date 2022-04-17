@@ -49,13 +49,13 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           message: 'Club is not open to join',
           type: ESnackBarType.failure);
     } else if (joinPreference == 1) {
-      socialsBloc.add(
-          SocialsEvent.addUserToPendingClub(clubId: clubId, userId: userId));
+      socialsBloc.add(SocialsEvent.addUserToPendingClub(
+          clubId: clubId, userEmail: userEmail));
       setState(() {
         joinButtonText = EJoinButtonState.pending;
       });
     } else if (joinPreference == 2) {
-      onPressAddUser();
+      onPressAddUser(userEmail);
       onRefresh();
     }
   }
@@ -63,14 +63,14 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   void onPressAddUser(String userEmail) {
     socialsBloc.add(SocialsEvent.addUserToClub(
       clubId: socialsBloc.state.club!.id,
-      userId: profileBloc.state.user!.id,
+      userEmail: userEmail,
     ));
   }
 
   void onPressRemoveUser(String userEmail) {
     socialsBloc.add(SocialsEvent.removeUserFromClub(
       clubId: socialsBloc.state.club!.id,
-      userId: profileBloc.state.user!.id,
+      userEmail: userEmail,
     ));
   }
 

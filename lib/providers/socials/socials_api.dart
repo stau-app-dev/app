@@ -140,14 +140,14 @@ class SocialsApi {
 
   static Future<Either<Failure, Success>> addUserToClub({
     required String clubId,
-    required String userId,
+    required String userEmail,
   }) async {
     try {
       Response res = await post(
         Uri.parse(addUserToClubEndpoint),
         body: json.encode({
           'clubId': clubId,
-          'userId': userId,
+          'userEmail': userEmail,
         }),
       );
       if (res.statusCode == 200) {
@@ -163,14 +163,14 @@ class SocialsApi {
 
   static Future<Either<Failure, Success>> addUserToPendingClub({
     required String clubId,
-    required String userId,
+    required String userEmail,
   }) async {
     try {
       Response res = await post(
         Uri.parse(addUserToPendingClubEndpoint),
         body: json.encode({
           'clubId': clubId,
-          'userId': userId,
+          'userEmail': userEmail,
         }),
       );
       if (res.statusCode == 200) {
@@ -186,14 +186,14 @@ class SocialsApi {
 
   static Future<Either<Failure, Success>> removeUserFromClub({
     required String clubId,
-    required String userId,
+    required String userEmail,
   }) async {
     try {
       Response res = await post(
         Uri.parse(removeUserFromClubEndpoint),
         body: json.encode({
           'clubId': clubId,
-          'userId': userId,
+          'userEmail': userEmail,
         }),
       );
       if (res.statusCode == 200) {
