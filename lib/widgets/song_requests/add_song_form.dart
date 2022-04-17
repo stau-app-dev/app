@@ -22,13 +22,13 @@ class _AddSongFormState extends State<AddSongForm> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('Song Name', style: Styles.normalSubText),
+          Text('Song Name', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Never Gonna Give You Up',
               controller: songNameController),
           const SizedBox(height: 10.0),
-          const Text('Artist Name', style: Styles.normalSubText),
+          Text('Artist Name', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Rick Astley', controller: artistNameController),

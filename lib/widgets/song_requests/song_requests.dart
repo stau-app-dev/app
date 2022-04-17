@@ -18,7 +18,10 @@ class SongRequests extends StatelessWidget {
       required this.disableUpvote})
       : super(key: key);
 
-  Widget buildSongInfo(String songName, String artistName) {
+  Widget buildSongInfo(
+      {required BuildContext context,
+      required String songName,
+      required String artistName}) {
     return Expanded(
         child: Container(
             padding:
@@ -33,10 +36,7 @@ class SongRequests extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  songName,
-                  style: Styles.normalSubText,
-                ),
+                Text(songName, style: Theme.of(context).textTheme.subtitle2),
                 Text(
                   'By: $artistName',
                   style: Styles.normalText,
@@ -81,7 +81,10 @@ class SongRequests extends StatelessWidget {
                             ),
                           ],
                         )),
-                    buildSongInfo(song.name, song.artist),
+                    buildSongInfo(
+                        context: context,
+                        songName: song.name,
+                        artistName: song.artist),
                   ])))));
       widgets.add(const SizedBox(height: 10.0));
     }

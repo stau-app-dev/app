@@ -79,8 +79,8 @@ ThemeData appThemeData = ThemeData(
     subtitle2: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 14.0,
-        fontWeight: FontWeight.w400,
-        color: Styles.white,
+        fontWeight: FontWeight.bold,
+        color: Styles.primary,
         letterSpacing: 0.1),
     bodyText1: TextStyle(
         fontFamily: Styles.fontFamilyNormal,

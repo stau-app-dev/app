@@ -19,9 +19,6 @@ class Styles {
   /// #C4C4C4
   static const Color grey = Color(0xffC4C4C4);
 
-  /// Default font size for the app. Defaults to 14.0.
-  static const double fontSizeNormal = 14.0;
-
   /// Default font for titles. Defaults to Raleway.
   static const String fontFamilyTitles = 'Raleway';
 
@@ -39,15 +36,15 @@ class Styles {
   ];
 
   /// Font size 14.0, font family Source Sans Pro, font weight bold, color primary.
-  static const normalSubText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.bold,
-      color: primary);
+  // static const normalSubText = TextStyle(
+  //     fontSize: 14.0,
+  //     fontFamily: fontFamilyNormal,
+  //     fontWeight: FontWeight.bold,
+  //     color: primary);
 
   /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
   static const normalText = TextStyle(
-      fontSize: fontSizeNormal,
+      fontSize: 14.0,
       fontFamily: fontFamilyNormal,
       fontWeight: FontWeight.normal,
       color: primary);

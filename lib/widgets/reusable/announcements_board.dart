@@ -49,10 +49,7 @@ class AnnouncementsBoard extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                title,
-                style: Styles.normalSubText,
-              ),
+              Text(title, style: Theme.of(context).textTheme.subtitle2),
               Linkify(
                 text: content,
                 linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(

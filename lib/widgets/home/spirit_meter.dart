@@ -22,12 +22,7 @@ class SpiritMeterBars extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.075,
               child: Text(
                 wordToNumberConversion(key),
-                style: const TextStyle(
-                  color: Styles.primary,
-                  fontSize: Styles.fontSizeNormal,
-                  fontFamily: Styles.fontFamilyTitles,
-                  fontWeight: FontWeight.bold,
-                ),
+                style: Theme.of(context).textTheme.subtitle2,
               )),
           Expanded(
               child: ClipRRect(

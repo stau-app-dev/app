@@ -22,10 +22,8 @@ class ChaplaincyCorner extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            const Text(
-              'Verse of The Day',
-              style: Styles.normalSubText,
-            ),
+            Text('Verse of The Day',
+                style: Theme.of(context).textTheme.subtitle2),
             Text(
               verseOfDay.verseOfDay,
               style: Styles.normalText,
