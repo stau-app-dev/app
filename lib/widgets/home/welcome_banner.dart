@@ -35,10 +35,16 @@ class WelcomeBanner extends StatelessWidget {
                 width: getChildWidth(context, 0.5),
                 child: Wrap(
                   children: [
-                    Text(welcomeText, style: Styles.headerMainText),
+                    Text(
+                      welcomeText,
+                      style: Theme.of(context)
+                          .textTheme
+                          .headline5!
+                          .copyWith(color: Styles.white),
+                    ),
                     Container(height: 10.0),
                     Text('Today is a beautiful $dayNumberText,\n$dateText',
-                        style: Styles.headerSubText),
+                        style: Theme.of(context).textTheme.subtitle1),
                   ],
                 )),
             const Spacer(),

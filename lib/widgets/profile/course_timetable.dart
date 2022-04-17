@@ -32,10 +32,8 @@ class CourseTimetable extends StatelessWidget {
               children: <Widget>[
                 Padding(
                     padding: padding,
-                    child: Text(
-                      course['course']!,
-                      style: Styles.normalSubText,
-                    )),
+                    child: Text(course['course']!,
+                        style: Theme.of(context).textTheme.subtitle2)),
                 const Spacer(),
                 course['lunch']! != 'n/a'
                     ? Container(
@@ -49,10 +47,8 @@ class CourseTimetable extends StatelessWidget {
                         ),
                         child: Padding(
                             padding: padding,
-                            child: Text(
-                              course['lunch']!,
-                              style: Styles.normalSubText,
-                            )))
+                            child: Text(course['lunch']!,
+                                style: Theme.of(context).textTheme.subtitle2)))
                     : Container(),
               ],
             )),
@@ -68,7 +64,7 @@ class CourseTimetable extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Course Timetable', style: Styles.normalMainText),
+        Text('Course Timetable', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
       ],

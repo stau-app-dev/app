@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
@@ -21,7 +20,7 @@ class _AddAnnouncementFormState extends State<AddAnnouncementForm> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('Announcement', style: Styles.normalSubText),
+          Text('Announcement', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'My announcement to all the subjects of ymir',

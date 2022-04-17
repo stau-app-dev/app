@@ -13,13 +13,14 @@ class SettingsScreen extends StatelessWidget {
       {Key? key, required this.onPressedLogout, required this.onPressedFAQ})
       : super(key: key);
 
-  Widget buildOptions() {
+  Widget buildOptions(BuildContext context) {
     return BasicContainer(
         child: Column(
       children: [
         TextButton(
             onPressed: onPressedLogout,
-            child: const Text('Log Out', style: Styles.normalSubText)),
+            child:
+                Text('Log Out', style: Theme.of(context).textTheme.subtitle2)),
       ],
     ));
   }
@@ -34,7 +35,7 @@ class SettingsScreen extends StatelessWidget {
       children: [
         const ScreenHeader(headerText: 'Settings'),
         const SizedBox(height: Styles.mainSpacing),
-        buildOptions(),
+        buildOptions(context),
         const SizedBox(height: Styles.mainSpacing),
         buildFAQ(),
       ],

@@ -19,7 +19,7 @@ class ClubMembersList extends StatelessWidget {
     return members
         .map((member) => Row(
               children: [
-                Text(member, style: Styles.normalText),
+                Text(member),
                 if (isAdmin) ...[
                   const Spacer(),
                   IconButton(
@@ -46,7 +46,7 @@ class ClubMembersList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.normalMainText),
+        Text(title, style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: 10.0),
         ...buildMembers(context),
       ],

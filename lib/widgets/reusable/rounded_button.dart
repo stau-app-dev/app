@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 
 /// {@template rounded_button}
 /// Custom button for the app. Please use this as it follows the Figma design.
@@ -21,18 +20,10 @@ class RoundedButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
             child: Text(text,
-                style: const TextStyle(
-                    color: Styles.white,
-                    fontFamily: Styles.fontFamilyTitles,
-                    fontWeight: FontWeight.bold)),
-            style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Styles.white),
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Styles.secondary),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    const RoundedRectangleBorder(
-                        borderRadius: Styles.mainBorderRadius,
-                        side: BorderSide(color: Styles.secondary)))),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(color: Colors.white)),
             onPressed: () => onPressed()));
   }
 }

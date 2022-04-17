@@ -97,7 +97,7 @@ class _AddClubFormState extends State<AddClubForm> {
                   padding: padding,
                   child: Text(
                     preference,
-                    style: Styles.normalSubText,
+                    style: Theme.of(context).textTheme.subtitle2,
                   )),
               const Spacer(),
               Container(
@@ -107,7 +107,6 @@ class _AddClubFormState extends State<AddClubForm> {
                     border: Border(
                       left: BorderSide(width: 1.0, color: Styles.primary),
                     ),
-                    // color: Colors.white,
                   ),
                   child: Padding(
                     padding: padding,
@@ -147,20 +146,20 @@ class _AddClubFormState extends State<AddClubForm> {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: padding, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('Club Name', style: Styles.normalSubText),
+          Text('Club Name', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Nano Engineering Club',
               controller: clubNameController),
           const SizedBox(height: 10.0),
-          const Text('Club Desc.', style: Styles.normalSubText),
+          Text('Club Desc.', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'A club for students who think the QNC is cool!',
               isMultiline: true,
               controller: clubDescriptionController),
           const SizedBox(height: 20.0),
-          const Text('Banner', style: Styles.normalSubText),
+          Text('Banner', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           Align(
               alignment: Alignment.center,
@@ -180,7 +179,8 @@ class _AddClubFormState extends State<AddClubForm> {
           const SizedBox(height: 5.0),
           RoundedButton(text: 'Choose Image', onPressed: onPressedChooseImage),
           const SizedBox(height: 20.0),
-          const Text('Join Preferences', style: Styles.normalSubText),
+          Text('Join Preferences',
+              style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           ...buildJoinPreferences(),
           const SizedBox(height: 10.0),

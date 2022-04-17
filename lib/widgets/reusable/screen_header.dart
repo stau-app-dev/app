@@ -27,7 +27,13 @@ class ScreenHeader extends StatelessWidget {
             )
           ]),
       padding: const EdgeInsets.all(Styles.mainInsidePadding + 4.0),
-      child: Text(headerText, style: Styles.headerMainText),
+      child: Text(
+        headerText,
+        style: Theme.of(context)
+            .textTheme
+            .headline5!
+            .copyWith(color: Styles.white),
+      ),
     );
   }
 }

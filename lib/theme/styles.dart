@@ -19,28 +19,11 @@ class Styles {
   /// #C4C4C4
   static const Color grey = Color(0xffC4C4C4);
 
-  /// Default font size for the app. Defaults to 14.0.
-  static const double fontSizeNormal = 14.0;
-
   /// Default font for titles. Defaults to Raleway.
   static const String fontFamilyTitles = 'Raleway';
 
   /// Default font for text. Defaults to Source Sans Pro.
   static const String fontFamilyNormal = 'SourceSansPro';
-
-  /// Font size 24.0, font family Raleway, font weight 800, color white.
-  static const headerMainText = TextStyle(
-      fontSize: 24,
-      fontFamily: fontFamilyTitles,
-      fontWeight: FontWeight.w800,
-      color: Colors.white);
-
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color white.
-  static const headerSubText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      color: Colors.white);
 
   /// Color primary, spreadRadius 0, blurRadius 5, offset 0 0.
   static final headerBoxShadow = [
@@ -51,35 +34,6 @@ class Styles {
       offset: Offset.zero,
     )
   ];
-
-  /// Font size 18.0, font family Raleway, font weight bold, color primary.
-  static const normalMainText = TextStyle(
-      fontSize: 18,
-      fontFamily: fontFamilyTitles,
-      fontWeight: FontWeight.bold,
-      color: primary);
-
-  /// Font size 14.0, font family Source Sans Pro, font weight bold, color primary.
-  static const normalSubText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.bold,
-      color: primary);
-
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
-  static const normalText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      color: primary);
-
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
-  static const urlText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      decoration: TextDecoration.underline,
-      color: secondary);
 
   /// Color RGBO 0 0 0 0.3, spreadRadius 0, blurRadius 10, offset 0 2.
   static final normalBoxShadow = [

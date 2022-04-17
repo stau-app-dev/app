@@ -39,11 +39,10 @@ class FeaturedCafeItems extends StatelessWidget {
             child: Text(
               cafeItems[i].name,
               textAlign: TextAlign.center,
-              style: const TextStyle(
-                  fontFamily: Styles.fontFamilyNormal,
-                  fontSize: 11.0,
-                  fontWeight: FontWeight.bold,
-                  color: Styles.white),
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(fontSize: 12.0, color: Colors.white),
             )),
       ]));
     }
@@ -52,16 +51,17 @@ class FeaturedCafeItems extends StatelessWidget {
         children: featuredCafeItems);
   }
 
-  Widget buildHeader() {
+  Widget buildHeader(BuildContext context) {
     return Row(children: [
-      const Text('Featured Cafe Items', style: Styles.normalMainText),
+      Text('Featured Cafe Items', style: Theme.of(context).textTheme.headline6),
       const Spacer(),
       TextButton(
           onPressed: onViewMorePressed,
-          child: const Text('View More >',
-              style: TextStyle(
-                  fontFamily: Styles.fontFamilyNormal,
-                  color: Styles.secondary))),
+          child: Text('View More >',
+              style: Theme.of(context)
+                  .textTheme
+                  .bodyText2!
+                  .copyWith(color: Styles.secondary))),
     ]);
   }
 
@@ -83,7 +83,7 @@ class FeaturedCafeItems extends StatelessWidget {
             bottom: Styles.mainInsidePadding),
         width: MediaQuery.of(context).size.width,
         child: Column(children: [
-          buildHeader(),
+          buildHeader(context),
           const SizedBox(height: 15.0),
           buildFeaturedCafeItems(context),
         ]));

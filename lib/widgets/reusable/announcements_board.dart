@@ -49,14 +49,13 @@ class AnnouncementsBoard extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(
-                title,
-                style: Styles.normalSubText,
-              ),
+              Text(title, style: Theme.of(context).textTheme.subtitle2),
               Linkify(
                 text: content,
-                style: Styles.normalText,
-                linkStyle: Styles.urlText,
+                linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+                      color: Styles.secondary,
+                      decoration: TextDecoration.underline,
+                    ),
                 onOpen: (link) async {
                   launchURL(url: link.url);
                 },
@@ -107,7 +106,8 @@ class AnnouncementsBoard extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Announcements Board', style: Styles.normalMainText),
+        Text('Announcements Board',
+            style: Theme.of(context).textTheme.headline6),
         ...buildWrapper(context: context, data: data, clubData: clubData),
         if (onPressAddAnnouncement != null) ...[
           const SizedBox(height: 15.0),

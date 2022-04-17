@@ -40,20 +40,19 @@ class CafeItems extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.end,
                 children: [
                   Flexible(
-                      child: Text(
-                    name,
-                    textAlign: TextAlign.start,
-                    style: const TextStyle(
-                        fontFamily: Styles.fontFamilyNormal,
-                        fontWeight: FontWeight.bold,
-                        color: Styles.white),
-                  )),
+                      child: Text(name,
+                          textAlign: TextAlign.start,
+                          style: Theme.of(context)
+                              .textTheme
+                              .subtitle2!
+                              .copyWith(color: Colors.white))),
                   Text(
                     '\$${price.toStringAsFixed(2)}',
                     textAlign: TextAlign.center,
-                    style: const TextStyle(
-                        fontFamily: Styles.fontFamilyNormal,
-                        color: Styles.white),
+                    style: Theme.of(context)
+                        .textTheme
+                        .bodyText2!
+                        .copyWith(color: Styles.white),
                   )
                 ],
               )))
@@ -90,7 +89,7 @@ class CafeItems extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.normalMainText),
+        Text(title, style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context)
       ],

@@ -2,11 +2,77 @@ import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 
 ThemeData appThemeData = ThemeData(
+  appBarTheme: const AppBarTheme(
+    color: Styles.primary,
+    elevation: 0.0,
+    iconTheme: IconThemeData(color: Styles.secondary),
+    toolbarTextStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 20.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.secondary,
+      letterSpacing: 0.15,
+    ),
+  ),
   brightness: Brightness.light,
-  primaryColor: createMaterialColor(Styles.primary),
   colorScheme: ColorScheme.fromSwatch()
-      .copyWith(secondary: createMaterialColor(Styles.secondary)),
+      .copyWith(primary: Styles.primary, secondary: Styles.secondary),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Styles.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Styles.secondary),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              const RoundedRectangleBorder(
+                  borderRadius: Styles.mainBorderRadius,
+                  side: BorderSide(color: Styles.secondary))))),
   fontFamily: Styles.fontFamilyNormal,
+  hintColor: Styles.grey,
+  iconTheme: const IconThemeData(color: Styles.primary),
+  inputDecorationTheme: const InputDecorationTheme(
+    contentPadding: EdgeInsets.symmetric(
+      horizontal: Styles.mainHorizontalPadding,
+      vertical: Styles.mainVerticalPadding,
+    ),
+    focusedBorder: OutlineInputBorder(
+      borderRadius: Styles.mainBorderRadius,
+      borderSide: BorderSide(
+        color: Styles.secondary,
+        width: 1.0,
+      ),
+    ),
+    enabledBorder: OutlineInputBorder(
+      borderRadius: Styles.mainBorderRadius,
+      borderSide: BorderSide(
+        color: Styles.primary,
+        width: 1.0,
+      ),
+    ),
+    labelStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 14.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.primary,
+    ),
+    hintStyle: TextStyle(
+      fontFamily: Styles.fontFamilyNormal,
+      fontSize: 12.0,
+      fontWeight: FontWeight.w500,
+      color: Styles.grey,
+    ),
+  ),
+  primaryColor: createMaterialColor(Styles.primary),
+  textButtonTheme: TextButtonThemeData(
+    style: TextButton.styleFrom(
+      primary: Styles.secondary,
+      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      textStyle: const TextStyle(fontFamily: Styles.fontFamilyNormal),
+    ),
+  ),
+  textSelectionTheme: TextSelectionThemeData(
+    cursorColor: Styles.secondary,
+    selectionHandleColor: Styles.secondary,
+    selectionColor: Styles.secondary.withOpacity(0.5),
+  ),
   textTheme: const TextTheme(
     headline1: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
@@ -35,25 +101,25 @@ ThemeData appThemeData = ThemeData(
     headline5: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 24.0,
-        fontWeight: FontWeight.w400,
+        fontWeight: FontWeight.w600,
         color: Styles.primary,
         letterSpacing: 0.0),
     headline6: TextStyle(
-        fontFamily: Styles.fontFamilyNormal,
-        fontSize: 20.0,
-        fontWeight: FontWeight.w500,
+        fontFamily: Styles.fontFamilyTitles,
+        fontSize: 18.0,
+        fontWeight: FontWeight.bold,
         color: Styles.primary,
         letterSpacing: 0.15),
     subtitle1: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 16.0,
-        fontWeight: FontWeight.w400,
-        color: Styles.primary,
+        fontWeight: FontWeight.w500,
+        color: Styles.white,
         letterSpacing: 0.15),
     subtitle2: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 14.0,
-        fontWeight: FontWeight.w500,
+        fontWeight: FontWeight.bold,
         color: Styles.primary,
         letterSpacing: 0.1),
     bodyText1: TextStyle(
@@ -87,18 +153,6 @@ ThemeData appThemeData = ThemeData(
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 1.5),
-  ),
-  textButtonTheme: TextButtonThemeData(
-    style: TextButton.styleFrom(
-      primary: Styles.secondary,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-    ),
-  ),
-  hintColor: Styles.grey,
-  textSelectionTheme: TextSelectionThemeData(
-    cursorColor: Styles.secondary,
-    selectionHandleColor: Styles.secondary,
-    selectionColor: Styles.secondary.withOpacity(0.5),
   ),
 );
 

@@ -18,7 +18,10 @@ class SongRequests extends StatelessWidget {
       required this.disableUpvote})
       : super(key: key);
 
-  Widget buildSongInfo(String songName, String artistName) {
+  Widget buildSongInfo(
+      {required BuildContext context,
+      required String songName,
+      required String artistName}) {
     return Expanded(
         child: Container(
             padding:
@@ -33,14 +36,8 @@ class SongRequests extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(
-                  songName,
-                  style: Styles.normalSubText,
-                ),
-                Text(
-                  'By: $artistName',
-                  style: Styles.normalText,
-                ),
+                Text(songName, style: Theme.of(context).textTheme.subtitle2),
+                Text('By: $artistName'),
               ],
             )));
   }
@@ -74,14 +71,18 @@ class SongRequests extends StatelessWidget {
                           children: <Widget>[
                             Icon(Icons.keyboard_arrow_up_rounded,
                                 color: upvoteColor),
-                            Text(
-                              song.upvotes.toString(),
-                              style: const TextStyle(
-                                  color: Styles.white, fontSize: 12.0),
-                            ),
+                            Text(song.upvotes.toString(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2!
+                                    .copyWith(
+                                        color: upvoteColor, fontSize: 12.0))
                           ],
                         )),
-                    buildSongInfo(song.name, song.artist),
+                    buildSongInfo(
+                        context: context,
+                        songName: song.name,
+                        artistName: song.artist),
                   ])))));
       widgets.add(const SizedBox(height: 10.0));
     }

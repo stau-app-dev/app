@@ -22,7 +22,8 @@ class ClubsList extends StatelessWidget {
       : super(key: key);
 
   Widget buildTile(
-      {required String clubId,
+      {required BuildContext context,
+      required String clubId,
       required String name,
       required double tileWidth,
       required double tileHeight}) {
@@ -32,14 +33,12 @@ class ClubsList extends StatelessWidget {
         padding: const EdgeInsets.symmetric(vertical: 10.0, horizontal: 16.0),
         child: Container(
           alignment: Alignment.bottomLeft,
-          child: Text(
-            name,
-            textAlign: TextAlign.start,
-            style: const TextStyle(
-                fontFamily: Styles.fontFamilyNormal,
-                fontWeight: FontWeight.bold,
-                color: Styles.white),
-          ),
+          child: Text(name,
+              textAlign: TextAlign.start,
+              style: Theme.of(context)
+                  .textTheme
+                  .subtitle2!
+                  .copyWith(color: Styles.white)),
         ));
   }
 
@@ -66,6 +65,7 @@ class ClubsList extends StatelessWidget {
               splashColor: Styles.primary,
               onTap: () => onPressClub(clubId),
               child: buildTile(
+                  context: context,
                   clubId: clubId,
                   name: name,
                   tileWidth: tileWidth,
@@ -96,7 +96,7 @@ class ClubsList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Styles.normalMainText),
+        Text(title, style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
         if (showJoinClubsButton) ...[

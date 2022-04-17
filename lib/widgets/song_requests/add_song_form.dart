@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
@@ -22,13 +21,13 @@ class _AddSongFormState extends State<AddSongForm> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          const Text('Song Name', style: Styles.normalSubText),
+          Text('Song Name', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Never Gonna Give You Up',
               controller: songNameController),
           const SizedBox(height: 10.0),
-          const Text('Artist Name', style: Styles.normalSubText),
+          Text('Artist Name', style: Theme.of(context).textTheme.subtitle2),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Rick Astley', controller: artistNameController),
@@ -42,8 +41,7 @@ class _AddSongFormState extends State<AddSongForm> {
               alignment: Alignment.center,
               child: const Text(
                   'Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12.0))),
+                  textAlign: TextAlign.center)),
         ]));
   }
 }

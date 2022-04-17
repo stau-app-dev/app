@@ -58,7 +58,7 @@ class _PopupCardState extends State<_PopupCard> {
           alignment: Alignment.center,
           child: Text(
             widget.title,
-            style: Styles.headerMainText.copyWith(color: Styles.primary),
+            style: Theme.of(context).textTheme.headline5,
           )),
       const SizedBox(height: Styles.mainSpacing),
       widget.listView

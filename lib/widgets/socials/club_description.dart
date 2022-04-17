@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
@@ -16,7 +15,7 @@ class ClubDescription extends StatelessWidget {
       : super(key: key);
 
   // This is unused, but it's here for future reference.
-  Widget buildInstructionsToJoin() {
+  Widget buildInstructionsToJoin(BuildContext context) {
     if (instructionsToJoin == null || onPressJoin == null) {
       return Container();
     }
@@ -26,9 +25,12 @@ class ClubDescription extends StatelessWidget {
       children: [
         const SizedBox(height: 15.0),
         Text('Instructions to Join',
-            style: Styles.normalMainText.copyWith(fontSize: 11.0)),
+            style: Theme.of(context)
+                .textTheme
+                .headline6!
+                .copyWith(fontSize: 11.0)),
         const SizedBox(height: 10.0),
-        Text(instructionsToJoin ?? '', style: Styles.normalText),
+        Text(instructionsToJoin ?? ''),
         const SizedBox(height: 10.0),
         RoundedButton(text: 'Join!', onPressed: onPressJoin!),
       ],
@@ -41,10 +43,10 @@ class ClubDescription extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        const Text('Description', style: Styles.normalMainText),
+        Text('Description', style: Theme.of(context).textTheme.headline6),
         const SizedBox(height: 10.0),
-        Text(description, style: Styles.normalText),
-        buildInstructionsToJoin(),
+        Text(description),
+        buildInstructionsToJoin(context),
       ],
     ));
   }

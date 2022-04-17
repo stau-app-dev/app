@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/screens/layout/page_layout.dart';
-import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/login/google_sign_in_button.dart';
 
@@ -16,21 +15,22 @@ class LoginScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return PageLayout(
       children: [
-        IconButton(
-            onPressed: onPressedClose, icon: const Icon(Icons.close_rounded)),
+        Align(
+            alignment: Alignment.topRight,
+            child: IconButton(
+                onPressed: onPressedClose,
+                icon: const Icon(Icons.close_rounded))),
         Image.asset(
           'assets/logos/sta_logo.png',
           height: 160,
         ),
         const SizedBox(height: 20),
-        const Text(
+        Text(
           'St. Augustine CHS',
           textAlign: TextAlign.center,
-          style: TextStyle(
-            color: Styles.primary,
-            fontSize: 26,
-          ),
+          style: Theme.of(context).textTheme.headline5,
         ),
+        const SizedBox(height: 20),
         GoogleSignInButton(
           authBloc: authBloc,
         ),
