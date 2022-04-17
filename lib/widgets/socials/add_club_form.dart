@@ -107,7 +107,6 @@ class _AddClubFormState extends State<AddClubForm> {
                     border: Border(
                       left: BorderSide(width: 1.0, color: Styles.primary),
                     ),
-                    // color: Colors.white,
                   ),
                   child: Padding(
                     padding: padding,
