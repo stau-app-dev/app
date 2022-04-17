@@ -52,14 +52,6 @@ class Styles {
       fontWeight: FontWeight.normal,
       color: primary);
 
-  /// Font size 14.0, font family Source Sans Pro, font weight normal, color primary.
-  static const urlText = TextStyle(
-      fontSize: fontSizeNormal,
-      fontFamily: fontFamilyNormal,
-      fontWeight: FontWeight.normal,
-      decoration: TextDecoration.underline,
-      color: secondary);
-
   /// Color RGBO 0 0 0 0.3, spreadRadius 0, blurRadius 10, offset 0 2.
   static final normalBoxShadow = [
     const BoxShadow(
