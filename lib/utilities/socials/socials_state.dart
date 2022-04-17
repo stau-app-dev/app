@@ -6,7 +6,6 @@ class SocialsState with _$SocialsState {
     List<ClubQuickAccessItem>? clubQuickAccessItems,
     Club? club,
     List<ClubAnnouncement>? clubAnnouncements,
-    String? addedClubId,
     Failure? failure,
     Success? success,
   }) = _SocialsState;

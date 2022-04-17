@@ -58,7 +58,7 @@ class SocialsApi {
     }
   }
 
-  static Future<Either<Failure, Club>> addClub({
+  static Future<Either<Failure, Success>> addClub({
     required String description,
     required String email,
     required int joinPreference,
@@ -77,8 +77,8 @@ class SocialsApi {
         }),
       );
       if (res.statusCode == 200) {
-        Club club = Club.fromJson(json.decode(res.body)['data']['club']);
-        return Right(club);
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
       } else {
         return const Left(Failure(message: errorAddingClub));
       }

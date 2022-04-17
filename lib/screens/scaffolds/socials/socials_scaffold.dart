@@ -83,48 +83,53 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
-      if (state.user?.id != null) {
-        socialsBloc.add(SocialsEvent.getUserClubs(userId: state.user!.id));
-      }
-    }, builder: (context, profileState) {
-      return BlocConsumer<SocialsBloc, SocialsState>(
-          listener: (context, state) {
-        if (state.success != null) {
-          useCustomSnackbar(
-              context: context,
-              message: state.success?.message ?? 'Success!',
-              type: ESnackBarType.success);
-          socialsBloc.add(const SocialsEvent.resetFailSuccess());
-        }
-        if (state.failure != null) {
-          useCustomSnackbar(
-              context: context,
-              message: state.failure?.message ?? 'Failure!',
-              type: ESnackBarType.failure);
-          socialsBloc.add(const SocialsEvent.resetFailSuccess());
-        }
-        if (state.addedClubId != null) {
-          List<String> newUserClubIds = profileState.user!.clubs;
-          newUserClubIds.add(state.addedClubId!);
-          profileBloc.add(ProfileEvent.updateUserField(
-              field: 'clubs', value: newUserClubIds));
-          socialsBloc.add(const SocialsEvent.resetAddedClubId());
-        }
-      }, builder: (context, state) {
-        bool isAdmin =
-            profileState.user != null ? profileState.user!.status > 0 : false;
+    return BlocConsumer<ProfileBloc, ProfileState>(
+        listenWhen: (previous, current) => previous.user != current.user,
+        listener: (context, state) {
+          if (state.user?.id != null) {
+            socialsBloc.add(SocialsEvent.getUserClubs(userId: state.user!.id));
+          }
+        },
+        builder: (context, profileState) {
+          return BlocConsumer<SocialsBloc, SocialsState>(
+              listener: (context, state) {
+            // Use case for when:
+            // 1. User leaves a club
+            // 2. User joins a club
+            // 3. User creates a club
+            // Need to refresh user
+            if (state.club == null && state.success != null) {
+              profileBloc.add(const ProfileEvent.refreshUser());
+            }
+            if (state.success != null) {
+              useCustomSnackbar(
+                  context: context,
+                  message: state.success?.message ?? 'Success!',
+                  type: ESnackBarType.success);
+              socialsBloc.add(const SocialsEvent.resetFailSuccess());
+            }
+            if (state.failure != null) {
+              useCustomSnackbar(
+                  context: context,
+                  message: state.failure?.message ?? 'Failure!',
+                  type: ESnackBarType.failure);
+              socialsBloc.add(const SocialsEvent.resetFailSuccess());
+            }
+          }, builder: (context, state) {
+            bool isAdmin = profileState.user != null
+                ? profileState.user!.status > 0
+                : false;
 
-        return Stack(children: [
-          SocialsScreen(
-            clubs: state.clubQuickAccessItems ?? [],
-            onPressClub: onPressedClub,
-            onPressJoinClubsButton: onPressJoinClubsButton,
-            isAdmin: isAdmin,
-            onPressCreateClub: onPressedCreateClub,
-          ),
-        ]);
-      });
-    });
+            return Stack(children: [
+              SocialsScreen(
+                clubs: state.clubQuickAccessItems ?? [],
+                onPressClub: onPressedClub,
+                onPressJoinClubsButton: onPressJoinClubsButton,
+                isAdmin: isAdmin,
+                onPressCreateClub: onPressedCreateClub,
+              ),
+            ]);
+          });
+        });
   }
 }

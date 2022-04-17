@@ -4,6 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
@@ -22,6 +23,7 @@ class ClubScaffold extends StatefulWidget {
 class _ClubScaffoldState extends State<ClubScaffold> {
   late final SocialsBloc socialsBloc;
   late final ProfileBloc profileBloc;
+  late final NavBloc navBloc;
 
   bool showMembersScreen = false;
   EJoinButtonState joinButtonText = EJoinButtonState.join;
@@ -30,6 +32,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   void initState() {
     socialsBloc = BlocProvider.of<SocialsBloc>(context);
     profileBloc = BlocProvider.of<ProfileBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
     super.initState();
   }
 
@@ -37,6 +40,26 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     socialsBloc.add(SocialsEvent.getClub(
         clubId: socialsBloc.state.club!.id,
         pictureUrl: socialsBloc.state.club!.pictureUrl));
+  }
+
+  void onLeaveClub() {
+    onPressRemoveUser(profileBloc.state.user!.email);
+    socialsBloc.add(const SocialsEvent.resetClub());
+
+    // Need to double pop to remove:
+    // 1. The confirmation dialog
+    // 2. The popup card
+    Navigator.pop(context);
+    Navigator.pop(context);
+
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.socials));
+  }
+
+  void onJoinClub() {
+    onPressAddUser(profileBloc.state.user!.email);
+    socialsBloc.add(const SocialsEvent.resetClub());
+    Navigator.pop(context);
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.socials));
   }
 
   void onPressJoin() {
@@ -56,8 +79,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         joinButtonText = EJoinButtonState.pending;
       });
     } else if (joinPreference == 2) {
-      onPressAddUser(userEmail);
-      onRefresh();
+      showConfirmationDialog(
+          context: context,
+          content: 'Are you sure you want to join this club?',
+          onPressConfirm: onJoinClub);
     }
   }
 
@@ -108,14 +133,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
             showConfirmationDialog(
                 context: context,
                 content: 'Are you sure you want to leave this club?',
-                onPressConfirm: () {
-                  onPressRemoveUser(profileBloc.state.user!.email);
-                  // Need to double pop to remove:
-                  // 1. The confirmation dialog
-                  // 2. The popup card
-                  Navigator.pop(context);
-                  Navigator.pop(context);
-                });
+                onPressConfirm: onLeaveClub);
           },
         ));
   }

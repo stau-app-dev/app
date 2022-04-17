@@ -21,7 +21,7 @@ class SocialsRepository {
     return await SocialsApi.getClub(clubId: clubId, pictureUrl: pictureUrl);
   }
 
-  static Future<Either<Failure, Club>> addClub({
+  static Future<Either<Failure, Success>> addClub({
     required String description,
     required String email,
     required int joinPreference,

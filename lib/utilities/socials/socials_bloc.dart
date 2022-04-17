@@ -34,17 +34,14 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
         addClub: (e) async {
           await ImageUploadRepository.uploadImageFile(
               picture: e.picture, path: e.path, fileName: e.fileName);
-          Either<Failure, Club> res = await SocialsRepository.addClub(
+          Either<Failure, Success> res = await SocialsRepository.addClub(
               name: e.name,
               description: e.description,
               email: e.email,
               pictureId: e.pictureId,
               joinPreference: e.joinPreference);
-          return emit(res.fold(
-              (l) => state.copyWith(failure: l),
-              (r) => state.copyWith(
-                  success: const Success(message: 'Successfully added club'),
-                  addedClubId: r.id)));
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r, club: null)));
         },
         addClubAnnouncement: (e) async {
           Either<Failure, Success> res =
@@ -82,7 +79,7 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },
-        resetAddedClubId: (e) => emit(state.copyWith(addedClubId: null)),
+        resetClub: (e) => emit(state.copyWith(club: null)),
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));
   }

@@ -27,6 +27,10 @@ class _$ProfileEventTearOff {
     );
   }
 
+  _refreshUser refreshUser() {
+    return const _refreshUser();
+  }
+
   _updateUserField updateUserField(
       {required String field, required dynamic value}) {
     return _updateUserField(
@@ -48,6 +52,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) =>
@@ -55,6 +60,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) =>
@@ -62,6 +68,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -70,6 +77,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
@@ -77,6 +85,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
@@ -84,6 +93,7 @@ mixin _$ProfileEvent {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -199,6 +209,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) {
@@ -209,6 +220,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) {
@@ -219,6 +231,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -233,6 +246,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -243,6 +257,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -253,6 +268,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -276,6 +292,128 @@ abstract class _getUser implements ProfileEvent {
   @JsonKey(ignore: true)
   _$getUserCopyWith<_getUser> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$refreshUserCopyWith<$Res> {
+  factory _$refreshUserCopyWith(
+          _refreshUser value, $Res Function(_refreshUser) then) =
+      __$refreshUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$refreshUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$refreshUserCopyWith<$Res> {
+  __$refreshUserCopyWithImpl(
+      _refreshUser _value, $Res Function(_refreshUser) _then)
+      : super(_value, (v) => _then(v as _refreshUser));
+
+  @override
+  _refreshUser get _value => super._value as _refreshUser;
+}
+
+/// @nodoc
+
+class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
+  const _$_refreshUser();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.refreshUser()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ProfileEvent.refreshUser'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _refreshUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return refreshUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return refreshUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (refreshUser != null) {
+      return refreshUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return refreshUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return refreshUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (refreshUser != null) {
+      return refreshUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _refreshUser implements ProfileEvent {
+  const factory _refreshUser() = _$_refreshUser;
 }
 
 /// @nodoc
@@ -365,6 +503,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) {
@@ -375,6 +514,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) {
@@ -385,6 +525,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -399,6 +540,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -409,6 +551,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -419,6 +562,7 @@ class _$_updateUserField
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -492,6 +636,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() resetFailSuccess,
   }) {
@@ -502,6 +647,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
   }) {
@@ -512,6 +658,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -526,6 +673,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -536,6 +684,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -546,6 +695,7 @@ class _$_resetFailSuccess
   @optionalTypeArgs
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),

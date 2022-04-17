@@ -95,8 +95,8 @@ class _$SocialsEventTearOff {
     );
   }
 
-  _resetAddedClubId resetAddedClubId() {
-    return const _resetAddedClubId();
+  _resetClub resetClub() {
+    return const _resetClub();
   }
 
   _resetFailSuccess resetFailSuccess() {
@@ -132,7 +132,7 @@ mixin _$SocialsEvent {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -157,7 +157,7 @@ mixin _$SocialsEvent {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -182,7 +182,7 @@ mixin _$SocialsEvent {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -197,7 +197,7 @@ mixin _$SocialsEvent {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -211,7 +211,7 @@ mixin _$SocialsEvent {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -225,7 +225,7 @@ mixin _$SocialsEvent {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -333,7 +333,7 @@ class _$_getUserClubs implements _getUserClubs {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return getUserClubs(userId);
@@ -361,7 +361,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return getUserClubs?.call(userId);
@@ -389,7 +389,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -410,7 +410,7 @@ class _$_getUserClubs implements _getUserClubs {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getUserClubs(this);
@@ -427,7 +427,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getUserClubs?.call(this);
@@ -444,7 +444,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -558,7 +558,7 @@ class _$_getClub implements _getClub {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return getClub(clubId, pictureUrl);
@@ -586,7 +586,7 @@ class _$_getClub implements _getClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return getClub?.call(clubId, pictureUrl);
@@ -614,7 +614,7 @@ class _$_getClub implements _getClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -635,7 +635,7 @@ class _$_getClub implements _getClub {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getClub(this);
@@ -652,7 +652,7 @@ class _$_getClub implements _getClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getClub?.call(this);
@@ -669,7 +669,7 @@ class _$_getClub implements _getClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -856,7 +856,7 @@ class _$_addClub implements _addClub {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return addClub(description, email, joinPreference, name, pictureId, picture,
@@ -885,7 +885,7 @@ class _$_addClub implements _addClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return addClub?.call(description, email, joinPreference, name, pictureId,
@@ -914,7 +914,7 @@ class _$_addClub implements _addClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -936,7 +936,7 @@ class _$_addClub implements _addClub {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return addClub(this);
@@ -953,7 +953,7 @@ class _$_addClub implements _addClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return addClub?.call(this);
@@ -970,7 +970,7 @@ class _$_addClub implements _addClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1126,7 +1126,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return addClubAnnouncement(clubId, clubName, content, creatorName);
@@ -1154,7 +1154,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return addClubAnnouncement?.call(clubId, clubName, content, creatorName);
@@ -1182,7 +1182,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1203,7 +1203,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return addClubAnnouncement(this);
@@ -1220,7 +1220,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return addClubAnnouncement?.call(this);
@@ -1237,7 +1237,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1351,7 +1351,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return getClubAnnouncements(clubId);
@@ -1379,7 +1379,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return getClubAnnouncements?.call(clubId);
@@ -1407,7 +1407,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1428,7 +1428,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getClubAnnouncements(this);
@@ -1445,7 +1445,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getClubAnnouncements?.call(this);
@@ -1462,7 +1462,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1579,7 +1579,7 @@ class _$_addUserToClub implements _addUserToClub {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return addUserToClub(clubId, userEmail);
@@ -1607,7 +1607,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return addUserToClub?.call(clubId, userEmail);
@@ -1635,7 +1635,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1656,7 +1656,7 @@ class _$_addUserToClub implements _addUserToClub {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return addUserToClub(this);
@@ -1673,7 +1673,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return addUserToClub?.call(this);
@@ -1690,7 +1690,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1810,7 +1810,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return addUserToPendingClub(clubId, userEmail);
@@ -1838,7 +1838,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return addUserToPendingClub?.call(clubId, userEmail);
@@ -1866,7 +1866,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -1887,7 +1887,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return addUserToPendingClub(this);
@@ -1904,7 +1904,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return addUserToPendingClub?.call(this);
@@ -1921,7 +1921,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -2040,7 +2040,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return removeUserFromClub(clubId, userEmail);
@@ -2068,7 +2068,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return removeUserFromClub?.call(clubId, userEmail);
@@ -2096,7 +2096,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -2117,7 +2117,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return removeUserFromClub(this);
@@ -2134,7 +2134,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return removeUserFromClub?.call(this);
@@ -2151,7 +2151,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -2175,38 +2175,36 @@ abstract class _removeUserFromClub implements SocialsEvent {
 }
 
 /// @nodoc
-abstract class _$resetAddedClubIdCopyWith<$Res> {
-  factory _$resetAddedClubIdCopyWith(
-          _resetAddedClubId value, $Res Function(_resetAddedClubId) then) =
-      __$resetAddedClubIdCopyWithImpl<$Res>;
+abstract class _$resetClubCopyWith<$Res> {
+  factory _$resetClubCopyWith(
+          _resetClub value, $Res Function(_resetClub) then) =
+      __$resetClubCopyWithImpl<$Res>;
 }
 
 /// @nodoc
-class __$resetAddedClubIdCopyWithImpl<$Res>
-    extends _$SocialsEventCopyWithImpl<$Res>
-    implements _$resetAddedClubIdCopyWith<$Res> {
-  __$resetAddedClubIdCopyWithImpl(
-      _resetAddedClubId _value, $Res Function(_resetAddedClubId) _then)
-      : super(_value, (v) => _then(v as _resetAddedClubId));
+class __$resetClubCopyWithImpl<$Res> extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$resetClubCopyWith<$Res> {
+  __$resetClubCopyWithImpl(_resetClub _value, $Res Function(_resetClub) _then)
+      : super(_value, (v) => _then(v as _resetClub));
 
   @override
-  _resetAddedClubId get _value => super._value as _resetAddedClubId;
+  _resetClub get _value => super._value as _resetClub;
 }
 
 /// @nodoc
 
-class _$_resetAddedClubId implements _resetAddedClubId {
-  const _$_resetAddedClubId();
+class _$_resetClub implements _resetClub {
+  const _$_resetClub();
 
   @override
   String toString() {
-    return 'SocialsEvent.resetAddedClubId()';
+    return 'SocialsEvent.resetClub()';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other.runtimeType == runtimeType && other is _resetAddedClubId);
+        (other.runtimeType == runtimeType && other is _resetClub);
   }
 
   @override
@@ -2236,10 +2234,10 @@ class _$_resetAddedClubId implements _resetAddedClubId {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
-    return resetAddedClubId();
+    return resetClub();
   }
 
   @override
@@ -2264,10 +2262,10 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
-    return resetAddedClubId?.call();
+    return resetClub?.call();
   }
 
   @override
@@ -2292,12 +2290,12 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (resetAddedClubId != null) {
-      return resetAddedClubId();
+    if (resetClub != null) {
+      return resetClub();
     }
     return orElse();
   }
@@ -2313,10 +2311,10 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
-    return resetAddedClubId(this);
+    return resetClub(this);
   }
 
   @override
@@ -2330,10 +2328,10 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
-    return resetAddedClubId?.call(this);
+    return resetClub?.call(this);
   }
 
   @override
@@ -2347,19 +2345,19 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
-    if (resetAddedClubId != null) {
-      return resetAddedClubId(this);
+    if (resetClub != null) {
+      return resetClub(this);
     }
     return orElse();
   }
 }
 
-abstract class _resetAddedClubId implements SocialsEvent {
-  const factory _resetAddedClubId() = _$_resetAddedClubId;
+abstract class _resetClub implements SocialsEvent {
+  const factory _resetClub() = _$_resetClub;
 }
 
 /// @nodoc
@@ -2424,7 +2422,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
         addUserToPendingClub,
     required TResult Function(String clubId, String userEmail)
         removeUserFromClub,
-    required TResult Function() resetAddedClubId,
+    required TResult Function() resetClub,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -2452,7 +2450,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -2480,7 +2478,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(String clubId, String userEmail)? addUserToClub,
     TResult Function(String clubId, String userEmail)? addUserToPendingClub,
     TResult Function(String clubId, String userEmail)? removeUserFromClub,
-    TResult Function()? resetAddedClubId,
+    TResult Function()? resetClub,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -2501,7 +2499,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     required TResult Function(_addUserToClub value) addUserToClub,
     required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
     required TResult Function(_removeUserFromClub value) removeUserFromClub,
-    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetClub value) resetClub,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return resetFailSuccess(this);
@@ -2518,7 +2516,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return resetFailSuccess?.call(this);
@@ -2535,7 +2533,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_addUserToClub value)? addUserToClub,
     TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
     TResult Function(_removeUserFromClub value)? removeUserFromClub,
-    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetClub value)? resetClub,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -2558,14 +2556,12 @@ class _$SocialsStateTearOff {
       {List<ClubQuickAccessItem>? clubQuickAccessItems,
       Club? club,
       List<ClubAnnouncement>? clubAnnouncements,
-      String? addedClubId,
       Failure? failure,
       Success? success}) {
     return _SocialsState(
       clubQuickAccessItems: clubQuickAccessItems,
       club: club,
       clubAnnouncements: clubAnnouncements,
-      addedClubId: addedClubId,
       failure: failure,
       success: success,
     );
@@ -2582,7 +2578,6 @@ mixin _$SocialsState {
   Club? get club => throw _privateConstructorUsedError;
   List<ClubAnnouncement>? get clubAnnouncements =>
       throw _privateConstructorUsedError;
-  String? get addedClubId => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
 
@@ -2600,7 +2595,6 @@ abstract class $SocialsStateCopyWith<$Res> {
       {List<ClubQuickAccessItem>? clubQuickAccessItems,
       Club? club,
       List<ClubAnnouncement>? clubAnnouncements,
-      String? addedClubId,
       Failure? failure,
       Success? success});
 
@@ -2622,7 +2616,6 @@ class _$SocialsStateCopyWithImpl<$Res> implements $SocialsStateCopyWith<$Res> {
     Object? clubQuickAccessItems = freezed,
     Object? club = freezed,
     Object? clubAnnouncements = freezed,
-    Object? addedClubId = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -2639,10 +2632,6 @@ class _$SocialsStateCopyWithImpl<$Res> implements $SocialsStateCopyWith<$Res> {
           ? _value.clubAnnouncements
           : clubAnnouncements // ignore: cast_nullable_to_non_nullable
               as List<ClubAnnouncement>?,
-      addedClubId: addedClubId == freezed
-          ? _value.addedClubId
-          : addedClubId // ignore: cast_nullable_to_non_nullable
-              as String?,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -2699,7 +2688,6 @@ abstract class _$SocialsStateCopyWith<$Res>
       {List<ClubQuickAccessItem>? clubQuickAccessItems,
       Club? club,
       List<ClubAnnouncement>? clubAnnouncements,
-      String? addedClubId,
       Failure? failure,
       Success? success});
 
@@ -2726,7 +2714,6 @@ class __$SocialsStateCopyWithImpl<$Res> extends _$SocialsStateCopyWithImpl<$Res>
     Object? clubQuickAccessItems = freezed,
     Object? club = freezed,
     Object? clubAnnouncements = freezed,
-    Object? addedClubId = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -2743,10 +2730,6 @@ class __$SocialsStateCopyWithImpl<$Res> extends _$SocialsStateCopyWithImpl<$Res>
           ? _value.clubAnnouncements
           : clubAnnouncements // ignore: cast_nullable_to_non_nullable
               as List<ClubAnnouncement>?,
-      addedClubId: addedClubId == freezed
-          ? _value.addedClubId
-          : addedClubId // ignore: cast_nullable_to_non_nullable
-              as String?,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -2766,7 +2749,6 @@ class _$_SocialsState implements _SocialsState {
       {this.clubQuickAccessItems,
       this.club,
       this.clubAnnouncements,
-      this.addedClubId,
       this.failure,
       this.success});
 
@@ -2777,15 +2759,13 @@ class _$_SocialsState implements _SocialsState {
   @override
   final List<ClubAnnouncement>? clubAnnouncements;
   @override
-  final String? addedClubId;
-  @override
   final Failure? failure;
   @override
   final Success? success;
 
   @override
   String toString() {
-    return 'SocialsState(clubQuickAccessItems: $clubQuickAccessItems, club: $club, clubAnnouncements: $clubAnnouncements, addedClubId: $addedClubId, failure: $failure, success: $success)';
+    return 'SocialsState(clubQuickAccessItems: $clubQuickAccessItems, club: $club, clubAnnouncements: $clubAnnouncements, failure: $failure, success: $success)';
   }
 
   @override
@@ -2798,8 +2778,6 @@ class _$_SocialsState implements _SocialsState {
             const DeepCollectionEquality().equals(other.club, club) &&
             const DeepCollectionEquality()
                 .equals(other.clubAnnouncements, clubAnnouncements) &&
-            const DeepCollectionEquality()
-                .equals(other.addedClubId, addedClubId) &&
             const DeepCollectionEquality().equals(other.failure, failure) &&
             const DeepCollectionEquality().equals(other.success, success));
   }
@@ -2810,7 +2788,6 @@ class _$_SocialsState implements _SocialsState {
       const DeepCollectionEquality().hash(clubQuickAccessItems),
       const DeepCollectionEquality().hash(club),
       const DeepCollectionEquality().hash(clubAnnouncements),
-      const DeepCollectionEquality().hash(addedClubId),
       const DeepCollectionEquality().hash(failure),
       const DeepCollectionEquality().hash(success));
 
@@ -2825,7 +2802,6 @@ abstract class _SocialsState implements SocialsState {
       {List<ClubQuickAccessItem>? clubQuickAccessItems,
       Club? club,
       List<ClubAnnouncement>? clubAnnouncements,
-      String? addedClubId,
       Failure? failure,
       Success? success}) = _$_SocialsState;
 
@@ -2835,8 +2811,6 @@ abstract class _SocialsState implements SocialsState {
   Club? get club;
   @override
   List<ClubAnnouncement>? get clubAnnouncements;
-  @override
-  String? get addedClubId;
   @override
   Failure? get failure;
   @override

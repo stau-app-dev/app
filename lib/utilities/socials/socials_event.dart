@@ -30,6 +30,6 @@ class SocialsEvent with _$SocialsEvent {
   const factory SocialsEvent.removeUserFromClub(
       {required String clubId,
       required String userEmail}) = _removeUserFromClub;
-  const factory SocialsEvent.resetAddedClubId() = _resetAddedClubId;
+  const factory SocialsEvent.resetClub() = _resetClub;
   const factory SocialsEvent.resetFailSuccess() = _resetFailSuccess;
 }
