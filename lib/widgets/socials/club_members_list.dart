@@ -7,21 +7,39 @@ class ClubMembersList extends StatelessWidget {
   final String title;
   final List<String> members;
   final bool isAdmin;
+  final bool isPending;
 
   const ClubMembersList(
       {Key? key,
       required this.title,
       required this.members,
-      required this.isAdmin})
+      required this.isAdmin,
+      this.isPending = false})
       : super(key: key);
 
   List<Widget> buildMembers(BuildContext context) {
     return members
-        .map((member) => Row(
+        .map((member) => Padding(
+            padding: EdgeInsets.symmetric(vertical: isAdmin ? 0.0 : 10.0),
+            child: Row(
               children: [
                 Text(member),
                 if (isAdmin) ...[
                   const Spacer(),
+                  if (isPending) ...[
+                    IconButton(
+                      icon: const Icon(Icons.check, color: Styles.secondary),
+                      onPressed: () => showConfirmationDialog(
+                        context: context,
+                        title: 'Confirm',
+                        content: 'Are you sure you want to accept $member?',
+                        onPressConfirm: () {
+                          Navigator.of(context).pop();
+                        },
+                      ),
+                    ),
+                    const SizedBox(width: 5.0),
+                  ],
                   IconButton(
                       onPressed: () {
                         showConfirmationDialog(
@@ -36,7 +54,7 @@ class ClubMembersList extends StatelessWidget {
                           color: Styles.secondary))
                 ]
               ],
-            ))
+            )))
         .toList();
   }
 

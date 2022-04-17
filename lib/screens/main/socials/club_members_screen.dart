@@ -74,6 +74,7 @@ class ClubMembersScreen extends StatelessWidget {
             title: 'Pending',
             members: pendingData,
             isAdmin: isAdmin && pending!.isNotEmpty,
+            isPending: true,
           ),
         const SizedBox(height: 20.0),
       ],
