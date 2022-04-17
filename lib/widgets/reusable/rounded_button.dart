@@ -25,14 +25,6 @@ class RoundedButton extends StatelessWidget {
                     color: Styles.white,
                     fontFamily: Styles.fontFamilyTitles,
                     fontWeight: FontWeight.bold)),
-            style: ButtonStyle(
-                foregroundColor: MaterialStateProperty.all<Color>(Styles.white),
-                backgroundColor:
-                    MaterialStateProperty.all<Color>(Styles.secondary),
-                shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                    const RoundedRectangleBorder(
-                        borderRadius: Styles.mainBorderRadius,
-                        side: BorderSide(color: Styles.secondary)))),
             onPressed: () => onPressed()));
   }
 }

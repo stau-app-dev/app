@@ -17,6 +17,14 @@ ThemeData appThemeData = ThemeData(
   brightness: Brightness.light,
   colorScheme: ColorScheme.fromSwatch()
       .copyWith(primary: Styles.primary, secondary: Styles.secondary),
+  elevatedButtonTheme: ElevatedButtonThemeData(
+      style: ButtonStyle(
+          foregroundColor: MaterialStateProperty.all<Color>(Styles.white),
+          backgroundColor: MaterialStateProperty.all<Color>(Styles.secondary),
+          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+              const RoundedRectangleBorder(
+                  borderRadius: Styles.mainBorderRadius,
+                  side: BorderSide(color: Styles.secondary))))),
   fontFamily: Styles.fontFamilyNormal,
   hintColor: Styles.grey,
   iconTheme: const IconThemeData(color: Styles.primary),
