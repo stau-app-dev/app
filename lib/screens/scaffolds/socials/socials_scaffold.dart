@@ -30,13 +30,14 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
   }
 
   void onPressedClub(String clubId) {
+    // Get the picture url of the club
     int index = socialsBloc.state.clubQuickAccessItems!
         .indexWhere((element) => element.id == clubId);
     if (index != -1) {
-      String pictureUrl =
-          socialsBloc.state.clubQuickAccessItems![index].pictureUrl;
-      socialsBloc
-          .add(SocialsEvent.getClub(clubId: clubId, pictureUrl: pictureUrl));
+      socialsBloc.add(SocialsEvent.getClub(
+          clubId: clubId,
+          pictureUrl:
+              socialsBloc.state.clubQuickAccessItems![index].pictureUrl));
       navBloc.add(const NavEvent.changeScreen(screen: ENav.club));
     } else {
       useCustomSnackbar(

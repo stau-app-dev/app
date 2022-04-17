@@ -8,13 +8,17 @@ class ClubMembersList extends StatelessWidget {
   final List<String> members;
   final bool isAdmin;
   final bool isPending;
+  final Function(String userEmail) onPressAddUser;
+  final Function(String userEmail) onPressRemoveUser;
 
   const ClubMembersList(
       {Key? key,
       required this.title,
       required this.members,
       required this.isAdmin,
-      this.isPending = false})
+      this.isPending = false,
+      required this.onPressAddUser,
+      required this.onPressRemoveUser})
       : super(key: key);
 
   List<Widget> buildMembers(BuildContext context) {
@@ -34,6 +38,7 @@ class ClubMembersList extends StatelessWidget {
                         title: 'Confirm',
                         content: 'Are you sure you want to accept $member?',
                         onPressConfirm: () {
+                          onPressAddUser(member);
                           Navigator.of(context).pop();
                         },
                       ),
@@ -47,6 +52,7 @@ class ClubMembersList extends StatelessWidget {
                             title: 'Confirmation',
                             content: 'Are you sure you want to remove $member?',
                             onPressConfirm: () {
+                              onPressRemoveUser(member);
                               Navigator.of(context).pop();
                             });
                       },
