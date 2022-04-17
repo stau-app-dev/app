@@ -53,10 +53,10 @@ class SocialsApi {
         }
         return Right(clubs);
       } else {
-        return const Left(Failure(message: errorGettingUserClubs));
+        return const Left(Failure(message: errorGettingUserClubsNotJoined));
       }
     } catch (e) {
-      return const Left(Failure(message: errorGettingUserClubs));
+      return const Left(Failure(message: errorGettingUserClubsNotJoined));
     }
   }
 

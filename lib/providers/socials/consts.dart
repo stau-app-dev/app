@@ -16,6 +16,7 @@ String removeUserFromClubEndpoint =
     getCloudFunctionsDomain() + '/removeUserFromClub';
 const errorAddingClub = 'Error adding club';
 const errorGettingUserClubs = 'Error getting user clubs';
+const errorGettingUserClubsNotJoined = 'Error getting user clubs not joined';
 const errorGettingClub = 'Error getting club';
 const errorAddingClubAnnouncement = 'Error adding club announcement';
 const errorGettingClubAnnouncements = 'Error getting club announcements';
