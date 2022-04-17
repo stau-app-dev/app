@@ -71,6 +71,30 @@ class _$SocialsEventTearOff {
     );
   }
 
+  _addUserToClub addUserToClub(
+      {required String clubId, required String userId}) {
+    return _addUserToClub(
+      clubId: clubId,
+      userId: userId,
+    );
+  }
+
+  _addUserToPendingClub addUserToPendingClub(
+      {required String clubId, required String userId}) {
+    return _addUserToPendingClub(
+      clubId: clubId,
+      userId: userId,
+    );
+  }
+
+  _removeUserFromClub removeUserFromClub(
+      {required String clubId, required String userId}) {
+    return _removeUserFromClub(
+      clubId: clubId,
+      userId: userId,
+    );
+  }
+
   _resetAddedClubId resetAddedClubId() {
     return const _resetAddedClubId();
   }
@@ -103,6 +127,10 @@ mixin _$SocialsEvent {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) =>
@@ -125,6 +153,9 @@ mixin _$SocialsEvent {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) =>
@@ -147,6 +178,9 @@ mixin _$SocialsEvent {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -159,6 +193,9 @@ mixin _$SocialsEvent {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
@@ -170,6 +207,9 @@ mixin _$SocialsEvent {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
@@ -181,6 +221,9 @@ mixin _$SocialsEvent {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -284,6 +327,10 @@ class _$_getUserClubs implements _getUserClubs {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -309,6 +356,9 @@ class _$_getUserClubs implements _getUserClubs {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -334,6 +384,9 @@ class _$_getUserClubs implements _getUserClubs {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -352,6 +405,9 @@ class _$_getUserClubs implements _getUserClubs {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -366,6 +422,9 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -380,6 +439,9 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -489,6 +551,10 @@ class _$_getClub implements _getClub {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -514,6 +580,9 @@ class _$_getClub implements _getClub {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -539,6 +608,9 @@ class _$_getClub implements _getClub {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -557,6 +629,9 @@ class _$_getClub implements _getClub {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -571,6 +646,9 @@ class _$_getClub implements _getClub {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -585,6 +663,9 @@ class _$_getClub implements _getClub {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -767,6 +848,10 @@ class _$_addClub implements _addClub {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -793,6 +878,9 @@ class _$_addClub implements _addClub {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -819,6 +907,9 @@ class _$_addClub implements _addClub {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -838,6 +929,9 @@ class _$_addClub implements _addClub {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -852,6 +946,9 @@ class _$_addClub implements _addClub {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -866,6 +963,9 @@ class _$_addClub implements _addClub {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -1017,6 +1117,10 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -1042,6 +1146,9 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -1067,6 +1174,9 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -1085,6 +1195,9 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -1099,6 +1212,9 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -1113,6 +1229,9 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -1222,6 +1341,10 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -1247,6 +1370,9 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -1272,6 +1398,9 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -1290,6 +1419,9 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -1304,6 +1436,9 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -1318,6 +1453,9 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -1336,6 +1474,692 @@ abstract class _getClubAnnouncements implements SocialsEvent {
   String get clubId;
   @JsonKey(ignore: true)
   _$getClubAnnouncementsCopyWith<_getClubAnnouncements> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$addUserToClubCopyWith<$Res> {
+  factory _$addUserToClubCopyWith(
+          _addUserToClub value, $Res Function(_addUserToClub) then) =
+      __$addUserToClubCopyWithImpl<$Res>;
+  $Res call({String clubId, String userId});
+}
+
+/// @nodoc
+class __$addUserToClubCopyWithImpl<$Res>
+    extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$addUserToClubCopyWith<$Res> {
+  __$addUserToClubCopyWithImpl(
+      _addUserToClub _value, $Res Function(_addUserToClub) _then)
+      : super(_value, (v) => _then(v as _addUserToClub));
+
+  @override
+  _addUserToClub get _value => super._value as _addUserToClub;
+
+  @override
+  $Res call({
+    Object? clubId = freezed,
+    Object? userId = freezed,
+  }) {
+    return _then(_addUserToClub(
+      clubId: clubId == freezed
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_addUserToClub implements _addUserToClub {
+  const _$_addUserToClub({required this.clubId, required this.userId});
+
+  @override
+  final String clubId;
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.addUserToClub(clubId: $clubId, userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _addUserToClub &&
+            const DeepCollectionEquality().equals(other.clubId, clubId) &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(clubId),
+      const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$addUserToClubCopyWith<_addUserToClub> get copyWith =>
+      __$addUserToClubCopyWithImpl<_addUserToClub>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function(
+            String clubId, String clubName, String content, String creatorName)
+        addClubAnnouncement,
+    required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
+    required TResult Function() resetAddedClubId,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return addUserToClub(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return addUserToClub?.call(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addUserToClub != null) {
+      return addUserToClub(clubId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
+    required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
+    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return addUserToClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return addUserToClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addUserToClub != null) {
+      return addUserToClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _addUserToClub implements SocialsEvent {
+  const factory _addUserToClub(
+      {required String clubId, required String userId}) = _$_addUserToClub;
+
+  String get clubId;
+  String get userId;
+  @JsonKey(ignore: true)
+  _$addUserToClubCopyWith<_addUserToClub> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$addUserToPendingClubCopyWith<$Res> {
+  factory _$addUserToPendingClubCopyWith(_addUserToPendingClub value,
+          $Res Function(_addUserToPendingClub) then) =
+      __$addUserToPendingClubCopyWithImpl<$Res>;
+  $Res call({String clubId, String userId});
+}
+
+/// @nodoc
+class __$addUserToPendingClubCopyWithImpl<$Res>
+    extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$addUserToPendingClubCopyWith<$Res> {
+  __$addUserToPendingClubCopyWithImpl(
+      _addUserToPendingClub _value, $Res Function(_addUserToPendingClub) _then)
+      : super(_value, (v) => _then(v as _addUserToPendingClub));
+
+  @override
+  _addUserToPendingClub get _value => super._value as _addUserToPendingClub;
+
+  @override
+  $Res call({
+    Object? clubId = freezed,
+    Object? userId = freezed,
+  }) {
+    return _then(_addUserToPendingClub(
+      clubId: clubId == freezed
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_addUserToPendingClub implements _addUserToPendingClub {
+  const _$_addUserToPendingClub({required this.clubId, required this.userId});
+
+  @override
+  final String clubId;
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.addUserToPendingClub(clubId: $clubId, userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _addUserToPendingClub &&
+            const DeepCollectionEquality().equals(other.clubId, clubId) &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(clubId),
+      const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$addUserToPendingClubCopyWith<_addUserToPendingClub> get copyWith =>
+      __$addUserToPendingClubCopyWithImpl<_addUserToPendingClub>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function(
+            String clubId, String clubName, String content, String creatorName)
+        addClubAnnouncement,
+    required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
+    required TResult Function() resetAddedClubId,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return addUserToPendingClub(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return addUserToPendingClub?.call(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addUserToPendingClub != null) {
+      return addUserToPendingClub(clubId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
+    required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
+    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return addUserToPendingClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return addUserToPendingClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (addUserToPendingClub != null) {
+      return addUserToPendingClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _addUserToPendingClub implements SocialsEvent {
+  const factory _addUserToPendingClub(
+      {required String clubId,
+      required String userId}) = _$_addUserToPendingClub;
+
+  String get clubId;
+  String get userId;
+  @JsonKey(ignore: true)
+  _$addUserToPendingClubCopyWith<_addUserToPendingClub> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$removeUserFromClubCopyWith<$Res> {
+  factory _$removeUserFromClubCopyWith(
+          _removeUserFromClub value, $Res Function(_removeUserFromClub) then) =
+      __$removeUserFromClubCopyWithImpl<$Res>;
+  $Res call({String clubId, String userId});
+}
+
+/// @nodoc
+class __$removeUserFromClubCopyWithImpl<$Res>
+    extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$removeUserFromClubCopyWith<$Res> {
+  __$removeUserFromClubCopyWithImpl(
+      _removeUserFromClub _value, $Res Function(_removeUserFromClub) _then)
+      : super(_value, (v) => _then(v as _removeUserFromClub));
+
+  @override
+  _removeUserFromClub get _value => super._value as _removeUserFromClub;
+
+  @override
+  $Res call({
+    Object? clubId = freezed,
+    Object? userId = freezed,
+  }) {
+    return _then(_removeUserFromClub(
+      clubId: clubId == freezed
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
+              as String,
+      userId: userId == freezed
+          ? _value.userId
+          : userId // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_removeUserFromClub implements _removeUserFromClub {
+  const _$_removeUserFromClub({required this.clubId, required this.userId});
+
+  @override
+  final String clubId;
+  @override
+  final String userId;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.removeUserFromClub(clubId: $clubId, userId: $userId)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _removeUserFromClub &&
+            const DeepCollectionEquality().equals(other.clubId, clubId) &&
+            const DeepCollectionEquality().equals(other.userId, userId));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(clubId),
+      const DeepCollectionEquality().hash(userId));
+
+  @JsonKey(ignore: true)
+  @override
+  _$removeUserFromClubCopyWith<_removeUserFromClub> get copyWith =>
+      __$removeUserFromClubCopyWithImpl<_removeUserFromClub>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(String clubId, String pictureUrl) getClub,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function(
+            String clubId, String clubName, String content, String creatorName)
+        addClubAnnouncement,
+    required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
+    required TResult Function() resetAddedClubId,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return removeUserFromClub(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return removeUserFromClub?.call(clubId, userId);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
+    TResult Function()? resetAddedClubId,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (removeUserFromClub != null) {
+      return removeUserFromClub(clubId, userId);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getClub value) getClub,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
+    required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
+    required TResult Function(_resetAddedClubId value) resetAddedClubId,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return removeUserFromClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return removeUserFromClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetAddedClubId value)? resetAddedClubId,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (removeUserFromClub != null) {
+      return removeUserFromClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _removeUserFromClub implements SocialsEvent {
+  const factory _removeUserFromClub(
+      {required String clubId, required String userId}) = _$_removeUserFromClub;
+
+  String get clubId;
+  String get userId;
+  @JsonKey(ignore: true)
+  _$removeUserFromClubCopyWith<_removeUserFromClub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1396,6 +2220,10 @@ class _$_resetAddedClubId implements _resetAddedClubId {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -1421,6 +2249,9 @@ class _$_resetAddedClubId implements _resetAddedClubId {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -1446,6 +2277,9 @@ class _$_resetAddedClubId implements _resetAddedClubId {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -1464,6 +2298,9 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -1478,6 +2315,9 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -1492,6 +2332,9 @@ class _$_resetAddedClubId implements _resetAddedClubId {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
@@ -1564,6 +2407,10 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userId) addUserToClub,
+    required TResult Function(String clubId, String userId)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userId) removeUserFromClub,
     required TResult Function() resetAddedClubId,
     required TResult Function() resetFailSuccess,
   }) {
@@ -1589,6 +2436,9 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
   }) {
@@ -1614,6 +2464,9 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userId)? addUserToClub,
+    TResult Function(String clubId, String userId)? addUserToPendingClub,
+    TResult Function(String clubId, String userId)? removeUserFromClub,
     TResult Function()? resetAddedClubId,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
@@ -1632,6 +2485,9 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     required TResult Function(_addClub value) addClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
     required TResult Function(_resetAddedClubId value) resetAddedClubId,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
@@ -1646,6 +2502,9 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
@@ -1660,6 +2519,9 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_addClub value)? addClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
     TResult Function(_resetAddedClubId value)? resetAddedClubId,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),

@@ -22,6 +22,12 @@ class SocialsEvent with _$SocialsEvent {
       required String creatorName}) = _addClubAnnouncement;
   const factory SocialsEvent.getClubAnnouncements({required String clubId}) =
       _getClubAnnouncements;
+  const factory SocialsEvent.addUserToClub(
+      {required String clubId, required String userId}) = _addUserToClub;
+  const factory SocialsEvent.addUserToPendingClub(
+      {required String clubId, required String userId}) = _addUserToPendingClub;
+  const factory SocialsEvent.removeUserFromClub(
+      {required String clubId, required String userId}) = _removeUserFromClub;
   const factory SocialsEvent.resetAddedClubId() = _resetAddedClubId;
   const factory SocialsEvent.resetFailSuccess() = _resetFailSuccess;
 }
