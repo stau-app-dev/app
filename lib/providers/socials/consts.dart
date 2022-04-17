@@ -2,6 +2,8 @@ import 'package:staugustinechsnewapp/providers/network.dart';
 
 String addClubEndpoint = getCloudFunctionsDomain() + '/addClub';
 String getUserClubsEndpoint = getCloudFunctionsDomain() + '/getUserClubs';
+String getUserClubsNotJoinedEndpoint =
+    getCloudFunctionsDomain() + '/getUserClubsNotJoined';
 String getClubEndpoint = getCloudFunctionsDomain() + '/getClub';
 String addClubAnnouncementEndpoint =
     getCloudFunctionsDomain() + '/addClubAnnouncement';

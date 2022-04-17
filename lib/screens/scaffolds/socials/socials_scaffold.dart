@@ -48,6 +48,8 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
   }
 
   void onPressJoinClubsButton() {
+    socialsBloc.add(
+        SocialsEvent.getUserClubsNotJoined(userId: profileBloc.state.user!.id));
     navBloc.add(const NavEvent.changeScreen(screen: ENav.joinClubs));
   }
 
@@ -120,15 +122,13 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
                 ? profileState.user!.status > 0
                 : false;
 
-            return Stack(children: [
-              SocialsScreen(
-                clubs: state.clubQuickAccessItems ?? [],
-                onPressClub: onPressedClub,
-                onPressJoinClubsButton: onPressJoinClubsButton,
-                isAdmin: isAdmin,
-                onPressCreateClub: onPressedCreateClub,
-              ),
-            ]);
+            return SocialsScreen(
+              clubs: state.clubQuickAccessItems ?? [],
+              onPressClub: onPressedClub,
+              onPressJoinClubsButton: onPressJoinClubsButton,
+              isAdmin: isAdmin,
+              onPressCreateClub: onPressedCreateClub,
+            );
           });
         });
   }

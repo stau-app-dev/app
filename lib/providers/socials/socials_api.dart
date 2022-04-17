@@ -35,6 +35,31 @@ class SocialsApi {
     }
   }
 
+  static Future<Either<Failure, List<ClubQuickAccessItem>>>
+      getUserClubsNotJoined({
+    required String userId,
+  }) async {
+    try {
+      var uri = Uri.parse(getUserClubsNotJoinedEndpoint);
+      uri = uri.replace(queryParameters: {
+        'userId': userId,
+      });
+      Response res = await get(uri);
+      if (res.statusCode == 200) {
+        List<dynamic> data = json.decode(res.body)['data'];
+        List<ClubQuickAccessItem> clubs = [];
+        for (var i = 0; i < data.length; i++) {
+          clubs.add(ClubQuickAccessItem.fromJson(data[i]));
+        }
+        return Right(clubs);
+      } else {
+        return const Left(Failure(message: errorGettingUserClubs));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorGettingUserClubs));
+    }
+  }
+
   static Future<Either<Failure, Club>> getClub({
     required String clubId,
     required String pictureUrl,

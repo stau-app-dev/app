@@ -4,6 +4,8 @@ part of 'socials_bloc.dart';
 class SocialsEvent with _$SocialsEvent {
   const factory SocialsEvent.getUserClubs({required String userId}) =
       _getUserClubs;
+  const factory SocialsEvent.getUserClubsNotJoined({required String userId}) =
+      _getUserClubsNotJoined;
   const factory SocialsEvent.getClub(
       {required String clubId, required String pictureUrl}) = _getClub;
   const factory SocialsEvent.addClub(

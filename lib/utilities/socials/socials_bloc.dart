@@ -25,6 +25,13 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(clubQuickAccessItems: r)));
         },
+        getUserClubsNotJoined: (e) async {
+          emit(state.copyWith(clubQuickAccessItems: []));
+          Either<Failure, List<ClubQuickAccessItem>> res =
+              await SocialsRepository.getUserClubsNotJoined(userId: e.userId);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(clubQuickAccessItems: r)));
+        },
         getClub: (e) async {
           Either<Failure, Club> res = await SocialsRepository.getClub(
               clubId: e.clubId, pictureUrl: e.pictureUrl);
