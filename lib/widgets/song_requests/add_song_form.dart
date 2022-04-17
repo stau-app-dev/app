@@ -42,8 +42,7 @@ class _AddSongFormState extends State<AddSongForm> {
               alignment: Alignment.center,
               child: const Text(
                   'Note: \nAll song recommendations MUST be school appropriate, this means no explicit language or subjects.',
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 12.0))),
+                  textAlign: TextAlign.center)),
         ]));
   }
 }

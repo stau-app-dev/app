@@ -21,10 +21,10 @@ class RoundedButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
             child: Text(text,
-                style: const TextStyle(
-                    color: Styles.white,
-                    fontFamily: Styles.fontFamilyTitles,
-                    fontWeight: FontWeight.bold)),
+                style: Theme.of(context)
+                    .textTheme
+                    .subtitle2!
+                    .copyWith(color: Colors.white)),
             onPressed: () => onPressed()));
   }
 }

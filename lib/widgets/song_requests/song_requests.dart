@@ -71,11 +71,12 @@ class SongRequests extends StatelessWidget {
                           children: <Widget>[
                             Icon(Icons.keyboard_arrow_up_rounded,
                                 color: upvoteColor),
-                            Text(
-                              song.upvotes.toString(),
-                              style: const TextStyle(
-                                  color: Styles.white, fontSize: 12.0),
-                            ),
+                            Text(song.upvotes.toString(),
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .bodyText2!
+                                    .copyWith(
+                                        color: upvoteColor, fontSize: 12.0))
                           ],
                         )),
                     buildSongInfo(
