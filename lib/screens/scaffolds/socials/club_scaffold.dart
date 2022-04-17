@@ -121,6 +121,11 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         // Therefore, we don't need to do anything here.
         // It's not great and should probably be refactored.
         // But that's a later issue.
+
+        // Refresh for any success events
+        if (state.success != null && state.club != null) {
+          onRefresh();
+        }
         if (state.club != null) {
           String clubId = state.club!.id;
           String userEmail = profileState.user!.email;
