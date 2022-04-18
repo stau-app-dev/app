@@ -6,6 +6,7 @@ import 'package:staugustinechsnewapp/widgets/socials/club_members_list.dart';
 class ClubMembersScreen extends StatelessWidget {
   final String clubName;
   final Function() onPressBack;
+  final String userEmail;
   final List<String> admins;
   final List<String> members;
   final List<String>? pending;
@@ -14,8 +15,9 @@ class ClubMembersScreen extends StatelessWidget {
 
   const ClubMembersScreen(
       {Key? key,
-      required this.onPressBack,
       required this.clubName,
+      required this.onPressBack,
+      required this.userEmail,
       required this.admins,
       required this.members,
       this.pending,
@@ -64,6 +66,7 @@ class ClubMembersScreen extends StatelessWidget {
         ClubMembersList(
           title: 'Admins',
           members: adminData,
+          userEmail: userEmail,
           isAdmin: isAdmin && admins.isNotEmpty,
           onPressAddUser: onPressAddUser,
           onPressRemoveUser: onPressRemoveUser,
@@ -72,6 +75,7 @@ class ClubMembersScreen extends StatelessWidget {
         ClubMembersList(
           title: 'Members List',
           members: membersData,
+          userEmail: userEmail,
           isAdmin: isAdmin && members.isNotEmpty,
           onPressAddUser: onPressAddUser,
           onPressRemoveUser: onPressRemoveUser,
@@ -81,6 +85,7 @@ class ClubMembersScreen extends StatelessWidget {
           ClubMembersList(
             title: 'Pending',
             members: pendingData,
+            userEmail: userEmail,
             isAdmin: isAdmin && pending!.isNotEmpty,
             isPending: true,
             onPressAddUser: onPressAddUser,

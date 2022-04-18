@@ -6,6 +6,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.d
 class ClubMembersList extends StatelessWidget {
   final String title;
   final List<String> members;
+  final String userEmail;
   final bool isAdmin;
   final bool isPending;
   final Function(String userEmail) onPressAddUser;
@@ -15,6 +16,7 @@ class ClubMembersList extends StatelessWidget {
       {Key? key,
       required this.title,
       required this.members,
+      required this.userEmail,
       required this.isAdmin,
       this.isPending = false,
       required this.onPressAddUser,
@@ -38,7 +40,7 @@ class ClubMembersList extends StatelessWidget {
             child: Row(
               children: [
                 Text(member),
-                if (isAdmin) ...[
+                if (isAdmin && userEmail != member) ...[
                   const Spacer(),
                   if (isPending) ...[
                     IconButton(

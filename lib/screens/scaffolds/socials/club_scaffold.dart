@@ -62,6 +62,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     setState(() {
       joinButtonState = EJoinButtonState.pending;
     });
+    Navigator.pop(context);
   }
 
   void onJoinClub() {
@@ -83,7 +84,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       showConfirmationDialog(
           context: context,
           content: 'Are you sure you want to request to join this club?',
-          onPressConfirm: onJoinClub);
+          onPressConfirm: onRequestToJoin);
     } else if (joinPreference == 2) {
       showConfirmationDialog(
           context: context,
@@ -205,12 +206,11 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           });
         }
       }, builder: (context, socialsState) {
+        String userEmail = profileState.user?.email ?? '';
         bool isClubAdmin =
-            socialsState.club?.admins.contains(profileState.user?.email) ??
-                false;
+            socialsState.club?.admins.contains(userEmail) ?? false;
         bool isClubMember =
-            socialsState.club?.members.contains(profileState.user?.email) ??
-                false;
+            socialsState.club?.members.contains(userEmail) ?? false;
         bool isPartOfClub = isClubAdmin || isClubMember;
 
         return Stack(children: [
@@ -251,6 +251,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                     });
                   },
                   clubName: socialsState.club?.name ?? '',
+                  userEmail: userEmail,
                   admins: socialsState.club?.admins ?? [],
                   members: socialsState.club?.members ?? [],
                   pending: isClubAdmin ? socialsState.club?.pending : null,
