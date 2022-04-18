@@ -16,12 +16,17 @@ class SocialsRepository {
     return await SocialsApi.getUserClubs(userId: userId);
   }
 
+  static Future<Either<Failure, List<ClubQuickAccessItem>>>
+      getUserClubsNotJoined({required String userId}) async {
+    return await SocialsApi.getUserClubsNotJoined(userId: userId);
+  }
+
   static Future<Either<Failure, Club>> getClub(
       {required String clubId, required String pictureUrl}) async {
     return await SocialsApi.getClub(clubId: clubId, pictureUrl: pictureUrl);
   }
 
-  static Future<Either<Failure, Club>> addClub({
+  static Future<Either<Failure, Success>> addClub({
     required String description,
     required String email,
     required int joinPreference,
@@ -52,5 +57,28 @@ class SocialsRepository {
   static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements(
       {required String clubId}) async {
     return await SocialsApi.getClubAnnouncements(clubId: clubId);
+  }
+
+  static Future<Either<Failure, Success>> addUserToClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    return await SocialsApi.addUserToClub(clubId: clubId, userEmail: userEmail);
+  }
+
+  static Future<Either<Failure, Success>> addUserToPendingClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    return await SocialsApi.addUserToPendingClub(
+        clubId: clubId, userEmail: userEmail);
+  }
+
+  static Future<Either<Failure, Success>> removeUserFromClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    return await SocialsApi.removeUserFromClub(
+        clubId: clubId, userEmail: userEmail);
   }
 }

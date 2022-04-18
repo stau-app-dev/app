@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 
 void showConfirmationDialog(
     {required BuildContext context,
-    required String title,
+    String title = 'Confirmation',
     required String content,
     required Function() onPressConfirm}) {
   Widget cancelButton = TextButton(

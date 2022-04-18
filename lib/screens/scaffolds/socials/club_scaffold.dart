@@ -4,9 +4,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
+import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 
@@ -19,30 +23,104 @@ class ClubScaffold extends StatefulWidget {
 class _ClubScaffoldState extends State<ClubScaffold> {
   late final SocialsBloc socialsBloc;
   late final ProfileBloc profileBloc;
+  late final NavBloc navBloc;
 
   bool showMembersScreen = false;
+  EJoinButtonState joinButtonState = EJoinButtonState.open;
 
   @override
   void initState() {
     socialsBloc = BlocProvider.of<SocialsBloc>(context);
     profileBloc = BlocProvider.of<ProfileBloc>(context);
+    navBloc = BlocProvider.of<NavBloc>(context);
     super.initState();
   }
 
   void onRefresh() {
-    String clubId = socialsBloc.state.club!.id;
     socialsBloc.add(SocialsEvent.getClub(
-        clubId: clubId, pictureUrl: socialsBloc.state.club!.pictureUrl));
-    socialsBloc.add(SocialsEvent.getClubAnnouncements(clubId: clubId));
+        clubId: socialsBloc.state.club!.id,
+        pictureUrl: socialsBloc.state.club!.pictureUrl));
   }
 
-  void onPressJoin() {}
+  void onLeaveClub() {
+    onPressRemoveUser(profileBloc.state.user!.email);
+    socialsBloc.add(const SocialsEvent.resetClub());
+
+    // Need to double pop to remove:
+    // 1. The confirmation dialog
+    // 2. The popup card
+    Navigator.pop(context);
+    Navigator.pop(context);
+
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.socials));
+  }
+
+  void onRequestToJoin() {
+    socialsBloc.add(SocialsEvent.addUserToPendingClub(
+        clubId: socialsBloc.state.club!.id,
+        userEmail: profileBloc.state.user!.email));
+    setState(() {
+      joinButtonState = EJoinButtonState.pending;
+    });
+  }
+
+  void onJoinClub() {
+    onPressAddUser(profileBloc.state.user!.email);
+    socialsBloc.add(const SocialsEvent.resetClub());
+    Navigator.pop(context);
+    navBloc.add(const NavEvent.changeScreen(screen: ENav.socials));
+  }
+
+  void onPressJoin() {
+    int joinPreference = socialsBloc.state.club!.joinPreference;
+
+    if (joinPreference == 0) {
+      useCustomSnackbar(
+          context: context,
+          message: 'Club is not open to join',
+          type: ESnackBarType.failure);
+    } else if (joinPreference == 1) {
+      showConfirmationDialog(
+          context: context,
+          content: 'Are you sure you want to request to join this club?',
+          onPressConfirm: onJoinClub);
+    } else if (joinPreference == 2) {
+      showConfirmationDialog(
+          context: context,
+          content: 'Are you sure you want to join this club?',
+          onPressConfirm: onJoinClub);
+    }
+  }
+
+  void onPressAddUser(String userEmail) {
+    socialsBloc.add(SocialsEvent.addUserToClub(
+      clubId: socialsBloc.state.club!.id,
+      userEmail: userEmail,
+    ));
+  }
+
+  void onPressRemoveUser(String userEmail) {
+    socialsBloc.add(SocialsEvent.removeUserFromClub(
+      clubId: socialsBloc.state.club!.id,
+      userEmail: userEmail,
+    ));
+  }
 
   void onPressAddAnnouncement() {
     usePopupCard(
         context: context,
         title: 'Add Announcement',
         child: AddAnnouncementForm(onPressedSubmit: onSubmitAddAnnouncement));
+  }
+
+  void onSubmitAddAnnouncement(String content) {
+    socialsBloc.add(SocialsEvent.addClubAnnouncement(
+      clubId: socialsBloc.state.club!.id,
+      content: content,
+      clubName: socialsBloc.state.club!.name,
+      creatorName: profileBloc.state.user!.name,
+    ));
+    Navigator.pop(context);
   }
 
   void onPressedSettings(bool isAdmin) {
@@ -57,17 +135,13 @@ class _ClubScaffoldState extends State<ClubScaffold> {
             });
             Navigator.pop(context);
           },
+          onPressLeaveClub: () {
+            showConfirmationDialog(
+                context: context,
+                content: 'Are you sure you want to leave this club?',
+                onPressConfirm: onLeaveClub);
+          },
         ));
-  }
-
-  void onSubmitAddAnnouncement(String content) {
-    socialsBloc.add(SocialsEvent.addClubAnnouncement(
-      clubId: socialsBloc.state.club!.id,
-      content: content,
-      clubName: socialsBloc.state.club!.name,
-      creatorName: profileBloc.state.user!.name,
-    ));
-    Navigator.pop(context);
   }
 
   @override
@@ -85,19 +159,59 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         // Therefore, we don't need to do anything here.
         // It's not great and should probably be refactored.
         // But that's a later issue.
-        if (state.club != null) {
-          socialsBloc
-              .add(SocialsEvent.getClubAnnouncements(clubId: state.club!.id));
-        }
-        // Refresh the announcements when the club changes.
+
+        // Refresh for any success events
         if (state.success != null && state.club != null) {
-          socialsBloc.add(SocialsEvent.getClubAnnouncements(
-              clubId: socialsBloc.state.club!.id));
+          onRefresh();
+        }
+        if (state.club != null) {
+          String clubId = state.club!.id;
+          String userEmail = profileState.user!.email;
+          int joinPreference = state.club!.joinPreference;
+
+          // Join button logic
+          if (joinPreference == 0) {
+            setState(() {
+              joinButtonState = EJoinButtonState.notOpen;
+            });
+          } else if (joinPreference == 1 &&
+              state.club!.pending.contains(userEmail)) {
+            setState(() {
+              joinButtonState = EJoinButtonState.pending;
+            });
+          } else if (joinPreference == 1) {
+            setState(() {
+              joinButtonState = EJoinButtonState.request;
+            });
+          } else if (joinPreference == 2) {
+            setState(() {
+              joinButtonState = EJoinButtonState.open;
+            });
+          } else {
+            setState(() {
+              joinButtonState = EJoinButtonState.notOpen;
+            });
+          }
+
+          // Only get announcements if user is a member
+          if (state.club!.members.contains(userEmail) ||
+              state.club!.admins.contains(userEmail)) {
+            socialsBloc.add(SocialsEvent.getClubAnnouncements(clubId: clubId));
+          }
+
+          // Also reset back to main screen
+          setState(() {
+            showMembersScreen = false;
+          });
         }
       }, builder: (context, socialsState) {
         bool isClubAdmin =
             socialsState.club?.admins.contains(profileState.user?.email) ??
                 false;
+        bool isClubMember =
+            socialsState.club?.members.contains(profileState.user?.email) ??
+                false;
+        bool isPartOfClub = isClubAdmin || isClubMember;
 
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
@@ -140,10 +254,14 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                   admins: socialsState.club?.admins ?? [],
                   members: socialsState.club?.members ?? [],
                   pending: isClubAdmin ? socialsState.club?.pending : null,
+                  onPressAddUser: onPressAddUser,
+                  onPressRemoveUser: onPressRemoveUser,
                 )
               : ClubScreen(
                   club: socialsState.club,
                   clubAnnouncements: socialsState.clubAnnouncements,
+                  isPartOfClub: isPartOfClub,
+                  joinButtonState: joinButtonState,
                   onRefresh: onRefresh,
                   onPressJoin: onPressJoin,
                   onPressAddAnnouncement:

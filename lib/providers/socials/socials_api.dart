@@ -35,6 +35,31 @@ class SocialsApi {
     }
   }
 
+  static Future<Either<Failure, List<ClubQuickAccessItem>>>
+      getUserClubsNotJoined({
+    required String userId,
+  }) async {
+    try {
+      var uri = Uri.parse(getUserClubsNotJoinedEndpoint);
+      uri = uri.replace(queryParameters: {
+        'userId': userId,
+      });
+      Response res = await get(uri);
+      if (res.statusCode == 200) {
+        List<dynamic> data = json.decode(res.body)['data'];
+        List<ClubQuickAccessItem> clubs = [];
+        for (var i = 0; i < data.length; i++) {
+          clubs.add(ClubQuickAccessItem.fromJson(data[i]));
+        }
+        return Right(clubs);
+      } else {
+        return const Left(Failure(message: errorGettingUserClubsNotJoined));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorGettingUserClubsNotJoined));
+    }
+  }
+
   static Future<Either<Failure, Club>> getClub({
     required String clubId,
     required String pictureUrl,
@@ -58,7 +83,7 @@ class SocialsApi {
     }
   }
 
-  static Future<Either<Failure, Club>> addClub({
+  static Future<Either<Failure, Success>> addClub({
     required String description,
     required String email,
     required int joinPreference,
@@ -77,8 +102,8 @@ class SocialsApi {
         }),
       );
       if (res.statusCode == 200) {
-        Club club = Club.fromJson(json.decode(res.body)['data']['club']);
-        return Right(club);
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
       } else {
         return const Left(Failure(message: errorAddingClub));
       }
@@ -135,6 +160,75 @@ class SocialsApi {
       }
     } catch (e) {
       return const Left(Failure(message: errorGettingClubAnnouncements));
+    }
+  }
+
+  static Future<Either<Failure, Success>> addUserToClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(addUserToClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userEmail': userEmail,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorAddingUserToClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorAddingUserToClub));
+    }
+  }
+
+  static Future<Either<Failure, Success>> addUserToPendingClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(addUserToPendingClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userEmail': userEmail,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorAddingUserToPendingClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorAddingUserToPendingClub));
+    }
+  }
+
+  static Future<Either<Failure, Success>> removeUserFromClub({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(removeUserFromClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userEmail': userEmail,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorRemovingUserFromClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorRemovingUserFromClub));
     }
   }
 }

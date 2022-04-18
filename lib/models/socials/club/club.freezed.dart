@@ -58,7 +58,8 @@ mixin _$Club {
   String get id => throw _privateConstructorUsedError;
   List<String> get admins => throw _privateConstructorUsedError;
   String get description => throw _privateConstructorUsedError;
-  int get joinPreference => throw _privateConstructorUsedError;
+  int get joinPreference =>
+      throw _privateConstructorUsedError; // 0 = no one can join, 1 = requires admin approval, 2 = anyone can join
   List<String> get members => throw _privateConstructorUsedError;
   String get name => throw _privateConstructorUsedError;
   List<String> get pending => throw _privateConstructorUsedError;
@@ -250,7 +251,7 @@ class _$_Club implements _Club {
   final String description;
   @override
   final int joinPreference;
-  @override
+  @override // 0 = no one can join, 1 = requires admin approval, 2 = anyone can join
   final List<String> members;
   @override
   final String name;
@@ -331,7 +332,7 @@ abstract class _Club implements Club {
   String get description;
   @override
   int get joinPreference;
-  @override
+  @override // 0 = no one can join, 1 = requires admin approval, 2 = anyone can join
   List<String> get members;
   @override
   String get name;

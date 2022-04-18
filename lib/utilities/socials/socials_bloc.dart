@@ -20,8 +20,16 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
   SocialsBloc() : super(SocialsState.initial()) {
     on<SocialsEvent>((event, emit) => event.map(
         getUserClubs: (e) async {
+          emit(state.copyWith(clubQuickAccessItems: []));
           Either<Failure, List<ClubQuickAccessItem>> res =
               await SocialsRepository.getUserClubs(userId: e.userId);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(clubQuickAccessItems: r)));
+        },
+        getUserClubsNotJoined: (e) async {
+          emit(state.copyWith(clubQuickAccessItems: []));
+          Either<Failure, List<ClubQuickAccessItem>> res =
+              await SocialsRepository.getUserClubsNotJoined(userId: e.userId);
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(clubQuickAccessItems: r)));
         },
@@ -34,17 +42,14 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
         addClub: (e) async {
           await ImageUploadRepository.uploadImageFile(
               picture: e.picture, path: e.path, fileName: e.fileName);
-          Either<Failure, Club> res = await SocialsRepository.addClub(
+          Either<Failure, Success> res = await SocialsRepository.addClub(
               name: e.name,
               description: e.description,
               email: e.email,
               pictureId: e.pictureId,
               joinPreference: e.joinPreference);
-          return emit(res.fold(
-              (l) => state.copyWith(failure: l),
-              (r) => state.copyWith(
-                  success: const Success(message: 'Successfully added club'),
-                  addedClubId: r.id)));
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r, club: null)));
         },
         addClubAnnouncement: (e) async {
           Either<Failure, Success> res =
@@ -62,7 +67,27 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(clubAnnouncements: r)));
         },
-        resetAddedClubId: (e) => emit(state.copyWith(addedClubId: null)),
+        addUserToClub: (e) async {
+          Either<Failure, Success> res = await SocialsRepository.addUserToClub(
+              clubId: e.clubId, userEmail: e.userEmail);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        addUserToPendingClub: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.addUserToPendingClub(
+                  clubId: e.clubId, userEmail: e.userEmail);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        removeUserFromClub: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.removeUserFromClub(
+                  clubId: e.clubId, userEmail: e.userEmail);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        resetClub: (e) => emit(state.copyWith(club: null)),
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));
   }

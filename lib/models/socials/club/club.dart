@@ -8,7 +8,8 @@ class Club with _$Club {
     required String id,
     required List<String> admins,
     required String description,
-    required int joinPreference,
+    required int
+        joinPreference, // 0 = no one can join, 1 = requires admin approval, 2 = anyone can join
     required List<String> members,
     required String name,
     required List<String> pending,

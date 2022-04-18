@@ -9,6 +9,8 @@ class ClubMembersScreen extends StatelessWidget {
   final List<String> admins;
   final List<String> members;
   final List<String>? pending;
+  final Function(String userEmail) onPressAddUser;
+  final Function(String userEmail) onPressRemoveUser;
 
   const ClubMembersScreen(
       {Key? key,
@@ -16,7 +18,9 @@ class ClubMembersScreen extends StatelessWidget {
       required this.clubName,
       required this.admins,
       required this.members,
-      this.pending})
+      this.pending,
+      required this.onPressAddUser,
+      required this.onPressRemoveUser})
       : super(key: key);
 
   @override
@@ -61,12 +65,16 @@ class ClubMembersScreen extends StatelessWidget {
           title: 'Admins',
           members: adminData,
           isAdmin: isAdmin && admins.isNotEmpty,
+          onPressAddUser: onPressAddUser,
+          onPressRemoveUser: onPressRemoveUser,
         ),
         const SizedBox(height: 20.0),
         ClubMembersList(
           title: 'Members List',
           members: membersData,
           isAdmin: isAdmin && members.isNotEmpty,
+          onPressAddUser: onPressAddUser,
+          onPressRemoveUser: onPressRemoveUser,
         ),
         const SizedBox(height: 20.0),
         if (isAdmin)
@@ -74,6 +82,9 @@ class ClubMembersScreen extends StatelessWidget {
             title: 'Pending',
             members: pendingData,
             isAdmin: isAdmin && pending!.isNotEmpty,
+            isPending: true,
+            onPressAddUser: onPressAddUser,
+            onPressRemoveUser: onPressRemoveUser,
           ),
         const SizedBox(height: 20.0),
       ],
