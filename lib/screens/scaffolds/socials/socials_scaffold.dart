@@ -87,7 +87,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
   Widget build(BuildContext context) {
     return BlocConsumer<NavBloc, NavState>(
         listenWhen: (previous, current) =>
-            previous.currentScreen == ENav.joinClubs &&
+            previous.currentScreen != ENav.socials &&
             current.currentScreen == ENav.socials,
         listener: (context, state) {
           // Need to refresh the clubs list, not really efficient and pretty confusing but it works

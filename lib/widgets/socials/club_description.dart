@@ -1,18 +1,38 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 
 class ClubDescription extends StatelessWidget {
   final String description;
   final String? instructionsToJoin;
+  final bool isPartOfClub;
+  final EJoinButtonState joinButtonState;
   final Function()? onPressJoin;
 
   const ClubDescription(
       {Key? key,
       required this.description,
       this.instructionsToJoin,
+      required this.isPartOfClub,
+      required this.joinButtonState,
       this.onPressJoin})
       : super(key: key);
+
+  String getJoinButtonText() {
+    switch (joinButtonState) {
+      case EJoinButtonState.notOpen:
+        return 'Not Open to Join';
+      case EJoinButtonState.request:
+        return 'Request to Join';
+      case EJoinButtonState.open:
+        return 'Join';
+      case EJoinButtonState.pending:
+        return 'Pending';
+      default:
+        return 'Not Open to Join';
+    }
+  }
 
   // This is unused, but it's here for future reference.
   Widget buildInstructionsToJoin(BuildContext context) {
@@ -31,8 +51,6 @@ class ClubDescription extends StatelessWidget {
                 .copyWith(fontSize: 11.0)),
         const SizedBox(height: 10.0),
         Text(instructionsToJoin ?? ''),
-        const SizedBox(height: 10.0),
-        RoundedButton(text: 'Join!', onPressed: onPressJoin!),
       ],
     );
   }
@@ -47,6 +65,14 @@ class ClubDescription extends StatelessWidget {
         const SizedBox(height: 10.0),
         Text(description),
         buildInstructionsToJoin(context),
+        if (!isPartOfClub) ...[
+          const SizedBox(height: 10.0),
+          RoundedButton(
+              text: getJoinButtonText(),
+              disabled: joinButtonState == EJoinButtonState.pending ||
+                  joinButtonState == EJoinButtonState.notOpen,
+              onPressed: onPressJoin!),
+        ]
       ],
     ));
   }

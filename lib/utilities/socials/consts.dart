@@ -1,1 +1,6 @@
-enum EJoinButtonState { join, pending, notOpen }
+enum EJoinButtonState {
+  notOpen,
+  request,
+  open,
+  pending,
+}

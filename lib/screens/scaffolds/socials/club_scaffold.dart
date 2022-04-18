@@ -26,7 +26,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   late final NavBloc navBloc;
 
   bool showMembersScreen = false;
-  EJoinButtonState joinButtonText = EJoinButtonState.join;
+  EJoinButtonState joinButtonState = EJoinButtonState.open;
 
   @override
   void initState() {
@@ -55,6 +55,15 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.socials));
   }
 
+  void onRequestToJoin() {
+    socialsBloc.add(SocialsEvent.addUserToPendingClub(
+        clubId: socialsBloc.state.club!.id,
+        userEmail: profileBloc.state.user!.email));
+    setState(() {
+      joinButtonState = EJoinButtonState.pending;
+    });
+  }
+
   void onJoinClub() {
     onPressAddUser(profileBloc.state.user!.email);
     socialsBloc.add(const SocialsEvent.resetClub());
@@ -63,8 +72,6 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   }
 
   void onPressJoin() {
-    String clubId = socialsBloc.state.club!.id;
-    String userEmail = profileBloc.state.user!.email;
     int joinPreference = socialsBloc.state.club!.joinPreference;
 
     if (joinPreference == 0) {
@@ -73,11 +80,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           message: 'Club is not open to join',
           type: ESnackBarType.failure);
     } else if (joinPreference == 1) {
-      socialsBloc.add(SocialsEvent.addUserToPendingClub(
-          clubId: clubId, userEmail: userEmail));
-      setState(() {
-        joinButtonText = EJoinButtonState.pending;
-      });
+      showConfirmationDialog(
+          context: context,
+          content: 'Are you sure you want to request to join this club?',
+          onPressConfirm: onJoinClub);
     } else if (joinPreference == 2) {
       showConfirmationDialog(
           context: context,
@@ -166,15 +172,24 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           // Join button logic
           if (joinPreference == 0) {
             setState(() {
-              joinButtonText = EJoinButtonState.notOpen;
+              joinButtonState = EJoinButtonState.notOpen;
             });
-          } else if (state.club!.pending.contains(userEmail)) {
+          } else if (joinPreference == 1 &&
+              state.club!.pending.contains(userEmail)) {
             setState(() {
-              joinButtonText = EJoinButtonState.pending;
+              joinButtonState = EJoinButtonState.pending;
+            });
+          } else if (joinPreference == 1) {
+            setState(() {
+              joinButtonState = EJoinButtonState.request;
+            });
+          } else if (joinPreference == 2) {
+            setState(() {
+              joinButtonState = EJoinButtonState.open;
             });
           } else {
             setState(() {
-              joinButtonText = EJoinButtonState.join;
+              joinButtonState = EJoinButtonState.notOpen;
             });
           }
 
@@ -193,6 +208,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         bool isClubAdmin =
             socialsState.club?.admins.contains(profileState.user?.email) ??
                 false;
+        bool isClubMember =
+            socialsState.club?.members.contains(profileState.user?.email) ??
+                false;
+        bool isPartOfClub = isClubAdmin || isClubMember;
 
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
@@ -241,6 +260,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               : ClubScreen(
                   club: socialsState.club,
                   clubAnnouncements: socialsState.clubAnnouncements,
+                  isPartOfClub: isPartOfClub,
+                  joinButtonState: joinButtonState,
                   onRefresh: onRefresh,
                   onPressJoin: onPressJoin,
                   onPressAddAnnouncement:
