@@ -49,6 +49,26 @@ class SongsApi {
     }
   }
 
+  static Future<Either<Failure, Success>> deleteSong(
+      {required String id}) async {
+    try {
+      Response res = await post(
+        Uri.parse(deleteSongEndpoint),
+        body: json.encode({
+          'id': id,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorDeletingSong));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorDeletingSong));
+    }
+  }
+
   static Future<Either<Failure, Success>> upvoteSong(
       {required String songId, required int upvotes}) async {
     try {
