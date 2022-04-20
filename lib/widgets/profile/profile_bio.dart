@@ -1,12 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 
 class ProfileBio extends StatelessWidget {
-  const ProfileBio({Key? key}) : super(key: key);
+  final int pictureNumber;
+  final String name;
+  final String email;
+
+  const ProfileBio(
+      {Key? key,
+      required this.pictureNumber,
+      required this.name,
+      required this.email})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     double radius = 75.0;
+    String pictureName = profilePictures[pictureNumber];
 
     return Column(
       children: [
@@ -15,20 +26,23 @@ class ProfileBio extends StatelessWidget {
             radius: radius + 4.0,
             child: CircleAvatar(
               radius: radius,
-              backgroundImage: const AssetImage('assets/images/cat.jpg'),
+              backgroundImage: AssetImage('assets/profile_pics/$pictureName'),
               backgroundColor: Styles.grey,
             )),
         const SizedBox(height: 20.0),
         Text(
-          'John Doe',
+          name,
           style: Theme.of(context)
               .textTheme
               .headline5!
               .copyWith(color: Styles.white),
         ),
-        const SizedBox(height: 2.0),
-        Text('John.doe00@ycdsbk12.ca',
-            style: Theme.of(context).textTheme.subtitle2),
+        const SizedBox(height: 5.0),
+        Text(email,
+            style: Theme.of(context)
+                .textTheme
+                .bodyText2!
+                .copyWith(color: Styles.white)),
       ],
     );
   }

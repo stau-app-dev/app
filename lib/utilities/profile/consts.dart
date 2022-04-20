@@ -1,3 +1,5 @@
+/// The list of profile pictures.
+/// Change the order of the list to change the order of the profile pictures.
 const profilePictures = [
   'bgqhjxei.jpg',
   'htbgkwck.jpg',
