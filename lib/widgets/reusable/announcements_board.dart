@@ -64,7 +64,7 @@ class AnnouncementsBoard extends StatelessWidget {
                       decoration: TextDecoration.underline,
                     ),
                 onOpen: (link) async {
-                  launchURL(url: link.url);
+                  launchURL(context: context, url: link.url);
                 },
               ),
             ]));

@@ -37,7 +37,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
   }
 
   void onPressAddAnnouncementStaff() {
-    launchURL(url: staffAddAnnouncementUrl);
+    launchURL(context: context, url: staffAddAnnouncementUrl);
   }
 
   @override
