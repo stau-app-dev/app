@@ -6,6 +6,7 @@ import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/consts.dart';
 import 'package:staugustinechsnewapp/utilities/home/home_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 
@@ -65,9 +66,10 @@ class _HomeScaffoldState extends State<HomeScaffold> {
             featuredCafeItems: homeState.featuredCafeMenuItems,
             spiritMeters: homeState.spiritMeters,
             verseOfDay: homeState.verseOfDay,
-            onPressAddAnnouncementStaff: profileState.user?.status == 1
-                ? onPressAddAnnouncementStaff
-                : null,
+            onPressAddAnnouncementStaff:
+                profileState.user?.status == staffProfileStatus
+                    ? onPressAddAnnouncementStaff
+                    : null,
           );
         });
       });

@@ -9,13 +9,19 @@ class SongRequests extends StatelessWidget {
   final Function() onPressedAddSong;
   final Function(bool upvoted, String id) onPressedUpvote;
   final bool disableUpvote;
+  final Function(
+      {required String id,
+      required String name,
+      required String artist,
+      required String creatorEmail})? onDeleteSong;
 
   const SongRequests(
       {Key? key,
       required this.songs,
       required this.onPressedAddSong,
       required this.onPressedUpvote,
-      required this.disableUpvote})
+      required this.disableUpvote,
+      this.onDeleteSong})
       : super(key: key);
 
   Widget buildSongInfo(
@@ -61,6 +67,15 @@ class SongRequests extends StatelessWidget {
                       return;
                     }
                     onPressedUpvote(!upvoted, song.id);
+                  },
+                  onLongPress: () {
+                    if (onDeleteSong != null) {
+                      onDeleteSong!(
+                          id: song.id,
+                          name: song.name,
+                          artist: song.artist,
+                          creatorEmail: song.creatorEmail);
+                    }
                   },
                   child: Row(children: [
                     Container(

@@ -25,3 +25,6 @@ const profilePictures = [
   'stshwpxr.jpg',
   'zcxlhfxb.jpg',
 ];
+
+const studentProfileStatus = 0;
+const staffProfileStatus = 1;

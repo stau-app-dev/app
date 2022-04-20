@@ -3,10 +3,13 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/song_requests/song_requests_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/local_storage/write_to_local_storage.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
+import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/song_requests/add_song_form.dart';
+import 'package:staugustinechsnewapp/widgets/song_requests/delete_song_form.dart';
 
 class SongRequestsScaffold extends StatefulWidget {
   const SongRequestsScaffold({Key? key}) : super(key: key);
@@ -59,6 +62,27 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
     ));
   }
 
+  void onDeleteSong(
+      {required String id,
+      required String name,
+      required String artist,
+      required String creatorEmail}) {
+    usePopupCard(
+        context: context,
+        title: 'Delete Song',
+        child: DeleteSongForm(
+            onSubmitDeleteSong: onSubmitDeleteSong,
+            id: id,
+            name: name,
+            artist: artist,
+            creatorEmail: creatorEmail));
+  }
+
+  void onSubmitDeleteSong(String id) {
+    // songBloc.add(SongEvent.deleteSong(id: id));
+    Navigator.pop(context);
+  }
+
   Future<void> setUpvotedData(
       {required bool upvoted, required String id}) async {
     Map<String, dynamic> upvotedMap = {};
@@ -95,40 +119,48 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return BlocConsumer<SongBloc, SongState>(listenWhen: ((previous, current) {
-      // Run this if only after songs have been fetched for the first time
-      if (previous.songs.isEmpty && current.songs.isNotEmpty) {
-        onSongsLoaded();
-      }
-      return true;
-    }), listener: (context, state) async {
-      if (state.failure != null) {
-        useCustomSnackbar(
-            context: context,
-            message: state.failure!.message,
-            type: ESnackBarType.failure);
-        songBloc.add(const SongEvent.resetFailSuccess());
-      }
-      // NOTE: Do note show success snackbar after a successful upvote
-      //       because that is not an ideal UX.
-      // Only get new songs from the database after a success
-      if (state.success != null) {
-        songBloc.add(const SongEvent.getSongs());
-        songBloc.add(const SongEvent.resetFailSuccess());
-      }
-      // After getting songs successfully, set the upvoted data
-      if (state.lastUpdated != null && state.lastUpdated != DateTime.now()) {
-        onSongsLoaded();
-      }
-    }, builder: (context, state) {
-      return SafeArea(
-          child: SongRequestsScreen(
-        songs: state.songs,
-        onPressedAddSong: onPressedAddSong,
-        onPressedUpvote: onPressedUpvote,
-        onRefresh: onRefresh,
-        disableUpvote: state.isLoading,
-      ));
+    return BlocBuilder<ProfileBloc, ProfileState>(
+        builder: (context, profileState) {
+      return BlocConsumer<SongBloc, SongState>(
+          listenWhen: ((previous, current) {
+        // Run this if only after songs have been fetched for the first time
+        if (previous.songs.isEmpty && current.songs.isNotEmpty) {
+          onSongsLoaded();
+        }
+        return true;
+      }), listener: (context, songState) async {
+        if (songState.failure != null) {
+          useCustomSnackbar(
+              context: context,
+              message: songState.failure!.message,
+              type: ESnackBarType.failure);
+          songBloc.add(const SongEvent.resetFailSuccess());
+        }
+        // NOTE: Do note show success snackbar after a successful upvote
+        //       because that is not an ideal UX.
+        // Only get new songs from the database after a success
+        if (songState.success != null) {
+          songBloc.add(const SongEvent.getSongs());
+          songBloc.add(const SongEvent.resetFailSuccess());
+        }
+        // After getting songs successfully, set the upvoted data
+        if (songState.lastUpdated != null &&
+            songState.lastUpdated != DateTime.now()) {
+          onSongsLoaded();
+        }
+      }, builder: (context, state) {
+        return SafeArea(
+            child: SongRequestsScreen(
+          songs: state.songs,
+          onPressedAddSong: onPressedAddSong,
+          onPressedUpvote: onPressedUpvote,
+          onRefresh: onRefresh,
+          disableUpvote: state.isLoading,
+          onDeleteSong: profileState.user?.status == staffProfileStatus
+              ? onDeleteSong
+              : null,
+        ));
+      });
     });
   }
 }
