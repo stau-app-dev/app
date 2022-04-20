@@ -62,7 +62,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
     ));
   }
 
-  void onDeleteSong(
+  void onLongPressSong(
       {required String id,
       required String name,
       required String artist,
@@ -156,8 +156,8 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
           onPressedUpvote: onPressedUpvote,
           onRefresh: onRefresh,
           disableUpvote: state.isLoading,
-          onDeleteSong: profileState.user?.status == staffProfileStatus
-              ? onDeleteSong
+          onLongPressSong: profileState.user?.status == staffProfileStatus
+              ? onLongPressSong
               : null,
         ));
       });

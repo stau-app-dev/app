@@ -13,7 +13,7 @@ class SongRequests extends StatelessWidget {
       {required String id,
       required String name,
       required String artist,
-      required String creatorEmail})? onDeleteSong;
+      required String creatorEmail})? onLongPressSong;
 
   const SongRequests(
       {Key? key,
@@ -21,7 +21,7 @@ class SongRequests extends StatelessWidget {
       required this.onPressedAddSong,
       required this.onPressedUpvote,
       required this.disableUpvote,
-      this.onDeleteSong})
+      this.onLongPressSong})
       : super(key: key);
 
   Widget buildSongInfo(
@@ -69,8 +69,8 @@ class SongRequests extends StatelessWidget {
                     onPressedUpvote(!upvoted, song.id);
                   },
                   onLongPress: () {
-                    if (onDeleteSong != null) {
-                      onDeleteSong!(
+                    if (onLongPressSong != null) {
+                      onLongPressSong!(
                           id: song.id,
                           name: song.name,
                           artist: song.artist,

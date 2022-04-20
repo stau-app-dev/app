@@ -15,7 +15,7 @@ class SongRequestsScreen extends StatelessWidget {
       {required String id,
       required String name,
       required String artist,
-      required String creatorEmail})? onDeleteSong;
+      required String creatorEmail})? onLongPressSong;
 
   const SongRequestsScreen(
       {Key? key,
@@ -24,7 +24,7 @@ class SongRequestsScreen extends StatelessWidget {
       required this.onPressedUpvote,
       required this.onRefresh,
       required this.disableUpvote,
-      this.onDeleteSong})
+      this.onLongPressSong})
       : super(key: key);
 
   @override
@@ -40,7 +40,7 @@ class SongRequestsScreen extends StatelessWidget {
           onPressedAddSong: onPressedAddSong,
           onPressedUpvote: onPressedUpvote,
           disableUpvote: disableUpvote,
-          onDeleteSong: onDeleteSong,
+          onLongPressSong: onLongPressSong,
         ),
       ],
     );
