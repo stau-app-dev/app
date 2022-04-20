@@ -7,6 +7,7 @@ class SongEvent with _$SongEvent {
       {required String creatorEmail,
       required String artist,
       required String name}) = _addSong;
+  const factory SongEvent.deleteSong({required String id}) = _deleteSong;
   const factory SongEvent.upvoteSong(
       {required String id, required int upvotes}) = _upvoteSong;
   const factory SongEvent.setUpvoted({required Map<String, dynamic> upvoted}) =

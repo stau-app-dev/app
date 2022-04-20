@@ -79,7 +79,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   }
 
   void onSubmitDeleteSong(String id) {
-    // songBloc.add(SongEvent.deleteSong(id: id));
+    songBloc.add(SongEvent.deleteSong(id: id));
     Navigator.pop(context);
   }
 
