@@ -35,7 +35,7 @@ class DeleteSongForm extends StatelessWidget {
           Text(creatorEmail),
           const SizedBox(height: 10.0),
           RoundedButton(
-              text: 'Submit', onPressed: () => onSubmitDeleteSong(id)),
+              text: 'Delete', onPressed: () => onSubmitDeleteSong(id)),
           const SizedBox(height: 30.0),
           Container(
               alignment: Alignment.center,
