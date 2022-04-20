@@ -45,7 +45,10 @@ void main() {
         MaterialApp(
           home: PageLayout(
             listView: true,
-            children: [AnnouncementsBoard(announcements: testAnnouncements)],
+            children: [
+              Material(
+                  child: AnnouncementsBoard(announcements: testAnnouncements))
+            ],
           ),
         ),
       );
@@ -58,7 +61,10 @@ void main() {
         MaterialApp(
           home: PageLayout(
             listView: true,
-            children: [AnnouncementsBoard(announcements: testAnnouncements)],
+            children: [
+              Material(
+                  child: AnnouncementsBoard(announcements: testAnnouncements))
+            ],
           ),
         ),
       );
@@ -73,9 +79,10 @@ void main() {
           home: PageLayout(
             listView: true,
             children: [
-              AnnouncementsBoard(
+              Material(
+                  child: AnnouncementsBoard(
                 clubAnnouncements: testClubAnnouncements,
-              )
+              ))
             ],
           ),
         ),
@@ -91,10 +98,11 @@ void main() {
           home: PageLayout(
             listView: true,
             children: [
-              AnnouncementsBoard(
+              Material(
+                  child: AnnouncementsBoard(
                 announcements: testAnnouncements,
                 clubAnnouncements: testClubAnnouncements,
-              )
+              ))
             ],
           ),
         ),
@@ -112,11 +120,12 @@ void main() {
           home: PageLayout(
             listView: true,
             children: [
-              AnnouncementsBoard(
+              Material(
+                  child: AnnouncementsBoard(
                 announcements: testAnnouncements,
                 clubAnnouncements: testClubAnnouncements,
                 isClubScreen: true,
-              )
+              ))
             ],
           ),
         ),
@@ -131,11 +140,12 @@ void main() {
           home: PageLayout(
             listView: true,
             children: [
-              AnnouncementsBoard(
+              Material(
+                  child: AnnouncementsBoard(
                 announcements: testAnnouncements,
                 clubAnnouncements: testClubAnnouncements,
                 onPressAddAnnouncement: () {},
-              )
+              ))
             ],
           ),
         ),
