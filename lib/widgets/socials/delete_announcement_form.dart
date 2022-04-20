@@ -29,7 +29,7 @@ class DeleteAnnouncementForm extends StatelessWidget {
           Text(creatorName),
           const SizedBox(height: 10.0),
           RoundedButton(
-              text: 'Submit', onPressed: () => onSubmitDeleteAnnouncement(id)),
+              text: 'Delete', onPressed: () => onSubmitDeleteAnnouncement(id)),
         ]));
   }
 }
