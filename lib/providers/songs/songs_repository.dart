@@ -21,6 +21,11 @@ class SongsRepository {
         creatorEmail: creatorEmail, artist: artist, name: name);
   }
 
+  static Future<Either<Failure, Success>> deleteSong(
+      {required String id}) async {
+    return await SongsApi.deleteSong(id: id);
+  }
+
   static Future<Either<Failure, Success>> upvoteSong(
       {required String songId, required int upvotes}) async {
     return await SongsApi.upvoteSong(songId: songId, upvotes: upvotes);

@@ -13,6 +13,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
+import 'package:staugustinechsnewapp/widgets/socials/delete_announcement_form.dart';
 
 class ClubScaffold extends StatefulWidget {
   const ClubScaffold({Key? key}) : super(key: key);
@@ -120,6 +121,27 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       content: content,
       clubName: socialsBloc.state.club!.name,
       creatorName: profileBloc.state.user!.name,
+    ));
+    Navigator.pop(context);
+  }
+
+  void onLongPressAnnouncement(
+      {required String id,
+      required String content,
+      required String creatorName}) {
+    usePopupCard(
+        context: context,
+        title: 'Delete Announcement',
+        child: DeleteAnnouncementForm(
+            id: id,
+            content: content,
+            creatorName: creatorName,
+            onSubmitDeleteAnnouncement: onSubmitDeleteAnnouncement));
+  }
+
+  void onSubmitDeleteAnnouncement(String id) {
+    socialsBloc.add(SocialsEvent.deleteClubAnnouncement(
+      id: id,
     ));
     Navigator.pop(context);
   }
@@ -268,6 +290,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                   onPressAddAnnouncement:
                       isClubAdmin ? onPressAddAnnouncement : null,
                   onPressedSettings: () => onPressedSettings(isClubAdmin),
+                  onLongPressAnnouncement:
+                      isClubAdmin ? onLongPressAnnouncement : null,
                 )
         ]);
       });

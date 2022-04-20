@@ -54,6 +54,12 @@ class SocialsRepository {
         creatorName: creatorName);
   }
 
+  static Future<Either<Failure, Success>> deleteClubAnnouncement({
+    required String id,
+  }) async {
+    return await SocialsApi.deleteClubAnnouncement(id: id);
+  }
+
   static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements(
       {required String clubId}) async {
     return await SocialsApi.getClubAnnouncements(clubId: clubId);

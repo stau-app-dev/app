@@ -139,6 +139,27 @@ class SocialsApi {
     }
   }
 
+  static Future<Either<Failure, Success>> deleteClubAnnouncement({
+    required String id,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(deleteClubAnnouncementEndpoint),
+        body: json.encode({
+          'id': id,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorDeletingClubAnnouncement));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorDeletingClubAnnouncement));
+    }
+  }
+
   static Future<Either<Failure, List<ClubAnnouncement>>> getClubAnnouncements({
     required String clubId,
   }) async {

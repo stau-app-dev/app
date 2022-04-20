@@ -61,6 +61,12 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },
+        deleteClubAnnouncement: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.deleteClubAnnouncement(id: e.id);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
         getClubAnnouncements: (e) async {
           Either<Failure, List<ClubAnnouncement>> res =
               await SocialsRepository.getClubAnnouncements(clubId: e.clubId);
