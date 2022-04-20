@@ -292,9 +292,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                       isClubAdmin ? onPressAddAnnouncement : null,
                   onPressedSettings: () => onPressedSettings(isClubAdmin),
                   onLongPressAnnouncement:
-                      profileState.user?.status == staffProfileStatus
-                          ? onLongPressAnnouncement
-                          : null,
+                      isClubAdmin ? onLongPressAnnouncement : null,
                 )
         ]);
       });
