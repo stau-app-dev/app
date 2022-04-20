@@ -22,6 +22,8 @@ class SocialsEvent with _$SocialsEvent {
       required String clubName,
       required String content,
       required String creatorName}) = _addClubAnnouncement;
+  const factory SocialsEvent.deleteClubAnnouncement({required String id}) =
+      _deleteClubAnnouncement;
   const factory SocialsEvent.getClubAnnouncements({required String clubId}) =
       _getClubAnnouncements;
   const factory SocialsEvent.addUserToClub(

@@ -140,9 +140,9 @@ class _ClubScaffoldState extends State<ClubScaffold> {
   }
 
   void onSubmitDeleteAnnouncement(String id) {
-    // socialsBloc.add(SocialsEvent.deleteClubAnnouncement(
-    //   announcementId: id,
-    // ));
+    socialsBloc.add(SocialsEvent.deleteClubAnnouncement(
+      id: id,
+    ));
     Navigator.pop(context);
   }
 
