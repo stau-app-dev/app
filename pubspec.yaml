@@ -74,8 +74,9 @@ flutter:
   # Need to add subfolders
   assets:
     - assets/
-    - assets/logos/
     - assets/images/
+    - assets/logos/
+    - assets/profile_pics/
 
   fonts:
     - family: Raleway
