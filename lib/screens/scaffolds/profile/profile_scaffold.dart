@@ -41,7 +41,7 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
   }
 
   void onPressedSavePicture(int pictureNumber) {
-    print('onPressedSavePicture: $pictureNumber');
+    print(pictureNumber + 4);
   }
 
   @override
