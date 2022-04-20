@@ -9,14 +9,16 @@ import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart'
 
 class SettingsScreen extends StatelessWidget {
   final bool enableGeneralNotifications;
-  final void Function() onPressedLogout;
-  final void Function() onPressedFAQ;
+  final Function() onPressedLogout;
+  final Function() onPressedFAQ;
+  final Function(bool) onToggleGeneralNotifications;
 
   const SettingsScreen(
       {Key? key,
       required this.onPressedLogout,
       required this.onPressedFAQ,
-      required this.enableGeneralNotifications})
+      required this.enableGeneralNotifications,
+      required this.onToggleGeneralNotifications})
       : super(key: key);
 
   Widget buildToggleRow(
@@ -50,7 +52,7 @@ class SettingsScreen extends StatelessWidget {
           context: context,
           title: 'Enable General Notifications',
           value: enableGeneralNotifications,
-          onChanged: (value) {},
+          onChanged: onToggleGeneralNotifications,
         ),
         TextButton(
             onPressed: () => launchURL(url: staFAQPageUrl),

@@ -15,11 +15,13 @@ class SettingsScaffold extends StatefulWidget {
 class _SettingsScaffoldState extends State<SettingsScaffold> {
   late AuthBloc authBloc;
   late NavBloc navBloc;
+  late ProfileBloc profileBloc;
 
   @override
   void initState() {
     authBloc = BlocProvider.of<AuthBloc>(context);
     navBloc = BlocProvider.of<NavBloc>(context);
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
     super.initState();
   }
 
@@ -31,6 +33,17 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
 
   void onPressedFAQ() {}
 
+  void onToggleGeneralNotifications(bool value) {
+    List<String> notifications = profileBloc.state.user!.notifications;
+    if (value) {
+      notifications.add(generalNotification);
+    } else {
+      notifications.remove(generalNotification);
+    }
+    profileBloc.add(ProfileEvent.updateUserField(
+        field: 'notifications', value: notifications));
+  }
+
   @override
   Widget build(BuildContext context) {
     return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
@@ -39,6 +52,7 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
         onPressedFAQ: onPressedFAQ,
         enableGeneralNotifications:
             state.user?.notifications.contains(generalNotification) ?? false,
+        onToggleGeneralNotifications: onToggleGeneralNotifications,
       );
     });
   }
