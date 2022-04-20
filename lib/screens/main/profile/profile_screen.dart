@@ -8,13 +8,15 @@ class ProfileScreen extends StatelessWidget {
   final String name;
   final String email;
   final void Function() onPressedSettings;
+  final void Function() onPressedProfilePicture;
 
   const ProfileScreen(
       {Key? key,
-      required this.onPressedSettings,
       required this.pictureNumber,
       required this.name,
-      required this.email})
+      required this.email,
+      required this.onPressedSettings,
+      required this.onPressedProfilePicture})
       : super(key: key);
 
   @override
@@ -34,6 +36,7 @@ class ProfileScreen extends StatelessWidget {
           pictureNumber: pictureNumber,
           name: name,
           email: email,
+          onPressedProfilePicture: onPressedProfilePicture,
         ),
         const SizedBox(height: Styles.mainSpacing),
       ],

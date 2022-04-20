@@ -6,12 +6,14 @@ class ProfileBio extends StatelessWidget {
   final int pictureNumber;
   final String name;
   final String email;
+  final void Function() onPressedProfilePicture;
 
   const ProfileBio(
       {Key? key,
       required this.pictureNumber,
       required this.name,
-      required this.email})
+      required this.email,
+      required this.onPressedProfilePicture})
       : super(key: key);
 
   @override
@@ -21,14 +23,17 @@ class ProfileBio extends StatelessWidget {
 
     return Column(
       children: [
-        CircleAvatar(
-            backgroundColor: Styles.secondary,
-            radius: radius + 4.0,
+        InkWell(
+            onTap: onPressedProfilePicture,
             child: CircleAvatar(
-              radius: radius,
-              backgroundImage: AssetImage('assets/profile_pics/$pictureName'),
-              backgroundColor: Styles.grey,
-            )),
+                backgroundColor: Styles.secondary,
+                radius: radius + 4.0,
+                child: CircleAvatar(
+                  radius: radius,
+                  backgroundImage:
+                      AssetImage('assets/profile_pics/$pictureName'),
+                  backgroundColor: Styles.grey,
+                ))),
         const SizedBox(height: 20.0),
         Text(
           name,

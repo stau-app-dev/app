@@ -4,6 +4,8 @@ import 'package:staugustinechsnewapp/screens/main/profile/profile_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
+import 'package:staugustinechsnewapp/widgets/profile/profile_picture_selector.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 
 class ProfileScaffold extends StatefulWidget {
   const ProfileScaffold({Key? key}) : super(key: key);
@@ -13,15 +15,33 @@ class ProfileScaffold extends StatefulWidget {
 
 class _ProfileScaffoldState extends State<ProfileScaffold> {
   late NavBloc navBloc;
+  late ProfileBloc profileBloc;
 
   @override
   void initState() {
     navBloc = BlocProvider.of<NavBloc>(context);
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
     super.initState();
   }
 
   void onPressedSettings() {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.settings));
+  }
+
+  void onPressedProfilePicture() {
+    int pictureNumber = profileBloc.state.user?.picture ?? 0;
+    usePopupCard(
+      context: context,
+      title: 'Profile Picture',
+      child: ProfilePictureSelector(
+        currentPictureNumber: pictureNumber,
+        onPressedSavePicture: onPressedSavePicture,
+      ),
+    );
+  }
+
+  void onPressedSavePicture(int pictureNumber) {
+    print('onPressedSavePicture: $pictureNumber');
   }
 
   @override
@@ -43,7 +63,8 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
             pictureNumber: state.user?.picture ?? 0,
             name: state.user?.name ?? '',
             email: state.user?.email ?? '',
-            onPressedSettings: onPressedSettings),
+            onPressedSettings: onPressedSettings,
+            onPressedProfilePicture: onPressedProfilePicture),
       ]);
     });
   }
