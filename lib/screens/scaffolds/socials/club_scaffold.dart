@@ -5,7 +5,6 @@ import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.da
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
-import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
