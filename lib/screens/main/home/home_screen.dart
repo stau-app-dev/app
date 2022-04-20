@@ -21,6 +21,7 @@ class HomeScreen extends StatelessWidget {
   final List<CafeMenuItem>? featuredCafeItems;
   final SpiritMeters? spiritMeters;
   final VerseOfDay? verseOfDay;
+  final Function()? onPressAddAnnouncementStaff;
 
   const HomeScreen({
     Key? key,
@@ -32,6 +33,7 @@ class HomeScreen extends StatelessWidget {
     this.featuredCafeItems,
     this.spiritMeters,
     this.verseOfDay,
+    this.onPressAddAnnouncementStaff,
   }) : super(key: key);
 
   @override
@@ -47,6 +49,7 @@ class HomeScreen extends StatelessWidget {
         const SizedBox(height: Styles.mainSpacing),
         AnnouncementsBoard(
           announcements: generalAnnouncements,
+          onPressAddAnnouncement: onPressAddAnnouncementStaff,
         ),
         const SizedBox(height: Styles.mainSpacing),
         FeaturedCafeItems(cafeItems: featuredCafeItems ?? [], navBloc: navBloc),
