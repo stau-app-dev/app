@@ -24,8 +24,6 @@ class ProfileScreen extends StatelessWidget {
                   color: Styles.white,
                 ))),
         const ProfileBio(),
-        const SizedBox(height: 25.0),
-        const CourseTimetable(),
         const SizedBox(height: Styles.mainSpacing),
       ],
     );
