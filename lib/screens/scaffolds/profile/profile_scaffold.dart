@@ -5,6 +5,7 @@ import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/profile/profile_picture_selector.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 
 class ProfileScaffold extends StatefulWidget {
@@ -24,6 +25,10 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
     super.initState();
   }
 
+  void onRefresh() {
+    profileBloc.add(const ProfileEvent.refreshUser());
+  }
+
   void onPressedSettings() {
     navBloc.add(const NavEvent.changeScreen(screen: ENav.settings));
   }
@@ -41,12 +46,24 @@ class _ProfileScaffoldState extends State<ProfileScaffold> {
   }
 
   void onPressedSavePicture(int pictureNumber) {
-    print(pictureNumber + 4);
+    profileBloc.add(
+        ProfileEvent.updateUserField(field: 'picture', value: pictureNumber));
+    Navigator.pop(context);
   }
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+    return BlocConsumer<ProfileBloc, ProfileState>(listener: (context, state) {
+      // Refresh for any success events
+      if (state.success != null) {
+        onRefresh();
+        useCustomSnackbar(
+            context: context,
+            message: state.success?.message ?? 'Success',
+            type: ESnackBarType.success);
+        profileBloc.add(const ProfileEvent.resetFailSuccess());
+      }
+    }, builder: (context, state) {
       return Stack(children: [
         Container(
           height:
