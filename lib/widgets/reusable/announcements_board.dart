@@ -23,13 +23,20 @@ class AnnouncementsBoard extends StatelessWidget {
   /// Function to call when the user presses the Add Announcement button.
   final Function()? onPressAddAnnouncement;
 
+  /// Function to call when the user presses and holds to delete an announcement.
+  final Function(
+      {required String id,
+      required String content,
+      required String creatorName})? onLongPressAnnouncement;
+
   /// {@macro announcements_board}
   const AnnouncementsBoard(
       {Key? key,
       this.announcements,
       this.clubAnnouncements,
       this.isClubScreen = false,
-      this.onPressAddAnnouncement})
+      this.onPressAddAnnouncement,
+      this.onLongPressAnnouncement})
       : super(key: key);
 
   Widget buildContent(
@@ -83,8 +90,17 @@ class AnnouncementsBoard extends StatelessWidget {
       String title = isClubScreen
           ? clubAnnouncement.creatorName
           : clubAnnouncement.clubName;
-      rows.add(buildContent(
-          context: context, title: title, content: clubAnnouncement.content));
+      rows.add(InkWell(
+          onLongPress: onLongPressAnnouncement != null
+              ? () => onLongPressAnnouncement!(
+                  id: clubAnnouncement.id,
+                  content: clubAnnouncement.content,
+                  creatorName: clubAnnouncement.creatorName)
+              : null,
+          child: buildContent(
+              context: context,
+              title: title,
+              content: clubAnnouncement.content)));
       rows.add(const SizedBox(height: 10.0));
     }
 

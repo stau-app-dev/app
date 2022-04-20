@@ -16,6 +16,10 @@ class ClubScreen extends StatelessWidget {
   final Function() onPressJoin;
   final Function() onPressedSettings;
   final Function()? onPressAddAnnouncement;
+  final Function(
+      {required String id,
+      required String content,
+      required String creatorName})? onLongPressAnnouncement;
 
   const ClubScreen({
     Key? key,
@@ -27,6 +31,7 @@ class ClubScreen extends StatelessWidget {
     required this.onPressJoin,
     required this.onPressedSettings,
     this.onPressAddAnnouncement,
+    this.onLongPressAnnouncement,
   }) : super(key: key);
 
   @override
@@ -80,6 +85,7 @@ class ClubScreen extends StatelessWidget {
             clubAnnouncements: data,
             isClubScreen: true,
             onPressAddAnnouncement: onPressAddAnnouncement,
+            onLongPressAnnouncement: onLongPressAnnouncement,
           ),
           const SizedBox(height: 20.0),
         ]

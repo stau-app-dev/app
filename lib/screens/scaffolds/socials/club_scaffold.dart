@@ -5,6 +5,7 @@ import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.da
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
@@ -13,6 +14,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
+import 'package:staugustinechsnewapp/widgets/socials/delete_announcement_form.dart';
 
 class ClubScaffold extends StatefulWidget {
   const ClubScaffold({Key? key}) : super(key: key);
@@ -121,6 +123,27 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       clubName: socialsBloc.state.club!.name,
       creatorName: profileBloc.state.user!.name,
     ));
+    Navigator.pop(context);
+  }
+
+  void onLongPressAnnouncement(
+      {required String id,
+      required String content,
+      required String creatorName}) {
+    usePopupCard(
+        context: context,
+        title: 'Delete Announcement',
+        child: DeleteAnnouncementForm(
+            id: id,
+            content: content,
+            creatorName: creatorName,
+            onSubmitDeleteAnnouncement: onSubmitDeleteAnnouncement));
+  }
+
+  void onSubmitDeleteAnnouncement(String id) {
+    // socialsBloc.add(SocialsEvent.deleteClubAnnouncement(
+    //   announcementId: id,
+    // ));
     Navigator.pop(context);
   }
 
@@ -268,6 +291,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                   onPressAddAnnouncement:
                       isClubAdmin ? onPressAddAnnouncement : null,
                   onPressedSettings: () => onPressedSettings(isClubAdmin),
+                  onLongPressAnnouncement:
+                      profileState.user?.status == staffProfileStatus
+                          ? onLongPressAnnouncement
+                          : null,
                 )
         ]);
       });
