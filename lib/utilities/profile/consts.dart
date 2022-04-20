@@ -28,3 +28,7 @@ const profilePictures = [
 
 const studentProfileStatus = 0;
 const staffProfileStatus = 1;
+
+const staFAQPageUrl = 'https://app.staugustinechs.ca/faq';
+
+const generalNotification = 'general';

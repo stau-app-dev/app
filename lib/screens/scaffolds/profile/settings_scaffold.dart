@@ -3,6 +3,8 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/profile/settings_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
+import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 
 class SettingsScaffold extends StatefulWidget {
   const SettingsScaffold({Key? key}) : super(key: key);
@@ -31,9 +33,13 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
 
   @override
   Widget build(BuildContext context) {
-    return SettingsScreen(
-      onPressedLogout: onPressedLogout,
-      onPressedFAQ: onPressedFAQ,
-    );
+    return BlocBuilder<ProfileBloc, ProfileState>(builder: (context, state) {
+      return SettingsScreen(
+        onPressedLogout: onPressedLogout,
+        onPressedFAQ: onPressedFAQ,
+        enableGeneralNotifications:
+            state.user?.notifications.contains(generalNotification) ?? false,
+      );
+    });
   }
 }
