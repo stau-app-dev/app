@@ -6,6 +6,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
+import 'package:staugustinechsnewapp/providers/notifications/push_notifications_repository.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
 import 'package:staugustinechsnewapp/theme/theme.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
@@ -31,6 +32,9 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+
+  // Push notifications
+  await PushNotificationServiceRepository.initialize();
 
   // iOS will not automatically show the notification bar when the app loads.
   // To show the notification bar:

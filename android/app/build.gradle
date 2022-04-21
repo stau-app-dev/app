@@ -58,6 +58,11 @@ android {
             signingConfig signingConfigs.debug
         }
     }
+    
+    // See: https://stackoverflow.com/a/44767574/10014923
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
 }
 
 flutter {
