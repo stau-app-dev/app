@@ -9,5 +9,6 @@ class ProfileEvent with _$ProfileEvent {
   const factory ProfileEvent.refreshUser() = _refreshUser;
   const factory ProfileEvent.updateUserField(
       {required String field, required dynamic value}) = _updateUserField;
+  const factory ProfileEvent.getFcmToken() = _getFcmToken;
   const factory ProfileEvent.resetFailSuccess() = _resetFailSuccess;
 }

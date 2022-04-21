@@ -39,6 +39,10 @@ class _$ProfileEventTearOff {
     );
   }
 
+  _getFcmToken getFcmToken() {
+    return const _getFcmToken();
+  }
+
   _resetFailSuccess resetFailSuccess() {
     return const _resetFailSuccess();
   }
@@ -54,6 +58,7 @@ mixin _$ProfileEvent {
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -62,6 +67,7 @@ mixin _$ProfileEvent {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -70,6 +76,7 @@ mixin _$ProfileEvent {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -79,6 +86,7 @@ mixin _$ProfileEvent {
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -87,6 +95,7 @@ mixin _$ProfileEvent {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -95,6 +104,7 @@ mixin _$ProfileEvent {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -211,6 +221,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
     required TResult Function() resetFailSuccess,
   }) {
     return getUser(id, email, name);
@@ -222,6 +233,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
   }) {
     return getUser?.call(id, email, name);
@@ -233,6 +245,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -248,6 +261,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getUser(this);
@@ -259,6 +273,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getUser?.call(this);
@@ -270,6 +285,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -343,6 +359,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
     required TResult Function() resetFailSuccess,
   }) {
     return refreshUser();
@@ -354,6 +371,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
   }) {
     return refreshUser?.call();
@@ -365,6 +383,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -380,6 +399,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return refreshUser(this);
@@ -391,6 +411,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return refreshUser?.call(this);
@@ -402,6 +423,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -505,6 +527,7 @@ class _$_updateUserField
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
     required TResult Function() resetFailSuccess,
   }) {
     return updateUserField(field, value);
@@ -516,6 +539,7 @@ class _$_updateUserField
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
   }) {
     return updateUserField?.call(field, value);
@@ -527,6 +551,7 @@ class _$_updateUserField
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -542,6 +567,7 @@ class _$_updateUserField
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return updateUserField(this);
@@ -553,6 +579,7 @@ class _$_updateUserField
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return updateUserField?.call(this);
@@ -564,6 +591,7 @@ class _$_updateUserField
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -583,6 +611,134 @@ abstract class _updateUserField implements ProfileEvent {
   @JsonKey(ignore: true)
   _$updateUserFieldCopyWith<_updateUserField> get copyWith =>
       throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$getFcmTokenCopyWith<$Res> {
+  factory _$getFcmTokenCopyWith(
+          _getFcmToken value, $Res Function(_getFcmToken) then) =
+      __$getFcmTokenCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$getFcmTokenCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$getFcmTokenCopyWith<$Res> {
+  __$getFcmTokenCopyWithImpl(
+      _getFcmToken _value, $Res Function(_getFcmToken) _then)
+      : super(_value, (v) => _then(v as _getFcmToken));
+
+  @override
+  _getFcmToken get _value => super._value as _getFcmToken;
+}
+
+/// @nodoc
+
+class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
+  const _$_getFcmToken();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.getFcmToken()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ProfileEvent.getFcmToken'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _getFcmToken);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return getFcmToken();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return getFcmToken?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getFcmToken != null) {
+      return getFcmToken();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return getFcmToken(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return getFcmToken?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (getFcmToken != null) {
+      return getFcmToken(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _getFcmToken implements ProfileEvent {
+  const factory _getFcmToken() = _$_getFcmToken;
 }
 
 /// @nodoc
@@ -638,6 +794,7 @@ class _$_resetFailSuccess
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -649,6 +806,7 @@ class _$_resetFailSuccess
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -660,6 +818,7 @@ class _$_resetFailSuccess
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -675,6 +834,7 @@ class _$_resetFailSuccess
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return resetFailSuccess(this);
@@ -686,6 +846,7 @@ class _$_resetFailSuccess
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return resetFailSuccess?.call(this);
@@ -697,6 +858,7 @@ class _$_resetFailSuccess
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -715,9 +877,11 @@ abstract class _resetFailSuccess implements ProfileEvent {
 class _$ProfileStateTearOff {
   const _$ProfileStateTearOff();
 
-  _ProfileState call({User? user, Failure? failure, Success? success}) {
+  _ProfileState call(
+      {User? user, String? fcmToken, Failure? failure, Success? success}) {
     return _ProfileState(
       user: user,
+      fcmToken: fcmToken,
       failure: failure,
       success: success,
     );
@@ -730,6 +894,7 @@ const $ProfileState = _$ProfileStateTearOff();
 /// @nodoc
 mixin _$ProfileState {
   User? get user => throw _privateConstructorUsedError;
+  String? get fcmToken => throw _privateConstructorUsedError;
   Failure? get failure => throw _privateConstructorUsedError;
   Success? get success => throw _privateConstructorUsedError;
 
@@ -743,7 +908,7 @@ abstract class $ProfileStateCopyWith<$Res> {
   factory $ProfileStateCopyWith(
           ProfileState value, $Res Function(ProfileState) then) =
       _$ProfileStateCopyWithImpl<$Res>;
-  $Res call({User? user, Failure? failure, Success? success});
+  $Res call({User? user, String? fcmToken, Failure? failure, Success? success});
 
   $UserCopyWith<$Res>? get user;
   $FailureCopyWith<$Res>? get failure;
@@ -761,6 +926,7 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
   @override
   $Res call({
     Object? user = freezed,
+    Object? fcmToken = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -769,6 +935,10 @@ class _$ProfileStateCopyWithImpl<$Res> implements $ProfileStateCopyWith<$Res> {
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      fcmToken: fcmToken == freezed
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String?,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -821,7 +991,7 @@ abstract class _$ProfileStateCopyWith<$Res>
           _ProfileState value, $Res Function(_ProfileState) then) =
       __$ProfileStateCopyWithImpl<$Res>;
   @override
-  $Res call({User? user, Failure? failure, Success? success});
+  $Res call({User? user, String? fcmToken, Failure? failure, Success? success});
 
   @override
   $UserCopyWith<$Res>? get user;
@@ -844,6 +1014,7 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
   @override
   $Res call({
     Object? user = freezed,
+    Object? fcmToken = freezed,
     Object? failure = freezed,
     Object? success = freezed,
   }) {
@@ -852,6 +1023,10 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
           ? _value.user
           : user // ignore: cast_nullable_to_non_nullable
               as User?,
+      fcmToken: fcmToken == freezed
+          ? _value.fcmToken
+          : fcmToken // ignore: cast_nullable_to_non_nullable
+              as String?,
       failure: failure == freezed
           ? _value.failure
           : failure // ignore: cast_nullable_to_non_nullable
@@ -867,10 +1042,12 @@ class __$ProfileStateCopyWithImpl<$Res> extends _$ProfileStateCopyWithImpl<$Res>
 /// @nodoc
 
 class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
-  const _$_ProfileState({this.user, this.failure, this.success});
+  const _$_ProfileState({this.user, this.fcmToken, this.failure, this.success});
 
   @override
   final User? user;
+  @override
+  final String? fcmToken;
   @override
   final Failure? failure;
   @override
@@ -878,7 +1055,7 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
 
   @override
   String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
-    return 'ProfileState(user: $user, failure: $failure, success: $success)';
+    return 'ProfileState(user: $user, fcmToken: $fcmToken, failure: $failure, success: $success)';
   }
 
   @override
@@ -887,6 +1064,7 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
     properties
       ..add(DiagnosticsProperty('type', 'ProfileState'))
       ..add(DiagnosticsProperty('user', user))
+      ..add(DiagnosticsProperty('fcmToken', fcmToken))
       ..add(DiagnosticsProperty('failure', failure))
       ..add(DiagnosticsProperty('success', success));
   }
@@ -897,6 +1075,7 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
         (other.runtimeType == runtimeType &&
             other is _ProfileState &&
             const DeepCollectionEquality().equals(other.user, user) &&
+            const DeepCollectionEquality().equals(other.fcmToken, fcmToken) &&
             const DeepCollectionEquality().equals(other.failure, failure) &&
             const DeepCollectionEquality().equals(other.success, success));
   }
@@ -905,6 +1084,7 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
   int get hashCode => Object.hash(
       runtimeType,
       const DeepCollectionEquality().hash(user),
+      const DeepCollectionEquality().hash(fcmToken),
       const DeepCollectionEquality().hash(failure),
       const DeepCollectionEquality().hash(success));
 
@@ -916,10 +1096,15 @@ class _$_ProfileState with DiagnosticableTreeMixin implements _ProfileState {
 
 abstract class _ProfileState implements ProfileState {
   const factory _ProfileState(
-      {User? user, Failure? failure, Success? success}) = _$_ProfileState;
+      {User? user,
+      String? fcmToken,
+      Failure? failure,
+      Success? success}) = _$_ProfileState;
 
   @override
   User? get user;
+  @override
+  String? get fcmToken;
   @override
   Failure? get failure;
   @override
