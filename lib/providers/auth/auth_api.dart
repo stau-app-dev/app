@@ -72,7 +72,7 @@ class AuthApi {
           return const Left(Failure(message: errorUnauthorizedEmailDomain));
         }
       } else {
-        return const Left(Failure(message: errorSigningIn));
+        return const Left(Failure(message: errorPleaseSignIn));
       }
     } catch (e) {
       return const Left(Failure(message: errorSigningIn));
@@ -83,6 +83,7 @@ class AuthApi {
     try {
       FirebaseAuth auth = FirebaseAuth.instance;
       await auth.signOut();
+      await GoogleSignIn().signOut();
       return const Right(Success());
     } catch (e) {
       return const Left(Failure(message: errorSigningOut));

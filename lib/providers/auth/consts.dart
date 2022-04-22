@@ -4,6 +4,7 @@ const errorInitializing = 'Error initializing Firebase';
 const errorInvalidCredentials =
     'Error occurred while accessing credentials. Try again.';
 const errorSigningIn = 'Error occurred with Google Sign-In. Try again later.';
+const errorPleaseSignIn = 'Please sign in to continue.';
 const errorSigningOut = 'Error occurred with Google Sign-Out. Try again later.';
 const errorUnauthorizedEmailDomain = 'You must use a school email to sign in.';
 const googleErrorCodeDifferentCredentials =

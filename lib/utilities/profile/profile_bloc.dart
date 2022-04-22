@@ -32,6 +32,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r)));
         },
+        clearUser: (e) => emit(state.copyWith(user: null)),
         updateUserField: (e) async {
           Either<Failure, User> res = await ProfileRepository.updateUserField(
               id: state.user!.id, field: e.field, value: e.value);

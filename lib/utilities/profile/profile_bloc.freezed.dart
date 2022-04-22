@@ -31,6 +31,10 @@ class _$ProfileEventTearOff {
     return const _refreshUser();
   }
 
+  _clearUser clearUser() {
+    return const _clearUser();
+  }
+
   _updateUserField updateUserField(
       {required String field, required dynamic value}) {
     return _updateUserField(
@@ -69,6 +73,7 @@ mixin _$ProfileEvent {
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -80,6 +85,7 @@ mixin _$ProfileEvent {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -91,6 +97,7 @@ mixin _$ProfileEvent {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -103,6 +110,7 @@ mixin _$ProfileEvent {
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -114,6 +122,7 @@ mixin _$ProfileEvent {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -125,6 +134,7 @@ mixin _$ProfileEvent {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -244,6 +254,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -258,6 +269,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -272,6 +284,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -290,6 +303,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -304,6 +318,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -318,6 +333,7 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -394,6 +410,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -408,6 +425,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -422,6 +440,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -440,6 +459,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -454,6 +474,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -468,6 +489,7 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -484,6 +506,151 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
 
 abstract class _refreshUser implements ProfileEvent {
   const factory _refreshUser() = _$_refreshUser;
+}
+
+/// @nodoc
+abstract class _$clearUserCopyWith<$Res> {
+  factory _$clearUserCopyWith(
+          _clearUser value, $Res Function(_clearUser) then) =
+      __$clearUserCopyWithImpl<$Res>;
+}
+
+/// @nodoc
+class __$clearUserCopyWithImpl<$Res> extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$clearUserCopyWith<$Res> {
+  __$clearUserCopyWithImpl(_clearUser _value, $Res Function(_clearUser) _then)
+      : super(_value, (v) => _then(v as _clearUser));
+
+  @override
+  _clearUser get _value => super._value as _clearUser;
+}
+
+/// @nodoc
+
+class _$_clearUser with DiagnosticableTreeMixin implements _clearUser {
+  const _$_clearUser();
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.clearUser()';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties..add(DiagnosticsProperty('type', 'ProfileEvent.clearUser'));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType && other is _clearUser);
+  }
+
+  @override
+  int get hashCode => runtimeType.hashCode;
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
+    required TResult Function() clearUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return clearUser();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function()? clearUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return clearUser?.call();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function()? clearUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (clearUser != null) {
+      return clearUser();
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return clearUser(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return clearUser?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (clearUser != null) {
+      return clearUser(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _clearUser implements ProfileEvent {
+  const factory _clearUser() = _$_clearUser;
 }
 
 /// @nodoc
@@ -574,6 +741,7 @@ class _$_updateUserField
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -588,6 +756,7 @@ class _$_updateUserField
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -602,6 +771,7 @@ class _$_updateUserField
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -620,6 +790,7 @@ class _$_updateUserField
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -634,6 +805,7 @@ class _$_updateUserField
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -648,6 +820,7 @@ class _$_updateUserField
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -721,6 +894,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -735,6 +909,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -749,6 +924,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -767,6 +943,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -781,6 +958,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -795,6 +973,7 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -890,6 +1069,7 @@ class _$_subscribeToTopic
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -904,6 +1084,7 @@ class _$_subscribeToTopic
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -918,6 +1099,7 @@ class _$_subscribeToTopic
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -936,6 +1118,7 @@ class _$_subscribeToTopic
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -950,6 +1133,7 @@ class _$_subscribeToTopic
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -964,6 +1148,7 @@ class _$_subscribeToTopic
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -1066,6 +1251,7 @@ class _$_unsubscribeFromTopic
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -1080,6 +1266,7 @@ class _$_unsubscribeFromTopic
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -1094,6 +1281,7 @@ class _$_unsubscribeFromTopic
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -1112,6 +1300,7 @@ class _$_unsubscribeFromTopic
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -1126,6 +1315,7 @@ class _$_unsubscribeFromTopic
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -1140,6 +1330,7 @@ class _$_unsubscribeFromTopic
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -1216,6 +1407,7 @@ class _$_resetFailSuccess
   TResult when<TResult extends Object?>({
     required TResult Function(String id, String email, String name) getUser,
     required TResult Function() refreshUser,
+    required TResult Function() clearUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
     required TResult Function(String topic) subscribeToTopic,
@@ -1230,6 +1422,7 @@ class _$_resetFailSuccess
   TResult? whenOrNull<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -1244,6 +1437,7 @@ class _$_resetFailSuccess
   TResult maybeWhen<TResult extends Object?>({
     TResult Function(String id, String email, String name)? getUser,
     TResult Function()? refreshUser,
+    TResult Function()? clearUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
     TResult Function(String topic)? subscribeToTopic,
@@ -1262,6 +1456,7 @@ class _$_resetFailSuccess
   TResult map<TResult extends Object?>({
     required TResult Function(_getUser value) getUser,
     required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_clearUser value) clearUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
     required TResult Function(_subscribeToTopic value) subscribeToTopic,
@@ -1276,6 +1471,7 @@ class _$_resetFailSuccess
   TResult? mapOrNull<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,
@@ -1290,6 +1486,7 @@ class _$_resetFailSuccess
   TResult maybeMap<TResult extends Object?>({
     TResult Function(_getUser value)? getUser,
     TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_clearUser value)? clearUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
     TResult Function(_subscribeToTopic value)? subscribeToTopic,

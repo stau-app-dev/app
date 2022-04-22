@@ -52,6 +52,7 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
 
   void onPressedLogout() {
     authBloc.add(const AuthEvent.signOut());
+    profileBloc.add(const ProfileEvent.clearUser());
     navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
     navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
   }
