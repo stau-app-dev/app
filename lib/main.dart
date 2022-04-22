@@ -93,7 +93,7 @@ class _Application extends State<Application> {
             android: AndroidNotificationDetails(
               'high_importance_channel',
               'High Importance Notifications',
-              icon: 'launch_background',
+              icon: 'ic_stat_sta_icon',
             ),
           ),
         );
