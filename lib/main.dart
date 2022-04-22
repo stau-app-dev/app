@@ -1,3 +1,5 @@
+import 'package:staugustinechsnewapp/theme/styles.dart';
+
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -91,10 +93,8 @@ class _Application extends State<Application> {
           notification.body,
           const NotificationDetails(
             android: AndroidNotificationDetails(
-              'high_importance_channel',
-              'High Importance Notifications',
-              icon: 'ic_stat_sta_icon',
-            ),
+                'high_importance_channel', 'High Importance Notifications',
+                icon: 'ic_notification', color: Styles.secondary),
           ),
         );
       }
