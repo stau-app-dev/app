@@ -25,9 +25,13 @@ class PushNotificationServiceRepository {
   }
 
   static Future<Either<Failure, Success>>
-      setForegroundNotificationPresentationOptions(
-          {required bool enabled}) async {
+      setForegroundNotificationPresentationOptions() async {
     return await PushNotificationsApi
-        .setForegroundNotificationPresentationOptions(enabled: enabled);
+        .setForegroundNotificationPresentationOptions();
+  }
+
+  static Future<Either<Failure, Success>>
+      setAndroidNotificationChannel() async {
+    return await PushNotificationsApi.setAndroidNotificationChannel();
   }
 }

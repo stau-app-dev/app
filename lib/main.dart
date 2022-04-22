@@ -1,9 +1,11 @@
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/providers/notifications/push_notifications_repository.dart';
@@ -21,6 +23,9 @@ import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 const env = kReleaseMode ? Environment.prod : Environment.test;
 // const env = Environment.dev;
 
+/// Initialize the [FlutterLocalNotificationsPlugin] package.
+late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
+
 void main() async {
   if (kDebugMode) {
     print('[ENV] Running in Environment: ' + env);
@@ -34,7 +39,16 @@ void main() async {
   );
 
   // Push notifications
+  flutterLocalNotificationsPlugin = FlutterLocalNotificationsPlugin();
+  await flutterLocalNotificationsPlugin.initialize(
+    const InitializationSettings(
+        android: AndroidInitializationSettings('drawable/ic_notification'),
+        iOS: IOSInitializationSettings()),
+  );
   await PushNotificationServiceRepository.initialize();
+  await PushNotificationServiceRepository
+      .setForegroundNotificationPresentationOptions();
+  await PushNotificationServiceRepository.setAndroidNotificationChannel();
 
   // iOS will not automatically show the notification bar when the app loads.
   // To show the notification bar:
@@ -53,12 +67,40 @@ void main() async {
       BlocProvider(create: (context) => getIt<SongBloc>()),
     ],
     child: const AnnotatedRegion<SystemUiOverlayStyle>(
-        value: SystemUiOverlayStyle.dark, child: MyApp()),
+        value: SystemUiOverlayStyle.dark, child: Application()),
   ));
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class Application extends StatefulWidget {
+  const Application({Key? key}) : super(key: key);
+
+  @override
+  State<StatefulWidget> createState() => _Application();
+}
+
+class _Application extends State<Application> {
+  @override
+  void initState() {
+    FirebaseMessaging.onMessage.listen((RemoteMessage message) {
+      RemoteNotification? notification = message.notification;
+      AndroidNotification? android = message.notification?.android;
+      if (notification != null && android != null && !kIsWeb) {
+        flutterLocalNotificationsPlugin.show(
+          notification.hashCode,
+          notification.title,
+          notification.body,
+          const NotificationDetails(
+            android: AndroidNotificationDetails(
+              'high_importance_channel',
+              'High Importance Notifications',
+              icon: 'launch_background',
+            ),
+          ),
+        );
+      }
+    });
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {

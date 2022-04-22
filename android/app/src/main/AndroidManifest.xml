@@ -36,6 +36,17 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+        <!-- Flutter high importance messages. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="high_importance_channel" />
+        <!-- Notification icon. -->
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorSecondary" />
     </application>
     <queries>
         <!-- Required to open https URLs -->
@@ -43,6 +54,7 @@
             <action android:name="android.intent.action.VIEW" />
             <data android:scheme="https" />
         </intent>
+        <!-- Required to open mailto: URLs -->
         <intent>
             <action android:name="android.intent.action.SEND" />
             <data android:mimeType="*/*" />

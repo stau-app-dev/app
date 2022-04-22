@@ -56,7 +56,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
             if ((profileState.user != null && fcmToken != '') &&
                 (!profileState.user!.msgTokens.contains(fcmToken))) {
               List<String> tokens = profileState.user!.msgTokens;
-              tokens.add(fcmToken);
+              tokens = [fcmToken]; // For now, only allow one token
               profileBloc.add(ProfileEvent.updateUserField(
                   field: 'msgTokens', value: tokens));
               return;

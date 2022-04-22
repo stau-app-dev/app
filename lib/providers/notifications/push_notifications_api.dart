@@ -1,5 +1,6 @@
 import 'package:dartz/dartz.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
@@ -59,20 +60,43 @@ class PushNotificationsApi {
   }
 
   static Future<Either<Failure, Success>>
-      setForegroundNotificationPresentationOptions(
-          {required bool enabled}) async {
+      setForegroundNotificationPresentationOptions() async {
     try {
       FirebaseMessaging messaging = FirebaseMessaging.instance;
       await messaging.setForegroundNotificationPresentationOptions(
-        alert: enabled,
-        badge: enabled,
-        sound: enabled,
+        alert: true,
+        badge: true,
+        sound: true,
       );
       return const Right(Success(
           message: successSettingForegroundNotificationPresentationOptions));
     } catch (e) {
       return const Left(Failure(
           message: errorSettingForegroundNotificationPresentationOptions));
+    }
+  }
+
+  static Future<Either<Failure, Success>>
+      setAndroidNotificationChannel() async {
+    try {
+      const AndroidNotificationChannel channel = AndroidNotificationChannel(
+        'high_importance_channel',
+        'High Importance Notifications',
+        importance: Importance.max,
+      );
+      final FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin =
+          FlutterLocalNotificationsPlugin();
+
+      await flutterLocalNotificationsPlugin
+          .resolvePlatformSpecificImplementation<
+              AndroidFlutterLocalNotificationsPlugin>()
+          ?.createNotificationChannel(channel);
+
+      return const Right(
+          Success(message: successSettingAndroidNotificationChannel));
+    } catch (e) {
+      return const Left(
+          Failure(message: errorSettingAndroidNotificationChannel));
     }
   }
 }

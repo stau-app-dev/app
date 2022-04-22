@@ -11,3 +11,7 @@ const successSettingForegroundNotificationPresentationOptions =
     'Successfully setting foreground notification presentation options';
 const errorSettingForegroundNotificationPresentationOptions =
     'Error setting foreground notification presentation options';
+const successSettingAndroidNotificationChannel =
+    'Successfully set Android notification channel';
+const errorSettingAndroidNotificationChannel =
+    'Error setting Android notification channel';
