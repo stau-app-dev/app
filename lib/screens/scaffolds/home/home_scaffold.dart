@@ -85,7 +85,8 @@ class _HomeScaffoldState extends State<HomeScaffold> {
                 spiritMeters: homeState.spiritMeters,
                 verseOfDay: homeState.verseOfDay,
                 onPressAddAnnouncementStaff:
-                    profileState.user?.status == staffProfileStatus
+                    profileState.user?.status == staffProfileStatus ||
+                            profileState.user?.status == devProfileStatus
                         ? onPressAddAnnouncementStaff
                         : null,
               );

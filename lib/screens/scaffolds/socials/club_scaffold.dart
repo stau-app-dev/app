@@ -5,6 +5,7 @@ import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.da
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
@@ -230,7 +231,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       }, builder: (context, socialsState) {
         String userEmail = profileState.user?.email ?? '';
         bool isClubAdmin =
-            socialsState.club?.admins.contains(userEmail) ?? false;
+            (socialsState.club?.admins.contains(userEmail) ?? false) ||
+                (profileState.user?.status == devProfileStatus);
         bool isClubMember =
             socialsState.club?.members.contains(userEmail) ?? false;
         bool isPartOfClub = isClubAdmin || isClubMember;
