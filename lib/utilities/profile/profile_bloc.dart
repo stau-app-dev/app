@@ -48,6 +48,20 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(fcmToken: r)));
         },
+        subscribeToTopic: (e) async {
+          Either<Failure, Success> res =
+              await PushNotificationServiceRepository.subscribeToTopic(
+                  topic: e.topic);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        unsubscribeFromTopic: (e) async {
+          Either<Failure, Success> res =
+              await PushNotificationServiceRepository.unsubscribeFromTopic(
+                  topic: e.topic);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));
   }

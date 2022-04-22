@@ -32,4 +32,4 @@ const staffProfileStatus = 1;
 const staFAQPageUrl = 'https://app.staugustinechs.ca/faq';
 const sendFeedbackEmail = 'sachsappteam@gmail.com';
 
-const generalNotification = 'general';
+const generalNotification = 'newGeneral';

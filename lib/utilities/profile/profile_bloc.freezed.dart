@@ -43,6 +43,18 @@ class _$ProfileEventTearOff {
     return const _getFcmToken();
   }
 
+  _subscribeToTopic subscribeToTopic({required String topic}) {
+    return _subscribeToTopic(
+      topic: topic,
+    );
+  }
+
+  _unsubscribeFromTopic unsubscribeFromTopic({required String topic}) {
+    return _unsubscribeFromTopic(
+      topic: topic,
+    );
+  }
+
   _resetFailSuccess resetFailSuccess() {
     return const _resetFailSuccess();
   }
@@ -59,6 +71,8 @@ mixin _$ProfileEvent {
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -68,6 +82,8 @@ mixin _$ProfileEvent {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -77,6 +93,8 @@ mixin _$ProfileEvent {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -87,6 +105,8 @@ mixin _$ProfileEvent {
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -96,6 +116,8 @@ mixin _$ProfileEvent {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) =>
       throw _privateConstructorUsedError;
@@ -105,6 +127,8 @@ mixin _$ProfileEvent {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) =>
@@ -222,6 +246,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) {
     return getUser(id, email, name);
@@ -234,6 +260,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) {
     return getUser?.call(id, email, name);
@@ -246,6 +274,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -262,6 +292,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getUser(this);
@@ -274,6 +306,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getUser?.call(this);
@@ -286,6 +320,8 @@ class _$_getUser with DiagnosticableTreeMixin implements _getUser {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -360,6 +396,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) {
     return refreshUser();
@@ -372,6 +410,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) {
     return refreshUser?.call();
@@ -384,6 +424,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -400,6 +442,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return refreshUser(this);
@@ -412,6 +456,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return refreshUser?.call(this);
@@ -424,6 +470,8 @@ class _$_refreshUser with DiagnosticableTreeMixin implements _refreshUser {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -528,6 +576,8 @@ class _$_updateUserField
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) {
     return updateUserField(field, value);
@@ -540,6 +590,8 @@ class _$_updateUserField
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) {
     return updateUserField?.call(field, value);
@@ -552,6 +604,8 @@ class _$_updateUserField
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -568,6 +622,8 @@ class _$_updateUserField
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return updateUserField(this);
@@ -580,6 +636,8 @@ class _$_updateUserField
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return updateUserField?.call(this);
@@ -592,6 +650,8 @@ class _$_updateUserField
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -663,6 +723,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) {
     return getFcmToken();
@@ -675,6 +737,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) {
     return getFcmToken?.call();
@@ -687,6 +751,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -703,6 +769,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return getFcmToken(this);
@@ -715,6 +783,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return getFcmToken?.call(this);
@@ -727,6 +797,8 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -739,6 +811,357 @@ class _$_getFcmToken with DiagnosticableTreeMixin implements _getFcmToken {
 
 abstract class _getFcmToken implements ProfileEvent {
   const factory _getFcmToken() = _$_getFcmToken;
+}
+
+/// @nodoc
+abstract class _$subscribeToTopicCopyWith<$Res> {
+  factory _$subscribeToTopicCopyWith(
+          _subscribeToTopic value, $Res Function(_subscribeToTopic) then) =
+      __$subscribeToTopicCopyWithImpl<$Res>;
+  $Res call({String topic});
+}
+
+/// @nodoc
+class __$subscribeToTopicCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$subscribeToTopicCopyWith<$Res> {
+  __$subscribeToTopicCopyWithImpl(
+      _subscribeToTopic _value, $Res Function(_subscribeToTopic) _then)
+      : super(_value, (v) => _then(v as _subscribeToTopic));
+
+  @override
+  _subscribeToTopic get _value => super._value as _subscribeToTopic;
+
+  @override
+  $Res call({
+    Object? topic = freezed,
+  }) {
+    return _then(_subscribeToTopic(
+      topic: topic == freezed
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_subscribeToTopic
+    with DiagnosticableTreeMixin
+    implements _subscribeToTopic {
+  const _$_subscribeToTopic({required this.topic});
+
+  @override
+  final String topic;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.subscribeToTopic(topic: $topic)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.subscribeToTopic'))
+      ..add(DiagnosticsProperty('topic', topic));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _subscribeToTopic &&
+            const DeepCollectionEquality().equals(other.topic, topic));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(topic));
+
+  @JsonKey(ignore: true)
+  @override
+  _$subscribeToTopicCopyWith<_subscribeToTopic> get copyWith =>
+      __$subscribeToTopicCopyWithImpl<_subscribeToTopic>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return subscribeToTopic(topic);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return subscribeToTopic?.call(topic);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (subscribeToTopic != null) {
+      return subscribeToTopic(topic);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return subscribeToTopic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return subscribeToTopic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (subscribeToTopic != null) {
+      return subscribeToTopic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _subscribeToTopic implements ProfileEvent {
+  const factory _subscribeToTopic({required String topic}) =
+      _$_subscribeToTopic;
+
+  String get topic;
+  @JsonKey(ignore: true)
+  _$subscribeToTopicCopyWith<_subscribeToTopic> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$unsubscribeFromTopicCopyWith<$Res> {
+  factory _$unsubscribeFromTopicCopyWith(_unsubscribeFromTopic value,
+          $Res Function(_unsubscribeFromTopic) then) =
+      __$unsubscribeFromTopicCopyWithImpl<$Res>;
+  $Res call({String topic});
+}
+
+/// @nodoc
+class __$unsubscribeFromTopicCopyWithImpl<$Res>
+    extends _$ProfileEventCopyWithImpl<$Res>
+    implements _$unsubscribeFromTopicCopyWith<$Res> {
+  __$unsubscribeFromTopicCopyWithImpl(
+      _unsubscribeFromTopic _value, $Res Function(_unsubscribeFromTopic) _then)
+      : super(_value, (v) => _then(v as _unsubscribeFromTopic));
+
+  @override
+  _unsubscribeFromTopic get _value => super._value as _unsubscribeFromTopic;
+
+  @override
+  $Res call({
+    Object? topic = freezed,
+  }) {
+    return _then(_unsubscribeFromTopic(
+      topic: topic == freezed
+          ? _value.topic
+          : topic // ignore: cast_nullable_to_non_nullable
+              as String,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_unsubscribeFromTopic
+    with DiagnosticableTreeMixin
+    implements _unsubscribeFromTopic {
+  const _$_unsubscribeFromTopic({required this.topic});
+
+  @override
+  final String topic;
+
+  @override
+  String toString({DiagnosticLevel minLevel = DiagnosticLevel.info}) {
+    return 'ProfileEvent.unsubscribeFromTopic(topic: $topic)';
+  }
+
+  @override
+  void debugFillProperties(DiagnosticPropertiesBuilder properties) {
+    super.debugFillProperties(properties);
+    properties
+      ..add(DiagnosticsProperty('type', 'ProfileEvent.unsubscribeFromTopic'))
+      ..add(DiagnosticsProperty('topic', topic));
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _unsubscribeFromTopic &&
+            const DeepCollectionEquality().equals(other.topic, topic));
+  }
+
+  @override
+  int get hashCode =>
+      Object.hash(runtimeType, const DeepCollectionEquality().hash(topic));
+
+  @JsonKey(ignore: true)
+  @override
+  _$unsubscribeFromTopicCopyWith<_unsubscribeFromTopic> get copyWith =>
+      __$unsubscribeFromTopicCopyWithImpl<_unsubscribeFromTopic>(
+          this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String id, String email, String name) getUser,
+    required TResult Function() refreshUser,
+    required TResult Function(String field, dynamic value) updateUserField,
+    required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return unsubscribeFromTopic(topic);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return unsubscribeFromTopic?.call(topic);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String id, String email, String name)? getUser,
+    TResult Function()? refreshUser,
+    TResult Function(String field, dynamic value)? updateUserField,
+    TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (unsubscribeFromTopic != null) {
+      return unsubscribeFromTopic(topic);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUser value) getUser,
+    required TResult Function(_refreshUser value) refreshUser,
+    required TResult Function(_updateUserField value) updateUserField,
+    required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return unsubscribeFromTopic(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return unsubscribeFromTopic?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUser value)? getUser,
+    TResult Function(_refreshUser value)? refreshUser,
+    TResult Function(_updateUserField value)? updateUserField,
+    TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (unsubscribeFromTopic != null) {
+      return unsubscribeFromTopic(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _unsubscribeFromTopic implements ProfileEvent {
+  const factory _unsubscribeFromTopic({required String topic}) =
+      _$_unsubscribeFromTopic;
+
+  String get topic;
+  @JsonKey(ignore: true)
+  _$unsubscribeFromTopicCopyWith<_unsubscribeFromTopic> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
@@ -795,6 +1218,8 @@ class _$_resetFailSuccess
     required TResult Function() refreshUser,
     required TResult Function(String field, dynamic value) updateUserField,
     required TResult Function() getFcmToken,
+    required TResult Function(String topic) subscribeToTopic,
+    required TResult Function(String topic) unsubscribeFromTopic,
     required TResult Function() resetFailSuccess,
   }) {
     return resetFailSuccess();
@@ -807,6 +1232,8 @@ class _$_resetFailSuccess
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
   }) {
     return resetFailSuccess?.call();
@@ -819,6 +1246,8 @@ class _$_resetFailSuccess
     TResult Function()? refreshUser,
     TResult Function(String field, dynamic value)? updateUserField,
     TResult Function()? getFcmToken,
+    TResult Function(String topic)? subscribeToTopic,
+    TResult Function(String topic)? unsubscribeFromTopic,
     TResult Function()? resetFailSuccess,
     required TResult orElse(),
   }) {
@@ -835,6 +1264,8 @@ class _$_resetFailSuccess
     required TResult Function(_refreshUser value) refreshUser,
     required TResult Function(_updateUserField value) updateUserField,
     required TResult Function(_getFcmToken value) getFcmToken,
+    required TResult Function(_subscribeToTopic value) subscribeToTopic,
+    required TResult Function(_unsubscribeFromTopic value) unsubscribeFromTopic,
     required TResult Function(_resetFailSuccess value) resetFailSuccess,
   }) {
     return resetFailSuccess(this);
@@ -847,6 +1278,8 @@ class _$_resetFailSuccess
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
   }) {
     return resetFailSuccess?.call(this);
@@ -859,6 +1292,8 @@ class _$_resetFailSuccess
     TResult Function(_refreshUser value)? refreshUser,
     TResult Function(_updateUserField value)? updateUserField,
     TResult Function(_getFcmToken value)? getFcmToken,
+    TResult Function(_subscribeToTopic value)? subscribeToTopic,
+    TResult Function(_unsubscribeFromTopic value)? unsubscribeFromTopic,
     TResult Function(_resetFailSuccess value)? resetFailSuccess,
     required TResult orElse(),
   }) {
