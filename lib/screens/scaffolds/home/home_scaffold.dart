@@ -89,6 +89,7 @@ class _HomeScaffoldState extends State<HomeScaffold> {
                             profileState.user?.status == devProfileStatus
                         ? onPressAddAnnouncementStaff
                         : null,
+                isDev: profileState.user?.status == devProfileStatus,
               );
             });
           });
