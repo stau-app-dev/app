@@ -92,7 +92,8 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         listener: (context, state) {
           // Need to refresh the clubs list, not really efficient and pretty confusing but it works
           // and im too lazy to find a better way and the deadline is soon lmao
-          if (state.currentScreen == ENav.socials) {
+          if (state.currentScreen == ENav.socials &&
+              profileBloc.state.user != null) {
             socialsBloc.add(
                 SocialsEvent.getUserClubs(userId: profileBloc.state.user!.id));
           }
