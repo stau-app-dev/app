@@ -58,6 +58,27 @@ class _$SocialsEventTearOff {
     );
   }
 
+  _updateClub updateClub(
+      {required String clubId,
+      required String description,
+      required int joinPreference,
+      required String name,
+      required String pictureId,
+      File? picture,
+      String? path,
+      String? fileName}) {
+    return _updateClub(
+      clubId: clubId,
+      description: description,
+      joinPreference: joinPreference,
+      name: name,
+      pictureId: pictureId,
+      picture: picture,
+      path: path,
+      fileName: fileName,
+    );
+  }
+
   _addClubAnnouncement addClubAnnouncement(
       {required String clubId,
       required String clubName,
@@ -145,6 +166,16 @@ mixin _$SocialsEvent {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -176,6 +207,16 @@ mixin _$SocialsEvent {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -204,6 +245,16 @@ mixin _$SocialsEvent {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -224,6 +275,7 @@ mixin _$SocialsEvent {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -242,6 +294,7 @@ mixin _$SocialsEvent {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -259,6 +312,7 @@ mixin _$SocialsEvent {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -367,6 +421,16 @@ class _$_getUserClubs implements _getUserClubs {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -401,6 +465,16 @@ class _$_getUserClubs implements _getUserClubs {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -432,6 +506,16 @@ class _$_getUserClubs implements _getUserClubs {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -458,6 +542,7 @@ class _$_getUserClubs implements _getUserClubs {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -479,6 +564,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -499,6 +585,7 @@ class _$_getUserClubs implements _getUserClubs {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -606,6 +693,16 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -640,6 +737,16 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -671,6 +778,16 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -697,6 +814,7 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -718,6 +836,7 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -738,6 +857,7 @@ class _$_getUserClubsNotJoined implements _getUserClubsNotJoined {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -853,6 +973,16 @@ class _$_getClub implements _getClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -887,6 +1017,16 @@ class _$_getClub implements _getClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -918,6 +1058,16 @@ class _$_getClub implements _getClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -944,6 +1094,7 @@ class _$_getClub implements _getClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -965,6 +1116,7 @@ class _$_getClub implements _getClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -985,6 +1137,7 @@ class _$_getClub implements _getClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1172,6 +1325,16 @@ class _$_addClub implements _addClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -1207,6 +1370,16 @@ class _$_addClub implements _addClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1239,6 +1412,16 @@ class _$_addClub implements _addClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1266,6 +1449,7 @@ class _$_addClub implements _addClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -1287,6 +1471,7 @@ class _$_addClub implements _addClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1307,6 +1492,7 @@ class _$_addClub implements _addClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1346,6 +1532,376 @@ abstract class _addClub implements SocialsEvent {
   String get fileName;
   @JsonKey(ignore: true)
   _$addClubCopyWith<_addClub> get copyWith =>
+      throw _privateConstructorUsedError;
+}
+
+/// @nodoc
+abstract class _$updateClubCopyWith<$Res> {
+  factory _$updateClubCopyWith(
+          _updateClub value, $Res Function(_updateClub) then) =
+      __$updateClubCopyWithImpl<$Res>;
+  $Res call(
+      {String clubId,
+      String description,
+      int joinPreference,
+      String name,
+      String pictureId,
+      File? picture,
+      String? path,
+      String? fileName});
+}
+
+/// @nodoc
+class __$updateClubCopyWithImpl<$Res> extends _$SocialsEventCopyWithImpl<$Res>
+    implements _$updateClubCopyWith<$Res> {
+  __$updateClubCopyWithImpl(
+      _updateClub _value, $Res Function(_updateClub) _then)
+      : super(_value, (v) => _then(v as _updateClub));
+
+  @override
+  _updateClub get _value => super._value as _updateClub;
+
+  @override
+  $Res call({
+    Object? clubId = freezed,
+    Object? description = freezed,
+    Object? joinPreference = freezed,
+    Object? name = freezed,
+    Object? pictureId = freezed,
+    Object? picture = freezed,
+    Object? path = freezed,
+    Object? fileName = freezed,
+  }) {
+    return _then(_updateClub(
+      clubId: clubId == freezed
+          ? _value.clubId
+          : clubId // ignore: cast_nullable_to_non_nullable
+              as String,
+      description: description == freezed
+          ? _value.description
+          : description // ignore: cast_nullable_to_non_nullable
+              as String,
+      joinPreference: joinPreference == freezed
+          ? _value.joinPreference
+          : joinPreference // ignore: cast_nullable_to_non_nullable
+              as int,
+      name: name == freezed
+          ? _value.name
+          : name // ignore: cast_nullable_to_non_nullable
+              as String,
+      pictureId: pictureId == freezed
+          ? _value.pictureId
+          : pictureId // ignore: cast_nullable_to_non_nullable
+              as String,
+      picture: picture == freezed
+          ? _value.picture
+          : picture // ignore: cast_nullable_to_non_nullable
+              as File?,
+      path: path == freezed
+          ? _value.path
+          : path // ignore: cast_nullable_to_non_nullable
+              as String?,
+      fileName: fileName == freezed
+          ? _value.fileName
+          : fileName // ignore: cast_nullable_to_non_nullable
+              as String?,
+    ));
+  }
+}
+
+/// @nodoc
+
+class _$_updateClub implements _updateClub {
+  const _$_updateClub(
+      {required this.clubId,
+      required this.description,
+      required this.joinPreference,
+      required this.name,
+      required this.pictureId,
+      this.picture,
+      this.path,
+      this.fileName});
+
+  @override
+  final String clubId;
+  @override
+  final String description;
+  @override
+  final int joinPreference;
+  @override
+  final String name;
+  @override
+  final String pictureId;
+  @override
+  final File? picture;
+  @override
+  final String? path;
+  @override
+  final String? fileName;
+
+  @override
+  String toString() {
+    return 'SocialsEvent.updateClub(clubId: $clubId, description: $description, joinPreference: $joinPreference, name: $name, pictureId: $pictureId, picture: $picture, path: $path, fileName: $fileName)';
+  }
+
+  @override
+  bool operator ==(dynamic other) {
+    return identical(this, other) ||
+        (other.runtimeType == runtimeType &&
+            other is _updateClub &&
+            const DeepCollectionEquality().equals(other.clubId, clubId) &&
+            const DeepCollectionEquality()
+                .equals(other.description, description) &&
+            const DeepCollectionEquality()
+                .equals(other.joinPreference, joinPreference) &&
+            const DeepCollectionEquality().equals(other.name, name) &&
+            const DeepCollectionEquality().equals(other.pictureId, pictureId) &&
+            const DeepCollectionEquality().equals(other.picture, picture) &&
+            const DeepCollectionEquality().equals(other.path, path) &&
+            const DeepCollectionEquality().equals(other.fileName, fileName));
+  }
+
+  @override
+  int get hashCode => Object.hash(
+      runtimeType,
+      const DeepCollectionEquality().hash(clubId),
+      const DeepCollectionEquality().hash(description),
+      const DeepCollectionEquality().hash(joinPreference),
+      const DeepCollectionEquality().hash(name),
+      const DeepCollectionEquality().hash(pictureId),
+      const DeepCollectionEquality().hash(picture),
+      const DeepCollectionEquality().hash(path),
+      const DeepCollectionEquality().hash(fileName));
+
+  @JsonKey(ignore: true)
+  @override
+  _$updateClubCopyWith<_updateClub> get copyWith =>
+      __$updateClubCopyWithImpl<_updateClub>(this, _$identity);
+
+  @override
+  @optionalTypeArgs
+  TResult when<TResult extends Object?>({
+    required TResult Function(String userId) getUserClubs,
+    required TResult Function(String userId) getUserClubsNotJoined,
+    required TResult Function(String clubId, String pictureUrl) getClub,
+    required TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)
+        addClub,
+    required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
+            String clubId, String clubName, String content, String creatorName)
+        addClubAnnouncement,
+    required TResult Function(String id) deleteClubAnnouncement,
+    required TResult Function(String clubId) getClubAnnouncements,
+    required TResult Function(String clubId, String userEmail) addUserToClub,
+    required TResult Function(String clubId, String userEmail)
+        addUserToPendingClub,
+    required TResult Function(String clubId, String userEmail)
+        promoteUserToAdmin,
+    required TResult Function(String clubId, String userEmail)
+        removeUserFromClub,
+    required TResult Function() resetClub,
+    required TResult Function() resetFailSuccess,
+  }) {
+    return updateClub(clubId, description, joinPreference, name, pictureId,
+        picture, path, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? whenOrNull<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String userId)? getUserClubsNotJoined,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String id)? deleteClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userEmail)? addUserToClub,
+    TResult Function(String clubId, String userEmail)? addUserToPendingClub,
+    TResult Function(String clubId, String userEmail)? promoteUserToAdmin,
+    TResult Function(String clubId, String userEmail)? removeUserFromClub,
+    TResult Function()? resetClub,
+    TResult Function()? resetFailSuccess,
+  }) {
+    return updateClub?.call(clubId, description, joinPreference, name,
+        pictureId, picture, path, fileName);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeWhen<TResult extends Object?>({
+    TResult Function(String userId)? getUserClubs,
+    TResult Function(String userId)? getUserClubsNotJoined,
+    TResult Function(String clubId, String pictureUrl)? getClub,
+    TResult Function(
+            String description,
+            String email,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File picture,
+            String path,
+            String fileName)?
+        addClub,
+    TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
+            String clubId, String clubName, String content, String creatorName)?
+        addClubAnnouncement,
+    TResult Function(String id)? deleteClubAnnouncement,
+    TResult Function(String clubId)? getClubAnnouncements,
+    TResult Function(String clubId, String userEmail)? addUserToClub,
+    TResult Function(String clubId, String userEmail)? addUserToPendingClub,
+    TResult Function(String clubId, String userEmail)? promoteUserToAdmin,
+    TResult Function(String clubId, String userEmail)? removeUserFromClub,
+    TResult Function()? resetClub,
+    TResult Function()? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateClub != null) {
+      return updateClub(clubId, description, joinPreference, name, pictureId,
+          picture, path, fileName);
+    }
+    return orElse();
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult map<TResult extends Object?>({
+    required TResult Function(_getUserClubs value) getUserClubs,
+    required TResult Function(_getUserClubsNotJoined value)
+        getUserClubsNotJoined,
+    required TResult Function(_getClub value) getClub,
+    required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
+    required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
+    required TResult Function(_deleteClubAnnouncement value)
+        deleteClubAnnouncement,
+    required TResult Function(_getClubAnnouncements value) getClubAnnouncements,
+    required TResult Function(_addUserToClub value) addUserToClub,
+    required TResult Function(_addUserToPendingClub value) addUserToPendingClub,
+    required TResult Function(_promoteUserToAdmin value) promoteUserToAdmin,
+    required TResult Function(_removeUserFromClub value) removeUserFromClub,
+    required TResult Function(_resetClub value) resetClub,
+    required TResult Function(_resetFailSuccess value) resetFailSuccess,
+  }) {
+    return updateClub(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult? mapOrNull<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_promoteUserToAdmin value)? promoteUserToAdmin,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetClub value)? resetClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+  }) {
+    return updateClub?.call(this);
+  }
+
+  @override
+  @optionalTypeArgs
+  TResult maybeMap<TResult extends Object?>({
+    TResult Function(_getUserClubs value)? getUserClubs,
+    TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
+    TResult Function(_getClub value)? getClub,
+    TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
+    TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
+    TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
+    TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
+    TResult Function(_addUserToClub value)? addUserToClub,
+    TResult Function(_addUserToPendingClub value)? addUserToPendingClub,
+    TResult Function(_promoteUserToAdmin value)? promoteUserToAdmin,
+    TResult Function(_removeUserFromClub value)? removeUserFromClub,
+    TResult Function(_resetClub value)? resetClub,
+    TResult Function(_resetFailSuccess value)? resetFailSuccess,
+    required TResult orElse(),
+  }) {
+    if (updateClub != null) {
+      return updateClub(this);
+    }
+    return orElse();
+  }
+}
+
+abstract class _updateClub implements SocialsEvent {
+  const factory _updateClub(
+      {required String clubId,
+      required String description,
+      required int joinPreference,
+      required String name,
+      required String pictureId,
+      File? picture,
+      String? path,
+      String? fileName}) = _$_updateClub;
+
+  String get clubId;
+  String get description;
+  int get joinPreference;
+  String get name;
+  String get pictureId;
+  File? get picture;
+  String? get path;
+  String? get fileName;
+  @JsonKey(ignore: true)
+  _$updateClubCopyWith<_updateClub> get copyWith =>
       throw _privateConstructorUsedError;
 }
 
@@ -1463,6 +2019,16 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -1497,6 +2063,16 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1528,6 +2104,16 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1554,6 +2140,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -1575,6 +2162,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1595,6 +2183,7 @@ class _$_addClubAnnouncement implements _addClubAnnouncement {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1709,6 +2298,16 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -1743,6 +2342,16 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1774,6 +2383,16 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -1800,6 +2419,7 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -1821,6 +2441,7 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1841,6 +2462,7 @@ class _$_deleteClubAnnouncement implements _deleteClubAnnouncement {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -1949,6 +2571,16 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -1983,6 +2615,16 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2014,6 +2656,16 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2040,6 +2692,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -2061,6 +2714,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2081,6 +2735,7 @@ class _$_getClubAnnouncements implements _getClubAnnouncements {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2198,6 +2853,16 @@ class _$_addUserToClub implements _addUserToClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -2232,6 +2897,16 @@ class _$_addUserToClub implements _addUserToClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2263,6 +2938,16 @@ class _$_addUserToClub implements _addUserToClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2289,6 +2974,7 @@ class _$_addUserToClub implements _addUserToClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -2310,6 +2996,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2330,6 +3017,7 @@ class _$_addUserToClub implements _addUserToClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2450,6 +3138,16 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -2484,6 +3182,16 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2515,6 +3223,16 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2541,6 +3259,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -2562,6 +3281,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2582,6 +3302,7 @@ class _$_addUserToPendingClub implements _addUserToPendingClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2701,6 +3422,16 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -2735,6 +3466,16 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2766,6 +3507,16 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -2792,6 +3543,7 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -2813,6 +3565,7 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2833,6 +3586,7 @@ class _$_promoteUserToAdmin implements _promoteUserToAdmin {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -2952,6 +3706,16 @@ class _$_removeUserFromClub implements _removeUserFromClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -2986,6 +3750,16 @@ class _$_removeUserFromClub implements _removeUserFromClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3017,6 +3791,16 @@ class _$_removeUserFromClub implements _removeUserFromClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3043,6 +3827,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -3064,6 +3849,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -3084,6 +3870,7 @@ class _$_removeUserFromClub implements _removeUserFromClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -3167,6 +3954,16 @@ class _$_resetClub implements _resetClub {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -3201,6 +3998,16 @@ class _$_resetClub implements _resetClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3232,6 +4039,16 @@ class _$_resetClub implements _resetClub {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3258,6 +4075,7 @@ class _$_resetClub implements _resetClub {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -3279,6 +4097,7 @@ class _$_resetClub implements _resetClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -3299,6 +4118,7 @@ class _$_resetClub implements _resetClub {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -3376,6 +4196,16 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String fileName)
         addClub,
     required TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)
+        updateClub,
+    required TResult Function(
             String clubId, String clubName, String content, String creatorName)
         addClubAnnouncement,
     required TResult Function(String id) deleteClubAnnouncement,
@@ -3410,6 +4240,16 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3441,6 +4281,16 @@ class _$_resetFailSuccess implements _resetFailSuccess {
             String fileName)?
         addClub,
     TResult Function(
+            String clubId,
+            String description,
+            int joinPreference,
+            String name,
+            String pictureId,
+            File? picture,
+            String? path,
+            String? fileName)?
+        updateClub,
+    TResult Function(
             String clubId, String clubName, String content, String creatorName)?
         addClubAnnouncement,
     TResult Function(String id)? deleteClubAnnouncement,
@@ -3467,6 +4317,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
         getUserClubsNotJoined,
     required TResult Function(_getClub value) getClub,
     required TResult Function(_addClub value) addClub,
+    required TResult Function(_updateClub value) updateClub,
     required TResult Function(_addClubAnnouncement value) addClubAnnouncement,
     required TResult Function(_deleteClubAnnouncement value)
         deleteClubAnnouncement,
@@ -3488,6 +4339,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
@@ -3508,6 +4360,7 @@ class _$_resetFailSuccess implements _resetFailSuccess {
     TResult Function(_getUserClubsNotJoined value)? getUserClubsNotJoined,
     TResult Function(_getClub value)? getClub,
     TResult Function(_addClub value)? addClub,
+    TResult Function(_updateClub value)? updateClub,
     TResult Function(_addClubAnnouncement value)? addClubAnnouncement,
     TResult Function(_deleteClubAnnouncement value)? deleteClubAnnouncement,
     TResult Function(_getClubAnnouncements value)? getClubAnnouncements,
