@@ -31,6 +31,9 @@ class SocialsEvent with _$SocialsEvent {
   const factory SocialsEvent.addUserToPendingClub(
       {required String clubId,
       required String userEmail}) = _addUserToPendingClub;
+  const factory SocialsEvent.promoteUserToAdmin(
+      {required String clubId,
+      required String userEmail}) = _promoteUserToAdmin;
   const factory SocialsEvent.removeUserFromClub(
       {required String clubId,
       required String userEmail}) = _removeUserFromClub;

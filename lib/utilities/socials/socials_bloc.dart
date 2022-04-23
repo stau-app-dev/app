@@ -93,6 +93,13 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(success: r)));
         },
+        promoteUserToAdmin: (e) async {
+          Either<Failure, Success> res =
+              await SocialsRepository.promoteUserToAdmin(
+                  clubId: e.clubId, userEmail: e.userEmail);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
         resetClub: (e) => emit(state.copyWith(club: null)),
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));
