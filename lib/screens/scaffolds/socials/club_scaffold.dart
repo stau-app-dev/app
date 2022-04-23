@@ -1,9 +1,11 @@
+import 'dart:io';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_members_screen.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/club_screen.dart';
 import 'package:staugustinechsnewapp/theme/styles.dart';
+import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
 import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
@@ -13,6 +15,7 @@ import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/show_confirmation_dialog.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_announcement_form.dart';
+import 'package:staugustinechsnewapp/widgets/socials/add_club_form.dart';
 import 'package:staugustinechsnewapp/widgets/socials/club_settings.dart';
 import 'package:staugustinechsnewapp/widgets/socials/delete_announcement_form.dart';
 
@@ -166,6 +169,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
             });
             Navigator.pop(context);
           },
+          onPressEditClub: () => onPressedEditClub(),
           onPressLeaveClub: () {
             showConfirmationDialog(
                 context: context,
@@ -173,6 +177,53 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                 onPressConfirm: onLeaveClub);
           },
         ));
+  }
+
+  void onPressedEditClub() {
+    Navigator.pop(context);
+    usePopupCard(
+        context: context,
+        title: 'Edit Club',
+        listView: true,
+        child: AddClubForm(
+          isEditing: true,
+          name: socialsBloc.state.club!.name,
+          description: socialsBloc.state.club!.description,
+          joinPreference: socialsBloc.state.club!.joinPreference,
+          pictureUrl: socialsBloc.state.club!.pictureUrl,
+          onPressedSubmitEdit: onSubmitEditClub,
+        ));
+  }
+
+  void onSubmitEditClub({
+    required String name,
+    required String description,
+    required int joinPreference,
+    File? picture,
+  }) {
+    if (picture != null) {
+      String pictureId = GeneralUtils.generateRandomString(length: 10);
+      socialsBloc.add(SocialsEvent.updateClub(
+        clubId: socialsBloc.state.club!.id,
+        name: name,
+        description: description,
+        joinPreference: joinPreference,
+        pictureId: pictureId,
+        picture: picture,
+        path: clubBannerFirebasePath,
+        fileName: pictureId,
+      ));
+    } else {
+      socialsBloc.add(SocialsEvent.updateClub(
+        clubId: socialsBloc.state.club!.id,
+        name: name,
+        description: description,
+        joinPreference: joinPreference,
+        pictureId: socialsBloc.state.club!.pictureId,
+      ));
+    }
+    Navigator.pop(context);
+    socialsBloc.add(const SocialsEvent.resetClub());
   }
 
   @override

@@ -4,12 +4,14 @@ import 'package:staugustinechsnewapp/widgets/reusable/text_arrow_container.dart'
 class ClubSettings extends StatelessWidget {
   final bool isAdmin;
   final Function() onPressMembersList;
+  final Function() onPressEditClub;
   final Function() onPressLeaveClub;
 
   const ClubSettings(
       {Key? key,
       required this.isAdmin,
       required this.onPressMembersList,
+      required this.onPressEditClub,
       required this.onPressLeaveClub})
       : super(key: key);
 
@@ -22,7 +24,7 @@ class ClubSettings extends StatelessWidget {
               text: 'Member List', onPressed: onPressMembersList),
           if (isAdmin) ...[
             const SizedBox(height: 20.0),
-            TextArrowContainer(text: 'Edit Club', onPressed: () {}),
+            TextArrowContainer(text: 'Edit Club', onPressed: onPressEditClub),
           ],
           const SizedBox(height: 20.0),
           TextArrowContainer(text: 'Leave Club', onPressed: onPressLeaveClub),
