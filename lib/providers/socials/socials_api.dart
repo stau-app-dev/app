@@ -8,6 +8,7 @@ import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/providers/socials/consts.dart';
+import 'package:staugustinechsnewapp/providers/authclient.dart';
 
 @Injectable()
 class SocialsApi {
@@ -19,7 +20,7 @@ class SocialsApi {
       uri = uri.replace(queryParameters: {
         'userId': userId,
       });
-      Response res = await get(uri);
+      Response res = await authClient.get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<ClubQuickAccessItem> clubs = [];
@@ -44,7 +45,7 @@ class SocialsApi {
       uri = uri.replace(queryParameters: {
         'userId': userId,
       });
-      Response res = await get(uri);
+      Response res = await authClient.get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<ClubQuickAccessItem> clubs = [];
@@ -69,7 +70,7 @@ class SocialsApi {
       uri = uri.replace(queryParameters: {
         'clubId': clubId,
       });
-      Response res = await get(uri);
+      Response res = await authClient.get(uri);
       if (res.statusCode == 200) {
         dynamic data = json.decode(res.body)['data'];
         Club club =
@@ -91,7 +92,7 @@ class SocialsApi {
     required String pictureId,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(addClubEndpoint),
         body: json.encode({
           'description': description,
@@ -120,7 +121,7 @@ class SocialsApi {
     required String pictureId,
   }) async {
     try {
-      Response res = await put(
+      Response res = await authClient.put(
         Uri.parse(updateClubEndpoint),
         body: json.encode({
           'clubId': clubId,
@@ -148,7 +149,7 @@ class SocialsApi {
     required String creatorName,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(addClubAnnouncementEndpoint),
         body: json.encode({
           'clubId': clubId,
@@ -172,7 +173,7 @@ class SocialsApi {
     required String id,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(deleteClubAnnouncementEndpoint),
         body: json.encode({
           'id': id,
@@ -197,7 +198,7 @@ class SocialsApi {
       uri = uri.replace(queryParameters: {
         'clubId': clubId,
       });
-      Response res = await get(uri);
+      Response res = await authClient.get(uri);
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<ClubAnnouncement> announcements = [];
@@ -218,7 +219,7 @@ class SocialsApi {
     required String userEmail,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(addUserToClubEndpoint),
         body: json.encode({
           'clubId': clubId,
@@ -241,7 +242,7 @@ class SocialsApi {
     required String userEmail,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(addUserToPendingClubEndpoint),
         body: json.encode({
           'clubId': clubId,
@@ -264,7 +265,7 @@ class SocialsApi {
     required String userEmail,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(promoteUserToAdminEndpoint),
         body: json.encode({
           'clubId': clubId,
@@ -287,7 +288,7 @@ class SocialsApi {
     required String userEmail,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(removeUserFromClubEndpoint),
         body: json.encode({
           'clubId': clubId,
