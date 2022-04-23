@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/screens/main/socials/socials_screen.dart';
 import 'package:staugustinechsnewapp/utilities/general/general_utils.dart';
+import 'package:staugustinechsnewapp/utilities/socials/consts.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/socials/add_club_form.dart';
@@ -59,7 +60,8 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         title: 'Create Club',
         listView: true,
         child: AddClubForm(
-          onPressedSubmit: onSubmitCreateClub,
+          isEditing: false,
+          onPressedSubmitCreate: onSubmitCreateClub,
         ));
   }
 
@@ -77,7 +79,7 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
       email: profileBloc.state.user!.email,
       joinPreference: joinPreference,
       picture: picture,
-      path: 'newClubBanners',
+      path: clubBannerFirebasePath,
       fileName: pictureId,
     ));
     Navigator.pop(context);
@@ -92,7 +94,8 @@ class _SocialsScaffoldState extends State<SocialsScaffold> {
         listener: (context, state) {
           // Need to refresh the clubs list, not really efficient and pretty confusing but it works
           // and im too lazy to find a better way and the deadline is soon lmao
-          if (state.currentScreen == ENav.socials) {
+          if (state.currentScreen == ENav.socials &&
+              profileBloc.state.user != null) {
             socialsBloc.add(
                 SocialsEvent.getUserClubs(userId: profileBloc.state.user!.id));
           }

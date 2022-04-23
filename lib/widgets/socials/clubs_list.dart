@@ -85,9 +85,13 @@ class ClubsList extends StatelessWidget {
       );
       rows.add(const SizedBox(height: 10.0));
     }
-    return SizedBox(
-        width: MediaQuery.of(context).size.width,
-        child: Column(children: rows));
+    if (rows.isEmpty) {
+      rows.add(
+        Text('No clubs found yet',
+            style: Theme.of(context).textTheme.bodyText2),
+      );
+    }
+    return SizedBox(child: Column(children: rows));
   }
 
   @override

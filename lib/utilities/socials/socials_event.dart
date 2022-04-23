@@ -17,6 +17,15 @@ class SocialsEvent with _$SocialsEvent {
       required File picture,
       required String path,
       required String fileName}) = _addClub;
+  const factory SocialsEvent.updateClub(
+      {required String clubId,
+      required String description,
+      required int joinPreference,
+      required String name,
+      required String pictureId,
+      File? picture,
+      String? path,
+      String? fileName}) = _updateClub;
   const factory SocialsEvent.addClubAnnouncement(
       {required String clubId,
       required String clubName,
@@ -31,6 +40,9 @@ class SocialsEvent with _$SocialsEvent {
   const factory SocialsEvent.addUserToPendingClub(
       {required String clubId,
       required String userEmail}) = _addUserToPendingClub;
+  const factory SocialsEvent.promoteUserToAdmin(
+      {required String clubId,
+      required String userEmail}) = _promoteUserToAdmin;
   const factory SocialsEvent.removeUserFromClub(
       {required String clubId,
       required String userEmail}) = _removeUserFromClub;

@@ -35,9 +35,11 @@ dependencies:
   dartz: ^0.10.1
   firebase_auth: ^3.3.10
   firebase_core: ^1.13.1
+  firebase_messaging: ^11.2.14
   firebase_storage: ^10.2.12
   flutter_bloc: ^8.0.1
   flutter_linkify: ^5.0.2
+  flutter_local_notifications: ^9.4.0
   freezed_annotation: ^1.1.0
   google_sign_in: ^5.0.0
   http: ^0.13.4

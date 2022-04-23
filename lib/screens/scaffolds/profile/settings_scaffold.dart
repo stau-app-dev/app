@@ -30,8 +30,12 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
     List<String> notifications = profileBloc.state.user!.notifications;
     if (value) {
       notifications.add(generalNotification);
+      profileBloc
+          .add(const ProfileEvent.subscribeToTopic(topic: generalNotification));
     } else {
-      notifications.remove(generalNotification);
+      notifications.toSet().toList().remove(generalNotification);
+      profileBloc.add(
+          const ProfileEvent.unsubscribeFromTopic(topic: generalNotification));
     }
     profileBloc.add(ProfileEvent.updateUserField(
         field: 'notifications', value: notifications));
@@ -48,6 +52,7 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
 
   void onPressedLogout() {
     authBloc.add(const AuthEvent.signOut());
+    profileBloc.add(const ProfileEvent.clearUser());
     navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
     navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
   }

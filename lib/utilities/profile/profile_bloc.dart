@@ -6,6 +6,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/profile/user/user.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
+import 'package:staugustinechsnewapp/providers/notifications/push_notifications_repository.dart';
 import 'package:staugustinechsnewapp/providers/profile/profile_repository.dart';
 part 'profile_event.dart';
 part 'profile_state.dart';
@@ -31,6 +32,7 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
           return emit(res.fold((l) => state.copyWith(failure: l),
               (r) => state.copyWith(user: r)));
         },
+        clearUser: (e) => emit(state.copyWith(user: null)),
         updateUserField: (e) async {
           Either<Failure, User> res = await ProfileRepository.updateUserField(
               id: state.user!.id, field: e.field, value: e.value);
@@ -40,6 +42,26 @@ class ProfileBloc extends Bloc<ProfileEvent, ProfileState> {
                   user: r,
                   success:
                       const Success(message: 'Updated user successfully'))));
+        },
+        getFcmToken: (e) async {
+          Either<Failure, String> res =
+              await PushNotificationServiceRepository.getToken();
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(fcmToken: r)));
+        },
+        subscribeToTopic: (e) async {
+          Either<Failure, Success> res =
+              await PushNotificationServiceRepository.subscribeToTopic(
+                  topic: e.topic);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
+        },
+        unsubscribeFromTopic: (e) async {
+          Either<Failure, Success> res =
+              await PushNotificationServiceRepository.unsubscribeFromTopic(
+                  topic: e.topic);
+          return emit(res.fold((l) => state.copyWith(failure: l),
+              (r) => state.copyWith(success: r)));
         },
         resetFailSuccess: (e) =>
             emit(state.copyWith(failure: null, success: null))));

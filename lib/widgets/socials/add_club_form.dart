@@ -8,15 +8,36 @@ import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
 class AddClubForm extends StatefulWidget {
+  final bool isEditing;
+  final String? name;
+  final String? description;
+  final int? joinPreference;
+  final String? pictureUrl;
+
   final Function({
     required String name,
     required String description,
-    required File picture,
     required int joinPreference,
-  }) onPressedSubmit;
+    File? picture,
+  })? onPressedSubmitEdit;
 
-  const AddClubForm({Key? key, required this.onPressedSubmit})
-      : super(key: key);
+  final Function({
+    required String name,
+    required String description,
+    required int joinPreference,
+    required File picture,
+  })? onPressedSubmitCreate;
+
+  const AddClubForm({
+    Key? key,
+    required this.isEditing,
+    this.name,
+    this.description,
+    this.joinPreference,
+    this.pictureUrl,
+    this.onPressedSubmitEdit,
+    this.onPressedSubmitCreate,
+  }) : super(key: key);
 
   @override
   State<AddClubForm> createState() => _AddClubFormState();
@@ -30,6 +51,16 @@ class _AddClubFormState extends State<AddClubForm> {
   TextEditingController clubDescriptionController = TextEditingController();
   File? image;
   int joinPreference = -1;
+
+  @override
+  void initState() {
+    if (widget.isEditing) {
+      clubNameController.text = widget.name!;
+      clubDescriptionController.text = widget.description!;
+      joinPreference = widget.joinPreference!;
+    }
+    super.initState();
+  }
 
   Future<void> onPressedChooseImage() async {
     // Step #1: Pick Image From Gallery.
@@ -57,7 +88,7 @@ class _AddClubFormState extends State<AddClubForm> {
   void onPressedSubmit() {
     if (clubNameController.text.isEmpty ||
         clubDescriptionController.text.isEmpty ||
-        image == null ||
+        (image == null && widget.pictureUrl == null) ||
         joinPreference == -1) {
       useCustomSnackbar(
           context: context,
@@ -65,11 +96,21 @@ class _AddClubFormState extends State<AddClubForm> {
           type: ESnackBarType.failure);
       return;
     }
-    widget.onPressedSubmit(
+    if (widget.isEditing) {
+      widget.onPressedSubmitEdit!(
         name: clubNameController.text,
         description: clubDescriptionController.text,
+        joinPreference: joinPreference,
+        picture: image,
+      );
+    } else {
+      widget.onPressedSubmitCreate!(
+        name: clubNameController.text,
+        description: clubDescriptionController.text,
+        joinPreference: joinPreference,
         picture: image!,
-        joinPreference: joinPreference);
+      );
+    }
   }
 
   List<Widget> buildJoinPreferences() {
@@ -143,6 +184,26 @@ class _AddClubFormState extends State<AddClubForm> {
     double bannerHeight = pictureContainerDimensions['height']!;
     bannerWidth = pictureContainerDimensions['width']!;
 
+    Decoration? banner;
+    Color? color;
+    if (image != null) {
+      banner = BoxDecoration(
+        image: DecorationImage(
+          image: FileImage(image!),
+        ),
+        color: Styles.grey,
+      );
+    } else if (widget.pictureUrl != null) {
+      banner = BoxDecoration(
+        image: DecorationImage(
+          image: NetworkImage(widget.pictureUrl!),
+        ),
+        color: Styles.grey,
+      );
+    } else {
+      color = Styles.grey;
+    }
+
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: padding, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
@@ -164,15 +225,8 @@ class _AddClubFormState extends State<AddClubForm> {
           Align(
               alignment: Alignment.center,
               child: Container(
-                decoration: image != null
-                    ? BoxDecoration(
-                        image: DecorationImage(
-                          image: FileImage(image!),
-                        ),
-                        color: Styles.grey,
-                      )
-                    : null,
-                color: image != null ? null : Styles.grey,
+                decoration: banner,
+                color: color,
                 height: bannerHeight,
                 width: bannerWidth,
               )),
@@ -185,7 +239,7 @@ class _AddClubFormState extends State<AddClubForm> {
           ...buildJoinPreferences(),
           const SizedBox(height: 10.0),
           RoundedButton(
-            text: 'Create Club',
+            text: widget.isEditing ? 'Edit Club' : 'Create Club',
             onPressed: onPressedSubmit,
           )
         ]));

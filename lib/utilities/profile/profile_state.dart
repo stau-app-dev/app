@@ -4,6 +4,7 @@ part of 'profile_bloc.dart';
 class ProfileState with _$ProfileState {
   const factory ProfileState({
     User? user,
+    String? fcmToken,
     Failure? failure,
     Success? success,
   }) = _ProfileState;

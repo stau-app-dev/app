@@ -4,3 +4,5 @@ enum EJoinButtonState {
   open,
   pending,
 }
+
+const clubBannerFirebasePath = 'newClubBanners';

@@ -44,7 +44,9 @@ class WelcomeBanner extends StatelessWidget {
                     ),
                     Container(height: 10.0),
                     Text('Today is a beautiful $dayNumberText,\n$dateText',
-                        style: Theme.of(context).textTheme.subtitle1),
+                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                              color: Styles.white,
+                            )),
                   ],
                 )),
             const Spacer(),

@@ -156,7 +156,8 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
           onPressedUpvote: onPressedUpvote,
           onRefresh: onRefresh,
           disableUpvote: state.isLoading,
-          onLongPressSong: profileState.user?.status == staffProfileStatus
+          onLongPressSong: profileState.user?.status == staffProfileStatus ||
+                  profileState.user?.status == devProfileStatus
               ? onLongPressSong
               : null,
         ));

@@ -11,6 +11,7 @@ import 'package:staugustinechsnewapp/widgets/home/chaplaincy_corner.dart';
 import 'package:staugustinechsnewapp/widgets/home/featured_cafe_items.dart';
 import 'package:staugustinechsnewapp/widgets/home/spirit_meter.dart';
 import 'package:staugustinechsnewapp/widgets/home/welcome_banner.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/dev_print.dart';
 
 class HomeScreen extends StatelessWidget {
   final Function() onRefresh;
@@ -22,6 +23,7 @@ class HomeScreen extends StatelessWidget {
   final SpiritMeters? spiritMeters;
   final VerseOfDay? verseOfDay;
   final Function()? onPressAddAnnouncementStaff;
+  final bool isDev;
 
   const HomeScreen({
     Key? key,
@@ -34,6 +36,7 @@ class HomeScreen extends StatelessWidget {
     this.spiritMeters,
     this.verseOfDay,
     this.onPressAddAnnouncementStaff,
+    this.isDev = false,
   }) : super(key: key);
 
   @override
@@ -59,6 +62,10 @@ class HomeScreen extends StatelessWidget {
         ),
         const SizedBox(height: Styles.mainSpacing),
         ChaplaincyCorner(verseOfDay: verseOfDay),
+        if (isDev) ...[
+          const SizedBox(height: Styles.mainSpacing),
+          const DevPrint()
+        ]
       ],
     );
   }

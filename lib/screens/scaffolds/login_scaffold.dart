@@ -35,7 +35,7 @@ class _LoginScaffoldState extends State<LoginScaffold> {
   Widget build(BuildContext context) {
     return BlocConsumer<ProfileBloc, ProfileState>(
         listenWhen: ((previous, current) {
-      return (previous.user == null && current.user != null) ||
+      return (previous.user != current.user) ||
           (previous.failure == null && current.failure != null);
     }), listener: (context, profileState) {
       if (profileState.user != null) {
