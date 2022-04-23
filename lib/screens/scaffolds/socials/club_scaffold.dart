@@ -223,7 +223,6 @@ class _ClubScaffoldState extends State<ClubScaffold> {
       ));
     }
     Navigator.pop(context);
-    socialsBloc.add(const SocialsEvent.resetClub());
   }
 
   @override
@@ -234,7 +233,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           listenWhen: (previous, current) {
         return (previous.club != current.club) ||
             (previous.success != current.success);
-      }, listener: (context, state) {
+      }, listener: (context, socialsState) {
         // NOTE: The socials scaffold is active since it's a stack.
         // That means that it will still listen for success and failure events
         // from the socials bloc and show the appropriate snackbar.
@@ -243,13 +242,13 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         // But that's a later issue.
 
         // Refresh for any success events
-        if (state.success != null && state.club != null) {
+        if (socialsState.success != null && socialsState.club != null) {
           onRefresh();
         }
-        if (state.club != null) {
-          String clubId = state.club!.id;
+        if (socialsState.club != null) {
+          String clubId = socialsState.club!.id;
           String userEmail = profileState.user!.email;
-          int joinPreference = state.club!.joinPreference;
+          int joinPreference = socialsState.club!.joinPreference;
 
           // Join button logic
           if (joinPreference == 0) {
@@ -257,7 +256,7 @@ class _ClubScaffoldState extends State<ClubScaffold> {
               joinButtonState = EJoinButtonState.notOpen;
             });
           } else if (joinPreference == 1 &&
-              state.club!.pending.contains(userEmail)) {
+              socialsState.club!.pending.contains(userEmail)) {
             setState(() {
               joinButtonState = EJoinButtonState.pending;
             });
@@ -276,8 +275,8 @@ class _ClubScaffoldState extends State<ClubScaffold> {
           }
 
           // Only get announcements if user is a member
-          if (state.club!.members.contains(userEmail) ||
-              state.club!.admins.contains(userEmail)) {
+          if (socialsState.club!.members.contains(userEmail) ||
+              socialsState.club!.admins.contains(userEmail)) {
             socialsBloc.add(SocialsEvent.getClubAnnouncements(clubId: clubId));
           }
 
@@ -294,6 +293,10 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         bool isClubMember =
             socialsState.club?.members.contains(userEmail) ?? false;
         bool isPartOfClub = isClubAdmin || isClubMember;
+
+        print("------------------");
+        print("pictureUrl: ${socialsState.club?.pictureUrl}");
+        print("------------------");
 
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
@@ -351,7 +354,11 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                   onPressJoin: onPressJoin,
                   onPressAddAnnouncement:
                       isClubAdmin ? onPressAddAnnouncement : null,
-                  onPressedSettings: () => onPressedSettings(isClubAdmin),
+                  onPressedSettings: () {
+                    if (socialsState.club != null) {
+                      onPressedSettings(isClubAdmin);
+                    }
+                  },
                   onLongPressAnnouncement:
                       isClubAdmin ? onLongPressAnnouncement : null,
                 )

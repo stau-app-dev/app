@@ -63,7 +63,7 @@ class SocialsBloc extends Bloc<SocialsEvent, SocialsState> {
               pictureId: e.pictureId,
               joinPreference: e.joinPreference);
           return emit(res.fold((l) => state.copyWith(failure: l),
-              (r) => state.copyWith(success: r, club: null)));
+              (r) => state.copyWith(success: r)));
         },
         addClubAnnouncement: (e) async {
           Either<Failure, Success> res =
