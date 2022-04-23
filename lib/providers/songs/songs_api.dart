@@ -6,12 +6,13 @@ import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/songs/song/song.dart';
 import 'package:staugustinechsnewapp/providers/songs/consts.dart';
+import 'package:staugustinechsnewapp/providers/authclient.dart';
 
 @Injectable()
 class SongsApi {
   static Future<Either<Failure, List<Song>>> getSongs() async {
     try {
-      Response res = await get(Uri.parse(getSongsEndpoint));
+      Response res = await authClient.get(Uri.parse(getSongsEndpoint));
       if (res.statusCode == 200) {
         List<dynamic> data = json.decode(res.body)['data'];
         List<Song> songs = [];
@@ -32,7 +33,7 @@ class SongsApi {
       required String creatorEmail,
       required String name}) async {
     try {
-      Response res = await post(Uri.parse(addSongEndpoint),
+      Response res = await authClient.post(Uri.parse(addSongEndpoint),
           body: json.encode({
             'artist': artist,
             'creatorEmail': creatorEmail,
