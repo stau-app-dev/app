@@ -10,10 +10,45 @@ import 'package:staugustinechsnewapp/utilities/navigation/nav_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/socials/socials_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
-import 'package:staugustinechsnewapp/widgets/reusable/basic_container.dart';
 
-class DevPrint extends StatelessWidget {
+class DevPrint extends StatefulWidget {
   const DevPrint({Key? key}) : super(key: key);
+
+  @override
+  _DevPrintState createState() => _DevPrintState();
+}
+
+class _DevPrintState extends State<DevPrint> {
+  List<bool> show = [false, false, false, false, false, false, false];
+  List<String> titles = [
+    'AuthBloc',
+    'CafeMenuBloc',
+    'HomeBloc',
+    'NavBloc',
+    'ProfileBloc',
+    'SocialsBloc',
+    'SongBloc',
+  ];
+
+  Widget buildText(BuildContext context, String text) {
+    return Container(
+      padding: const EdgeInsets.all(10),
+      child: Linkify(
+        text: text,
+        linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+              fontSize: 12.0,
+              color: Styles.secondary,
+              decoration: TextDecoration.underline,
+            ),
+        onOpen: (link) async {
+          launchURL(context: context, url: link.url);
+        },
+        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+              fontSize: 12.0,
+            ),
+      ),
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -28,29 +63,84 @@ class DevPrint extends StatelessWidget {
                   builder: (context, socialsState) {
                 return BlocBuilder<SongBloc, SongState>(
                     builder: (context, songState) {
-                  String text = 'AuthState: $authState\n\n'
-                      'CafeMenuState: $cafeMenuState\n\n'
-                      'HomeState: $homeState\n\n'
-                      'ProfileState: $profileState\n\n'
-                      'NavState: $navState\n\n'
-                      'SocialsState: $socialsState\n\n'
-                      'SongState: $songState';
-                  return BasicContainer(
-                    child: Linkify(
-                      text: text,
-                      linkStyle:
-                          Theme.of(context).textTheme.bodyText2!.copyWith(
-                                fontSize: 12.0,
-                                color: Styles.secondary,
-                                decoration: TextDecoration.underline,
-                              ),
-                      onOpen: (link) async {
-                        launchURL(context: context, url: link.url);
-                      },
-                      style: Theme.of(context).textTheme.bodyText2!.copyWith(
-                            fontSize: 12.0,
-                          ),
-                    ),
+                  return ExpansionPanelList(
+                    expansionCallback: (int index, bool isExpanded) {
+                      setState(() {
+                        show[index] = !show[index];
+                      });
+                    },
+                    children: [
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[0],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, authState.toString()),
+                        isExpanded: show[0],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[1],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, cafeMenuState.toString()),
+                        isExpanded: show[1],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[2],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, homeState.toString()),
+                        isExpanded: show[2],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[3],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, navState.toString()),
+                        isExpanded: show[3],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[4],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, profileState.toString()),
+                        isExpanded: show[4],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[5],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, socialsState.toString()),
+                        isExpanded: show[5],
+                      ),
+                      ExpansionPanel(
+                        headerBuilder: (BuildContext context, bool isExpanded) {
+                          return ListTile(
+                            title: Text(titles[6],
+                                style: Theme.of(context).textTheme.bodyText1),
+                          );
+                        },
+                        body: buildText(context, songState.toString()),
+                        isExpanded: show[6],
+                      ),
+                    ],
                   );
                 });
               });
