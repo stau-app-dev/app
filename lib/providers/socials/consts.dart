@@ -1,6 +1,7 @@
 import 'package:staugustinechsnewapp/providers/network.dart';
 
 String addClubEndpoint = getCloudFunctionsDomain() + '/addClub';
+String updateClubEndpoint = getCloudFunctionsDomain() + '/updateClub';
 String getUserClubsEndpoint = getCloudFunctionsDomain() + '/getUserClubs';
 String getUserClubsNotJoinedEndpoint =
     getCloudFunctionsDomain() + '/getUserClubsNotJoined';
@@ -19,6 +20,7 @@ String promoteUserToAdminEndpoint =
 String removeUserFromClubEndpoint =
     getCloudFunctionsDomain() + '/removeUserFromClub';
 const errorAddingClub = 'Error adding club';
+const errorUpdatingClub = 'Error updating club';
 const errorGettingUserClubs = 'Error getting user clubs';
 const errorGettingUserClubsNotJoined = 'Error getting user clubs not joined';
 const errorGettingClub = 'Error getting club';

@@ -112,6 +112,35 @@ class SocialsApi {
     }
   }
 
+  static Future<Either<Failure, Success>> updateClub({
+    required String clubId,
+    required String description,
+    required int joinPreference,
+    required String name,
+    required String pictureId,
+  }) async {
+    try {
+      Response res = await put(
+        Uri.parse(updateClubEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'description': description,
+          'joinPreference': joinPreference.toString(),
+          'name': name,
+          'pictureId': pictureId,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorUpdatingClub));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorUpdatingClub));
+    }
+  }
+
   static Future<Either<Failure, Success>> addClubAnnouncement({
     required String clubId,
     required String clubName,

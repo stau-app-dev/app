@@ -41,6 +41,21 @@ class SocialsRepository {
         joinPreference: joinPreference);
   }
 
+  static Future<Either<Failure, Success>> updateClub({
+    required String clubId,
+    required String description,
+    required int joinPreference,
+    required String name,
+    required String pictureId,
+  }) async {
+    return await SocialsApi.updateClub(
+        clubId: clubId,
+        name: name,
+        description: description,
+        pictureId: pictureId,
+        joinPreference: joinPreference);
+  }
+
   static Future<Either<Failure, Success>> addClubAnnouncement({
     required String clubId,
     required String clubName,
