@@ -14,6 +14,8 @@ String getClubAnnouncementsEndpoint =
 String addUserToClubEndpoint = getCloudFunctionsDomain() + '/addUserToClub';
 String addUserToPendingClubEndpoint =
     getCloudFunctionsDomain() + '/addUserToPendingClub';
+String promoteUserToAdminEndpoint =
+    getCloudFunctionsDomain() + '/promoteUserToAdmin';
 String removeUserFromClubEndpoint =
     getCloudFunctionsDomain() + '/removeUserFromClub';
 const errorAddingClub = 'Error adding club';
@@ -25,4 +27,5 @@ const errorDeletingClubAnnouncement = 'Error deleting club announcement';
 const errorGettingClubAnnouncements = 'Error getting club announcements';
 const errorAddingUserToClub = 'Error adding user to club';
 const errorAddingUserToPendingClub = 'Error adding user to pending club';
+const errorPromotingUserToAdmin = 'Error promoting user to admin';
 const errorRemovingUserFromClub = 'Error removing user from club';

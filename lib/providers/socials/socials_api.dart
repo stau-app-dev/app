@@ -230,6 +230,29 @@ class SocialsApi {
     }
   }
 
+  static Future<Either<Failure, Success>> promoteUserToAdmin({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    try {
+      Response res = await post(
+        Uri.parse(promoteUserToAdminEndpoint),
+        body: json.encode({
+          'clubId': clubId,
+          'userEmail': userEmail,
+        }),
+      );
+      if (res.statusCode == 200) {
+        String message = json.decode(res.body)['data']['message'] as String;
+        return Right(Success(message: message));
+      } else {
+        return const Left(Failure(message: errorPromotingUserToAdmin));
+      }
+    } catch (e) {
+      return const Left(Failure(message: errorPromotingUserToAdmin));
+    }
+  }
+
   static Future<Either<Failure, Success>> removeUserFromClub({
     required String clubId,
     required String userEmail,

@@ -80,6 +80,14 @@ class SocialsRepository {
         clubId: clubId, userEmail: userEmail);
   }
 
+  static Future<Either<Failure, Success>> promoteUserToAdmin({
+    required String clubId,
+    required String userEmail,
+  }) async {
+    return await SocialsApi.promoteUserToAdmin(
+        clubId: clubId, userEmail: userEmail);
+  }
+
   static Future<Either<Failure, Success>> removeUserFromClub({
     required String clubId,
     required String userEmail,
