@@ -10,7 +10,9 @@ class ClubMembersScreen extends StatelessWidget {
   final List<String> admins;
   final List<String> members;
   final List<String>? pending;
+  final bool isDev;
   final Function(String userEmail) onPressAddUser;
+  final Function(String userEmail) onPressPromoteUser;
   final Function(String userEmail) onPressRemoveUser;
 
   const ClubMembersScreen(
@@ -21,7 +23,9 @@ class ClubMembersScreen extends StatelessWidget {
       required this.admins,
       required this.members,
       this.pending,
+      this.isDev = false,
       required this.onPressAddUser,
+      required this.onPressPromoteUser,
       required this.onPressRemoveUser})
       : super(key: key);
 
@@ -68,7 +72,7 @@ class ClubMembersScreen extends StatelessWidget {
           members: adminData,
           userEmail: userEmail,
           isAdmin: isAdmin && admins.isNotEmpty,
-          onPressAddUser: onPressAddUser,
+          isDev: isDev,
           onPressRemoveUser: onPressRemoveUser,
         ),
         const SizedBox(height: 20.0),
@@ -77,7 +81,8 @@ class ClubMembersScreen extends StatelessWidget {
           members: membersData,
           userEmail: userEmail,
           isAdmin: isAdmin && members.isNotEmpty,
-          onPressAddUser: onPressAddUser,
+          isDev: isDev,
+          onPressPromoteUser: onPressPromoteUser,
           onPressRemoveUser: onPressRemoveUser,
         ),
         const SizedBox(height: 20.0),
@@ -87,7 +92,7 @@ class ClubMembersScreen extends StatelessWidget {
             members: pendingData,
             userEmail: userEmail,
             isAdmin: isAdmin && pending!.isNotEmpty,
-            isPending: true,
+            isDev: isDev,
             onPressAddUser: onPressAddUser,
             onPressRemoveUser: onPressRemoveUser,
           ),

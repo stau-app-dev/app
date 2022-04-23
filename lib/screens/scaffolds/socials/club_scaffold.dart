@@ -102,6 +102,13 @@ class _ClubScaffoldState extends State<ClubScaffold> {
     ));
   }
 
+  void onPressPromoteUser(String userEmail) {
+    socialsBloc.add(SocialsEvent.promoteUserToAdmin(
+      clubId: socialsBloc.state.club!.id,
+      userEmail: userEmail,
+    ));
+  }
+
   void onPressRemoveUser(String userEmail) {
     socialsBloc.add(SocialsEvent.removeUserFromClub(
       clubId: socialsBloc.state.club!.id,
@@ -230,9 +237,9 @@ class _ClubScaffoldState extends State<ClubScaffold> {
         }
       }, builder: (context, socialsState) {
         String userEmail = profileState.user?.email ?? '';
+        bool isDev = profileState.user?.status == devProfileStatus;
         bool isClubAdmin =
-            (socialsState.club?.admins.contains(userEmail) ?? false) ||
-                (profileState.user?.status == devProfileStatus);
+            (socialsState.club?.admins.contains(userEmail) ?? false) || isDev;
         bool isClubMember =
             socialsState.club?.members.contains(userEmail) ?? false;
         bool isPartOfClub = isClubAdmin || isClubMember;
@@ -279,7 +286,9 @@ class _ClubScaffoldState extends State<ClubScaffold> {
                   admins: socialsState.club?.admins ?? [],
                   members: socialsState.club?.members ?? [],
                   pending: isClubAdmin ? socialsState.club?.pending : null,
+                  isDev: isDev,
                   onPressAddUser: onPressAddUser,
+                  onPressPromoteUser: onPressPromoteUser,
                   onPressRemoveUser: onPressRemoveUser,
                 )
               : ClubScreen(
