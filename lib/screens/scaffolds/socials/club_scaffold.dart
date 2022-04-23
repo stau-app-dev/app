@@ -294,10 +294,6 @@ class _ClubScaffoldState extends State<ClubScaffold> {
             socialsState.club?.members.contains(userEmail) ?? false;
         bool isPartOfClub = isClubAdmin || isClubMember;
 
-        print("------------------");
-        print("pictureUrl: ${socialsState.club?.pictureUrl}");
-        print("------------------");
-
         return Stack(children: [
           if (socialsState.club?.pictureUrl != null)
             Container(

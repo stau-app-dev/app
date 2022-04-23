@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:staugustinechsnewapp/providers/network.dart';
-import 'package:staugustinechsnewapp/providers/notifications/push_notifications_repository.dart';
 import 'package:staugustinechsnewapp/screens/main/home/home_screen.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/home/consts.dart';

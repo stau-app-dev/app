@@ -1,5 +1,3 @@
-import 'package:staugustinechsnewapp/theme/styles.dart';
-
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -12,6 +10,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/injection.dart';
 import 'package:staugustinechsnewapp/providers/notifications/push_notifications_repository.dart';
 import 'package:staugustinechsnewapp/screens/screen_controller.dart';
+import 'package:staugustinechsnewapp/theme/styles.dart';
 import 'package:staugustinechsnewapp/theme/theme.dart';
 import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/cafe_menu/cafe_menu_bloc.dart';
