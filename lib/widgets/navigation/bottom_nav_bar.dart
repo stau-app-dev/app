@@ -70,8 +70,9 @@ class BottomNavBar extends StatelessWidget {
 
       if (!state.navbarVisible) {
         height = 0;
-      } else if (useTabletLayout(context)) {
-        height += 4.0;
+      } else {
+        // Add bottom safe area padding
+        height += MediaQuery.of(context).padding.bottom - 16.0;
       }
 
       return SizedBox(
