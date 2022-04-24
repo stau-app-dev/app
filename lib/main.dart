@@ -1,3 +1,5 @@
+import 'package:staugustinechsnewapp/screens/will_pop_scope_handler.dart';
+
 import 'firebase_options.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
@@ -80,6 +82,8 @@ class Application extends StatefulWidget {
 }
 
 class _Application extends State<Application> {
+  late NavBloc navBloc;
+
   @override
   void initState() {
     FirebaseMessaging.onMessage.listen((RemoteMessage message) {
@@ -98,6 +102,7 @@ class _Application extends State<Application> {
         );
       }
     });
+    navBloc = BlocProvider.of<NavBloc>(context);
     super.initState();
   }
 
@@ -107,7 +112,9 @@ class _Application extends State<Application> {
       debugShowCheckedModeBanner: false,
       title: 'St Augustine CHS',
       theme: appThemeData,
-      home: const ScreenController(),
+      home: WillPopScope(
+          onWillPop: () => onBackPressed(context, navBloc),
+          child: const ScreenController()),
     );
   }
 }
