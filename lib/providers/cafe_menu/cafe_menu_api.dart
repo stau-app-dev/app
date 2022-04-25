@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/cafe_menu/cafe_menu_item/cafe_menu_item.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/providers/cafe_menu/consts.dart';
-import 'package:staugustinechsnewapp/providers/authclient.dart';
+import 'package:staugustinechsnewapp/providers/auth_client.dart';
 
 @Injectable()
 class CafeMenuApi {

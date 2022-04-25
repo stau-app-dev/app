@@ -8,7 +8,7 @@ import 'package:staugustinechsnewapp/models/shared/success/success.dart';
 import 'package:staugustinechsnewapp/models/socials/club/club.dart';
 import 'package:staugustinechsnewapp/models/socials/club_quick_access_item/club_quick_access_item.dart';
 import 'package:staugustinechsnewapp/providers/socials/consts.dart';
-import 'package:staugustinechsnewapp/providers/authclient.dart';
+import 'package:staugustinechsnewapp/providers/auth_client.dart';
 
 @Injectable()
 class SocialsApi {

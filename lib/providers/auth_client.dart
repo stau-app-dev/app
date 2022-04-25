@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:http/http.dart';
 
-class AuthClient extends BaseClient {
+class _AuthClient extends BaseClient {
   final Client _inner = Client();
 
   static Map<String, String> _headers() {
@@ -22,4 +22,4 @@ class AuthClient extends BaseClient {
   }
 }
 
-AuthClient authClient = AuthClient();
+_AuthClient authClient = _AuthClient();

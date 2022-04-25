@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/profile/user/user.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/providers/profile/consts.dart';
-import 'package:staugustinechsnewapp/providers/authclient.dart';
+import 'package:staugustinechsnewapp/providers/auth_client.dart';
 
 @Injectable()
 class ProfileApi {

@@ -5,7 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/announcements/general_announcement/announcement.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/providers/announcements/consts.dart';
-import 'package:staugustinechsnewapp/providers/authclient.dart';
+import 'package:staugustinechsnewapp/providers/auth_client.dart';
 
 @Injectable()
 class AnnouncementsApi {

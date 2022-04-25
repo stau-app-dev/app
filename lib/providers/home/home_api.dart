@@ -7,7 +7,7 @@ import 'package:staugustinechsnewapp/models/home/spirit_meters/spirit_meters.dar
 import 'package:staugustinechsnewapp/models/home/verse_of_day/verse_of_day.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/providers/home/consts.dart';
-import 'package:staugustinechsnewapp/providers/authclient.dart';
+import 'package:staugustinechsnewapp/providers/auth_client.dart';
 
 @Injectable()
 class HomeApi {
