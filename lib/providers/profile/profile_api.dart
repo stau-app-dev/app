@@ -5,6 +5,7 @@ import 'package:injectable/injectable.dart';
 import 'package:staugustinechsnewapp/models/profile/user/user.dart';
 import 'package:staugustinechsnewapp/models/shared/failure/failure.dart';
 import 'package:staugustinechsnewapp/providers/profile/consts.dart';
+import 'package:staugustinechsnewapp/providers/authclient.dart';
 
 @Injectable()
 class ProfileApi {
@@ -17,7 +18,7 @@ class ProfileApi {
         'email': email,
         'name': name,
       });
-      Response res = await get(uri);
+      Response res = await authClient.get(uri);
       if (res.statusCode == 200) {
         User user = User.fromJson(json.decode(res.body)['data']['user']);
         return Right(user);
@@ -35,7 +36,7 @@ class ProfileApi {
     required dynamic value,
   }) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(updateUserFieldEndpoint),
         body: json.encode({
           'id': id,

@@ -53,7 +53,7 @@ class SongsApi {
   static Future<Either<Failure, Success>> deleteSong(
       {required String id}) async {
     try {
-      Response res = await post(
+      Response res = await authClient.post(
         Uri.parse(deleteSongEndpoint),
         body: json.encode({
           'id': id,
@@ -78,7 +78,7 @@ class SongsApi {
         'songId': songId,
         'upvotes': upvotes.toString(),
       });
-      Response res = await post(uri);
+      Response res = await authClient.post(uri);
       if (res.statusCode == 200) {
         String message = json.decode(res.body)['data']['message'] as String;
         return Right(Success(message: message));
