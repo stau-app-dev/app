@@ -33,7 +33,8 @@ class _SettingsScaffoldState extends State<SettingsScaffold> {
       profileBloc
           .add(const ProfileEvent.subscribeToTopic(topic: generalNotification));
     } else {
-      notifications.toSet().toList().remove(generalNotification);
+      notifications = notifications.toSet().toList();
+      notifications.remove(generalNotification);
       profileBloc.add(
           const ProfileEvent.unsubscribeFromTopic(topic: generalNotification));
     }
