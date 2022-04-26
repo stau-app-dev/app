@@ -152,6 +152,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         //       because that is not an ideal UX.
         // Only get new songs from the database after a success
         if (songState.success != null) {
+          profileBloc.add(const ProfileEvent.refreshUser());
           songBloc.add(const SongEvent.getSongs());
           songBloc.add(const SongEvent.resetFailSuccess());
         }
