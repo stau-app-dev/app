@@ -21,11 +21,13 @@ class SongRequestsScaffold extends StatefulWidget {
 class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   late AuthBloc authBloc;
   late SongBloc songBloc;
+  late ProfileBloc profileBloc;
 
   @override
   void initState() {
     authBloc = BlocProvider.of<AuthBloc>(context);
     songBloc = BlocProvider.of<SongBloc>(context);
+    profileBloc = BlocProvider.of<ProfileBloc>(context);
     onRefresh();
     super.initState();
   }
@@ -35,12 +37,22 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   }
 
   void onPressedAddSong() {
-    usePopupCard(
-        context: context,
-        title: 'Add Song',
-        child: AddSongForm(
-          onPressedSubmit: onPressedSubmit,
-        ));
+    DateTime lastSubmittedSong = profileBloc.state.user!.lastSubmittedSong;
+    DateTime oneDayAgo = DateTime.now().subtract(const Duration(days: 1));
+    if (lastSubmittedSong.isBefore(oneDayAgo)) {
+      usePopupCard(
+          context: context,
+          title: 'Add Song',
+          child: AddSongForm(
+            onPressedSubmit: onPressedSubmit,
+          ));
+    } else {
+      useCustomSnackbar(
+          context: context,
+          message:
+              'You can only submit a song once every 24 hours. Please try again later.',
+          type: ESnackBarType.failure);
+    }
   }
 
   void onPressedSubmit(String songName, String artistName) {
@@ -140,6 +152,7 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
         //       because that is not an ideal UX.
         // Only get new songs from the database after a success
         if (songState.success != null) {
+          profileBloc.add(const ProfileEvent.refreshUser());
           songBloc.add(const SongEvent.getSongs());
           songBloc.add(const SongEvent.resetFailSuccess());
         }

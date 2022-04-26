@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_button.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/rounded_textfield.dart';
 
@@ -16,6 +17,17 @@ class _AddSongFormState extends State<AddSongForm> {
   TextEditingController songNameController = TextEditingController();
   TextEditingController artistNameController = TextEditingController();
 
+  void onPressedSubmit() {
+    if (songNameController.text.isEmpty || artistNameController.text.isEmpty) {
+      useCustomSnackbar(
+          context: context,
+          message: 'Please fill out all required fields',
+          type: ESnackBarType.failure);
+      return;
+    }
+    widget.onPressedSubmit(songNameController.text, artistNameController.text);
+  }
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -32,10 +44,7 @@ class _AddSongFormState extends State<AddSongForm> {
           RoundedTextField(
               hintText: 'Rick Astley', controller: artistNameController),
           const SizedBox(height: 10.0),
-          RoundedButton(
-              text: 'Submit',
-              onPressed: () => widget.onPressedSubmit(
-                  songNameController.text, artistNameController.text)),
+          RoundedButton(text: 'Submit', onPressed: onPressedSubmit),
           const SizedBox(height: 30.0),
           Container(
               alignment: Alignment.center,
