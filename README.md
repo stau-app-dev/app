@@ -54,3 +54,13 @@ Before making a PR, please be sure to run locally:
 $ flutter analyze
 $ flutter test
 ```
+
+## Building Releases
+
+To build a release, run:
+
+```
+$ flutter clean
+$ flutter build appbundle --obfuscate --split-debug-info=build/app/outputs/symbols
+$ flutter build ipa --obfuscate --split-debug-info=build/app/outputs/symbols
+```
