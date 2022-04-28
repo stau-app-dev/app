@@ -3,6 +3,10 @@ from random import choice, randint, random
 import os
 
 # Randomizes the file names of all files in specified directory.
+# Then gets a list of the new file names and returns it.
+fileNames = []
+
+
 def randomize_files(dir):
     for f in os.listdir(dir):
         path = os.path.join(dir, f)
@@ -14,6 +18,8 @@ def randomize_files(dir):
             )
             os.rename(path, newpath)
             print("rename {} to {}".format(path, newpath))
+            fileNames.append(newpath.split("/")[-1])
+    return fileNames
 
 
 # Note: The path to the directory containing the images must be specified
@@ -22,4 +28,4 @@ def randomize_files(dir):
 #   the path to the directory containing the images is "./data/images".
 
 path = "./assets/profile_pics/"
-randomize_files(path)
+print(randomize_files(path))
