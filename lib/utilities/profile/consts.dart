@@ -3,7 +3,6 @@
 const profilePictures = [
   'ezndfuvi.jpg',
   'jefkfwtk.jpg',
-  'qcakazbb.jpg',
   'xcnrceij.jpg',
   'dvyqffak.jpg',
   'yrlimqpd.jpg',
