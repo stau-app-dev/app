@@ -64,3 +64,8 @@ $ flutter clean
 $ flutter build appbundle --obfuscate --split-debug-info=build/app/outputs/symbols
 $ flutter build ipa --obfuscate --split-debug-info=build/app/outputs/symbols
 ```
+
+## Misc Folder
+
+The misc folder includes dev resources that are used to help with the app but should not be included in the final build.\
+For example, the original app icons.
