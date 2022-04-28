@@ -75,6 +75,22 @@
       },
       "oauth_client": [
         {
+          "client_id": "448336593725-1m0flcimn3ft709qh31m4m01b38t3f94.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.staugustinechs.app",
+            "certificate_hash": "779538be33cb19bd951bc2b093061400d1da2c11"
+          }
+        },
+        {
+          "client_id": "448336593725-mpnn48krhc6dubh5rutt0q3no8j8akch.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.staugustinechs.app",
+            "certificate_hash": "7871cb14b778e969b4adbd0a684f869ccd08e625"
+          }
+        },
+        {
           "client_id": "448336593725-vk21nmk0ke63fdtmmg8va6veoproclj0.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
