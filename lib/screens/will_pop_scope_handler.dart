@@ -7,8 +7,11 @@ Future<bool> onBackPressed(BuildContext context, NavBloc navBloc) async {
   switch (navState.currentScreen) {
     case ENav.home:
       return true;
-    case ENav.cafeMenu:
     case ENav.login:
+      navBloc.add(const NavEvent.setNavbarVisible(isVisible: true));
+      navBloc.add(const NavEvent.changeScreen(screen: ENav.home));
+      return false;
+    case ENav.cafeMenu:
     case ENav.profile:
     case ENav.socials:
     case ENav.songRequests:
