@@ -318,7 +318,7 @@ const profaneWords = [
   '*dyke',
   '*fuck*',
   '*shit*',
-  "@\$\$",
+  '@\$\$',
   'amcik',
   'andskota',
   'arse*',

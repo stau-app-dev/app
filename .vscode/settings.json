@@ -79,5 +79,6 @@
     "yaml",
     "yml"
   ],
+  "cSpell.ignorePaths": ["**/songs/consts.dart"],
   "todo-tree.filtering.excludeGlobs": ["**/windows", "**/android", "**/ios"]
 }
