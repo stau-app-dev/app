@@ -16,4 +16,10 @@ def randomize_files(dir):
             print("rename {} to {}".format(path, newpath))
 
 
-randomize_files("../../assets/profile_pics/")
+# Note: The path to the directory containing the images must be specified
+#   is based on where the script is run from.
+#   For example, if the script is run from the root directory of the project,
+#   the path to the directory containing the images is "./data/images".
+
+path = "./assets/profile_pics/"
+randomize_files(path)
