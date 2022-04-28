@@ -65,6 +65,15 @@ $ flutter build appbundle --obfuscate --split-debug-info=build/app/outputs/symbo
 $ flutter build ipa --obfuscate --split-debug-info=build/app/outputs/symbols
 ```
 
+# Offline Testing
+
+Use bundletool:
+
+```
+$ bundletool build-apks --bundle=./build/app/outputs/bundle/release/app-release.aab --output=./build/apks/sta_app.apks --ks=./android/app/upload-keystore.jks --ks-pass=file:./android/keystore.pwd --ks-key-alias=uploadkey --key-pass=file:./android/key.pwd
+$ bundletool install-apks --apks=./build/apks/sta_app.apks
+```
+
 ## Misc Folder
 
 The misc folder includes dev resources that are used to help with the app but should not be included in the final build.\
