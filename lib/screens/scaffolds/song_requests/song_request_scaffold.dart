@@ -5,6 +5,7 @@ import 'package:staugustinechsnewapp/utilities/auth/auth_bloc.dart';
 import 'package:staugustinechsnewapp/utilities/local_storage/write_to_local_storage.dart';
 import 'package:staugustinechsnewapp/utilities/profile/consts.dart';
 import 'package:staugustinechsnewapp/utilities/profile/profile_bloc.dart';
+import 'package:staugustinechsnewapp/utilities/songs/consts.dart';
 import 'package:staugustinechsnewapp/utilities/songs/song_bloc.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/custom_snackbar.dart';
 import 'package:staugustinechsnewapp/widgets/reusable/popup_card.dart';
@@ -56,11 +57,21 @@ class _SongRequestsScaffoldState extends State<SongRequestsScaffold> {
   }
 
   void onPressedSubmit(String songName, String artistName) {
-    songBloc.add(SongEvent.addSong(
-        name: songName,
-        artist: artistName,
-        creatorEmail: authBloc.state.user!.email!));
-    Navigator.pop(context);
+    // Check profanity filter list
+    if (profaneWords.contains(songName.toLowerCase()) ||
+        profaneWords.contains(artistName.toLowerCase())) {
+      useCustomSnackbar(
+          context: context,
+          message:
+              'Warning: Please do not use profanity in your song name or artist name. Teachers are able to see who submitted songs.',
+          type: ESnackBarType.failure);
+    } else {
+      songBloc.add(SongEvent.addSong(
+          name: songName,
+          artist: artistName,
+          creatorEmail: authBloc.state.user!.email!));
+      Navigator.pop(context);
+    }
   }
 
   void onPressedUpvote(bool upvoted, String id) {
