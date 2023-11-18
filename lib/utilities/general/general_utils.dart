@@ -6,11 +6,11 @@ class GeneralUtils {
 
   /// Returns a random string of length [length]
   static String generateRandomString({required int length}) {
-    const _chars =
+    const chars =
         'AaBbCcDdEeFfGgHhIiJjKkLlMmNnOoPpQqRrSsTtUuVvWwXxYyZz1234567890';
-    final Random _rnd = Random();
+    final Random rnd = Random();
     return String.fromCharCodes(
-        Iterable.generate(length, (_) => _rnd.nextInt(_chars.length))
-            .map((i) => _chars.codeUnitAt(i)));
+        Iterable.generate(length, (_) => rnd.nextInt(chars.length))
+            .map((i) => chars.codeUnitAt(i)));
   }
 }

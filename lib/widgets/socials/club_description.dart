@@ -47,7 +47,7 @@ class ClubDescription extends StatelessWidget {
         Text('Instructions to Join',
             style: Theme.of(context)
                 .textTheme
-                .headline6!
+                .titleLarge!
                 .copyWith(fontSize: 11.0)),
         const SizedBox(height: 10.0),
         Text(instructionsToJoin ?? ''),
@@ -61,7 +61,7 @@ class ClubDescription extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Description', style: Theme.of(context).textTheme.headline6),
+        Text('Description', style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 10.0),
         Text(description),
         buildInstructionsToJoin(context),

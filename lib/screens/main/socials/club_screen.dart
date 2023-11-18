@@ -68,7 +68,7 @@ class ClubScreen extends StatelessWidget {
         ...topSection,
         Text(
           club?.name ?? '',
-          style: Theme.of(context).textTheme.headline5!.copyWith(
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 color: Styles.white,
               ),
         ),

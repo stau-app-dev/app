@@ -138,7 +138,7 @@ class _AddClubFormState extends State<AddClubForm> {
                   padding: padding,
                   child: Text(
                     preference,
-                    style: Theme.of(context).textTheme.subtitle2,
+                    style: Theme.of(context).textTheme.titleSmall,
                   )),
               const Spacer(),
               Container(
@@ -207,20 +207,20 @@ class _AddClubFormState extends State<AddClubForm> {
     return Padding(
         padding: EdgeInsets.symmetric(horizontal: padding, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Club Name', style: Theme.of(context).textTheme.subtitle2),
+          Text('Club Name', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'Nano Engineering Club',
               controller: clubNameController),
           const SizedBox(height: 10.0),
-          Text('Club Desc.', style: Theme.of(context).textTheme.subtitle2),
+          Text('Club Desc.', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'A club for students who think the QNC is cool!',
               isMultiline: true,
               controller: clubDescriptionController),
           const SizedBox(height: 20.0),
-          Text('Banner', style: Theme.of(context).textTheme.subtitle2),
+          Text('Banner', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           Align(
               alignment: Alignment.center,
@@ -234,7 +234,7 @@ class _AddClubFormState extends State<AddClubForm> {
           RoundedButton(text: 'Choose Image', onPressed: onPressedChooseImage),
           const SizedBox(height: 20.0),
           Text('Join Preferences',
-              style: Theme.of(context).textTheme.subtitle2),
+              style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           ...buildJoinPreferences(),
           const SizedBox(height: 10.0),

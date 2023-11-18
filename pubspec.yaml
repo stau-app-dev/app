@@ -50,6 +50,7 @@ dependencies:
   json_serializable: ^6.1.5
   path_provider: ^2.0.9
   url_launcher: ^6.0.20
+  get_it: ^7.6.4
 
 # Dev dependencies that are used at the development stage to test the apps, generate files.
 # Not required to run the actual app at runtime

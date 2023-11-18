@@ -39,14 +39,14 @@ class ProfileBio extends StatelessWidget {
           name,
           style: Theme.of(context)
               .textTheme
-              .headline5!
+              .headlineSmall!
               .copyWith(color: Styles.white),
         ),
         const SizedBox(height: 5.0),
         Text(email,
             style: Theme.of(context)
                 .textTheme
-                .bodyText2!
+                .bodyMedium!
                 .copyWith(color: Styles.white)),
       ],
     );

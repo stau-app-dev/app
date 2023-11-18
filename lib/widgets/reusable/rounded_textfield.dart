@@ -40,7 +40,7 @@ class RoundedTextField extends StatelessWidget {
             hintMaxLines: isMultiline ? 10 : null,
             contentPadding: const EdgeInsets.symmetric(horizontal: 15.0),
           ),
-          style: Theme.of(context).textTheme.bodyText2,
+          style: Theme.of(context).textTheme.bodyMedium,
         ));
   }
 }

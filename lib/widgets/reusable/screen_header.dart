@@ -31,7 +31,7 @@ class ScreenHeader extends StatelessWidget {
         headerText,
         style: Theme.of(context)
             .textTheme
-            .headline5!
+            .headlineSmall!
             .copyWith(color: Styles.white),
       ),
     );

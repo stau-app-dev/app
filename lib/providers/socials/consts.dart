@@ -1,24 +1,24 @@
 import 'package:staugustinechsnewapp/providers/network.dart';
 
-String addClubEndpoint = getCloudFunctionsDomain() + '/addClub';
-String updateClubEndpoint = getCloudFunctionsDomain() + '/updateClub';
-String getUserClubsEndpoint = getCloudFunctionsDomain() + '/getUserClubs';
+String addClubEndpoint = '${getCloudFunctionsDomain()}/addClub';
+String updateClubEndpoint = '${getCloudFunctionsDomain()}/updateClub';
+String getUserClubsEndpoint = '${getCloudFunctionsDomain()}/getUserClubs';
 String getUserClubsNotJoinedEndpoint =
-    getCloudFunctionsDomain() + '/getUserClubsNotJoined';
-String getClubEndpoint = getCloudFunctionsDomain() + '/getClub';
+    '${getCloudFunctionsDomain()}/getUserClubsNotJoined';
+String getClubEndpoint = '${getCloudFunctionsDomain()}/getClub';
 String addClubAnnouncementEndpoint =
-    getCloudFunctionsDomain() + '/addClubAnnouncement';
+    '${getCloudFunctionsDomain()}/addClubAnnouncement';
 String deleteClubAnnouncementEndpoint =
-    getCloudFunctionsDomain() + '/deleteClubAnnouncement';
+    '${getCloudFunctionsDomain()}/deleteClubAnnouncement';
 String getClubAnnouncementsEndpoint =
-    getCloudFunctionsDomain() + '/getClubAnnouncements';
-String addUserToClubEndpoint = getCloudFunctionsDomain() + '/addUserToClub';
+    '${getCloudFunctionsDomain()}/getClubAnnouncements';
+String addUserToClubEndpoint = '${getCloudFunctionsDomain()}/addUserToClub';
 String addUserToPendingClubEndpoint =
-    getCloudFunctionsDomain() + '/addUserToPendingClub';
+    '${getCloudFunctionsDomain()}/addUserToPendingClub';
 String promoteUserToAdminEndpoint =
-    getCloudFunctionsDomain() + '/promoteUserToAdmin';
+    '${getCloudFunctionsDomain()}/promoteUserToAdmin';
 String removeUserFromClubEndpoint =
-    getCloudFunctionsDomain() + '/removeUserFromClub';
+    '${getCloudFunctionsDomain()}/removeUserFromClub';
 const errorAddingClub = 'Error adding club';
 const errorUpdatingClub = 'Error updating club';
 const errorGettingUserClubs = 'Error getting user clubs';

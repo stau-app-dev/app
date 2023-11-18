@@ -44,14 +44,14 @@ class CafeItems extends StatelessWidget {
                           textAlign: TextAlign.start,
                           style: Theme.of(context)
                               .textTheme
-                              .subtitle2!
+                              .titleSmall!
                               .copyWith(color: Colors.white))),
                   Text(
                     '\$${price.toStringAsFixed(2)}',
                     textAlign: TextAlign.center,
                     style: Theme.of(context)
                         .textTheme
-                        .bodyText2!
+                        .bodyMedium!
                         .copyWith(color: Styles.white),
                   )
                 ],
@@ -89,7 +89,7 @@ class CafeItems extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headline6),
+        Text(title, style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context)
       ],

@@ -62,7 +62,7 @@ class ClubMembersScreen extends StatelessWidget {
         Text(
           '$clubName Settings',
           textAlign: TextAlign.center,
-          style: Theme.of(context).textTheme.headline5!.copyWith(
+          style: Theme.of(context).textTheme.headlineSmall!.copyWith(
                 color: Styles.white,
               ),
         ),

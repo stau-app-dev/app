@@ -31,7 +31,7 @@ class SettingsScreen extends StatelessWidget {
       children: [
         Text(
           title,
-          style: Theme.of(context).textTheme.subtitle2,
+          style: Theme.of(context).textTheme.titleSmall,
         ),
         Switch(
             value: value,
@@ -57,11 +57,11 @@ class SettingsScreen extends StatelessWidget {
         TextButton(
             onPressed: onPressedSendFeedback,
             child: Text('Send Feedback',
-                style: Theme.of(context).textTheme.subtitle2)),
+                style: Theme.of(context).textTheme.titleSmall)),
         TextButton(
             onPressed: onPressedLogout,
             child:
-                Text('Log Out', style: Theme.of(context).textTheme.subtitle2)),
+                Text('Log Out', style: Theme.of(context).textTheme.titleSmall)),
       ],
     ));
   }

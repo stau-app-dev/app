@@ -63,8 +63,7 @@ ThemeData appThemeData = ThemeData(
   primaryColor: createMaterialColor(Styles.primary),
   textButtonTheme: TextButtonThemeData(
     style: TextButton.styleFrom(
-      primary: Styles.secondary,
-      padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+      foregroundColor: Styles.secondary, padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
       textStyle: const TextStyle(fontFamily: Styles.fontFamilyNormal),
     ),
   ),
@@ -74,80 +73,80 @@ ThemeData appThemeData = ThemeData(
     selectionColor: Styles.secondary.withOpacity(0.5),
   ),
   textTheme: const TextTheme(
-    headline1: TextStyle(
+    displayLarge: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 96.0,
         fontWeight: FontWeight.w300,
         color: Styles.primary,
         letterSpacing: -1.5),
-    headline2: TextStyle(
+    displayMedium: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 60.0,
         fontWeight: FontWeight.w300,
         color: Styles.primary,
         letterSpacing: -0.5),
-    headline3: TextStyle(
+    displaySmall: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 48.0,
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 0.0),
-    headline4: TextStyle(
+    headlineMedium: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 34.0,
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 0.25),
-    headline5: TextStyle(
+    headlineSmall: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 24.0,
         fontWeight: FontWeight.w600,
         color: Styles.primary,
         letterSpacing: 0.0),
-    headline6: TextStyle(
+    titleLarge: TextStyle(
         fontFamily: Styles.fontFamilyTitles,
         fontSize: 18.0,
         fontWeight: FontWeight.bold,
         color: Styles.primary,
         letterSpacing: 0.15),
-    subtitle1: TextStyle(
+    titleMedium: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 16.0,
         fontWeight: FontWeight.w500,
         color: Styles.white,
         letterSpacing: 0.15),
-    subtitle2: TextStyle(
+    titleSmall: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 14.0,
         fontWeight: FontWeight.bold,
         color: Styles.primary,
         letterSpacing: 0.1),
-    bodyText1: TextStyle(
+    bodyLarge: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 16.0,
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 0.5),
-    bodyText2: TextStyle(
+    bodyMedium: TextStyle(
       fontFamily: Styles.fontFamilyNormal,
       fontSize: 14.0,
       fontWeight: FontWeight.w400,
       color: Styles.primary,
       letterSpacing: 0.25,
     ),
-    button: TextStyle(
+    labelLarge: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 14.0,
         fontWeight: FontWeight.w500,
         color: Styles.primary,
         letterSpacing: 1.25),
-    caption: TextStyle(
+    bodySmall: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 12.0,
         fontWeight: FontWeight.w400,
         color: Styles.primary,
         letterSpacing: 0.4),
-    overline: TextStyle(
+    labelSmall: TextStyle(
         fontFamily: Styles.fontFamilyNormal,
         fontSize: 10.0,
         fontWeight: FontWeight.w400,

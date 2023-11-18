@@ -31,7 +31,7 @@ late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 void main() async {
   if (kDebugMode) {
-    print('[ENV] Running in Environment: ' + env);
+    print('[ENV] Running in Environment: $env');
   }
 
   // Initialize the app
