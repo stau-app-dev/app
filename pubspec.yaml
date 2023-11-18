@@ -30,23 +30,23 @@ dependencies:
   flutter:
     sdk: flutter
   cached_network_image: ^3.2.0
-  cloud_firestore: ^3.1.11
+  cloud_firestore: ^4.13.0
   cupertino_icons: ^1.0.2
   dartz: ^0.10.1
-  firebase_auth: ^3.3.10
-  firebase_core: ^1.13.1
-  firebase_messaging: ^11.2.14
-  firebase_storage: ^10.2.12
+  firebase_auth: ^4.13.0
+  firebase_core: ^2.22.0
+  firebase_messaging: ^14.7.4
+  firebase_storage: ^11.5.0
   flutter_bloc: ^8.0.1
-  flutter_linkify: ^5.0.2
-  flutter_local_notifications: ^9.4.0
-  freezed_annotation: ^1.1.0
-  google_sign_in: ^5.0.0
-  http: ^0.13.4
-  image_cropper: ^1.5.1
-  image_picker: ^0.8.5
-  injectable: ^1.5.3
-  intl: ^0.17.0
+  flutter_linkify: ^6.0.0
+  flutter_local_notifications: ^16.1.0
+  freezed_annotation: ^2.4.1
+  google_sign_in: ^6.1.6
+  http: ^1.1.0
+  image_cropper: ^5.0.0
+  image_picker: ^1.0.4
+  injectable: ^2.3.2
+  intl: ^0.18.1
   json_serializable: ^6.1.5
   path_provider: ^2.0.9
   url_launcher: ^6.0.20
@@ -61,11 +61,11 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   build_runner: ^2.1.7
-  flutter_launcher_icons: ^0.9.2
-  flutter_lints: ^1.0.0
+  flutter_launcher_icons: ^0.13.1
+  flutter_lints: ^3.0.1
   flutter_native_splash: ^2.0.5
-  freezed: ^1.1.1
-  injectable_generator: ^1.0.5
+  freezed: ^2.4.5
+  injectable_generator: ^2.4.1
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
