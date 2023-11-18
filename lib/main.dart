@@ -46,7 +46,7 @@ void main() async {
   await flutterLocalNotificationsPlugin.initialize(
     const InitializationSettings(
         android: AndroidInitializationSettings('drawable/ic_notification'),
-        iOS: IOSInitializationSettings()),
+        iOS: DarwinInitializationSettings()),
   );
   await PushNotificationServiceRepository.initialize();
   await PushNotificationServiceRepository
