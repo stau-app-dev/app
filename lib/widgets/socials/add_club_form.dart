@@ -79,7 +79,7 @@ class _AddClubFormState extends State<AddClubForm> {
 
         // Step #5: Display image on screen
         setState(() {
-          image = croppedFile;
+          image = croppedFile as File?;
         });
       });
     });
