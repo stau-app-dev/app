@@ -37,7 +37,7 @@ class ClubsList extends StatelessWidget {
               textAlign: TextAlign.start,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(color: Styles.white)),
         ));
   }
@@ -88,7 +88,7 @@ class ClubsList extends StatelessWidget {
     if (rows.isEmpty) {
       rows.add(
         Text('No clubs found yet',
-            style: Theme.of(context).textTheme.bodyText2),
+            style: Theme.of(context).textTheme.bodyMedium),
       );
     }
     return SizedBox(child: Column(children: rows));
@@ -102,7 +102,7 @@ class ClubsList extends StatelessWidget {
       children: [
         Align(
             alignment: Alignment.topLeft,
-            child: Text(title, style: Theme.of(context).textTheme.headline6)),
+            child: Text(title, style: Theme.of(context).textTheme.titleLarge)),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
         if (showJoinClubsButton) ...[

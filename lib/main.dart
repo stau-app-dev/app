@@ -31,7 +31,7 @@ late FlutterLocalNotificationsPlugin flutterLocalNotificationsPlugin;
 
 void main() async {
   if (kDebugMode) {
-    print('[ENV] Running in Environment: ' + env);
+    print('[ENV] Running in Environment: $env');
   }
 
   // Initialize the app
@@ -46,7 +46,7 @@ void main() async {
   await flutterLocalNotificationsPlugin.initialize(
     const InitializationSettings(
         android: AndroidInitializationSettings('drawable/ic_notification'),
-        iOS: IOSInitializationSettings()),
+        iOS: DarwinInitializationSettings()),
   );
   await PushNotificationServiceRepository.initialize();
   await PushNotificationServiceRepository

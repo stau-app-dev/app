@@ -13,15 +13,15 @@ void showConfirmationDialog(
   );
 
   Widget continueButton = TextButton(
-    child: const Text('Confirm'),
     onPressed: onPressConfirm,
+    child: const Text('Confirm'),
   );
 
   AlertDialog alert = AlertDialog(
     title: Text(title),
     content: Text(
       content,
-      style: Theme.of(context).textTheme.bodyText2,
+      style: Theme.of(context).textTheme.bodyMedium,
     ),
     actions: [
       cancelButton,

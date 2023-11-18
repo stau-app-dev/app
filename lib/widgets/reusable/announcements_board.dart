@@ -56,10 +56,10 @@ class AnnouncementsBoard extends StatelessWidget {
         child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: <Widget>[
-              Text(title, style: Theme.of(context).textTheme.subtitle2),
+              Text(title, style: Theme.of(context).textTheme.titleSmall),
               Linkify(
                 text: content,
-                linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+                linkStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
                       color: Styles.secondary,
                       decoration: TextDecoration.underline,
                     ),
@@ -123,7 +123,7 @@ class AnnouncementsBoard extends StatelessWidget {
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Text('Announcements Board',
-            style: Theme.of(context).textTheme.headline6),
+            style: Theme.of(context).textTheme.titleLarge),
         ...buildWrapper(context: context, data: data, clubData: clubData),
         if (onPressAddAnnouncement != null) ...[
           const SizedBox(height: 15.0),

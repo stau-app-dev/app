@@ -41,7 +41,7 @@ class FeaturedCafeItems extends StatelessWidget {
               textAlign: TextAlign.center,
               style: Theme.of(context)
                   .textTheme
-                  .subtitle2!
+                  .titleSmall!
                   .copyWith(fontSize: 12.0, color: Colors.white),
             )),
       ]));
@@ -53,14 +53,14 @@ class FeaturedCafeItems extends StatelessWidget {
 
   Widget buildHeader(BuildContext context) {
     return Row(children: [
-      Text('Featured Cafe Items', style: Theme.of(context).textTheme.headline6),
+      Text('Featured Cafe Items', style: Theme.of(context).textTheme.titleLarge),
       const Spacer(),
       TextButton(
           onPressed: onViewMorePressed,
           child: Text('View More >',
               style: Theme.of(context)
                   .textTheme
-                  .bodyText2!
+                  .bodyMedium!
                   .copyWith(color: Styles.secondary))),
     ]);
   }

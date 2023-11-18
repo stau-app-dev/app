@@ -31,7 +31,7 @@ class BadgesList extends StatelessWidget {
                 backgroundColor: Styles.grey,
               )),
           const SizedBox(width: 20.0),
-          Text(badge['name']!, style: Theme.of(context).textTheme.headline6),
+          Text(badge['name']!, style: Theme.of(context).textTheme.titleLarge),
         ]),
       );
       rows.add(const SizedBox(height: 20.0));
@@ -45,7 +45,7 @@ class BadgesList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headline6),
+        Text(title, style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: Styles.mainSpacing),
         buildItems(context),
       ],

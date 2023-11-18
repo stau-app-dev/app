@@ -42,7 +42,7 @@ class SongRequests extends StatelessWidget {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text(songName, style: Theme.of(context).textTheme.subtitle2),
+                Text(songName, style: Theme.of(context).textTheme.titleSmall),
                 Text('By: $artistName'),
               ],
             )));
@@ -89,7 +89,7 @@ class SongRequests extends StatelessWidget {
                             Text(song.upvotes.toString(),
                                 style: Theme.of(context)
                                     .textTheme
-                                    .bodyText2!
+                                    .bodyMedium!
                                     .copyWith(
                                         color: upvoteColor, fontSize: 12.0))
                           ],

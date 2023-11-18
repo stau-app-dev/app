@@ -20,11 +20,11 @@ class DeleteAnnouncementForm extends StatelessWidget {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Announcement', style: Theme.of(context).textTheme.subtitle2),
+          Text('Announcement', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           Text(content),
           const SizedBox(height: 5.0),
-          Text('Creator Name', style: Theme.of(context).textTheme.subtitle2),
+          Text('Creator Name', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           Text(creatorName),
           const SizedBox(height: 10.0),

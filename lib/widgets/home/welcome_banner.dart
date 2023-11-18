@@ -39,12 +39,12 @@ class WelcomeBanner extends StatelessWidget {
                       welcomeText,
                       style: Theme.of(context)
                           .textTheme
-                          .headline5!
+                          .headlineSmall!
                           .copyWith(color: Styles.white),
                     ),
                     Container(height: 10.0),
                     Text('Today is a beautiful $dayNumberText,\n$dateText',
-                        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+                        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
                               color: Styles.white,
                             )),
                   ],

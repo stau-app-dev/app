@@ -22,7 +22,7 @@ class SpiritMeterBars extends StatelessWidget {
               width: MediaQuery.of(context).size.width * 0.075,
               child: Text(
                 wordToNumberConversion(key),
-                style: Theme.of(context).textTheme.subtitle2,
+                style: Theme.of(context).textTheme.titleSmall,
               )),
           Expanded(
               child: ClipRRect(
@@ -53,7 +53,7 @@ class SpiritMeterBars extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text('Spirit Meter', style: Theme.of(context).textTheme.headline6),
+        Text('Spirit Meter', style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 20.0),
         ...buildSpiritMeters(context, data),
       ],

@@ -35,7 +35,7 @@ class _DevPrintState extends State<DevPrint> {
       padding: const EdgeInsets.all(10),
       child: Linkify(
         text: text,
-        linkStyle: Theme.of(context).textTheme.bodyText2!.copyWith(
+        linkStyle: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontSize: 12.0,
               color: Styles.secondary,
               decoration: TextDecoration.underline,
@@ -43,7 +43,7 @@ class _DevPrintState extends State<DevPrint> {
         onOpen: (link) async {
           launchURL(context: context, url: link.url);
         },
-        style: Theme.of(context).textTheme.bodyText2!.copyWith(
+        style: Theme.of(context).textTheme.bodyMedium!.copyWith(
               fontSize: 12.0,
             ),
       ),
@@ -74,7 +74,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[0],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, authState.toString()),
@@ -84,7 +84,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[1],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, cafeMenuState.toString()),
@@ -94,7 +94,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[2],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, homeState.toString()),
@@ -104,7 +104,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[3],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, navState.toString()),
@@ -114,7 +114,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[4],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, profileState.toString()),
@@ -124,7 +124,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[5],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, socialsState.toString()),
@@ -134,7 +134,7 @@ class _DevPrintState extends State<DevPrint> {
                         headerBuilder: (BuildContext context, bool isExpanded) {
                           return ListTile(
                             title: Text(titles[6],
-                                style: Theme.of(context).textTheme.bodyText1),
+                                style: Theme.of(context).textTheme.bodyLarge),
                           );
                         },
                         body: buildText(context, songState.toString()),

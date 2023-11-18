@@ -1,6 +1,5 @@
 // From: https://oflutter.com/flutter-pick-an-image-from-gallery-and-crop-it/
 
-import 'dart:io';
 import 'package:image_cropper/image_cropper.dart';
 import 'package:image_picker/image_picker.dart';
 
@@ -14,22 +13,23 @@ class ImageUtils {
   }
 
   /// Pick Image From Gallery and return a File
-  static Future<File?> cropSelectedImage(
+  static Future<CroppedFile?> cropSelectedImage(
       {required String filePath,
       required double ratioX,
       required double ratioY}) async {
     return await ImageCropper().cropImage(
-      sourcePath: filePath,
-      aspectRatio: CropAspectRatio(ratioX: ratioX, ratioY: ratioY),
-      iosUiSettings: IOSUiSettings(
-        title: 'Crop Image to ($ratioX:$ratioY) Ratio',
-        aspectRatioLockEnabled: true,
-        aspectRatioPickerButtonHidden: true,
-      ),
-      androidUiSettings: AndroidUiSettings(
-        toolbarTitle: 'Crop Image to ($ratioX:$ratioY) Ratio',
-        lockAspectRatio: true,
-      ),
-    );
+        sourcePath: filePath,
+        aspectRatio: CropAspectRatio(ratioX: ratioX, ratioY: ratioY),
+        uiSettings: [
+          IOSUiSettings(
+            title: 'Crop Image to ($ratioX:$ratioY) Ratio',
+            aspectRatioLockEnabled: true,
+            aspectRatioPickerButtonHidden: true,
+          ),
+          AndroidUiSettings(
+            toolbarTitle: 'Crop Image to ($ratioX:$ratioY) Ratio',
+            lockAspectRatio: true,
+          ),
+        ]);
   }
 }

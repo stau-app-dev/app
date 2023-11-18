@@ -24,7 +24,7 @@ class TextArrowContainer extends StatelessWidget {
         onPressed: onPressed,
         child: Row(
           children: [
-            Text(text, style: Theme.of(context).textTheme.headline6),
+            Text(text, style: Theme.of(context).textTheme.titleLarge),
             const Spacer(),
             const Icon(Icons.arrow_forward_rounded, color: Styles.secondary)
           ],

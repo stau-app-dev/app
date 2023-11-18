@@ -21,7 +21,7 @@ void usePopupCard({
 }) {
   Navigator.of(context).push(_PopupCardRoute(
       builder: (context) =>
-          _PopupCard(title: title, child: child, listView: listView)));
+          _PopupCard(title: title, listView: listView, child: child)));
 }
 
 class _PopupCard extends StatefulWidget {
@@ -58,7 +58,7 @@ class _PopupCardState extends State<_PopupCard> {
           alignment: Alignment.center,
           child: Text(
             widget.title,
-            style: Theme.of(context).textTheme.headline5,
+            style: Theme.of(context).textTheme.headlineSmall,
           )),
       const SizedBox(height: Styles.mainSpacing),
       widget.listView

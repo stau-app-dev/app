@@ -110,7 +110,7 @@ class ClubMembersList extends StatelessWidget {
         child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(title, style: Theme.of(context).textTheme.headline6),
+        Text(title, style: Theme.of(context).textTheme.titleLarge),
         const SizedBox(height: 10.0),
         ...buildMembers(context),
       ],

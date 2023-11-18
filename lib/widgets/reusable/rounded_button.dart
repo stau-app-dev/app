@@ -28,11 +28,6 @@ class RoundedButton extends StatelessWidget {
         width: MediaQuery.of(context).size.width,
         child: ElevatedButton(
             onPressed: disabled ? null : () => onPressed(),
-            child: Text(text,
-                style: Theme.of(context)
-                    .textTheme
-                    .subtitle2!
-                    .copyWith(color: Colors.white)),
             style: disabled
                 ? ButtonStyle(
                     foregroundColor:
@@ -43,6 +38,11 @@ class RoundedButton extends StatelessWidget {
                         const RoundedRectangleBorder(
                             borderRadius: Styles.mainBorderRadius,
                             side: BorderSide(color: Styles.grey))))
-                : null));
+                : null,
+            child: Text(text,
+                style: Theme.of(context)
+                    .textTheme
+                    .titleSmall!
+                    .copyWith(color: Colors.white))));
   }
 }

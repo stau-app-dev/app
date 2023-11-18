@@ -79,8 +79,8 @@ class _ScreenControllerState extends State<ScreenController> {
           return Scaffold(
             body: FadeIndexedStack(
               index: eNavToIndex(navState.currentScreen),
-              children: _generateScreensStack(),
               duration: const Duration(milliseconds: 250),
+              children: _generateScreensStack(),
             ),
             bottomNavigationBar: BottomNavBar(navBloc: navBloc),
           );

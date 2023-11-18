@@ -20,7 +20,7 @@ class _AddAnnouncementFormState extends State<AddAnnouncementForm> {
     return Padding(
         padding: const EdgeInsets.symmetric(horizontal: 64.0, vertical: 5.0),
         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          Text('Announcement', style: Theme.of(context).textTheme.subtitle2),
+          Text('Announcement', style: Theme.of(context).textTheme.titleSmall),
           const SizedBox(height: 5.0),
           RoundedTextField(
               hintText: 'My announcement to all the subjects of ymir',
